@@ -13,6 +13,8 @@ from pathlib import Path
 import re
 import sys
 
+from .analysis import Uniformity, UniformityFacts, analyze_uniformity
+from .cfg import CFG, CFGError, build_cfg
 from .isa import AECInstruction, PROFILES, TRACK_B_V1, ISAProfile, instructions_to_bytes
 from .ptx import PTXInstruction, PTXProgram, parse_ptx
 
@@ -80,6 +82,15 @@ class InstructionGuard:
     predicate_negated: bool
 
 
+@dataclass
+class ControlPlan:
+    skip_items: set[int]
+    item_guards: dict[int, InstructionGuard]
+    uniform_branch_items: set[int]
+    loop_backedge_branch_items: set[int]
+    legacy_varying_branch_items: set[int]
+
+
 class RegisterAllocator:
     def __init__(self) -> None:
         self._next = 1
@@ -101,9 +112,12 @@ class RegisterAllocator:
     def temp(self) -> int:
         value = self._temp_next
         self._temp_next += 1
-        if self._temp_next > 254:
-            self._temp_next = 240
+        if value > 255:
+            raise CompileError(f"bootstrap allocator exhausted temporary registers at R{value}")
         return value
+
+    def reset_temps(self) -> None:
+        self._temp_next = 240
 
 
 class Lowerer:
@@ -115,57 +129,27 @@ class Lowerer:
         self.labels: dict[str, int] = {}
         self.pending_branches: list[tuple[int, str]] = []
         self.parameter_offsets = layout_parameters(program)
-        self.active_guard: InstructionGuard | None = None
-        self.active_guard_end_label: str | None = None
+        try:
+            self.cfg = build_cfg(program)
+        except CFGError as exc:
+            raise CompileError(str(exc)) from exc
+        self.uniformity = analyze_uniformity(program)
+        self.control_plan = _build_control_plan(program, self.cfg, self.uniformity)
+        self.current_item_index: int | None = None
 
     def lower(self) -> LoweredProgram:
         for index, item in enumerate(self.program.items):
             if isinstance(item, str):
-                if item == self.active_guard_end_label:
-                    self.active_guard = None
-                    self.active_guard_end_label = None
                 self.labels[item] = len(self.instructions)
                 continue
-            if self._try_if_convert_forward_exit(index, item):
+            if index in self.control_plan.skip_items:
                 continue
+            self.current_item_index = index
+            self.regs.reset_temps()
             self._lower_instruction(item)
+            self.current_item_index = None
         self._patch_branches()
         return LoweredProgram(self.instructions, self.parameter_offsets)
-
-    def _try_if_convert_forward_exit(self, index: int, inst: PTXInstruction) -> bool:
-        if self.active_guard is not None:
-            return False
-        if inst.opcode.split(".")[0] != "bra" or inst.predicate is None:
-            return False
-        if len(inst.operands) != 1:
-            return False
-
-        target = inst.operands[0]
-        target_index = None
-        for item_index in range(index + 1, len(self.program.items)):
-            if self.program.items[item_index] == target:
-                target_index = item_index
-                break
-        if target_index is None:
-            return False
-
-        region = self.program.items[index + 1 : target_index]
-        if not region:
-            return False
-        for item in region:
-            if isinstance(item, str):
-                return False
-            if item.predicate is not None:
-                return False
-            if item.opcode.split(".")[0] in {"bra", "call", "ret"}:
-                return False
-
-        self.active_guard = InstructionGuard(
-            predicate=_predicate_number(inst.predicate),
-            predicate_negated=not inst.predicate_negated,
-        )
-        self.active_guard_end_label = target
-        return True
 
     def _lower_instruction(self, inst: PTXInstruction) -> None:
         opcode_parts = inst.opcode.split(".")
@@ -309,6 +293,13 @@ class Lowerer:
         if inst.predicate is None:
             branch = AECInstruction("BR", imm=0)
         else:
+            if (
+                self.current_item_index not in self.control_plan.uniform_branch_items
+                and self.current_item_index not in self.control_plan.legacy_varying_branch_items
+            ):
+                raise CompileError(
+                    f"line {inst.source_line}: conditional branch is not proven uniform and was not legalised"
+                )
             if inst.predicate_negated:
                 raise CompileError(f"line {inst.source_line}: negated BRX is not directly supported yet")
             branch = AECInstruction("BRX", predicate=_predicate_number(inst.predicate), imm=0)
@@ -407,11 +398,12 @@ class Lowerer:
         return reg
 
     def _emit(self, inst: AECInstruction) -> None:
-        if self.active_guard is not None and inst.predicate is None:
+        guard = self.control_plan.item_guards.get(self.current_item_index) if self.current_item_index is not None else None
+        if guard is not None and inst.predicate is None:
             inst = replace(
                 inst,
-                predicate=self.active_guard.predicate,
-                predicate_negated=self.active_guard.predicate_negated,
+                predicate=guard.predicate,
+                predicate_negated=guard.predicate_negated,
             )
         self.instructions.append(inst)
 
@@ -460,6 +452,124 @@ def compile_ptx(text: str, profile: ISAProfile = TRACK_B_V1) -> LoweredProgram:
 def write_binary(lowered: LoweredProgram, output: Path, profile: ISAProfile) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(instructions_to_bytes(lowered.instructions, profile))
+
+
+def _build_control_plan(program: PTXProgram, cfg: CFG, uniformity: UniformityFacts) -> ControlPlan:
+    plan = ControlPlan(
+        skip_items=set(),
+        item_guards={},
+        uniform_branch_items=set(),
+        loop_backedge_branch_items=_loop_backedge_branch_items(cfg),
+        legacy_varying_branch_items=set(),
+    )
+    for branch_index, branch_state in uniformity.branch_states.items():
+        if branch_state.state is Uniformity.UNIFORM:
+            plan.uniform_branch_items.add(branch_index)
+
+    label_indices = _label_indices(program)
+    for branch_index, branch_state in uniformity.branch_states.items():
+        if branch_state.state is Uniformity.UNIFORM:
+            continue
+        legalised = _try_legalize_forward_exit(program, label_indices, branch_index, branch_state.state, uniformity, plan)
+        if not legalised and branch_state.state is Uniformity.VARYING:
+            plan.legacy_varying_branch_items.add(branch_index)
+    return plan
+
+
+def _try_legalize_forward_exit(
+    program: PTXProgram,
+    label_indices: dict[str, int],
+    branch_index: int,
+    branch_state: Uniformity,
+    uniformity: UniformityFacts,
+    plan: ControlPlan,
+) -> bool:
+    item = program.items[branch_index]
+    if isinstance(item, str) or item.opcode.split(".")[0] != "bra" or item.predicate is None:
+        return False
+    if len(item.operands) != 1:
+        return False
+    target = item.operands[0]
+    target_index = label_indices.get(target)
+    if target_index is None or target_index <= branch_index:
+        return False
+
+    region_indices = [
+        index
+        for index in range(branch_index + 1, target_index)
+        if not isinstance(program.items[index], str)
+    ]
+    if not region_indices:
+        return False
+
+    region_set = set(region_indices)
+    uniform_control = _uniform_control_indices(region_set, uniformity, plan.loop_backedge_branch_items)
+    for index in region_indices:
+        region_item = program.items[index]
+        assert not isinstance(region_item, str)
+        if region_item.opcode.split(".")[0] == "bra" and index not in uniform_control:
+            return False
+
+    guard = InstructionGuard(
+        predicate=_predicate_number(item.predicate),
+        predicate_negated=not item.predicate_negated,
+    )
+    for index in region_indices:
+        if index in uniform_control:
+            continue
+        existing = plan.item_guards.get(index)
+        if existing is not None and existing != guard:
+            return False
+
+    plan.skip_items.add(branch_index)
+    for index in region_indices:
+        if index not in uniform_control:
+            plan.item_guards[index] = guard
+    return branch_state in {Uniformity.VARYING, Uniformity.UNKNOWN}
+
+
+def _uniform_control_indices(
+    region_set: set[int],
+    uniformity: UniformityFacts,
+    loop_backedge_branch_items: set[int],
+) -> set[int]:
+    control: set[int] = set()
+    for branch_index in sorted(region_set & loop_backedge_branch_items):
+        _collect_uniform_slice(branch_index, region_set, uniformity, control)
+    return control
+
+
+def _collect_uniform_slice(
+    index: int,
+    region_set: set[int],
+    uniformity: UniformityFacts,
+    control: set[int],
+) -> None:
+    if index in control:
+        return
+    control.add(index)
+    for operand in uniformity.uses.get(index, ()):
+        for definition_index in uniformity.definitions.get(operand, ()):
+            if definition_index in region_set:
+                _collect_uniform_slice(definition_index, region_set, uniformity, control)
+
+
+def _label_indices(program: PTXProgram) -> dict[str, int]:
+    labels: dict[str, int] = {}
+    for index, item in enumerate(program.items):
+        if isinstance(item, str):
+            labels[item] = index
+    return labels
+
+
+def _loop_backedge_branch_items(cfg: CFG) -> set[int]:
+    branch_items: set[int] = set()
+    for tail, header in cfg.backedges():
+        block = cfg.blocks[tail]
+        if header not in block.branch_successors or not block.item_indices:
+            continue
+        branch_items.add(block.item_indices[-1])
+    return branch_items
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -26,6 +26,19 @@ class MemoryAccess:
     size: int
 
 
+@dataclass(frozen=True)
+class BranchTrace:
+    pc: int
+    target: int
+    predicate: int
+    block: int
+    warp_start: int
+    lane_count: int
+    decisions: tuple[bool, ...]
+    uniform: bool
+    taken: bool
+
+
 @dataclass
 class LaneState:
     block: int
@@ -45,6 +58,10 @@ class LaneState:
 class SimulationResult:
     gmem: bytearray
     accesses: list[MemoryAccess]
+    branch_trace: list[BranchTrace]
+    dynamic_instruction_count: int
+    brx_execution_count: int
+    non_uniform_branch_failures: int
 
 
 class TrackBSimulator:
@@ -67,6 +84,10 @@ class TrackBSimulator:
         self.warp_size = warp_size
         self.max_steps = max_steps
         self.accesses: list[MemoryAccess] = []
+        self.branch_trace: list[BranchTrace] = []
+        self.dynamic_instruction_count = 0
+        self.brx_execution_count = 0
+        self.non_uniform_branch_failures = 0
 
     def run(self) -> SimulationResult:
         for block in range(self.grid_dim):
@@ -83,7 +104,14 @@ class TrackBSimulator:
                     for lane in range(lane_count)
                 ]
                 self._run_warp(lanes)
-        return SimulationResult(gmem=self.gmem, accesses=self.accesses)
+        return SimulationResult(
+            gmem=self.gmem,
+            accesses=self.accesses,
+            branch_trace=self.branch_trace,
+            dynamic_instruction_count=self.dynamic_instruction_count,
+            brx_execution_count=self.brx_execution_count,
+            non_uniform_branch_failures=self.non_uniform_branch_failures,
+        )
 
     def _run_warp(self, lanes: list[LaneState]) -> None:
         pc = 0
@@ -94,6 +122,7 @@ class TrackBSimulator:
             if steps >= self.max_steps:
                 raise SimulationError("simulation step limit exceeded")
             steps += 1
+            self.dynamic_instruction_count += 1
 
             inst = self.instructions[pc]
             opcode = inst.opcode.upper()
@@ -119,9 +148,26 @@ class TrackBSimulator:
         if inst.predicate is None:
             raise SimulationError("BRX requires a predicate")
         decisions = [lane.predicates[inst.predicate] for lane in lanes]
-        if any(decisions) and not all(decisions):
+        uniform = all(decisions) or not any(decisions)
+        taken = all(decisions)
+        self.brx_execution_count += 1
+        self.branch_trace.append(
+            BranchTrace(
+                pc=pc,
+                target=inst.imm,
+                predicate=inst.predicate,
+                block=lanes[0].block,
+                warp_start=lanes[0].thread,
+                lane_count=len(lanes),
+                decisions=tuple(decisions),
+                uniform=uniform,
+                taken=taken,
+            )
+        )
+        if not uniform:
+            self.non_uniform_branch_failures += 1
             raise SimulationError(f"non-uniform BRX at PC {pc}")
-        return inst.imm if all(decisions) else pc + 1
+        return inst.imm if taken else pc + 1
 
     def _guard_passes(self, inst: AECInstruction, lane: LaneState) -> bool:
         if inst.predicate is None:
