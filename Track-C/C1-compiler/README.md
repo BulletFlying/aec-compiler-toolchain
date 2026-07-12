@@ -27,14 +27,18 @@ solution.  It provides:
 - Basic lowering for parameter loads, special-register moves, integer/FP32
   arithmetic, predicates, branches, global loads/stores, f16-to-f32 conversion,
   and aligned u16 load expansion.
+- Structured forward early-exit if-conversion for straight-line regions, used
+  to avoid non-uniform boundary `BRX` in PTX-01-style kernels.
 - Raw binary output using `w0,w1,w2,w3` little-endian `uint32_t` order.
 - Disassembly for generated raw binaries and C2-style images with a 64-byte
   `AECI` header.
+- A small Track-B semantic simulator for PTX-01 executable differential tests.
 
 Known gaps:
 
-- Branches currently lower to AEC `BRX`; non-uniform PTX boundary branches need
-  if-conversion before hidden partial-warp cases are safe.
+- Loop backedges and non-straight-line control still lower to AEC `BRX`; PTX-02,
+  PTX-03, and PTX-05 need CFG/uniformity work before hidden partial-warp cases
+  are safe.
 - No C1 official binary container format is specified yet, so `aec-cc` defaults
   to Track-B raw binary.
 - Optimization passes, register-pressure handling, spill code, scheduling, and

@@ -8,7 +8,7 @@ raises on unsupported PTX rather than guessing.
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 import re
 import sys
@@ -74,6 +74,12 @@ class LoweredProgram:
     parameter_offsets: dict[str, int]
 
 
+@dataclass(frozen=True)
+class InstructionGuard:
+    predicate: int
+    predicate_negated: bool
+
+
 class RegisterAllocator:
     def __init__(self) -> None:
         self._next = 1
@@ -109,15 +115,57 @@ class Lowerer:
         self.labels: dict[str, int] = {}
         self.pending_branches: list[tuple[int, str]] = []
         self.parameter_offsets = layout_parameters(program)
+        self.active_guard: InstructionGuard | None = None
+        self.active_guard_end_label: str | None = None
 
     def lower(self) -> LoweredProgram:
-        for item in self.program.items:
+        for index, item in enumerate(self.program.items):
             if isinstance(item, str):
+                if item == self.active_guard_end_label:
+                    self.active_guard = None
+                    self.active_guard_end_label = None
                 self.labels[item] = len(self.instructions)
+                continue
+            if self._try_if_convert_forward_exit(index, item):
                 continue
             self._lower_instruction(item)
         self._patch_branches()
         return LoweredProgram(self.instructions, self.parameter_offsets)
+
+    def _try_if_convert_forward_exit(self, index: int, inst: PTXInstruction) -> bool:
+        if self.active_guard is not None:
+            return False
+        if inst.opcode.split(".")[0] != "bra" or inst.predicate is None:
+            return False
+        if len(inst.operands) != 1:
+            return False
+
+        target = inst.operands[0]
+        target_index = None
+        for item_index in range(index + 1, len(self.program.items)):
+            if self.program.items[item_index] == target:
+                target_index = item_index
+                break
+        if target_index is None:
+            return False
+
+        region = self.program.items[index + 1 : target_index]
+        if not region:
+            return False
+        for item in region:
+            if isinstance(item, str):
+                return False
+            if item.predicate is not None:
+                return False
+            if item.opcode.split(".")[0] in {"bra", "call", "ret"}:
+                return False
+
+        self.active_guard = InstructionGuard(
+            predicate=_predicate_number(inst.predicate),
+            predicate_negated=not inst.predicate_negated,
+        )
+        self.active_guard_end_label = target
+        return True
 
     def _lower_instruction(self, inst: PTXInstruction) -> None:
         opcode_parts = inst.opcode.split(".")
@@ -176,6 +224,7 @@ class Lowerer:
                 dest=self._ptx_reg(dest, is_pair=False),
                 src1=addr_reg,
                 memory_space="gmem",
+                **self._guard(inst),
             )
         )
 
@@ -358,6 +407,12 @@ class Lowerer:
         return reg
 
     def _emit(self, inst: AECInstruction) -> None:
+        if self.active_guard is not None and inst.predicate is None:
+            inst = replace(
+                inst,
+                predicate=self.active_guard.predicate,
+                predicate_negated=self.active_guard.predicate_negated,
+            )
         self.instructions.append(inst)
 
     def _patch_branches(self) -> None:
