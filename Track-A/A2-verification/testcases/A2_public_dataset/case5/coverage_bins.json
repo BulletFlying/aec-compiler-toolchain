@@ -1,0 +1,14 @@
+{
+  "coverage_bins": {
+    "name": "case5_functional_bins",
+    "measurement": "Bin hits are sampled by test_case5_json_sequences.py and reported in functional_coverage.json.",
+    "bins": [
+      {"name": "address_decode", "values": ["M0:R0", "M0:R1", "M1:R0", "M1:R1", "M2:R0", "M2:R1", "M3:R0", "M3:R1", "unmapped", "secure_denied"]},
+      {"name": "protection", "values": ["secure_master_accepted", "secure_master_denied", "nonsecure_master_accepted"]},
+      {"name": "ready_order", "values": ["all_ready", "address_first", "metadata_first"]},
+      {"name": "hold_cycles", "values": ["0", "1", "2"]},
+      {"name": "admission_control", "values": ["same_id_same_destination", "same_id_different_destination", "all_thread_slots_active", "accept_limit_blocked"]},
+      {"name": "completion", "values": ["normal_completion", "completion_releases_blocked_request", "multiple_completions_same_id"]}
+    ]
+  }
+}

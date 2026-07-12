@@ -1,0 +1,17 @@
+{
+  "id": "LSV06",
+  "split": "public",
+  "name": "sog_pfpu_f2i",
+  "top": "pfpu_f2i",
+  "flow": "yosys_p1",
+  "flow_label": "Yosys ABC p1: compress2rs + dch + Nangate SCL map",
+  "tool": "yosys",
+  "status": "ok",
+  "runtime_s": 1.32,
+  "area": 795.872,
+  "arrival_ns": 1.5,
+  "wns_ns": -1.5,
+  "tns_ns": -48.95,
+  "source_path": "small_design_sog/rtl/8642.pfpu_f2i.sys_clk.v",
+  "clock_period_ns": 10.0
+}

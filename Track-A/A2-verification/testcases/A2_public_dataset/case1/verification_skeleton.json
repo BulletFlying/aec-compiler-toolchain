@@ -1,0 +1,69 @@
+{
+  "verification_skeleton": {
+    "clock_reset_generation": {
+      "clock": {
+        "signal": "clk",
+        "period_ns": 10,
+        "implementation": "cocotb Clock(dut.clk, 10, units='ns').start()"
+      },
+      "reset": {
+        "signal": "rst",
+        "active_high_cycles": 8,
+        "post_reset_idle_cycles": 8,
+        "implementation": "drive rst high, then release before starting AXI reads"
+      }
+    },
+    "input_drivers": [
+      {
+        "name": "s_axi_read_master",
+        "interface": "s_axi",
+        "driver": "AxiMasterRead",
+        "drives": [
+          "s_axi_ar*",
+          "s_axi_rready"
+        ],
+        "observes": [
+          "s_axi_arready",
+          "s_axi_r*"
+        ],
+        "traffic": "5000 JSON-constrained reads with directed lengths, address alignment variation, narrow read size variation, and ready/valid pauses"
+      },
+      {
+        "name": "m_axi_memory_model",
+        "interface": "m_axi",
+        "driver": "AxiRamRead",
+        "drives": [
+          "m_axi_arready",
+          "m_axi_r*"
+        ],
+        "observes": [
+          "m_axi_ar*",
+          "m_axi_rready"
+        ]
+      }
+    ],
+    "output_monitors": [
+      {
+        "name": "read_result_scoreboard",
+        "interface": "s_axi",
+        "monitor": "AxiMasterRead completion result",
+        "observes": [
+          "s_axi_rdata",
+          "s_axi_rresp",
+          "s_axi_rlast",
+          "s_axi_rid"
+        ],
+        "checks": "returned bytes equal expected RAM contents"
+      }
+    ],
+    "scoreboard": {
+      "model": "byte-addressed memory model on the downstream m_axi side",
+      "checks": [
+        "AR request is accepted and translated to the downstream bus",
+        "R data is merged from 16-bit m_axi beats into 32-bit s_axi beats with byte order preserved",
+        "read data matches the expected byte sequence for every length/address/size case",
+        "all outstanding reads drain before test completion"
+      ]
+    }
+  }
+}

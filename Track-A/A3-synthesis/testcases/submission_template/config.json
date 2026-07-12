@@ -1,0 +1,26 @@
+{
+  "$default": [
+    {
+      "name": "balanced",
+      "passes": ["strash", "balance", "rewrite", "refactor"],
+      "mapping": {"method": "dch_map", "delay_target": 10000}
+    }
+  ],
+  "LSV01": [
+    {
+      "name": "area",
+      "abc_sequence": "compress2rs; dch; amap",
+      "options": {"objective": "area"}
+    },
+    {
+      "name": "timing",
+      "abc_sequence": ["if -K 6 -g -C 8", "dch", "map"],
+      "options": {"objective": "timing", "effort": "high"}
+    }
+  ],
+  "LSV05": [
+    "compress2rs + dch amap",
+    {"custom_passes": ["rewrite", "refactor", "balance"], "seed": 7},
+    ["if -K 6 -g -C 8", "dch", "map"]
+  ]
+}

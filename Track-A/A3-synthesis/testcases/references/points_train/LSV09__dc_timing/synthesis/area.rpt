@@ -1,0 +1,48 @@
+ 
+****************************************
+Report : area
+Design : Sha256Wishbone
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:12:56 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                          925
+Number of nets:                          8471
+Number of cells:                         6800
+Number of combinational cells:           5679
+Number of sequential cells:              1117
+Number of macros/black boxes:               0
+Number of buf/inv:                       1297
+Number of references:                      19
+
+Combinational area:               7097.146046
+Buf/Inv area:                      716.604005
+Noncombinational area:            5046.551817
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 12143.697863
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area           Local cell area
+                                  -------------------  ---------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-     Noncombi-  Black-
+                                  Total       Total    national   national   boxes   Design
+--------------------------------  ----------  -------  ---------  ---------  ------  --------------------
+Sha256Wishbone                    12143.6979    100.0   366.8140   149.2260  0.0000  Sha256Wishbone
+accel                             11627.6579     95.8    40.9640    58.7860  0.0000  Sha256Accel
+accel/accel                       11527.9079     94.9  4950.2600  2351.4399  0.0000  CompressionFunction
+accel/accel/messageScheduleArray   4226.2079     34.8   761.2920   171.8360  0.0000  MessageScheduleArray
+accel/accel/messageScheduleArray/shreg
+                                   3293.0799     27.1   977.8160  2315.2639  0.0000  ShiftRegister
+--------------------------------  ----------  -------  ---------  ---------  ------  --------------------
+Total                                                  7097.1460  5046.5518  0.0000
+
+1

@@ -1,0 +1,11 @@
+read_verilog -sv /data0/home/sunbin/workspace/constrain_sensor/raw_data/logic_synthesis_question_bank/public/LSV03_epfl_adder/rtl/design.v
+hierarchy -check -top top
+synth -top top -flatten -noabc
+dfflibmap -liberty /data0/home/sunbin/workspace/constrain_sensor/raw_data/logic_synthesis_question_bank/lib/nangate45/NangateOpenCellLibrary_typical.lib
+abc -liberty /data0/home/sunbin/workspace/constrain_sensor/raw_data/logic_synthesis_question_bank/lib/nangate45/NangateOpenCellLibrary_typical.lib -script "+strash; if -K 6 -g -C 8; if -K 6 -g -C 8; &get -n; &dch -f; &nf -D 10000; &put"
+clean
+stat -liberty /data0/home/sunbin/workspace/constrain_sensor/raw_data/logic_synthesis_question_bank/lib/nangate45/NangateOpenCellLibrary_typical.lib
+setundef -zero
+splitnets -driver
+clean
+write_verilog -noattr -noexpr /data0/home/sunbin/workspace/constrain_sensor/raw_data/logic_synthesis_question_bank/reports/reference_runs/yosys_p5/LSV03/netlist.v

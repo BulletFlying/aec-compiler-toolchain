@@ -1,0 +1,17 @@
+{
+  "id": "LSV01",
+  "split": "public",
+  "name": "epfl_priority",
+  "top": "top",
+  "flow": "dc_timing",
+  "flow_label": "Design Compiler timing-biased compile_ultra",
+  "tool": "dc",
+  "status": "ok",
+  "runtime_s": 51.28,
+  "area": 455.125998,
+  "arrival_ns": 1.55,
+  "wns_ns": -1.55,
+  "tns_ns": -5.26,
+  "source_path": "EPFL/priority.v",
+  "clock_period_ns": 10.0
+}

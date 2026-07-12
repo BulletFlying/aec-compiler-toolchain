@@ -1,0 +1,42 @@
+{
+  "assembler": {
+    "path": "tools/assemble.py",
+    "sha256": "9ea8135a7854c4fd7ea526b369e4c5a235f7551019ea7ed416111937ce0c5973"
+  },
+  "assembler_meta": {
+    "code_size_bytes": 112,
+    "entry_pc": 0,
+    "format": "aecbin-raw",
+    "hex_order": "w3,w2,w1,w0 msb-first",
+    "instruction_count": 7,
+    "instruction_width_bits": 128,
+    "labels": {},
+    "version": 1,
+    "word_order": "w0,w1,w2,w3 little-endian u32"
+  },
+  "binary": {
+    "path": "program.bin",
+    "sha256": "8d3d5652932c76ff9b9b14b99bfaa31844fbcad11e786e93170310ff1e742435",
+    "size_bytes": 112
+  },
+  "case_dir": "tests/aec_cases/cross/t_partial_warp",
+  "case_id": "T-PARTIAL-WARP",
+  "checker": {
+    "path": "tools/check_aec_asm.py",
+    "sha256": "161a6cdadf81cc6777a031f674e36aaf77b7c18495ab202f0af1bd12bb0b831b"
+  },
+  "generated_artifacts": {
+    "expected/gmem_00000100.bin": {
+      "sha256": "095f3c52fb992a24a2f78459c5215ddac4069c7af43530d5cf6e3e32eadf9b61",
+      "size_bytes": 132
+    }
+  },
+  "hex": {
+    "path": "program.hex",
+    "sha256": "ba50a0c6b9d32ed105b79e352d35f21df2e71383da8bfd54611f766ed9a27b55"
+  },
+  "source": {
+    "path": "program.aec",
+    "sha256": "c61bf12499cdf381076ef05c991f0bfbaa2509b29b0dc8e874b4644912bf1fd4"
+  }
+}

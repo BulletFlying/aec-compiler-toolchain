@@ -1,0 +1,17 @@
+{
+  "id": "LSV02",
+  "split": "public",
+  "name": "epfl_cavlc",
+  "top": "top",
+  "flow": "yosys_p1",
+  "flow_label": "Yosys ABC p1: compress2rs + dch + Nangate SCL map",
+  "tool": "yosys",
+  "status": "ok",
+  "runtime_s": 1.96,
+  "area": 393.68,
+  "arrival_ns": 0.4,
+  "wns_ns": -0.4,
+  "tns_ns": -3.79,
+  "source_path": "EPFL/cavlc.v",
+  "clock_period_ns": 10.0
+}

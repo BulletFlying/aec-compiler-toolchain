@@ -1,0 +1,19 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : pfpu_f2i
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:11:44 2026
+****************************************
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   pfpu_f2i                     0.00       17791.97       -17791.97 (VIOLATED)
+
+
+1

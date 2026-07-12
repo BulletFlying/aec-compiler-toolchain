@@ -1,0 +1,1275 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : b11
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:26 2026
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U31/ZN (OR2_X1)                  0.06       1.48 f
+  sub_107/U32/ZN (OR2_X1)                  0.06       1.54 f
+  sub_107/U33/ZN (OR2_X1)                  0.06       1.61 f
+  sub_107/U34/ZN (OR2_X1)                  0.06       1.67 f
+  sub_107/U35/ZN (OR2_X1)                  0.06       1.74 f
+  sub_107/U36/ZN (OR2_X1)                  0.06       1.80 f
+  sub_107/U37/ZN (OR2_X1)                  0.06       1.87 f
+  sub_107/U38/ZN (OR2_X1)                  0.06       1.93 f
+  sub_107/U39/ZN (OR2_X1)                  0.06       2.00 f
+  sub_107/U1/ZN (OR2_X1)                   0.06       2.05 f
+  sub_107/U14/ZN (XNOR2_X1)                0.06       2.11 f
+  sub_107/DIFF[31] (b11_DW01_sub_2)        0.00       2.11 f
+  U476/ZN (AOI22_X1)                       0.05       2.16 r
+  U474/ZN (NAND4_X1)                       0.04       2.20 f
+  U473/Z (MUX2_X1)                         0.07       2.27 f
+  cont1_reg[31]/D (DFFR_X1)                0.01       2.28 f
+  data arrival time                                   2.28
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[31]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -2.28
+  -----------------------------------------------------------
+  slack (MET)                                        97.68
+
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U31/ZN (OR2_X1)                  0.06       1.48 f
+  sub_107/U32/ZN (OR2_X1)                  0.06       1.54 f
+  sub_107/U33/ZN (OR2_X1)                  0.06       1.61 f
+  sub_107/U34/ZN (OR2_X1)                  0.06       1.67 f
+  sub_107/U35/ZN (OR2_X1)                  0.06       1.74 f
+  sub_107/U36/ZN (OR2_X1)                  0.06       1.80 f
+  sub_107/U37/ZN (OR2_X1)                  0.06       1.87 f
+  sub_107/U38/ZN (OR2_X1)                  0.06       1.93 f
+  sub_107/U39/ZN (OR2_X1)                  0.06       2.00 f
+  sub_107/U13/ZN (XNOR2_X1)                0.06       2.06 f
+  sub_107/DIFF[30] (b11_DW01_sub_2)        0.00       2.06 f
+  U482/ZN (AOI22_X1)                       0.05       2.10 r
+  U480/ZN (NAND4_X1)                       0.04       2.15 f
+  U479/Z (MUX2_X1)                         0.07       2.22 f
+  cont1_reg[30]/D (DFFR_X1)                0.01       2.23 f
+  data arrival time                                   2.23
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[30]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -2.23
+  -----------------------------------------------------------
+  slack (MET)                                        97.73
+
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[29]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U31/ZN (OR2_X1)                  0.06       1.48 f
+  sub_107/U32/ZN (OR2_X1)                  0.06       1.54 f
+  sub_107/U33/ZN (OR2_X1)                  0.06       1.61 f
+  sub_107/U34/ZN (OR2_X1)                  0.06       1.67 f
+  sub_107/U35/ZN (OR2_X1)                  0.06       1.74 f
+  sub_107/U36/ZN (OR2_X1)                  0.06       1.80 f
+  sub_107/U37/ZN (OR2_X1)                  0.06       1.87 f
+  sub_107/U38/ZN (OR2_X1)                  0.06       1.93 f
+  sub_107/U12/ZN (XNOR2_X1)                0.06       1.99 f
+  sub_107/DIFF[29] (b11_DW01_sub_2)        0.00       1.99 f
+  U488/ZN (AOI22_X1)                       0.05       2.04 r
+  U486/ZN (NAND4_X1)                       0.04       2.08 f
+  U485/Z (MUX2_X1)                         0.07       2.15 f
+  cont1_reg[29]/D (DFFR_X1)                0.01       2.16 f
+  data arrival time                                   2.16
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[29]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -2.16
+  -----------------------------------------------------------
+  slack (MET)                                        97.80
+
+
+  Startpoint: cont_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont_reg[0]/CK (DFFR_X1)                 0.00       0.00 r
+  cont_reg[0]/Q (DFFR_X1)                  0.12       0.12 r
+  add_53/A[0] (b11_DW01_inc_0)             0.00       0.12 r
+  add_53/U1_1_1/CO (HA_X1)                 0.07       0.19 r
+  add_53/U1_1_2/CO (HA_X1)                 0.06       0.25 r
+  add_53/U1_1_3/CO (HA_X1)                 0.06       0.31 r
+  add_53/U1_1_4/CO (HA_X1)                 0.06       0.38 r
+  add_53/U1_1_5/CO (HA_X1)                 0.06       0.44 r
+  add_53/U1_1_6/CO (HA_X1)                 0.06       0.50 r
+  add_53/U1_1_7/CO (HA_X1)                 0.06       0.56 r
+  add_53/U1_1_8/CO (HA_X1)                 0.06       0.62 r
+  add_53/U1_1_9/CO (HA_X1)                 0.06       0.68 r
+  add_53/U1_1_10/CO (HA_X1)                0.06       0.74 r
+  add_53/U1_1_11/CO (HA_X1)                0.06       0.80 r
+  add_53/U1_1_12/CO (HA_X1)                0.06       0.87 r
+  add_53/U1_1_13/CO (HA_X1)                0.06       0.93 r
+  add_53/U1_1_14/CO (HA_X1)                0.06       0.99 r
+  add_53/U1_1_15/CO (HA_X1)                0.06       1.05 r
+  add_53/U1_1_16/CO (HA_X1)                0.06       1.11 r
+  add_53/U1_1_17/CO (HA_X1)                0.06       1.17 r
+  add_53/U1_1_18/CO (HA_X1)                0.06       1.23 r
+  add_53/U1_1_19/CO (HA_X1)                0.06       1.29 r
+  add_53/U1_1_20/CO (HA_X1)                0.06       1.36 r
+  add_53/U1_1_21/CO (HA_X1)                0.06       1.42 r
+  add_53/U1_1_22/CO (HA_X1)                0.06       1.48 r
+  add_53/U1_1_23/CO (HA_X1)                0.06       1.54 r
+  add_53/U1_1_24/CO (HA_X1)                0.06       1.60 r
+  add_53/U1_1_25/CO (HA_X1)                0.06       1.66 r
+  add_53/U1_1_26/CO (HA_X1)                0.06       1.72 r
+  add_53/U1_1_27/CO (HA_X1)                0.06       1.78 r
+  add_53/U1_1_28/CO (HA_X1)                0.06       1.85 r
+  add_53/U1_1_29/CO (HA_X1)                0.06       1.91 r
+  add_53/U1_1_30/CO (HA_X1)                0.06       1.97 r
+  add_53/U2/Z (XOR2_X1)                    0.06       2.03 r
+  add_53/SUM[31] (b11_DW01_inc_0)          0.00       2.03 r
+  U709/ZN (NAND2_X1)                       0.03       2.06 f
+  U708/ZN (OAI21_X1)                       0.04       2.09 r
+  cont_reg[31]/D (DFFR_X1)                 0.01       2.10 r
+  data arrival time                                   2.10
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont_reg[31]/CK (DFFR_X1)                0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -2.10
+  -----------------------------------------------------------
+  slack (MET)                                        97.86
+
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[28]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U31/ZN (OR2_X1)                  0.06       1.48 f
+  sub_107/U32/ZN (OR2_X1)                  0.06       1.54 f
+  sub_107/U33/ZN (OR2_X1)                  0.06       1.61 f
+  sub_107/U34/ZN (OR2_X1)                  0.06       1.67 f
+  sub_107/U35/ZN (OR2_X1)                  0.06       1.74 f
+  sub_107/U36/ZN (OR2_X1)                  0.06       1.80 f
+  sub_107/U37/ZN (OR2_X1)                  0.06       1.87 f
+  sub_107/U11/ZN (XNOR2_X1)                0.06       1.93 f
+  sub_107/DIFF[28] (b11_DW01_sub_2)        0.00       1.93 f
+  U494/ZN (AOI22_X1)                       0.05       1.98 r
+  U492/ZN (NAND4_X1)                       0.04       2.02 f
+  U491/Z (MUX2_X1)                         0.07       2.09 f
+  cont1_reg[28]/D (DFFR_X1)                0.01       2.10 f
+  data arrival time                                   2.10
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[28]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -2.10
+  -----------------------------------------------------------
+  slack (MET)                                        97.86
+
+
+  Startpoint: cont_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont_reg[0]/CK (DFFR_X1)                 0.00       0.00 r
+  cont_reg[0]/Q (DFFR_X1)                  0.12       0.12 r
+  add_53/A[0] (b11_DW01_inc_0)             0.00       0.12 r
+  add_53/U1_1_1/CO (HA_X1)                 0.07       0.19 r
+  add_53/U1_1_2/CO (HA_X1)                 0.06       0.25 r
+  add_53/U1_1_3/CO (HA_X1)                 0.06       0.31 r
+  add_53/U1_1_4/CO (HA_X1)                 0.06       0.38 r
+  add_53/U1_1_5/CO (HA_X1)                 0.06       0.44 r
+  add_53/U1_1_6/CO (HA_X1)                 0.06       0.50 r
+  add_53/U1_1_7/CO (HA_X1)                 0.06       0.56 r
+  add_53/U1_1_8/CO (HA_X1)                 0.06       0.62 r
+  add_53/U1_1_9/CO (HA_X1)                 0.06       0.68 r
+  add_53/U1_1_10/CO (HA_X1)                0.06       0.74 r
+  add_53/U1_1_11/CO (HA_X1)                0.06       0.80 r
+  add_53/U1_1_12/CO (HA_X1)                0.06       0.87 r
+  add_53/U1_1_13/CO (HA_X1)                0.06       0.93 r
+  add_53/U1_1_14/CO (HA_X1)                0.06       0.99 r
+  add_53/U1_1_15/CO (HA_X1)                0.06       1.05 r
+  add_53/U1_1_16/CO (HA_X1)                0.06       1.11 r
+  add_53/U1_1_17/CO (HA_X1)                0.06       1.17 r
+  add_53/U1_1_18/CO (HA_X1)                0.06       1.23 r
+  add_53/U1_1_19/CO (HA_X1)                0.06       1.29 r
+  add_53/U1_1_20/CO (HA_X1)                0.06       1.36 r
+  add_53/U1_1_21/CO (HA_X1)                0.06       1.42 r
+  add_53/U1_1_22/CO (HA_X1)                0.06       1.48 r
+  add_53/U1_1_23/CO (HA_X1)                0.06       1.54 r
+  add_53/U1_1_24/CO (HA_X1)                0.06       1.60 r
+  add_53/U1_1_25/CO (HA_X1)                0.06       1.66 r
+  add_53/U1_1_26/CO (HA_X1)                0.06       1.72 r
+  add_53/U1_1_27/CO (HA_X1)                0.06       1.78 r
+  add_53/U1_1_28/CO (HA_X1)                0.06       1.85 r
+  add_53/U1_1_29/CO (HA_X1)                0.06       1.91 r
+  add_53/U1_1_30/S (HA_X1)                 0.07       1.98 r
+  add_53/SUM[30] (b11_DW01_inc_0)          0.00       1.98 r
+  U647/ZN (NAND2_X1)                       0.03       2.01 f
+  U646/ZN (OAI21_X1)                       0.04       2.04 r
+  cont_reg[30]/D (DFFR_X1)                 0.01       2.05 r
+  data arrival time                                   2.05
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont_reg[30]/CK (DFFR_X1)                0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -2.05
+  -----------------------------------------------------------
+  slack (MET)                                        97.91
+
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[27]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U31/ZN (OR2_X1)                  0.06       1.48 f
+  sub_107/U32/ZN (OR2_X1)                  0.06       1.54 f
+  sub_107/U33/ZN (OR2_X1)                  0.06       1.61 f
+  sub_107/U34/ZN (OR2_X1)                  0.06       1.67 f
+  sub_107/U35/ZN (OR2_X1)                  0.06       1.74 f
+  sub_107/U36/ZN (OR2_X1)                  0.06       1.80 f
+  sub_107/U10/ZN (XNOR2_X1)                0.06       1.86 f
+  sub_107/DIFF[27] (b11_DW01_sub_2)        0.00       1.86 f
+  U500/ZN (AOI22_X1)                       0.05       1.91 r
+  U498/ZN (NAND4_X1)                       0.04       1.95 f
+  U497/Z (MUX2_X1)                         0.07       2.02 f
+  cont1_reg[27]/D (DFFR_X1)                0.01       2.03 f
+  data arrival time                                   2.03
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[27]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -2.03
+  -----------------------------------------------------------
+  slack (MET)                                        97.93
+
+
+  Startpoint: cont_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont_reg[29]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont_reg[0]/CK (DFFR_X1)                 0.00       0.00 r
+  cont_reg[0]/Q (DFFR_X1)                  0.12       0.12 r
+  add_53/A[0] (b11_DW01_inc_0)             0.00       0.12 r
+  add_53/U1_1_1/CO (HA_X1)                 0.07       0.19 r
+  add_53/U1_1_2/CO (HA_X1)                 0.06       0.25 r
+  add_53/U1_1_3/CO (HA_X1)                 0.06       0.31 r
+  add_53/U1_1_4/CO (HA_X1)                 0.06       0.38 r
+  add_53/U1_1_5/CO (HA_X1)                 0.06       0.44 r
+  add_53/U1_1_6/CO (HA_X1)                 0.06       0.50 r
+  add_53/U1_1_7/CO (HA_X1)                 0.06       0.56 r
+  add_53/U1_1_8/CO (HA_X1)                 0.06       0.62 r
+  add_53/U1_1_9/CO (HA_X1)                 0.06       0.68 r
+  add_53/U1_1_10/CO (HA_X1)                0.06       0.74 r
+  add_53/U1_1_11/CO (HA_X1)                0.06       0.80 r
+  add_53/U1_1_12/CO (HA_X1)                0.06       0.87 r
+  add_53/U1_1_13/CO (HA_X1)                0.06       0.93 r
+  add_53/U1_1_14/CO (HA_X1)                0.06       0.99 r
+  add_53/U1_1_15/CO (HA_X1)                0.06       1.05 r
+  add_53/U1_1_16/CO (HA_X1)                0.06       1.11 r
+  add_53/U1_1_17/CO (HA_X1)                0.06       1.17 r
+  add_53/U1_1_18/CO (HA_X1)                0.06       1.23 r
+  add_53/U1_1_19/CO (HA_X1)                0.06       1.29 r
+  add_53/U1_1_20/CO (HA_X1)                0.06       1.36 r
+  add_53/U1_1_21/CO (HA_X1)                0.06       1.42 r
+  add_53/U1_1_22/CO (HA_X1)                0.06       1.48 r
+  add_53/U1_1_23/CO (HA_X1)                0.06       1.54 r
+  add_53/U1_1_24/CO (HA_X1)                0.06       1.60 r
+  add_53/U1_1_25/CO (HA_X1)                0.06       1.66 r
+  add_53/U1_1_26/CO (HA_X1)                0.06       1.72 r
+  add_53/U1_1_27/CO (HA_X1)                0.06       1.78 r
+  add_53/U1_1_28/CO (HA_X1)                0.06       1.85 r
+  add_53/U1_1_29/S (HA_X1)                 0.07       1.92 r
+  add_53/SUM[29] (b11_DW01_inc_0)          0.00       1.92 r
+  U649/ZN (NAND2_X1)                       0.03       1.94 f
+  U648/ZN (OAI21_X1)                       0.04       1.98 r
+  cont_reg[29]/D (DFFR_X1)                 0.01       1.99 r
+  data arrival time                                   1.99
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont_reg[29]/CK (DFFR_X1)                0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.99
+  -----------------------------------------------------------
+  slack (MET)                                        97.97
+
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[26]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U31/ZN (OR2_X1)                  0.06       1.48 f
+  sub_107/U32/ZN (OR2_X1)                  0.06       1.54 f
+  sub_107/U33/ZN (OR2_X1)                  0.06       1.61 f
+  sub_107/U34/ZN (OR2_X1)                  0.06       1.67 f
+  sub_107/U35/ZN (OR2_X1)                  0.06       1.74 f
+  sub_107/U9/ZN (XNOR2_X1)                 0.06       1.80 f
+  sub_107/DIFF[26] (b11_DW01_sub_2)        0.00       1.80 f
+  U506/ZN (AOI22_X1)                       0.05       1.85 r
+  U504/ZN (NAND4_X1)                       0.04       1.89 f
+  U503/Z (MUX2_X1)                         0.07       1.96 f
+  cont1_reg[26]/D (DFFR_X1)                0.01       1.97 f
+  data arrival time                                   1.97
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[26]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.97
+  -----------------------------------------------------------
+  slack (MET)                                        97.99
+
+
+  Startpoint: cont_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont_reg[28]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont_reg[0]/CK (DFFR_X1)                 0.00       0.00 r
+  cont_reg[0]/Q (DFFR_X1)                  0.12       0.12 r
+  add_53/A[0] (b11_DW01_inc_0)             0.00       0.12 r
+  add_53/U1_1_1/CO (HA_X1)                 0.07       0.19 r
+  add_53/U1_1_2/CO (HA_X1)                 0.06       0.25 r
+  add_53/U1_1_3/CO (HA_X1)                 0.06       0.31 r
+  add_53/U1_1_4/CO (HA_X1)                 0.06       0.38 r
+  add_53/U1_1_5/CO (HA_X1)                 0.06       0.44 r
+  add_53/U1_1_6/CO (HA_X1)                 0.06       0.50 r
+  add_53/U1_1_7/CO (HA_X1)                 0.06       0.56 r
+  add_53/U1_1_8/CO (HA_X1)                 0.06       0.62 r
+  add_53/U1_1_9/CO (HA_X1)                 0.06       0.68 r
+  add_53/U1_1_10/CO (HA_X1)                0.06       0.74 r
+  add_53/U1_1_11/CO (HA_X1)                0.06       0.80 r
+  add_53/U1_1_12/CO (HA_X1)                0.06       0.87 r
+  add_53/U1_1_13/CO (HA_X1)                0.06       0.93 r
+  add_53/U1_1_14/CO (HA_X1)                0.06       0.99 r
+  add_53/U1_1_15/CO (HA_X1)                0.06       1.05 r
+  add_53/U1_1_16/CO (HA_X1)                0.06       1.11 r
+  add_53/U1_1_17/CO (HA_X1)                0.06       1.17 r
+  add_53/U1_1_18/CO (HA_X1)                0.06       1.23 r
+  add_53/U1_1_19/CO (HA_X1)                0.06       1.29 r
+  add_53/U1_1_20/CO (HA_X1)                0.06       1.36 r
+  add_53/U1_1_21/CO (HA_X1)                0.06       1.42 r
+  add_53/U1_1_22/CO (HA_X1)                0.06       1.48 r
+  add_53/U1_1_23/CO (HA_X1)                0.06       1.54 r
+  add_53/U1_1_24/CO (HA_X1)                0.06       1.60 r
+  add_53/U1_1_25/CO (HA_X1)                0.06       1.66 r
+  add_53/U1_1_26/CO (HA_X1)                0.06       1.72 r
+  add_53/U1_1_27/CO (HA_X1)                0.06       1.78 r
+  add_53/U1_1_28/S (HA_X1)                 0.07       1.86 r
+  add_53/SUM[28] (b11_DW01_inc_0)          0.00       1.86 r
+  U651/ZN (NAND2_X1)                       0.03       1.88 f
+  U650/ZN (OAI21_X1)                       0.04       1.92 r
+  cont_reg[28]/D (DFFR_X1)                 0.01       1.93 r
+  data arrival time                                   1.93
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont_reg[28]/CK (DFFR_X1)                0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.93
+  -----------------------------------------------------------
+  slack (MET)                                        98.03
+
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[25]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U31/ZN (OR2_X1)                  0.06       1.48 f
+  sub_107/U32/ZN (OR2_X1)                  0.06       1.54 f
+  sub_107/U33/ZN (OR2_X1)                  0.06       1.61 f
+  sub_107/U34/ZN (OR2_X1)                  0.06       1.67 f
+  sub_107/U8/ZN (XNOR2_X1)                 0.06       1.73 f
+  sub_107/DIFF[25] (b11_DW01_sub_2)        0.00       1.73 f
+  U512/ZN (AOI22_X1)                       0.05       1.78 r
+  U510/ZN (NAND4_X1)                       0.04       1.82 f
+  U509/Z (MUX2_X1)                         0.07       1.89 f
+  cont1_reg[25]/D (DFFR_X1)                0.01       1.90 f
+  data arrival time                                   1.90
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[25]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.90
+  -----------------------------------------------------------
+  slack (MET)                                        98.06
+
+
+  Startpoint: cont_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont_reg[27]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont_reg[0]/CK (DFFR_X1)                 0.00       0.00 r
+  cont_reg[0]/Q (DFFR_X1)                  0.12       0.12 r
+  add_53/A[0] (b11_DW01_inc_0)             0.00       0.12 r
+  add_53/U1_1_1/CO (HA_X1)                 0.07       0.19 r
+  add_53/U1_1_2/CO (HA_X1)                 0.06       0.25 r
+  add_53/U1_1_3/CO (HA_X1)                 0.06       0.31 r
+  add_53/U1_1_4/CO (HA_X1)                 0.06       0.38 r
+  add_53/U1_1_5/CO (HA_X1)                 0.06       0.44 r
+  add_53/U1_1_6/CO (HA_X1)                 0.06       0.50 r
+  add_53/U1_1_7/CO (HA_X1)                 0.06       0.56 r
+  add_53/U1_1_8/CO (HA_X1)                 0.06       0.62 r
+  add_53/U1_1_9/CO (HA_X1)                 0.06       0.68 r
+  add_53/U1_1_10/CO (HA_X1)                0.06       0.74 r
+  add_53/U1_1_11/CO (HA_X1)                0.06       0.80 r
+  add_53/U1_1_12/CO (HA_X1)                0.06       0.87 r
+  add_53/U1_1_13/CO (HA_X1)                0.06       0.93 r
+  add_53/U1_1_14/CO (HA_X1)                0.06       0.99 r
+  add_53/U1_1_15/CO (HA_X1)                0.06       1.05 r
+  add_53/U1_1_16/CO (HA_X1)                0.06       1.11 r
+  add_53/U1_1_17/CO (HA_X1)                0.06       1.17 r
+  add_53/U1_1_18/CO (HA_X1)                0.06       1.23 r
+  add_53/U1_1_19/CO (HA_X1)                0.06       1.29 r
+  add_53/U1_1_20/CO (HA_X1)                0.06       1.36 r
+  add_53/U1_1_21/CO (HA_X1)                0.06       1.42 r
+  add_53/U1_1_22/CO (HA_X1)                0.06       1.48 r
+  add_53/U1_1_23/CO (HA_X1)                0.06       1.54 r
+  add_53/U1_1_24/CO (HA_X1)                0.06       1.60 r
+  add_53/U1_1_25/CO (HA_X1)                0.06       1.66 r
+  add_53/U1_1_26/CO (HA_X1)                0.06       1.72 r
+  add_53/U1_1_27/S (HA_X1)                 0.07       1.79 r
+  add_53/SUM[27] (b11_DW01_inc_0)          0.00       1.79 r
+  U653/ZN (NAND2_X1)                       0.03       1.82 f
+  U652/ZN (OAI21_X1)                       0.04       1.86 r
+  cont_reg[27]/D (DFFR_X1)                 0.01       1.87 r
+  data arrival time                                   1.87
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont_reg[27]/CK (DFFR_X1)                0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.87
+  -----------------------------------------------------------
+  slack (MET)                                        98.10
+
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[24]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U31/ZN (OR2_X1)                  0.06       1.48 f
+  sub_107/U32/ZN (OR2_X1)                  0.06       1.54 f
+  sub_107/U33/ZN (OR2_X1)                  0.06       1.61 f
+  sub_107/U4/ZN (XNOR2_X1)                 0.06       1.67 f
+  sub_107/DIFF[24] (b11_DW01_sub_2)        0.00       1.67 f
+  U518/ZN (AOI22_X1)                       0.05       1.72 r
+  U516/ZN (NAND4_X1)                       0.04       1.76 f
+  U515/Z (MUX2_X1)                         0.07       1.83 f
+  cont1_reg[24]/D (DFFR_X1)                0.01       1.84 f
+  data arrival time                                   1.84
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[24]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.84
+  -----------------------------------------------------------
+  slack (MET)                                        98.12
+
+
+  Startpoint: cont_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont_reg[26]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont_reg[0]/CK (DFFR_X1)                 0.00       0.00 r
+  cont_reg[0]/Q (DFFR_X1)                  0.12       0.12 r
+  add_53/A[0] (b11_DW01_inc_0)             0.00       0.12 r
+  add_53/U1_1_1/CO (HA_X1)                 0.07       0.19 r
+  add_53/U1_1_2/CO (HA_X1)                 0.06       0.25 r
+  add_53/U1_1_3/CO (HA_X1)                 0.06       0.31 r
+  add_53/U1_1_4/CO (HA_X1)                 0.06       0.38 r
+  add_53/U1_1_5/CO (HA_X1)                 0.06       0.44 r
+  add_53/U1_1_6/CO (HA_X1)                 0.06       0.50 r
+  add_53/U1_1_7/CO (HA_X1)                 0.06       0.56 r
+  add_53/U1_1_8/CO (HA_X1)                 0.06       0.62 r
+  add_53/U1_1_9/CO (HA_X1)                 0.06       0.68 r
+  add_53/U1_1_10/CO (HA_X1)                0.06       0.74 r
+  add_53/U1_1_11/CO (HA_X1)                0.06       0.80 r
+  add_53/U1_1_12/CO (HA_X1)                0.06       0.87 r
+  add_53/U1_1_13/CO (HA_X1)                0.06       0.93 r
+  add_53/U1_1_14/CO (HA_X1)                0.06       0.99 r
+  add_53/U1_1_15/CO (HA_X1)                0.06       1.05 r
+  add_53/U1_1_16/CO (HA_X1)                0.06       1.11 r
+  add_53/U1_1_17/CO (HA_X1)                0.06       1.17 r
+  add_53/U1_1_18/CO (HA_X1)                0.06       1.23 r
+  add_53/U1_1_19/CO (HA_X1)                0.06       1.29 r
+  add_53/U1_1_20/CO (HA_X1)                0.06       1.36 r
+  add_53/U1_1_21/CO (HA_X1)                0.06       1.42 r
+  add_53/U1_1_22/CO (HA_X1)                0.06       1.48 r
+  add_53/U1_1_23/CO (HA_X1)                0.06       1.54 r
+  add_53/U1_1_24/CO (HA_X1)                0.06       1.60 r
+  add_53/U1_1_25/CO (HA_X1)                0.06       1.66 r
+  add_53/U1_1_26/S (HA_X1)                 0.07       1.73 r
+  add_53/SUM[26] (b11_DW01_inc_0)          0.00       1.73 r
+  U655/ZN (NAND2_X1)                       0.03       1.76 f
+  U654/ZN (OAI21_X1)                       0.04       1.80 r
+  cont_reg[26]/D (DFFR_X1)                 0.01       1.81 r
+  data arrival time                                   1.81
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont_reg[26]/CK (DFFR_X1)                0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.81
+  -----------------------------------------------------------
+  slack (MET)                                        98.16
+
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[23]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U31/ZN (OR2_X1)                  0.06       1.48 f
+  sub_107/U32/ZN (OR2_X1)                  0.06       1.54 f
+  sub_107/U5/ZN (XNOR2_X1)                 0.06       1.60 f
+  sub_107/DIFF[23] (b11_DW01_sub_2)        0.00       1.60 f
+  U524/ZN (AOI22_X1)                       0.05       1.65 r
+  U522/ZN (NAND4_X1)                       0.04       1.69 f
+  U521/Z (MUX2_X1)                         0.07       1.76 f
+  cont1_reg[23]/D (DFFR_X1)                0.01       1.77 f
+  data arrival time                                   1.77
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[23]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.77
+  -----------------------------------------------------------
+  slack (MET)                                        98.19
+
+
+  Startpoint: cont_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont_reg[25]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont_reg[0]/CK (DFFR_X1)                 0.00       0.00 r
+  cont_reg[0]/Q (DFFR_X1)                  0.12       0.12 r
+  add_53/A[0] (b11_DW01_inc_0)             0.00       0.12 r
+  add_53/U1_1_1/CO (HA_X1)                 0.07       0.19 r
+  add_53/U1_1_2/CO (HA_X1)                 0.06       0.25 r
+  add_53/U1_1_3/CO (HA_X1)                 0.06       0.31 r
+  add_53/U1_1_4/CO (HA_X1)                 0.06       0.38 r
+  add_53/U1_1_5/CO (HA_X1)                 0.06       0.44 r
+  add_53/U1_1_6/CO (HA_X1)                 0.06       0.50 r
+  add_53/U1_1_7/CO (HA_X1)                 0.06       0.56 r
+  add_53/U1_1_8/CO (HA_X1)                 0.06       0.62 r
+  add_53/U1_1_9/CO (HA_X1)                 0.06       0.68 r
+  add_53/U1_1_10/CO (HA_X1)                0.06       0.74 r
+  add_53/U1_1_11/CO (HA_X1)                0.06       0.80 r
+  add_53/U1_1_12/CO (HA_X1)                0.06       0.87 r
+  add_53/U1_1_13/CO (HA_X1)                0.06       0.93 r
+  add_53/U1_1_14/CO (HA_X1)                0.06       0.99 r
+  add_53/U1_1_15/CO (HA_X1)                0.06       1.05 r
+  add_53/U1_1_16/CO (HA_X1)                0.06       1.11 r
+  add_53/U1_1_17/CO (HA_X1)                0.06       1.17 r
+  add_53/U1_1_18/CO (HA_X1)                0.06       1.23 r
+  add_53/U1_1_19/CO (HA_X1)                0.06       1.29 r
+  add_53/U1_1_20/CO (HA_X1)                0.06       1.36 r
+  add_53/U1_1_21/CO (HA_X1)                0.06       1.42 r
+  add_53/U1_1_22/CO (HA_X1)                0.06       1.48 r
+  add_53/U1_1_23/CO (HA_X1)                0.06       1.54 r
+  add_53/U1_1_24/CO (HA_X1)                0.06       1.60 r
+  add_53/U1_1_25/S (HA_X1)                 0.07       1.67 r
+  add_53/SUM[25] (b11_DW01_inc_0)          0.00       1.67 r
+  U657/ZN (NAND2_X1)                       0.03       1.70 f
+  U656/ZN (OAI21_X1)                       0.04       1.74 r
+  cont_reg[25]/D (DFFR_X1)                 0.01       1.74 r
+  data arrival time                                   1.74
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont_reg[25]/CK (DFFR_X1)                0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.74
+  -----------------------------------------------------------
+  slack (MET)                                        98.22
+
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[22]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U31/ZN (OR2_X1)                  0.06       1.48 f
+  sub_107/U6/ZN (XNOR2_X1)                 0.06       1.54 f
+  sub_107/DIFF[22] (b11_DW01_sub_2)        0.00       1.54 f
+  U530/ZN (AOI22_X1)                       0.05       1.59 r
+  U528/ZN (NAND4_X1)                       0.04       1.63 f
+  U527/Z (MUX2_X1)                         0.07       1.70 f
+  cont1_reg[22]/D (DFFR_X1)                0.01       1.71 f
+  data arrival time                                   1.71
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[22]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.71
+  -----------------------------------------------------------
+  slack (MET)                                        98.25
+
+
+  Startpoint: cont_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont_reg[24]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont_reg[0]/CK (DFFR_X1)                 0.00       0.00 r
+  cont_reg[0]/Q (DFFR_X1)                  0.12       0.12 r
+  add_53/A[0] (b11_DW01_inc_0)             0.00       0.12 r
+  add_53/U1_1_1/CO (HA_X1)                 0.07       0.19 r
+  add_53/U1_1_2/CO (HA_X1)                 0.06       0.25 r
+  add_53/U1_1_3/CO (HA_X1)                 0.06       0.31 r
+  add_53/U1_1_4/CO (HA_X1)                 0.06       0.38 r
+  add_53/U1_1_5/CO (HA_X1)                 0.06       0.44 r
+  add_53/U1_1_6/CO (HA_X1)                 0.06       0.50 r
+  add_53/U1_1_7/CO (HA_X1)                 0.06       0.56 r
+  add_53/U1_1_8/CO (HA_X1)                 0.06       0.62 r
+  add_53/U1_1_9/CO (HA_X1)                 0.06       0.68 r
+  add_53/U1_1_10/CO (HA_X1)                0.06       0.74 r
+  add_53/U1_1_11/CO (HA_X1)                0.06       0.80 r
+  add_53/U1_1_12/CO (HA_X1)                0.06       0.87 r
+  add_53/U1_1_13/CO (HA_X1)                0.06       0.93 r
+  add_53/U1_1_14/CO (HA_X1)                0.06       0.99 r
+  add_53/U1_1_15/CO (HA_X1)                0.06       1.05 r
+  add_53/U1_1_16/CO (HA_X1)                0.06       1.11 r
+  add_53/U1_1_17/CO (HA_X1)                0.06       1.17 r
+  add_53/U1_1_18/CO (HA_X1)                0.06       1.23 r
+  add_53/U1_1_19/CO (HA_X1)                0.06       1.29 r
+  add_53/U1_1_20/CO (HA_X1)                0.06       1.36 r
+  add_53/U1_1_21/CO (HA_X1)                0.06       1.42 r
+  add_53/U1_1_22/CO (HA_X1)                0.06       1.48 r
+  add_53/U1_1_23/CO (HA_X1)                0.06       1.54 r
+  add_53/U1_1_24/S (HA_X1)                 0.07       1.61 r
+  add_53/SUM[24] (b11_DW01_inc_0)          0.00       1.61 r
+  U659/ZN (NAND2_X1)                       0.03       1.64 f
+  U658/ZN (OAI21_X1)                       0.04       1.67 r
+  cont_reg[24]/D (DFFR_X1)                 0.01       1.68 r
+  data arrival time                                   1.68
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont_reg[24]/CK (DFFR_X1)                0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.68
+  -----------------------------------------------------------
+  slack (MET)                                        98.28
+
+
+  Startpoint: cont1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[21]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont1_reg[1]/CK (DFFR_X1)                0.00       0.00 r
+  cont1_reg[1]/Q (DFFR_X1)                 0.14       0.14 f
+  sub_107/A[1] (b11_DW01_sub_2)            0.00       0.14 f
+  sub_107/U15/ZN (OR2_X1)                  0.09       0.22 f
+  sub_107/U42/ZN (AND2_X1)                 0.05       0.27 f
+  sub_107/U40/ZN (OR2_X1)                  0.06       0.33 f
+  sub_107/U43/ZN (AND2_X1)                 0.05       0.38 f
+  sub_107/U41/ZN (OR2_X1)                  0.06       0.44 f
+  sub_107/U16/ZN (OR2_X1)                  0.06       0.51 f
+  sub_107/U17/ZN (OR2_X1)                  0.06       0.57 f
+  sub_107/U18/ZN (OR2_X1)                  0.06       0.64 f
+  sub_107/U19/ZN (OR2_X1)                  0.06       0.70 f
+  sub_107/U20/ZN (OR2_X1)                  0.06       0.77 f
+  sub_107/U21/ZN (OR2_X1)                  0.06       0.83 f
+  sub_107/U22/ZN (OR2_X1)                  0.06       0.90 f
+  sub_107/U23/ZN (OR2_X1)                  0.06       0.96 f
+  sub_107/U24/ZN (OR2_X1)                  0.06       1.03 f
+  sub_107/U25/ZN (OR2_X1)                  0.06       1.09 f
+  sub_107/U26/ZN (OR2_X1)                  0.06       1.15 f
+  sub_107/U27/ZN (OR2_X1)                  0.06       1.22 f
+  sub_107/U28/ZN (OR2_X1)                  0.06       1.28 f
+  sub_107/U29/ZN (OR2_X1)                  0.06       1.35 f
+  sub_107/U30/ZN (OR2_X1)                  0.06       1.41 f
+  sub_107/U7/ZN (XNOR2_X1)                 0.06       1.47 f
+  sub_107/DIFF[21] (b11_DW01_sub_2)        0.00       1.47 f
+  U536/ZN (AOI22_X1)                       0.05       1.52 r
+  U534/ZN (NAND4_X1)                       0.04       1.57 f
+  U533/Z (MUX2_X1)                         0.07       1.63 f
+  cont1_reg[21]/D (DFFR_X1)                0.01       1.64 f
+  data arrival time                                   1.64
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont1_reg[21]/CK (DFFR_X1)               0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.64
+  -----------------------------------------------------------
+  slack (MET)                                        98.32
+
+
+  Startpoint: cont_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont_reg[23]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  cont_reg[0]/CK (DFFR_X1)                 0.00       0.00 r
+  cont_reg[0]/Q (DFFR_X1)                  0.12       0.12 r
+  add_53/A[0] (b11_DW01_inc_0)             0.00       0.12 r
+  add_53/U1_1_1/CO (HA_X1)                 0.07       0.19 r
+  add_53/U1_1_2/CO (HA_X1)                 0.06       0.25 r
+  add_53/U1_1_3/CO (HA_X1)                 0.06       0.31 r
+  add_53/U1_1_4/CO (HA_X1)                 0.06       0.38 r
+  add_53/U1_1_5/CO (HA_X1)                 0.06       0.44 r
+  add_53/U1_1_6/CO (HA_X1)                 0.06       0.50 r
+  add_53/U1_1_7/CO (HA_X1)                 0.06       0.56 r
+  add_53/U1_1_8/CO (HA_X1)                 0.06       0.62 r
+  add_53/U1_1_9/CO (HA_X1)                 0.06       0.68 r
+  add_53/U1_1_10/CO (HA_X1)                0.06       0.74 r
+  add_53/U1_1_11/CO (HA_X1)                0.06       0.80 r
+  add_53/U1_1_12/CO (HA_X1)                0.06       0.87 r
+  add_53/U1_1_13/CO (HA_X1)                0.06       0.93 r
+  add_53/U1_1_14/CO (HA_X1)                0.06       0.99 r
+  add_53/U1_1_15/CO (HA_X1)                0.06       1.05 r
+  add_53/U1_1_16/CO (HA_X1)                0.06       1.11 r
+  add_53/U1_1_17/CO (HA_X1)                0.06       1.17 r
+  add_53/U1_1_18/CO (HA_X1)                0.06       1.23 r
+  add_53/U1_1_19/CO (HA_X1)                0.06       1.29 r
+  add_53/U1_1_20/CO (HA_X1)                0.06       1.36 r
+  add_53/U1_1_21/CO (HA_X1)                0.06       1.42 r
+  add_53/U1_1_22/CO (HA_X1)                0.06       1.48 r
+  add_53/U1_1_23/S (HA_X1)                 0.07       1.55 r
+  add_53/SUM[23] (b11_DW01_inc_0)          0.00       1.55 r
+  U661/ZN (NAND2_X1)                       0.03       1.58 f
+  U660/ZN (OAI21_X1)                       0.04       1.61 r
+  cont_reg[23]/D (DFFR_X1)                 0.01       1.62 r
+  data arrival time                                   1.62
+
+  clock clock (rise edge)                100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  cont_reg[23]/CK (DFFR_X1)                0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.62
+  -----------------------------------------------------------
+  slack (MET)                                        98.34
+
+
+1

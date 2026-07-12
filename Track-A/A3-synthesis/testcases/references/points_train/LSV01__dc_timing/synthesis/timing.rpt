@@ -1,0 +1,354 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : top
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:09:59 2026
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: A[126] (input port clocked by virtual_clk)
+  Endpoint: P[0] (output port clocked by virtual_clk)
+  Path Group: virtual_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     1.00       1.00 f
+  A[126] (in)                              0.10       1.10 f
+  U794/Z (CLKBUF_X1)                       0.08       1.18 f
+  U793/ZN (INV_X1)                         0.03       1.21 r
+  U913/ZN (AOI21_X1)                       0.03       1.24 f
+  U914/ZN (OAI21_X1)                       0.04       1.28 r
+  U915/ZN (OAI211_X1)                      0.05       1.33 f
+  U918/ZN (OAI21_X1)                       0.06       1.38 r
+  U920/ZN (INV_X1)                         0.02       1.41 f
+  U921/ZN (AOI21_X1)                       0.06       1.47 r
+  U922/ZN (AOI21_X1)                       0.04       1.51 f
+  U923/ZN (AOI211_X1)                      0.08       1.59 r
+  U927/ZN (AOI21_X1)                       0.04       1.63 f
+  U928/ZN (AOI211_X1)                      0.09       1.72 r
+  U932/ZN (AOI21_X1)                       0.04       1.76 f
+  U935/ZN (INV_X1)                         0.03       1.79 r
+  U936/ZN (AOI21_X1)                       0.03       1.82 f
+  U937/ZN (AOI21_X1)                       0.08       1.89 r
+  U941/ZN (AOI21_X1)                       0.04       1.93 f
+  U942/ZN (AOI21_X1)                       0.07       1.99 r
+  U945/ZN (INV_X1)                         0.02       2.02 f
+  U946/ZN (AOI21_X1)                       0.06       2.08 r
+  U947/ZN (AOI21_X1)                       0.04       2.12 f
+  U948/ZN (AOI211_X1)                      0.08       2.20 r
+  U952/ZN (AOI21_X1)                       0.04       2.24 f
+  U955/ZN (INV_X1)                         0.03       2.27 r
+  U956/ZN (AOI21_X1)                       0.03       2.30 f
+  U957/ZN (AOI21_X1)                       0.08       2.38 r
+  U961/ZN (AOI21_X1)                       0.04       2.41 f
+  U962/ZN (AOI21_X1)                       0.07       2.48 r
+  U965/ZN (INV_X1)                         0.02       2.50 f
+  U966/ZN (AOI21_X1)                       0.06       2.57 r
+  U967/ZN (AOI21_X1)                       0.04       2.60 f
+  U968/ZN (AOI211_X1)                      0.09       2.69 r
+  U972/ZN (AOI21_X1)                       0.04       2.73 f
+  U975/ZN (INV_X1)                         0.03       2.76 r
+  U976/ZN (AOI21_X1)                       0.03       2.79 f
+  U977/ZN (AOI21_X1)                       0.08       2.87 r
+  U981/ZN (AOI21_X1)                       0.04       2.90 f
+  U982/ZN (AOI21_X1)                       0.07       2.97 r
+  U984/ZN (NAND2_X1)                       0.04       3.00 f
+  U997/ZN (NOR3_X1)                        0.07       3.07 r
+  U998/ZN (OAI21_X1)                       0.04       3.11 f
+  U999/ZN (OAI211_X1)                      0.03       3.14 r
+  P[0] (out)                               0.01       3.15 r
+  data arrival time                                   3.15
+
+  max_delay                               10.00      10.00
+  output external delay                   -1.00       9.00
+  data required time                                  9.00
+  -----------------------------------------------------------
+  data required time                                  9.00
+  data arrival time                                  -3.15
+  -----------------------------------------------------------
+  slack (MET)                                         5.85
+
+
+  Startpoint: A[120] (input port clocked by virtual_clk)
+  Endpoint: P[1] (output port clocked by virtual_clk)
+  Path Group: virtual_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     1.00       1.00 f
+  A[120] (in)                              0.10       1.10 f
+  U742/Z (CLKBUF_X1)                       0.07       1.17 f
+  U1014/ZN (NOR2_X1)                       0.07       1.24 r
+  U1015/ZN (NAND2_X1)                      0.04       1.28 f
+  U1024/ZN (INV_X1)                        0.03       1.31 r
+  U1025/ZN (NAND2_X1)                      0.03       1.33 f
+  U1026/ZN (OAI211_X1)                     0.04       1.37 r
+  U1030/ZN (NOR3_X1)                       0.03       1.41 f
+  U1032/ZN (AOI221_X1)                     0.11       1.52 r
+  U1036/ZN (NOR3_X1)                       0.04       1.55 f
+  U1038/ZN (AOI221_X1)                     0.11       1.67 r
+  U1042/ZN (NOR3_X1)                       0.04       1.70 f
+  U1044/ZN (AOI221_X1)                     0.11       1.81 r
+  U1048/ZN (NOR3_X1)                       0.04       1.85 f
+  U1050/ZN (AOI221_X1)                     0.11       1.96 r
+  U1054/ZN (NOR3_X1)                       0.04       2.00 f
+  U1056/ZN (AOI221_X1)                     0.11       2.11 r
+  U1060/ZN (NOR3_X1)                       0.04       2.15 f
+  U1062/ZN (AOI221_X1)                     0.11       2.26 r
+  U1066/ZN (NOR3_X1)                       0.04       2.30 f
+  U1068/ZN (AOI221_X1)                     0.11       2.41 r
+  U1072/ZN (NOR3_X1)                       0.04       2.45 f
+  U1074/ZN (AOI221_X1)                     0.11       2.56 r
+  U1078/ZN (NOR3_X1)                       0.04       2.59 f
+  U1080/ZN (AOI221_X1)                     0.11       2.71 r
+  U1081/ZN (AOI21_X1)                      0.04       2.75 f
+  U1082/ZN (NOR3_X1)                       0.07       2.82 r
+  U1083/ZN (NAND2_X1)                      0.03       2.85 f
+  U1084/ZN (NOR3_X1)                       0.07       2.92 r
+  U1094/ZN (AOI221_X1)                     0.05       2.97 f
+  U1107/ZN (NOR3_X1)                       0.07       3.04 r
+  U1108/ZN (OAI21_X1)                      0.04       3.08 f
+  U1109/ZN (OAI221_X1)                     0.03       3.11 r
+  P[1] (out)                               0.01       3.12 r
+  data arrival time                                   3.12
+
+  max_delay                               10.00      10.00
+  output external delay                   -1.00       9.00
+  data required time                                  9.00
+  -----------------------------------------------------------
+  data required time                                  9.00
+  data arrival time                                  -3.12
+  -----------------------------------------------------------
+  slack (MET)                                         5.88
+
+
+  Startpoint: A[92] (input port clocked by virtual_clk)
+  Endpoint: P[2] (output port clocked by virtual_clk)
+  Path Group: virtual_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     1.00       1.00 f
+  A[92] (in)                               0.10       1.10 f
+  U849/Z (CLKBUF_X1)                       0.08       1.18 f
+  U1043/ZN (OR2_X1)                        0.07       1.25 f
+  U1115/ZN (NOR3_X1)                       0.10       1.35 r
+  U1130/ZN (AOI21_X1)                      0.03       1.38 f
+  U1131/ZN (OR2_X1)                        0.06       1.44 f
+  U1138/ZN (OAI21_X1)                      0.05       1.49 r
+  U1139/ZN (INV_X1)                        0.02       1.52 f
+  U1140/ZN (OAI21_X1)                      0.04       1.55 r
+  U1141/ZN (NAND2_X1)                      0.03       1.58 f
+  U1143/ZN (AOI211_X1)                     0.08       1.67 r
+  U1167/ZN (AOI21_X1)                      0.03       1.70 f
+  P[2] (out)                               0.01       1.71 f
+  data arrival time                                   1.71
+
+  max_delay                               10.00      10.00
+  output external delay                   -1.00       9.00
+  data required time                                  9.00
+  -----------------------------------------------------------
+  data required time                                  9.00
+  data arrival time                                  -1.71
+  -----------------------------------------------------------
+  slack (MET)                                         7.29
+
+
+  Startpoint: A[68] (input port clocked by virtual_clk)
+  Endpoint: F (output port clocked by virtual_clk)
+  Path Group: virtual_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     1.00       1.00 f
+  A[68] (in)                               0.10       1.10 f
+  U851/Z (CLKBUF_X1)                       0.08       1.18 f
+  U1061/ZN (OR2_X1)                        0.07       1.25 f
+  U1114/ZN (NOR3_X1)                       0.10       1.35 r
+  U1168/ZN (INV_X1)                        0.03       1.37 f
+  U1169/ZN (NOR2_X1)                       0.05       1.42 r
+  U1206/ZN (INV_X1)                        0.02       1.45 f
+  U1207/ZN (NOR2_X1)                       0.06       1.51 r
+  U1217/ZN (NAND4_X1)                      0.06       1.56 f
+  U1220/ZN (NOR3_X1)                       0.07       1.63 r
+  U1221/ZN (NAND4_X1)                      0.04       1.67 f
+  F (out)                                  0.01       1.68 f
+  data arrival time                                   1.68
+
+  max_delay                               10.00      10.00
+  output external delay                   -1.00       9.00
+  data required time                                  9.00
+  -----------------------------------------------------------
+  data required time                                  9.00
+  data arrival time                                  -1.68
+  -----------------------------------------------------------
+  slack (MET)                                         7.32
+
+
+  Startpoint: A[10] (input port clocked by virtual_clk)
+  Endpoint: P[3] (output port clocked by virtual_clk)
+  Path Group: virtual_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     1.00       1.00 f
+  A[10] (in)                               0.10       1.10 f
+  U724/Z (CLKBUF_X1)                       0.07       1.17 f
+  U1102/ZN (OR2_X1)                        0.07       1.23 f
+  U1149/ZN (NOR3_X1)                       0.08       1.31 r
+  U1170/ZN (INV_X1)                        0.03       1.34 f
+  U1171/ZN (NOR2_X1)                       0.05       1.39 r
+  U1175/ZN (AOI221_X1)                     0.04       1.43 f
+  U1177/ZN (AOI211_X1)                     0.06       1.49 r
+  U1180/ZN (OAI21_X1)                      0.03       1.52 f
+  U1184/ZN (AOI211_X1)                     0.06       1.58 r
+  U1195/ZN (OAI21_X1)                      0.03       1.61 f
+  P[3] (out)                               0.01       1.62 f
+  data arrival time                                   1.62
+
+  max_delay                               10.00      10.00
+  output external delay                   -1.00       9.00
+  data required time                                  9.00
+  -----------------------------------------------------------
+  data required time                                  9.00
+  data arrival time                                  -1.62
+  -----------------------------------------------------------
+  slack (MET)                                         7.38
+
+
+  Startpoint: A[68] (input port clocked by virtual_clk)
+  Endpoint: P[4] (output port clocked by virtual_clk)
+  Path Group: virtual_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     1.00       1.00 f
+  A[68] (in)                               0.10       1.10 f
+  U851/Z (CLKBUF_X1)                       0.08       1.18 f
+  U1061/ZN (OR2_X1)                        0.07       1.25 f
+  U1114/ZN (NOR3_X1)                       0.10       1.35 r
+  U1168/ZN (INV_X1)                        0.03       1.37 f
+  U1169/ZN (NOR2_X1)                       0.05       1.42 r
+  U1206/ZN (INV_X1)                        0.02       1.45 f
+  U1207/ZN (NOR2_X1)                       0.06       1.51 r
+  U1208/ZN (OAI221_X1)                     0.05       1.56 f
+  U1211/ZN (OAI221_X1)                     0.05       1.61 r
+  P[4] (out)                               0.01       1.62 r
+  data arrival time                                   1.62
+
+  max_delay                               10.00      10.00
+  output external delay                   -1.00       9.00
+  data required time                                  9.00
+  -----------------------------------------------------------
+  data required time                                  9.00
+  data arrival time                                  -1.62
+  -----------------------------------------------------------
+  slack (MET)                                         7.38
+
+
+  Startpoint: A[68] (input port clocked by virtual_clk)
+  Endpoint: P[5] (output port clocked by virtual_clk)
+  Path Group: virtual_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     1.00       1.00 f
+  A[68] (in)                               0.10       1.10 f
+  U851/Z (CLKBUF_X1)                       0.08       1.18 f
+  U1061/ZN (OR2_X1)                        0.07       1.25 f
+  U1114/ZN (NOR3_X1)                       0.10       1.35 r
+  U1168/ZN (INV_X1)                        0.03       1.37 f
+  U1169/ZN (NOR2_X1)                       0.05       1.42 r
+  U1206/ZN (INV_X1)                        0.02       1.45 f
+  U1207/ZN (NOR2_X1)                       0.06       1.51 r
+  U1214/ZN (NAND2_X1)                      0.03       1.54 f
+  U1216/ZN (OAI211_X1)                     0.05       1.59 r
+  P[5] (out)                               0.01       1.59 r
+  data arrival time                                   1.59
+
+  max_delay                               10.00      10.00
+  output external delay                   -1.00       9.00
+  data required time                                  9.00
+  -----------------------------------------------------------
+  data required time                                  9.00
+  data arrival time                                  -1.59
+  -----------------------------------------------------------
+  slack (MET)                                         7.41
+
+
+  Startpoint: A[68] (input port clocked by virtual_clk)
+  Endpoint: P[6] (output port clocked by virtual_clk)
+  Path Group: virtual_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     1.00       1.00 f
+  A[68] (in)                               0.10       1.10 f
+  U851/Z (CLKBUF_X1)                       0.08       1.18 f
+  U1061/ZN (OR2_X1)                        0.07       1.25 f
+  U1114/ZN (NOR3_X1)                       0.10       1.35 r
+  U1168/ZN (INV_X1)                        0.03       1.37 f
+  U1169/ZN (NOR2_X1)                       0.05       1.42 r
+  U1206/ZN (INV_X1)                        0.02       1.45 f
+  U1207/ZN (NOR2_X1)                       0.06       1.51 r
+  U1217/ZN (NAND4_X1)                      0.06       1.56 f
+  P[6] (out)                               0.01       1.57 f
+  data arrival time                                   1.57
+
+  max_delay                               10.00      10.00
+  output external delay                   -1.00       9.00
+  data required time                                  9.00
+  -----------------------------------------------------------
+  data required time                                  9.00
+  data arrival time                                  -1.57
+  -----------------------------------------------------------
+  slack (MET)                                         7.43
+
+
+1

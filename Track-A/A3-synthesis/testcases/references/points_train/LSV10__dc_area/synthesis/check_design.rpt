@@ -1,0 +1,35 @@
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Sun Jul  5 15:02:13 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      4
+    Unconnected ports (LINT-28)                                     1
+    Shorted outputs (LINT-31)                                       1
+    Constant outputs (LINT-52)                                      2
+
+Cells                                                               3
+    Cells do not drive (LINT-1)                                     2
+    Connected to power or ground (LINT-32)                          1
+
+Nets                                                                4
+    Unloaded nets (LINT-2)                                          4
+--------------------------------------------------------------------------------
+
+Warning: In design 'VexRiscv_small', cell 'C9697' does not drive any nets. (LINT-1)
+Warning: In design 'VexRiscv_small', cell 'C9789' does not drive any nets. (LINT-1)
+Warning: In design 'VexRiscv_small', net 'IBusSimplePlugin_rspJoin_rspBuffer_c_io_availability[0]' driven by pin 'IBusSimplePlugin_rspJoin_rspBuffer_c/io_availability[0]' has no loads. (LINT-2)
+Warning: In design 'VexRiscv_small', net 'IBusSimplePlugin_rspJoin_rspBuffer_c_io_occupancy[0]' driven by pin 'IBusSimplePlugin_rspJoin_rspBuffer_c/io_occupancy[0]' has no loads. (LINT-2)
+Warning: In design 'VexRiscv_small', net 'IBusSimplePlugin_rspJoin_rspBuffer_c_io_pop_payload_error' driven by pin 'IBusSimplePlugin_rspJoin_rspBuffer_c/io_pop_payload_error' has no loads. (LINT-2)
+Warning: In design 'VexRiscv_small', net 'IBusSimplePlugin_rspJoin_rspBuffer_c_io_push_ready' driven by pin 'IBusSimplePlugin_rspJoin_rspBuffer_c/io_push_ready' has no loads. (LINT-2)
+Warning: In design 'VexRiscv_small', port 'dBus_rsp_error' is not connected to any nets. (LINT-28)
+Warning: In design 'VexRiscv_small', output port 'iBus_cmd_payload_pc[1]' is connected directly to output port 'iBus_cmd_payload_pc[0]'. (LINT-31)
+Warning: In design 'VexRiscv_small', a pin on submodule 'IBusSimplePlugin_rspJoin_rspBuffer_c' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'io_flush' is connected to logic 0. 
+Warning: In design 'VexRiscv_small', output port 'iBus_cmd_payload_pc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'VexRiscv_small', output port 'iBus_cmd_payload_pc[0]' is connected directly to 'logic 0'. (LINT-52)
+1

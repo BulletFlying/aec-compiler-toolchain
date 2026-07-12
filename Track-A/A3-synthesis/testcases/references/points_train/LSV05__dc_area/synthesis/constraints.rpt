@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : axi_dwidth_converter_v2_1_b_downsizer
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:30 2026
+****************************************
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   axi_dwidth_converter_v2_1_b_downsizer
+                                0.00         127.41        -127.41  (VIOLATED)
+
+
+1

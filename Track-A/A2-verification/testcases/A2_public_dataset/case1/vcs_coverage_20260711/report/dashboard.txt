@@ -1,0 +1,28 @@
+Dashboard
+
+Date: Sat Jul 11 10:55:19 2026
+
+User: root
+
+Version: O-2018.09-SP2
+Command line: urg -dir /workspace/public_dataset/case1/vcs_coverage_20260711/sim_build/coverage.vdb -format text -report /workspace/public_dataset/case1/vcs_coverage_20260711/report 
+
+Number of tests: 1
+
+-------------------------------------------------------------------------------
+Total Coverage Summary 
+SCORE  LINE   BRANCH 
+ 50.67  53.00  48.33 
+
+
+-------------------------------------------------------------------------------
+Hierarchical coverage data for top-level instances 
+SCORE  LINE   BRANCH NAME             
+ 50.67  53.00  48.33 case1_cocotb_top 
+
+
+-------------------------------------------------------------------------------
+Total Module Definition Coverage Summary 
+SCORE  LINE   BRANCH 
+ 50.67  53.00  48.33 
+

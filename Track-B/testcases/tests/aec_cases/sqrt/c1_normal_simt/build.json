@@ -1,0 +1,42 @@
+{
+  "assembler": {
+    "path": "tools/assemble.py",
+    "sha256": "9ea8135a7854c4fd7ea526b369e4c5a235f7551019ea7ed416111937ce0c5973"
+  },
+  "assembler_meta": {
+    "code_size_bytes": 176,
+    "entry_pc": 0,
+    "format": "aecbin-raw",
+    "hex_order": "w3,w2,w1,w0 msb-first",
+    "instruction_count": 11,
+    "instruction_width_bits": 128,
+    "labels": {},
+    "version": 1,
+    "word_order": "w0,w1,w2,w3 little-endian u32"
+  },
+  "binary": {
+    "path": "program.bin",
+    "sha256": "ebfbbd93d52d3cc52dbf6fcacf3b34431b44d8d5e406c9965e367b500ddb7033",
+    "size_bytes": 176
+  },
+  "case_dir": "tests/aec_cases/sqrt/c1_normal_simt",
+  "case_id": "SQRT.C1.NORMAL.SIMT",
+  "checker": {
+    "path": "tools/check_aec_asm.py",
+    "sha256": "161a6cdadf81cc6777a031f674e36aaf77b7c18495ab202f0af1bd12bb0b831b"
+  },
+  "generated_artifacts": {
+    "expected/gmem_00000100.bin": {
+      "sha256": "78d18b4f7a66cc519e0153c222a470adbffa63b4aa005fd866ed2507a0bec6ae",
+      "size_bytes": 128
+    }
+  },
+  "hex": {
+    "path": "program.hex",
+    "sha256": "0b861323cd796b7d4f8d8a3ebfe87ac5b59736a235a3d44de5db6981fcb61d1f"
+  },
+  "source": {
+    "path": "program.aec",
+    "sha256": "c31fbbdd08eef474b3458cef8cd3d10a436a40c28e4b3f5d61e9c4a948926219"
+  }
+}

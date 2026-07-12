@@ -1,0 +1,19 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : stage_mult
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:12:36 2026
+****************************************
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   stage_mult                   0.00       28007.52       -28007.52 (VIOLATED)
+
+
+1

@@ -1,0 +1,10 @@
+LOADI.none R10, 0x100
+CPY.u32 R1, %laneid
+LOADI.none R2, 4
+MUL.u32 R3, R1, R2
+ADD.u32 R10, R10, R3
+LOADI.none R4, 16
+CMPP.lt.u32 P1, R1, R4
+VOTE.any R8, P1
+ST.gmem.u32 [R10], R8
+HALT

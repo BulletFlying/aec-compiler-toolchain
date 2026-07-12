@@ -1,0 +1,12 @@
+Tests
+
+Total Coverage Summary 
+SCORE  LINE   BRANCH 
+ 61.53  61.03  62.03 
+
+
+Total tests in report: 1
+-------------------------------------------------------------------------------
+Data from the following tests was used to generate this report
+/workspace/public_dataset/case2/vcs_coverage_20260711/coverage/test 
+

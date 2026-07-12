@@ -1,0 +1,47 @@
+{
+  "testbench": {
+    "name": "case5_json_cocotb_vcs",
+    "language": "Python cocotb with Verilog wrapper",
+    "simulator": "VCS",
+    "top": "case5_cocotb_top",
+    "module": "test_case5_json_sequences",
+    "entry_test": "run_json_sequences",
+    "clock": {
+      "name": "clk",
+      "period_ns": 10
+    },
+    "reset": {
+      "name": "rst",
+      "active": "high",
+      "cycles": 8
+    },
+    "stimulus": {
+      "source": "constraints.json",
+      "sequence_count": 5000,
+      "transaction_type": "single AXI address command plus optional completion",
+      "directed_prefix": [
+        "all configured master/region hits",
+        "secure M2 requests accepted when APROT[1] is zero",
+        "secure M2 requests rejected when APROT[1] is one",
+        "out-of-map decode errors",
+        "same-ID different-destination blocking until completion",
+        "all thread slots allocated by concurrent unique IDs",
+        "S_ACCEPT-limit blocking until completion"
+      ],
+      "random_suffix": "fixed-seed weighted generation across valid hit, secure deny, and unmapped-address classes"
+    },
+    "monitors": {
+      "decoded_command": "checks m_axi_avalid, m_select, m_axi_aregion, m_wc_select, and m_wc_decerr for valid hits",
+      "decode_error": "checks m_wc_valid, m_rc_valid, m_wc_decerr, and m_rc_decerr for rejected requests",
+      "source_ready": "checks that s_axi_aready is held low while output commands are not accepted and pulses only after command outputs drain"
+    },
+    "coverage_collection": {
+      "vcs_options": [
+        "-cm line+branch",
+        "-cm_dir sim_build/coverage.vdb"
+      ],
+      "urg_report": "vcs_coverage_20260711/report",
+      "functional_coverage": "functional_coverage.json"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+ 
+****************************************
+Report : area
+Design : b11
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:26 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                          863
+Number of nets:                          1749
+Number of cells:                         1060
+Number of combinational cells:            935
+Number of sequential cells:               116
+Number of macros/black boxes:               0
+Number of buf/inv:                         70
+Number of references:                      34
+
+Combinational area:               1294.090000
+Buf/Inv area:                       42.028000
+Noncombinational area:             425.600014
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  1719.690014
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  ---------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-     Noncombi-  Black-
+                                  Total      Total    national   national   boxes   Design
+--------------------------------  ---------  -------  ---------  ---------  ------  --------------
+b11                               1719.6900    100.0   534.1280   425.6000  0.0000  b11
+add_113                             81.6620      4.7    81.6620     0.0000  0.0000  b11_DW01_add_1
+add_116                             76.6080      4.5    76.6080     0.0000  0.0000  b11_DW01_add_0
+add_53                              81.9280      4.8    81.9280     0.0000  0.0000  b11_DW01_inc_0
+add_79                              91.7700      5.3    91.7700     0.0000  0.0000  b11_DW01_add_3
+add_98                              79.0020      4.6    79.0020     0.0000  0.0000  b11_DW01_add_2
+sub_107                             81.9280      4.8    81.9280     0.0000  0.0000  b11_DW01_sub_2
+sub_110                             79.2680      4.6    79.2680     0.0000  0.0000  b11_DW01_sub_1
+sub_83                             108.5280      6.3   108.5280     0.0000  0.0000  b11_DW01_sub_4
+sub_89                              79.2680      4.6    79.2680     0.0000  0.0000  b11_DW01_sub_3
+--------------------------------  ---------  -------  ---------  ---------  ------  --------------
+Total                                                 1294.0900   425.6000  0.0000
+
+1

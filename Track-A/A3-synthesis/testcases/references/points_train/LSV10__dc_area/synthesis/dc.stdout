@@ -1,0 +1,547 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set target_library [list /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db]
+/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+set link_library [concat "*" $target_library]
+* /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+analyze -format sverilog /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v
+Running PRESTO HDLC
+Compiling source file /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v
+Presto compilation completed successfully.
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+1
+elaborate VexRiscv_small
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Warning:  /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v:858: signed to unsigned assignment occurs. (VER-318)
+Warning:  /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v:859: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 1778 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1784           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 1960 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1961           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 1976 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1977           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 1994 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1996           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2062 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2063           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2113 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2115           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2124 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2126           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2200 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2201           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2262 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2263           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2276 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2277           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2290 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2291           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2355 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2356           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2385 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2386           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2486 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2487           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2506 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2507           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2586 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2587           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2748 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           2900           |    auto/auto     |
+|           2912           |    auto/auto     |
+|           2958           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 2977 in file
+	'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           3006           |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine VexRiscv_small line 958 in file
+		'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'.
+==================================================================================================
+|             Register Name              |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==================================================================================================
+| RegFilePlugin_regFile_spinal_port0_reg | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+==================================================================================================
+
+Inferred memory devices in process
+	in routine VexRiscv_small line 964 in file
+		'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'.
+==================================================================================================
+|             Register Name              |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==================================================================================================
+| RegFilePlugin_regFile_spinal_port1_reg | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+==================================================================================================
+
+Inferred memory devices in process
+	in routine VexRiscv_small line 970 in file
+		'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'.
+=====================================================================================
+|       Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=====================================================================================
+| RegFilePlugin_regFile_reg | Flip-flop | 1024  |  Y  | N  | N  | N  | N  | N  | N  |
+=====================================================================================
+
+Inferred memory devices in process
+	in routine VexRiscv_small line 2748 in file
+		'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'.
+===================================================================================================================
+|                      Register Name                      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===================================================================================================================
+|            writeBack_arbitration_isValid_reg            | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|           IBusSimplePlugin_fetchPc_pcReg_reg            | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|           IBusSimplePlugin_fetchPc_pcReg_reg            | Flip-flop |  31   |  Y  | N  | Y  | N  | N  | N  | N  |
+|           IBusSimplePlugin_fetchPc_booted_reg           | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|            IBusSimplePlugin_fetchPc_inc_reg             | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| _zz_IBusSimplePlugin_iBusRsp_stages_1_input_valid_1_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   _zz_IBusSimplePlugin_injector_decodeInput_valid_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|           IBusSimplePlugin_pending_value_reg            | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  IBusSimplePlugin_rspJoin_rspBuffer_discardCounter_reg  | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|                CsrPlugin_mstatus_MIE_reg                | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|               CsrPlugin_mstatus_MPIE_reg                | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|                CsrPlugin_mstatus_MPP_reg                | Flip-flop |   2   |  Y  | N  | N  | Y  | N  | N  | N  |
+|                 CsrPlugin_mie_MEIE_reg                  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|                 CsrPlugin_mie_MTIE_reg                  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|                 CsrPlugin_mie_MSIE_reg                  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|              CsrPlugin_interrupt_valid_reg              | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       CsrPlugin_pipelineLiberator_pcValids_0_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       CsrPlugin_pipelineLiberator_pcValids_1_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       CsrPlugin_pipelineLiberator_pcValids_2_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|               CsrPlugin_hadException_reg                | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|                        _zz_5_reg                        | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|         execute_LightShifterPlugin_isActive_reg         | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      HazardSimplePlugin_writeBackBuffer_valid_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|             execute_arbitration_isValid_reg             | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|             memory_arbitration_isValid_reg              | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===================================================================================================================
+
+Inferred memory devices in process
+	in routine VexRiscv_small line 2977 in file
+		'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'.
+==========================================================================================================================
+|                         Register Name                          |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==========================================================================================================================
+|    _zz_IBusSimplePlugin_injector_decodeInput_payload_pc_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+| _zz_IBusSimplePlugin_injector_decodeInput_payload_rsp_inst_reg | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|                     CsrPlugin_mip_MEIP_reg                     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                     CsrPlugin_mip_MTIP_reg                     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                     CsrPlugin_mip_MSIP_reg                     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                  CsrPlugin_interrupt_code_reg                  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|            CsrPlugin_interrupt_targetPrivilege_reg             | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|                 CsrPlugin_mcause_interrupt_reg                 | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               CsrPlugin_mcause_exceptionCode_reg               | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|                       CsrPlugin_mepc_reg                       | Flip-flop |  30   |  Y  | N  | N  | N  | N  | N  | N  |
+|          execute_LightShifterPlugin_amplitudeReg_reg           | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+|     HazardSimplePlugin_writeBackBuffer_payload_address_reg     | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+|                    decode_to_execute_PC_reg                    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|               decode_to_execute_INSTRUCTION_reg                | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
+|               execute_to_memory_INSTRUCTION_reg                | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|              memory_to_writeBack_INSTRUCTION_reg               | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|             decode_to_execute_CSR_WRITE_OPCODE_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|             decode_to_execute_SRC_USE_SUB_LESS_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              decode_to_execute_MEMORY_ENABLE_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              execute_to_memory_MEMORY_ENABLE_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|             memory_to_writeBack_MEMORY_ENABLE_reg              | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|           decode_to_execute_REGFILE_WRITE_VALID_reg            | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|           execute_to_memory_REGFILE_WRITE_VALID_reg            | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|          memory_to_writeBack_REGFILE_WRITE_VALID_reg           | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               decode_to_execute_MEMORY_STORE_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               execute_to_memory_MEMORY_STORE_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                  decode_to_execute_IS_CSR_reg                  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                 decode_to_execute_ENV_CTRL_reg                 | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                 execute_to_memory_ENV_CTRL_reg                 | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                memory_to_writeBack_ENV_CTRL_reg                | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                 decode_to_execute_ALU_CTRL_reg                 | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|            decode_to_execute_SRC_LESS_UNSIGNED_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|             decode_to_execute_ALU_BITWISE_CTRL_reg             | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|                decode_to_execute_SHIFT_CTRL_reg                | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|               decode_to_execute_BRANCH_CTRL_reg                | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|                   decode_to_execute_RS1_reg                    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|                   decode_to_execute_RS2_reg                    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|             decode_to_execute_SRC2_FORCE_ZERO_reg              | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                   decode_to_execute_SRC1_reg                   | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|                   decode_to_execute_SRC2_reg                   | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|            execute_to_memory_MEMORY_ADDRESS_LOW_reg            | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|           memory_to_writeBack_MEMORY_ADDRESS_LOW_reg           | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|            execute_to_memory_REGFILE_WRITE_DATA_reg            | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|           memory_to_writeBack_REGFILE_WRITE_DATA_reg           | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|                execute_to_memory_BRANCH_DO_reg                 | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               execute_to_memory_BRANCH_CALC_reg                | Flip-flop |  30   |  Y  | N  | N  | N  | N  | N  | N  |
+|            memory_to_writeBack_MEMORY_READ_DATA_reg            | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|                 execute_CsrPlugin_csr_768_reg                  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                 execute_CsrPlugin_csr_836_reg                  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                 execute_CsrPlugin_csr_772_reg                  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|                 execute_CsrPlugin_csr_834_reg                  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+==========================================================================================================================
+Statistics for MUX_OPs
+========================================================
+|  block name/line   | Inputs | Outputs | # sel inputs |
+========================================================
+| VexRiscv_small/960 |   32   |   32    |      5       |
+| VexRiscv_small/966 |   32   |   32    |      5       |
+========================================================
+Warning:  /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v:1744: Netlist for always block is empty. (ELAB-985)
+Warning:  /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v:1867: Netlist for always block is empty. (ELAB-985)
+Warning:  /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v:2113: Netlist for always block is empty. (ELAB-985)
+Warning:  /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v:2143: Netlist for always block is empty. (ELAB-985)
+Warning:  /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v:2170: Netlist for always block is empty. (ELAB-985)
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'VexRiscv_small'.
+Information: Building the design 'StreamFifoLowLatency'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'StreamFifo'. (HDL-193)
+
+Inferred memory devices in process
+	in routine StreamFifo line 3297 in file
+		'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| io_push_rValid_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine StreamFifo line 3310 in file
+		'/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/design.v'.
+===================================================================================
+|      Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===================================================================================
+| io_push_rData_inst_reg  | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+| io_push_rData_error_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===================================================================================
+Presto compilation completed successfully.
+1
+current_design VexRiscv_small
+Current design is 'VexRiscv_small'.
+{VexRiscv_small}
+link
+
+  Linking design 'VexRiscv_small'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (3 designs)               /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/VexRiscv_small.db, etc
+  NangateOpenCellLibrary (library) /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+
+1
+check_design > /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/check_design.rpt
+source /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/constraints.sdc
+1
+set_max_area 0
+1
+if {[catch {compile -area_effort high -map_effort high} err]} {
+  puts "area compile failed, falling back to compile: $err"
+  compile
+}
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 11 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'StreamFifo'
+  Processing 'StreamFifoLowLatency'
+  Processing 'VexRiscv_small'
+Information: The register '_zz_IBusSimplePlugin_injector_decodeInput_payload_rsp_inst_reg[0]' will be removed. (OPT-1207)
+Information: The register '_zz_IBusSimplePlugin_injector_decodeInput_payload_rsp_inst_reg[1]' will be removed. (OPT-1207)
+Information: The register 'CsrPlugin_hadException_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'CsrPlugin_interrupt_targetPrivilege_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'CsrPlugin_interrupt_targetPrivilege_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'CsrPlugin_interrupt_code_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'CsrPlugin_interrupt_code_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IBusSimplePlugin_fetchPc_pcReg_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'IBusSimplePlugin_fetchPc_pcReg_reg[0]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'VexRiscv_small_DW01_dec_0'
+  Processing 'VexRiscv_small_DW01_add_0'
+  Processing 'VexRiscv_small_DW01_cmp6_0'
+  Processing 'VexRiscv_small_DW01_add_1'
+  Processing 'VexRiscv_small_DW01_cmp6_1'
+  Processing 'VexRiscv_small_DW01_cmp6_2'
+  Processing 'VexRiscv_small_DW01_cmp6_3'
+  Processing 'VexRiscv_small_DW01_cmp6_4'
+  Processing 'VexRiscv_small_DW01_cmp6_5'
+  Processing 'VexRiscv_small_DW01_cmp6_6'
+  Processing 'VexRiscv_small_DW01_cmp6_7'
+  Processing 'VexRiscv_small_DW01_cmp6_8'
+  Building model 'DW01_NAND2'
+  Processing 'DW01_NAND2'
+  Building model 'DW01_add_width3' (rpl)
+  Processing 'DW01_add_width3'
+  Building model 'DW01_add_width3' (cla)
+  Processing 'DW01_add_width3'
+  Building model 'DW01_sub_width3' (rpl)
+  Processing 'DW01_sub_width3'
+  Building model 'DW01_sub_width3' (cla)
+  Processing 'DW01_sub_width3'
+  Processing 'VexRiscv_small_DW01_add_2'
+  Processing 'VexRiscv_small_DW01_add_3'
+  Processing 'DW01_sub_width3'
+  Processing 'DW01_add_width3'
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:08   17373.8      0.00       0.0       6.5                          
+    0:00:08   17373.8      0.00       0.0       6.5                          
+    0:00:08   17373.8      0.00       0.0       6.5                          
+    0:00:08   17373.8      0.00       0.0       6.5                          
+    0:00:08   17373.8      0.00       0.0       6.5                          
+    0:00:09   14218.5      0.00       0.0       0.4                          
+    0:00:09   14216.6      0.00       0.0       0.4                          
+    0:00:09   14216.6      0.00       0.0       0.4                          
+    0:00:09   14216.6      0.00       0.0       0.4                          
+    0:00:09   14216.6      0.00       0.0       0.4                          
+    0:00:09   14216.6      0.00       0.0       0.4                          
+    0:00:10   14216.6      0.00       0.0       0.4                          
+    0:00:10   14216.6      0.00       0.0       0.4                          
+    0:00:10   14216.6      0.00       0.0       0.4                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:10   14216.6      0.00       0.0       0.4                          
+    0:00:10   14216.6      0.00       0.0       0.4                          
+    0:00:10   14146.4      0.00       0.0       0.4                          
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:10   14146.4      0.00       0.0       0.4                          
+    0:00:10   14177.3      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (max_area 0)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:10   14177.3      0.00       0.0       0.0                          
+    0:00:10   14177.3      0.00       0.0       0.0                          
+    0:00:10   14044.0      0.00       0.0       0.0                          
+    0:00:10   14025.6      0.00       0.0       0.0                          
+    0:00:11   14018.2      0.00       0.0       0.0                          
+    0:00:11   14012.3      0.00       0.0       0.0                          
+    0:00:11   14008.6      0.00       0.0       0.0                          
+    0:00:11   14008.6      0.00       0.0       0.0                          
+    0:00:11   14008.6      0.00       0.0       0.0                          
+    0:00:11   14008.6      0.00       0.0       0.0                          
+    0:00:11   14008.6      0.00       0.0       0.0                          
+    0:00:11   14008.6      0.00       0.0       0.0                          
+    0:00:11   14008.6      0.00       0.0       0.0                          
+    0:00:11   14008.6      0.00       0.0       0.0                          
+    0:00:11   13856.2      0.00       0.0       0.0                          
+    0:00:11   13701.7      0.00       0.0       0.0                          
+    0:00:11   13581.2      0.00       0.0       0.0                          
+    0:00:12   13491.3      0.00       0.0       0.0                          
+    0:00:12   13439.1      0.00       0.0       0.0                          
+    0:00:12   13439.1      0.00       0.0       0.0                          
+    0:00:13   13439.1      0.00       0.0       0.0                          
+    0:00:13   13439.1      0.00       0.0       0.0                          
+    0:00:13   13439.1      0.00       0.0       0.0                          
+    0:00:13   13439.1      0.00       0.0       0.0                          
+    0:00:13   13439.1      0.00       0.0       0.0                          
+    0:00:13   13439.1      0.00       0.0       0.0                          
+    0:00:14   13436.2      0.00       0.0       0.0                          
+    0:00:15   13434.1      0.00       0.0       0.0                          
+    0:00:15   13431.9      0.00       0.0       0.0                          
+    0:00:15   13430.1      0.00       0.0       0.0                          
+    0:00:15   13429.0      0.00       0.0       0.0                          
+    0:00:15   13429.0      0.00       0.0       0.0                          
+    0:00:15   13429.0      0.00       0.0       0.0                          
+    0:00:15   13429.0      0.00       0.0       0.0                          
+    0:00:15   13429.0      0.00       0.0       0.0                          
+    0:00:15   13429.0      0.00       0.0       0.0                          
+    0:00:15   13429.0      0.00       0.0       0.0                          
+    0:00:15   13429.0      0.00       0.0       0.0                          
+    0:00:15   13429.0      0.00       0.0       0.0                          
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'VexRiscv_small' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'IBusSimplePlugin_rspJoin_rspBuffer_c/fifo/clk': 1655 load(s), 1 driver(s)
+write -format verilog -hierarchy -output /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/netlist.v
+Writing verilog file '/tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/netlist.v'.
+Warning: Verilog writer has added 6 nets to module VexRiscv_small using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write_sdc /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/final.sdc
+1
+report_qor > /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/qor.rpt
+report_area -hierarchy > /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/area.rpt
+report_timing -delay max -max_paths 20 > /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/timing.rpt
+report_constraint -all_violators > /tmp/logic_synth_ref/runs/LSV10_dc_area_d688ad01c80045a5866212c32f1e83a2/case/constraints.rpt
+exit
+
+Memory usage for main task 146 Mbytes.
+Memory usage for this session 146 Mbytes.
+CPU usage for this session 16 seconds ( 0.00 hours ).
+
+Thank you...
+

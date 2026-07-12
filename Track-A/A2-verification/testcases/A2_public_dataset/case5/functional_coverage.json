@@ -1,0 +1,184 @@
+{
+  "functional_coverage": {
+    "design": "case5",
+    "status": "passed",
+    "source": "cocotb transaction and directed-scenario sampling",
+    "covered_bins": 26,
+    "total_bins": 26,
+    "percent": 100.0,
+    "coverpoints": [
+      {
+        "name": "address_decode",
+        "covered_bins": 10,
+        "total_bins": 10,
+        "bins": [
+          {
+            "name": "M0:R0",
+            "hits": 423,
+            "covered": true
+          },
+          {
+            "name": "M0:R1",
+            "hits": 432,
+            "covered": true
+          },
+          {
+            "name": "M1:R0",
+            "hits": 422,
+            "covered": true
+          },
+          {
+            "name": "M1:R1",
+            "hits": 404,
+            "covered": true
+          },
+          {
+            "name": "M2:R0",
+            "hits": 395,
+            "covered": true
+          },
+          {
+            "name": "M2:R1",
+            "hits": 413,
+            "covered": true
+          },
+          {
+            "name": "M3:R0",
+            "hits": 451,
+            "covered": true
+          },
+          {
+            "name": "M3:R1",
+            "hits": 465,
+            "covered": true
+          },
+          {
+            "name": "unmapped",
+            "hits": 787,
+            "covered": true
+          },
+          {
+            "name": "secure_denied",
+            "hits": 808,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "protection",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "secure_master_accepted",
+            "hits": 808,
+            "covered": true
+          },
+          {
+            "name": "secure_master_denied",
+            "hits": 808,
+            "covered": true
+          },
+          {
+            "name": "nonsecure_master_accepted",
+            "hits": 2597,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "ready_order",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "all_ready",
+            "hits": 1673,
+            "covered": true
+          },
+          {
+            "name": "address_first",
+            "hits": 1664,
+            "covered": true
+          },
+          {
+            "name": "metadata_first",
+            "hits": 1663,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "hold_cycles",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "0",
+            "hits": 3888,
+            "covered": true
+          },
+          {
+            "name": "1",
+            "hits": 1079,
+            "covered": true
+          },
+          {
+            "name": "2",
+            "hits": 33,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "admission_control",
+        "covered_bins": 4,
+        "total_bins": 4,
+        "bins": [
+          {
+            "name": "same_id_same_destination",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "same_id_different_destination",
+            "hits": 3,
+            "covered": true
+          },
+          {
+            "name": "all_thread_slots_active",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "accept_limit_blocked",
+            "hits": 1,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "completion",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "normal_completion",
+            "hits": 3393,
+            "covered": true
+          },
+          {
+            "name": "completion_releases_blocked_request",
+            "hits": 3,
+            "covered": true
+          },
+          {
+            "name": "multiple_completions_same_id",
+            "hits": 1,
+            "covered": true
+          }
+        ]
+      }
+    ]
+  }
+}

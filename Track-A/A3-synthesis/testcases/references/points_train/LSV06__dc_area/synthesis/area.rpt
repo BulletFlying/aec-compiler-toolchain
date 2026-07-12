@@ -1,0 +1,46 @@
+ 
+****************************************
+Report : area
+Design : pfpu_f2i
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:35 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                          296
+Number of nets:                           824
+Number of cells:                          612
+Number of combinational cells:            571
+Number of sequential cells:                38
+Number of macros/black boxes:               0
+Number of buf/inv:                        159
+Number of references:                      17
+
+Combinational area:                669.787997
+Buf/Inv area:                       93.632000
+Noncombinational area:             198.702001
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                   868.489998
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  --------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-    Noncombi-  Black-
+                                  Total      Total    national  national   boxes   Design
+--------------------------------  ---------  -------  --------  ---------  ------  -------------------
+pfpu_f2i                           868.4900    100.0  122.8920   198.7020  0.0000  pfpu_f2i
+sll_9                              270.5220     31.1  270.5220     0.0000  0.0000  pfpu_f2i_DW01_ash_0
+srl_11                             180.6140     20.8  180.6140     0.0000  0.0000  pfpu_f2i_DW_rash_0
+sub_19                              95.7600     11.0   95.7600     0.0000  0.0000  pfpu_f2i_DW01_sub_0
+--------------------------------  ---------  -------  --------  ---------  ------  -------------------
+Total                                                 669.7880   198.7020  0.0000
+
+1

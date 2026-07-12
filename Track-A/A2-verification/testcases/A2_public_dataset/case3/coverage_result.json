@@ -1,0 +1,35 @@
+{
+  "coverage_result": {
+    "design": "case3",
+    "status": "passed",
+    "simulator": {"name": "VCS", "version": "O-2018.09-SP2"},
+    "run": {
+      "type": "cocotb",
+      "test": "test_case3_json_sequences.run_json_sequences",
+      "seed": 20260630,
+      "sequence_count": 256,
+      "sim_time_ns": 39280.001,
+      "wall_time_s": 2.3282628059387207
+    },
+    "coverage": {
+      "scope": "case3 and its axi_vfifo_raw_rd/wr dependencies",
+      "line": {"covered": 301, "total": 322, "percent": 93.48},
+      "branch": {"covered": 99, "total": 113, "percent": 87.61},
+      "functional": {"covered": 17, "total": 17, "percent": 100.0},
+      "composite": {
+        "formula": "0.42 * line + 0.28 * branch + 0.30 * functional",
+        "percent": 93.79
+      }
+    },
+    "target_module": {
+      "name": "case3",
+      "line": {"covered": 25, "total": 26, "percent": 96.15},
+      "branch": {"covered": 9, "total": 10, "percent": 90.0}
+    },
+    "artifacts": {
+      "urg_report": "vcs_coverage_20260711/report",
+      "results_xml": "vcs_coverage_20260711/results.xml",
+      "functional_coverage": "functional_coverage.json"
+    }
+  }
+}

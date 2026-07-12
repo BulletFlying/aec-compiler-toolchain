@@ -1,0 +1,100 @@
+ 
+****************************************
+Report : area
+Design : Sha256Wishbone
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:02:09 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                         4221
+Number of nets:                         10898
+Number of cells:                         5351
+Number of combinational cells:           4157
+Number of sequential cells:              1153
+Number of macros/black boxes:               0
+Number of buf/inv:                        371
+Number of references:                      21
+
+Combinational area:               7522.480069
+Buf/Inv area:                      229.025999
+Noncombinational area:            5046.551817
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 12569.031886
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area           Local cell area
+                                  -------------------  ---------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-     Noncombi-  Black-
+                                  Total       Total    national   national   boxes   Design
+--------------------------------  ----------  -------  ---------  ---------  ------  -------------------------------
+Sha256Wishbone                    12569.0319    100.0   341.8100   149.2260  0.0000  Sha256Wishbone
+accel                             12077.9959     96.1    32.7180    58.7860  0.0000  Sha256Accel
+accel/accel                       11968.9359     95.2  2019.2060  2351.4399  0.0000  CompressionFunction
+accel/accel/add_0_root_add_0_root_add_440
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_13
+accel/accel/add_0_root_add_0_root_add_456_aco
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_21
+accel/accel/add_0_root_add_0_root_add_460_aco
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_19
+accel/accel/add_0_root_add_0_root_add_465
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_23
+accel/accel/add_0_root_add_0_root_add_470
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_17
+accel/accel/add_1_root_add_0_root_add_440
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_14
+accel/accel/add_1_root_add_0_root_add_456_aco
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_22
+accel/accel/add_1_root_add_0_root_add_460_aco
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_20
+accel/accel/add_1_root_add_0_root_add_465
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_24
+accel/accel/add_1_root_add_0_root_add_470
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_18
+accel/accel/add_2_root_add_0_root_add_440
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_15
+accel/accel/add_3_root_add_0_root_add_440
+                                    134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_16
+accel/accel/add_451                 134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_6
+accel/accel/add_457_aco             134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_7
+accel/accel/add_458_aco             134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_8
+accel/accel/add_459_aco             134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_9
+accel/accel/add_461_aco             134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_10
+accel/accel/add_462_aco             134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_11
+accel/accel/add_463_aco             134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_12
+accel/accel/add_466                 134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_5
+accel/accel/add_467                 134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_4
+accel/accel/add_468                 134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_3
+accel/accel/add_471                 134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_2
+accel/accel/add_472                 134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_1
+accel/accel/add_473                 134.5960      1.1   134.5960     0.0000  0.0000  CompressionFunction_DW01_add_0
+accel/accel/messageScheduleArray   3954.6219     31.5   338.0860   171.8360  0.0000  MessageScheduleArray
+accel/accel/messageScheduleArray/add_0_root_add_0_root_add_210
+                                    134.5960      1.1   134.5960     0.0000  0.0000  MessageScheduleArray_DW01_add_0
+accel/accel/messageScheduleArray/add_1_root_add_0_root_add_210
+                                    134.5960      1.1   134.5960     0.0000  0.0000  MessageScheduleArray_DW01_add_1
+accel/accel/messageScheduleArray/add_2_root_add_0_root_add_210
+                                    134.5960      1.1   134.5960     0.0000  0.0000  MessageScheduleArray_DW01_add_2
+accel/accel/messageScheduleArray/shreg
+                                   3040.9119     24.2   725.6480  2315.2639  0.0000  ShiftRegister
+accel/accel/mult_add_456_aco         34.8460      0.3    34.8460     0.0000  0.0000  CompressionFunction_DW02_mult_7
+accel/accel/mult_add_457_aco         34.8460      0.3    34.8460     0.0000  0.0000  CompressionFunction_DW02_mult_0
+accel/accel/mult_add_458_aco         34.8460      0.3    34.8460     0.0000  0.0000  CompressionFunction_DW02_mult_1
+accel/accel/mult_add_459_aco         34.8460      0.3    34.8460     0.0000  0.0000  CompressionFunction_DW02_mult_2
+accel/accel/mult_add_460_aco         34.8460      0.3    34.8460     0.0000  0.0000  CompressionFunction_DW02_mult_6
+accel/accel/mult_add_461_aco         34.8460      0.3    34.8460     0.0000  0.0000  CompressionFunction_DW02_mult_3
+accel/accel/mult_add_462_aco         34.8460      0.3    34.8460     0.0000  0.0000  CompressionFunction_DW02_mult_4
+accel/accel/mult_add_463_aco         34.8460      0.3    34.8460     0.0000  0.0000  CompressionFunction_DW02_mult_5
+accel/add_829                        17.5560      0.1    17.5560     0.0000  0.0000  Sha256Accel_DW01_inc_0
+--------------------------------  ----------  -------  ---------  ---------  ------  -------------------------------
+Total                                                  7522.4801  5046.5518  0.0000
+
+1

@@ -1,0 +1,15 @@
+{
+  "public_dataset_result": {
+    "name": "case1",
+    "status": "complete",
+    "simulation": {"type": "cocotb", "status": "passed", "seed": 20260630, "sequence_count": 5000},
+    "coverage": {
+      "line_percent": 53.0,
+      "branch_percent": 48.33,
+      "functional_percent": 100.0,
+      "composite_percent": 65.79,
+      "artifact": "coverage_result.json"
+    },
+    "artifacts": ["design.json", "testbench.json", "verification_skeleton.json", "constraints.json", "coverage_bins.json", "functional_coverage.json", "coverage_result.json", "case1_cocotb_top.v", "test_case1_json_sequences.py", "Makefile"]
+  }
+}

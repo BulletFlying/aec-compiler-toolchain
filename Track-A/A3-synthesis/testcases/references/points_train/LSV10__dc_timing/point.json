@@ -1,0 +1,17 @@
+{
+  "id": "LSV10",
+  "split": "public",
+  "name": "medium_vexriscv_small",
+  "top": "VexRiscv_small",
+  "flow": "dc_timing",
+  "flow_label": "Design Compiler timing-biased compile_ultra",
+  "tool": "dc",
+  "status": "ok",
+  "runtime_s": 70.16,
+  "area": 13186.683867,
+  "arrival_ns": 2.72,
+  "wns_ns": -2.72,
+  "tns_ns": -1541.07,
+  "source_path": "medium_design/9.VexRiscv_small.clk.v",
+  "clock_period_ns": 10.0
+}

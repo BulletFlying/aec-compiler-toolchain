@@ -1,0 +1,43 @@
+ 
+****************************************
+Report : area
+Design : stage_mult
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:12:36 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                          196
+Number of nets:                           854
+Number of cells:                          644
+Number of combinational cells:            562
+Number of sequential cells:                82
+Number of macros/black boxes:               0
+Number of buf/inv:                        101
+Number of references:                      18
+
+Combinational area:                980.210005
+Buf/Inv area:                       76.341998
+Noncombinational area:             366.281987
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  1346.491992
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  --------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-    Noncombi-  Black-
+                                  Total      Total    national  national   boxes   Design
+--------------------------------  ---------  -------  --------  ---------  ------  ---------
+stage_mult                        1346.4920    100.0  980.2100   366.2820  0.0000  stage_mult
+--------------------------------  ---------  -------  --------  ---------  ------  ---------
+Total                                                 980.2100   366.2820  0.0000
+
+1

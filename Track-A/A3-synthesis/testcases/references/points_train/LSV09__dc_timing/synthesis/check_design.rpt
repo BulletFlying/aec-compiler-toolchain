@@ -1,0 +1,32 @@
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Sun Jul  5 14:11:49 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      6
+    Unconnected ports (LINT-28)                                     5
+    Constant outputs (LINT-52)                                      1
+
+Cells                                                               8
+    Cells do not drive (LINT-1)                                     8
+--------------------------------------------------------------------------------
+
+Warning: In design 'CompressionFunction', cell 'I_136' does not drive any nets. (LINT-1)
+Warning: In design 'CompressionFunction', cell 'I_138' does not drive any nets. (LINT-1)
+Warning: In design 'CompressionFunction', cell 'I_140' does not drive any nets. (LINT-1)
+Warning: In design 'CompressionFunction', cell 'I_142' does not drive any nets. (LINT-1)
+Warning: In design 'CompressionFunction', cell 'I_144' does not drive any nets. (LINT-1)
+Warning: In design 'CompressionFunction', cell 'I_146' does not drive any nets. (LINT-1)
+Warning: In design 'CompressionFunction', cell 'I_148' does not drive any nets. (LINT-1)
+Warning: In design 'CompressionFunction', cell 'I_150' does not drive any nets. (LINT-1)
+Warning: In design 'Sha256Wishbone', port 'io_bus_sel[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'Sha256Wishbone', port 'io_bus_sel[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'Sha256Wishbone', port 'io_bus_sel[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'Sha256Wishbone', port 'io_bus_addr[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'Sha256Wishbone', port 'io_bus_addr[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'Sha256Wishbone', output port 'io_bus_err' is connected directly to 'logic 0'. (LINT-52)
+1

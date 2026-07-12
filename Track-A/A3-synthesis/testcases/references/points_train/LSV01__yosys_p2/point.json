@@ -1,0 +1,17 @@
+{
+  "id": "LSV01",
+  "split": "public",
+  "name": "epfl_priority",
+  "top": "top",
+  "flow": "yosys_p2",
+  "flow_label": "Yosys ABC p2: if -K 6 -g -C 8 + dch + Nangate SCL map",
+  "tool": "yosys",
+  "status": "ok",
+  "runtime_s": 2.79,
+  "area": 513.114,
+  "arrival_ns": 1.92,
+  "wns_ns": -1.92,
+  "tns_ns": -6.23,
+  "source_path": "EPFL/priority.v",
+  "clock_period_ns": 10.0
+}

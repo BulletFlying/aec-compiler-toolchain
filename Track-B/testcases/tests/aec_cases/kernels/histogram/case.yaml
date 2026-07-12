@@ -1,0 +1,22 @@
+case_id: K-HISTOGRAM
+category: kernel
+program: program.bin
+
+launch:
+  grid: [1, 1, 1]
+  block: [32, 1, 1]
+
+memory_init:
+  - address: 0x00000100
+    size: 128
+    file: input/gmem_00000100.bin
+
+expected:
+  status: done
+  memory:
+    - address: 0x00000100
+      size: 128
+      file: expected/gmem_00000100.bin
+  comparison: exact
+
+max_cycles: 10000

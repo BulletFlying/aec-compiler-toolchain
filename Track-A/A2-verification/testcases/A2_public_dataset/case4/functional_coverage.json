@@ -1,0 +1,206 @@
+{
+  "functional_coverage": {
+    "design": "case4",
+    "status": "passed",
+    "source": "cocotb transaction sampling",
+    "covered_bins": 29,
+    "total_bins": 29,
+    "percent": 100.0,
+    "coverpoints": [
+      {
+        "name": "operation_type",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "write",
+            "hits": 2011,
+            "covered": true
+          },
+          {
+            "name": "read",
+            "hits": 1507,
+            "covered": true
+          },
+          {
+            "name": "write_then_read",
+            "hits": 1482,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "burst_length_bytes",
+        "covered_bins": 7,
+        "total_bins": 7,
+        "bins": [
+          {
+            "name": "1",
+            "hits": 202,
+            "covered": true
+          },
+          {
+            "name": "2_to_3",
+            "hits": 426,
+            "covered": true
+          },
+          {
+            "name": "4_to_7",
+            "hits": 528,
+            "covered": true
+          },
+          {
+            "name": "8_to_15",
+            "hits": 701,
+            "covered": true
+          },
+          {
+            "name": "16_to_255",
+            "hits": 2792,
+            "covered": true
+          },
+          {
+            "name": "256_to_1023",
+            "hits": 183,
+            "covered": true
+          },
+          {
+            "name": "1024",
+            "hits": 168,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "address_region",
+        "covered_bins": 4,
+        "total_bins": 4,
+        "bins": [
+          {
+            "name": "low_0x0000_to_0x000f",
+            "hits": 664,
+            "covered": true
+          },
+          {
+            "name": "normal",
+            "hits": 3648,
+            "covered": true
+          },
+          {
+            "name": "near_4k_boundary",
+            "hits": 545,
+            "covered": true
+          },
+          {
+            "name": "near_memory_end",
+            "hits": 143,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "alignment",
+        "covered_bins": 4,
+        "total_bins": 4,
+        "bins": [
+          {
+            "name": "aligned_to_beat",
+            "hits": 3103,
+            "covered": true
+          },
+          {
+            "name": "unaligned_to_beat",
+            "hits": 1897,
+            "covered": true
+          },
+          {
+            "name": "crosses_word_boundary",
+            "hits": 4437,
+            "covered": true
+          },
+          {
+            "name": "crosses_4k_boundary",
+            "hits": 482,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "transfer_size",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "size_1_byte",
+            "hits": 1727,
+            "covered": true
+          },
+          {
+            "name": "size_2_byte",
+            "hits": 1629,
+            "covered": true
+          },
+          {
+            "name": "size_4_byte",
+            "hits": 1644,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "ready_valid_backpressure",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "write_response_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "read_data_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "combined_pause",
+            "hits": 1,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "state_transitions",
+        "covered_bins": 5,
+        "total_bins": 5,
+        "bins": [
+          {
+            "name": "write_idle_to_burst",
+            "hits": 3493,
+            "covered": true
+          },
+          {
+            "name": "write_burst_to_resp",
+            "hits": 3493,
+            "covered": true
+          },
+          {
+            "name": "write_resp_to_idle",
+            "hits": 3493,
+            "covered": true
+          },
+          {
+            "name": "read_idle_to_burst",
+            "hits": 2989,
+            "covered": true
+          },
+          {
+            "name": "read_burst_to_idle",
+            "hits": 2989,
+            "covered": true
+          }
+        ]
+      }
+    ]
+  }
+}

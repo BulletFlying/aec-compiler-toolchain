@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1783767105" />
+    <testcase name="run_json_sequences" classname="test_case4_json_sequences" file="/workspace/public_dataset/case4/test_case4_json_sequences.py" lineno="88" time="139.5610749721527" sim_time_ns="7207040.001" ratio_time="51640.760164953266" />
+  </testsuite>
+</testsuites>

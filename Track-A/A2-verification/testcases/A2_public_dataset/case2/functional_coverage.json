@@ -1,0 +1,117 @@
+{
+  "functional_coverage": {
+    "design": "case2",
+    "status": "passed",
+    "source": "verified Verilog input/output vector sampling",
+    "covered_bins": 13,
+    "total_bins": 14,
+    "percent": 92.86,
+    "coverpoints": [
+      {
+        "name": "reset",
+        "covered_bins": 2,
+        "total_bins": 2,
+        "bins": [
+          {
+            "name": "asserted",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "deasserted",
+            "hits": 7402,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "source_handshake",
+        "covered_bins": 2,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "transfer",
+            "hits": 405,
+            "covered": true
+          },
+          {
+            "name": "backpressure",
+            "hits": 0,
+            "covered": false
+          },
+          {
+            "name": "idle",
+            "hits": 6998,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "sink_handshake",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "transfer",
+            "hits": 2244,
+            "covered": true
+          },
+          {
+            "name": "backpressure",
+            "hits": 2193,
+            "covered": true
+          },
+          {
+            "name": "not_ready",
+            "hits": 2451,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "frame",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "last",
+            "hits": 255,
+            "covered": true
+          },
+          {
+            "name": "partial_keep",
+            "hits": 225,
+            "covered": true
+          },
+          {
+            "name": "multi_beat",
+            "hits": 135,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "metadata",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "tid_nonzero",
+            "hits": 405,
+            "covered": true
+          },
+          {
+            "name": "tdest_nonzero",
+            "hits": 405,
+            "covered": true
+          },
+          {
+            "name": "user_zero",
+            "hits": 354,
+            "covered": true
+          }
+        ]
+      }
+    ]
+  }
+}

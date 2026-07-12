@@ -1,0 +1,90 @@
+{
+  "constraint_random_test": {
+    "name": "case2_z3_constraints",
+    "solver_target": "Z3-compatible integer and enum constraints",
+    "seed": 20260630,
+    "sequence_count": 5000,
+    "transaction_variables": {
+      "frame_length_bytes": {
+        "type": "int",
+        "min": 1,
+        "max": 255
+      },
+      "payload_pattern": {
+        "type": "enum",
+        "values": [
+          "incrementing",
+          "walking_one",
+          "random"
+        ]
+      },
+      "tid": {
+        "type": "bitvec",
+        "width": 8
+      },
+      "tdest": {
+        "type": "bitvec",
+        "width": 8
+      },
+      "rst": {
+        "type": "bit",
+        "values": [
+          0,
+          1
+        ]
+      },
+      "source_valid_pattern": {
+        "type": "enum",
+        "values": [
+          "none",
+          "cycle_pause",
+          "random_pause"
+        ]
+      },
+      "sink_ready_pattern": {
+        "type": "enum",
+        "values": [
+          "none",
+          "cycle_pause",
+          "random_pause"
+        ]
+      }
+    },
+    "hard_constraints": [
+      "1 <= frame_length_bytes <= 255",
+      "tid == sequence_index mod 256",
+      "tdest == (sequence_index * 3) mod 256",
+      "tuser == 0 for legal scoreboard-preserving frames",
+      "reset is asserted only in the reset prefix and deasserted before payload transfer",
+      "source and sink never drive X/Z values",
+      "DROP_BAD_FRAME == 0 and DROP_WHEN_FULL == 0 for the public legal run",
+      "the generator must emit both tb/input.mem and tb/output.mem in the schema described by vector_io_schema.json"
+    ],
+    "coverage_guidance_constraints": [
+      "include frame_length_bytes in {1,2,3,4,7,8,9,15,16,17,31,32,33,63,64,65,127,255}",
+      "at least 20 percent of frames have a non-multiple-of-8 length",
+      "at least 20 percent of frames are longer than the 64-bit source lane width",
+      "enable source valid gaps on at least 10 percent of cycles",
+      "enable sink backpressure through m_axis_tready on at least 20 percent of cycles",
+      "include FIFO empty, partially filled, and near-full periods"
+    ],
+    "objective": {
+      "primary": "maximize uncovered line, branch, and functional coverage in case2 and its dependencies",
+      "secondary": "exercise downsize conversion, FIFO fill/drain, tlast, tid, and tdest propagation",
+      "reported_metric": [
+        "line_coverage_percent",
+        "branch_coverage_percent",
+        "functional_coverage_percent"
+      ]
+    },
+    "vcs_execution_model": {
+      "json_supported_by_existing_verilog_tb": false,
+      "method": "A generator writes tb/input.mem and tb/output.mem. The Verilog testbench checks them with VCS/URG, then analyze_functional_coverage.py samples the verified vectors for functional-bin coverage.",
+      "current_measured_vector_run": "tb/case2_tb.v with existing tb/input.mem and tb/output.mem",
+      "vcs_options": [
+        "-cm line+branch",
+        "-cm_dir coverage.vdb"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1305 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : stage_mult
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:48 2026
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[31]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/CO (FA_X1)                                 0.09       3.62 f
+  add_28/U1_22/CO (FA_X1)                                 0.09       3.71 f
+  add_28/U1_23/CO (FA_X1)                                 0.09       3.80 f
+  add_28/U1_24/CO (FA_X1)                                 0.09       3.89 f
+  add_28/U1_25/CO (FA_X1)                                 0.09       3.98 f
+  add_28/U1_26/CO (FA_X1)                                 0.09       4.07 f
+  add_28/U1_27/CO (FA_X1)                                 0.09       4.16 f
+  add_28/U1_28/CO (FA_X1)                                 0.09       4.25 f
+  add_28/U1_29/CO (FA_X1)                                 0.09       4.34 f
+  add_28/U1_30/CO (FA_X1)                                 0.09       4.44 f
+  add_28/U1_31/S (FA_X1)                                  0.13       4.57 r
+  add_28/SUM[31] (stage_mult_DW01_add_0)                  0.00       4.57 r
+  prod_reg[31]/D (DFF_X1)                                 0.01       4.57 r
+  data arrival time                                                  4.57
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[31]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -4.57
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.39
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[30]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/CO (FA_X1)                                 0.09       3.62 f
+  add_28/U1_22/CO (FA_X1)                                 0.09       3.71 f
+  add_28/U1_23/CO (FA_X1)                                 0.09       3.80 f
+  add_28/U1_24/CO (FA_X1)                                 0.09       3.89 f
+  add_28/U1_25/CO (FA_X1)                                 0.09       3.98 f
+  add_28/U1_26/CO (FA_X1)                                 0.09       4.07 f
+  add_28/U1_27/CO (FA_X1)                                 0.09       4.16 f
+  add_28/U1_28/CO (FA_X1)                                 0.09       4.25 f
+  add_28/U1_29/CO (FA_X1)                                 0.09       4.34 f
+  add_28/U1_30/S (FA_X1)                                  0.13       4.47 r
+  add_28/SUM[30] (stage_mult_DW01_add_0)                  0.00       4.47 r
+  prod_reg[30]/D (DFF_X1)                                 0.01       4.48 r
+  data arrival time                                                  4.48
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[30]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -4.48
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.48
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[29]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/CO (FA_X1)                                 0.09       3.62 f
+  add_28/U1_22/CO (FA_X1)                                 0.09       3.71 f
+  add_28/U1_23/CO (FA_X1)                                 0.09       3.80 f
+  add_28/U1_24/CO (FA_X1)                                 0.09       3.89 f
+  add_28/U1_25/CO (FA_X1)                                 0.09       3.98 f
+  add_28/U1_26/CO (FA_X1)                                 0.09       4.07 f
+  add_28/U1_27/CO (FA_X1)                                 0.09       4.16 f
+  add_28/U1_28/CO (FA_X1)                                 0.09       4.25 f
+  add_28/U1_29/S (FA_X1)                                  0.13       4.38 r
+  add_28/SUM[29] (stage_mult_DW01_add_0)                  0.00       4.38 r
+  prod_reg[29]/D (DFF_X1)                                 0.01       4.39 r
+  data arrival time                                                  4.39
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[29]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -4.39
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.58
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[28]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/CO (FA_X1)                                 0.09       3.62 f
+  add_28/U1_22/CO (FA_X1)                                 0.09       3.71 f
+  add_28/U1_23/CO (FA_X1)                                 0.09       3.80 f
+  add_28/U1_24/CO (FA_X1)                                 0.09       3.89 f
+  add_28/U1_25/CO (FA_X1)                                 0.09       3.98 f
+  add_28/U1_26/CO (FA_X1)                                 0.09       4.07 f
+  add_28/U1_27/CO (FA_X1)                                 0.09       4.16 f
+  add_28/U1_28/S (FA_X1)                                  0.13       4.29 r
+  add_28/SUM[28] (stage_mult_DW01_add_0)                  0.00       4.29 r
+  prod_reg[28]/D (DFF_X1)                                 0.01       4.30 r
+  data arrival time                                                  4.30
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[28]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -4.30
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.67
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[27]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/CO (FA_X1)                                 0.09       3.62 f
+  add_28/U1_22/CO (FA_X1)                                 0.09       3.71 f
+  add_28/U1_23/CO (FA_X1)                                 0.09       3.80 f
+  add_28/U1_24/CO (FA_X1)                                 0.09       3.89 f
+  add_28/U1_25/CO (FA_X1)                                 0.09       3.98 f
+  add_28/U1_26/CO (FA_X1)                                 0.09       4.07 f
+  add_28/U1_27/S (FA_X1)                                  0.13       4.20 r
+  add_28/SUM[27] (stage_mult_DW01_add_0)                  0.00       4.20 r
+  prod_reg[27]/D (DFF_X1)                                 0.01       4.21 r
+  data arrival time                                                  4.21
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[27]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -4.21
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.76
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[26]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/CO (FA_X1)                                 0.09       3.62 f
+  add_28/U1_22/CO (FA_X1)                                 0.09       3.71 f
+  add_28/U1_23/CO (FA_X1)                                 0.09       3.80 f
+  add_28/U1_24/CO (FA_X1)                                 0.09       3.89 f
+  add_28/U1_25/CO (FA_X1)                                 0.09       3.98 f
+  add_28/U1_26/S (FA_X1)                                  0.13       4.11 r
+  add_28/SUM[26] (stage_mult_DW01_add_0)                  0.00       4.11 r
+  prod_reg[26]/D (DFF_X1)                                 0.01       4.12 r
+  data arrival time                                                  4.12
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[26]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -4.12
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.85
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[25]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/CO (FA_X1)                                 0.09       3.62 f
+  add_28/U1_22/CO (FA_X1)                                 0.09       3.71 f
+  add_28/U1_23/CO (FA_X1)                                 0.09       3.80 f
+  add_28/U1_24/CO (FA_X1)                                 0.09       3.89 f
+  add_28/U1_25/S (FA_X1)                                  0.13       4.02 r
+  add_28/SUM[25] (stage_mult_DW01_add_0)                  0.00       4.02 r
+  prod_reg[25]/D (DFF_X1)                                 0.01       4.03 r
+  data arrival time                                                  4.03
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[25]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -4.03
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.94
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[24]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/CO (FA_X1)                                 0.09       3.62 f
+  add_28/U1_22/CO (FA_X1)                                 0.09       3.71 f
+  add_28/U1_23/CO (FA_X1)                                 0.09       3.80 f
+  add_28/U1_24/S (FA_X1)                                  0.13       3.93 r
+  add_28/SUM[24] (stage_mult_DW01_add_0)                  0.00       3.93 r
+  prod_reg[24]/D (DFF_X1)                                 0.01       3.94 r
+  data arrival time                                                  3.94
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[24]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.94
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.03
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[23]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/CO (FA_X1)                                 0.09       3.62 f
+  add_28/U1_22/CO (FA_X1)                                 0.09       3.71 f
+  add_28/U1_23/S (FA_X1)                                  0.13       3.84 r
+  add_28/SUM[23] (stage_mult_DW01_add_0)                  0.00       3.84 r
+  prod_reg[23]/D (DFF_X1)                                 0.01       3.85 r
+  data arrival time                                                  3.85
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[23]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.85
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.12
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[22]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/CO (FA_X1)                                 0.09       3.62 f
+  add_28/U1_22/S (FA_X1)                                  0.13       3.75 r
+  add_28/SUM[22] (stage_mult_DW01_add_0)                  0.00       3.75 r
+  prod_reg[22]/D (DFF_X1)                                 0.01       3.76 r
+  data arrival time                                                  3.76
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[22]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.76
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.21
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[21]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/CO (FA_X1)                                 0.09       3.53 f
+  add_28/U1_21/S (FA_X1)                                  0.13       3.66 r
+  add_28/SUM[21] (stage_mult_DW01_add_0)                  0.00       3.66 r
+  prod_reg[21]/D (DFF_X1)                                 0.01       3.67 r
+  data arrival time                                                  3.67
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[21]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.67
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.30
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[20]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/CO (FA_X1)                                 0.09       3.44 f
+  add_28/U1_20/S (FA_X1)                                  0.13       3.57 r
+  add_28/SUM[20] (stage_mult_DW01_add_0)                  0.00       3.57 r
+  prod_reg[20]/D (DFF_X1)                                 0.01       3.58 r
+  data arrival time                                                  3.58
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[20]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.58
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.39
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[19]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/CO (FA_X1)                                 0.09       3.35 f
+  add_28/U1_19/S (FA_X1)                                  0.13       3.48 r
+  add_28/SUM[19] (stage_mult_DW01_add_0)                  0.00       3.48 r
+  prod_reg[19]/D (DFF_X1)                                 0.01       3.49 r
+  data arrival time                                                  3.49
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[19]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.49
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.48
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[18]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/CO (FA_X1)                                 0.09       3.26 f
+  add_28/U1_18/S (FA_X1)                                  0.13       3.39 r
+  add_28/SUM[18] (stage_mult_DW01_add_0)                  0.00       3.39 r
+  prod_reg[18]/D (DFF_X1)                                 0.01       3.40 r
+  data arrival time                                                  3.40
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[18]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.40
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.57
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[17]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/CO (FA_X1)                                 0.09       3.17 f
+  add_28/U1_17/S (FA_X1)                                  0.13       3.30 r
+  add_28/SUM[17] (stage_mult_DW01_add_0)                  0.00       3.30 r
+  prod_reg[17]/D (DFF_X1)                                 0.01       3.31 r
+  data arrival time                                                  3.31
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[17]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.31
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.66
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[16]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/CO (FA_X1)                                 0.09       3.08 f
+  add_28/U1_16/S (FA_X1)                                  0.13       3.21 r
+  add_28/SUM[16] (stage_mult_DW01_add_0)                  0.00       3.21 r
+  prod_reg[16]/D (DFF_X1)                                 0.01       3.21 r
+  data arrival time                                                  3.21
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[16]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.21
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.75
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[15]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/CO (FA_X1)                                 0.09       2.99 f
+  add_28/U1_15/S (FA_X1)                                  0.13       3.11 r
+  add_28/SUM[15] (stage_mult_DW01_add_0)                  0.00       3.11 r
+  prod_reg[15]/D (DFF_X1)                                 0.01       3.12 r
+  data arrival time                                                  3.12
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[15]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.12
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.84
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[14]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/CO (FA_X1)                                 0.09       2.89 f
+  add_28/U1_14/S (FA_X1)                                  0.13       3.02 r
+  add_28/SUM[14] (stage_mult_DW01_add_0)                  0.00       3.02 r
+  prod_reg[14]/D (DFF_X1)                                 0.01       3.03 r
+  data arrival time                                                  3.03
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[14]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.03
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.93
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[13]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/CO (FA_X1)                                 0.09       2.80 f
+  add_28/U1_13/S (FA_X1)                                  0.13       2.93 r
+  add_28/SUM[13] (stage_mult_DW01_add_0)                  0.00       2.93 r
+  prod_reg[13]/D (DFF_X1)                                 0.01       2.94 r
+  data arrival time                                                  2.94
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[13]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -2.94
+  --------------------------------------------------------------------------
+  slack (MET)                                                       97.03
+
+
+  Startpoint: mplier_i[0]
+              (input port clocked by clk)
+  Endpoint: prod_reg[12]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stage_mult         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  mplier_i[0] (in)                                        0.10       1.10 f
+  U21/Z (CLKBUF_X1)                                       0.06       1.16 f
+  mult_18/A[0] (stage_mult_DW02_mult_0)                   0.00       1.16 f
+  mult_18/U156/ZN (INV_X1)                                0.13       1.29 r
+  mult_18/U130/Z (BUF_X1)                                 0.12       1.41 r
+  mult_18/U403/ZN (NOR2_X1)                               0.04       1.46 f
+  mult_18/U58/Z (XOR2_X1)                                 0.08       1.54 f
+  mult_18/S2_2_3/CO (FA_X1)                               0.09       1.63 f
+  mult_18/S2_3_3/S (FA_X1)                                0.15       1.78 r
+  mult_18/S2_4_2/S (FA_X1)                                0.11       1.89 f
+  mult_18/S2_5_1/CO (FA_X1)                               0.09       1.98 f
+  mult_18/S2_6_1/S (FA_X1)                                0.15       2.13 r
+  mult_18/S4_0/S (FA_X1)                                  0.11       2.25 f
+  mult_18/FS_1/A[5] (stage_mult_DW01_add_1)               0.00       2.25 f
+  mult_18/FS_1/SUM[5] (stage_mult_DW01_add_1)             0.00       2.25 f
+  mult_18/PRODUCT[7] (stage_mult_DW02_mult_0)             0.00       2.25 f
+  add_28/B[7] (stage_mult_DW01_add_0)                     0.00       2.25 f
+  add_28/U1_7/CO (FA_X1)                                  0.10       2.35 f
+  add_28/U1_8/CO (FA_X1)                                  0.09       2.44 f
+  add_28/U1_9/CO (FA_X1)                                  0.09       2.53 f
+  add_28/U1_10/CO (FA_X1)                                 0.09       2.62 f
+  add_28/U1_11/CO (FA_X1)                                 0.09       2.71 f
+  add_28/U1_12/S (FA_X1)                                  0.13       2.84 r
+  add_28/SUM[12] (stage_mult_DW01_add_0)                  0.00       2.84 r
+  prod_reg[12]/D (DFF_X1)                                 0.01       2.85 r
+  data arrival time                                                  2.85
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  prod_reg[12]/CK (DFF_X1)                                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -2.85
+  --------------------------------------------------------------------------
+  slack (MET)                                                       97.12
+
+
+1

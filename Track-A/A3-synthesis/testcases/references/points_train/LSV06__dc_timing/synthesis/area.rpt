@@ -1,0 +1,43 @@
+ 
+****************************************
+Report : area
+Design : pfpu_f2i
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:11:44 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                           68
+Number of nets:                           603
+Number of cells:                          538
+Number of combinational cells:            504
+Number of sequential cells:                34
+Number of macros/black boxes:               0
+Number of buf/inv:                        149
+Number of references:                      23
+
+Combinational area:                575.624007
+Buf/Inv area:                       88.578000
+Noncombinational area:             149.225995
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                   724.850001
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  --------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-    Noncombi-  Black-
+                                  Total      Total    national  national   boxes   Design
+--------------------------------  ---------  -------  --------  ---------  ------  ---------
+pfpu_f2i                           724.8500    100.0  575.6240   149.2260  0.0000  pfpu_f2i
+--------------------------------  ---------  -------  --------  ---------  ------  ---------
+Total                                                 575.6240   149.2260  0.0000
+
+1

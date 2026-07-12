@@ -1,0 +1,11 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   BRANCH                  
+ 88.03  87.68  88.37 case5_cocotb_top 
+  
+  ----------------
+  SCORE  LINE   BRANCH     
+   88.03  87.68  88.37 dut 
+

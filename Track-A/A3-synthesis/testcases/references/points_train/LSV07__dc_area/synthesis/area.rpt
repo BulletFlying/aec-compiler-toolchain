@@ -1,0 +1,46 @@
+ 
+****************************************
+Report : area
+Design : qdiv
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:41 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                          462
+Number of nets:                          1895
+Number of cells:                         1306
+Number of combinational cells:           1035
+Number of sequential cells:               268
+Number of macros/black boxes:               0
+Number of buf/inv:                        365
+Number of references:                      22
+
+Combinational area:               1142.736009
+Buf/Inv area:                      207.480001
+Noncombinational area:            1198.329957
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  2341.065965
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  ---------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-     Noncombi-  Black-
+                                  Total      Total    national   national   boxes   Design
+--------------------------------  ---------  -------  ---------  ---------  ------  ----------------
+qdiv                              2341.0660    100.0   704.1020  1198.3300  0.0000  qdiv
+gte_66                             135.1280      5.8   135.1280     0.0000  0.0000  qdiv_DW01_cmp2_1
+r72                                 84.5880      3.6    84.5880     0.0000  0.0000  qdiv_DW01_dec_0
+sub_68                             218.9180      9.4   218.9180     0.0000  0.0000  qdiv_DW01_sub_0
+--------------------------------  ---------  -------  ---------  ---------  ------  ----------------
+Total                                                 1142.7360  1198.3300  0.0000
+
+1

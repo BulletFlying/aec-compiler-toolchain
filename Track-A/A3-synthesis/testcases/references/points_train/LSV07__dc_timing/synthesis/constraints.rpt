@@ -1,0 +1,19 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : qdiv
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:11:45 2026
+****************************************
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   qdiv                         0.00       46984.55       -46984.55 (VIOLATED)
+
+
+1

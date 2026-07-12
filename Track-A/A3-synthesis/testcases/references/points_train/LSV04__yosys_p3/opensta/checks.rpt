@@ -1,0 +1,529 @@
+Startpoint: _3074_ (rising edge-triggered flip-flop clocked by clock)
+Endpoint: _3039_ (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _3074_/CK (DFFR_X1)
+                  0.030    0.118    0.118 v _3074_/Q (DFFR_X1)
+   13   26.090                              r_in[3] (net)
+                  0.030    0.000    0.118 v _1566_/A1 (NOR2_X1)
+                  0.385    0.435    0.553 ^ _1566_/ZN (NOR2_X1)
+   34   81.546                              _1011_ (net)
+                  0.385    0.000    0.553 ^ _1570_/B2 (AOI22_X1)
+                  0.061    0.048    0.601 v _1570_/ZN (AOI22_X1)
+    2    2.875                              _1015_ (net)
+                  0.061    0.000    0.601 v _1580_/A1 (NOR3_X1)
+                  0.213    0.260    0.861 ^ _1580_/ZN (NOR3_X1)
+   13   28.165                              _1025_ (net)
+                  0.213    0.000    0.861 ^ _1582_/A2 (NOR2_X1)
+                  0.109    0.179    1.040 v _1582_/ZN (NOR2_X1)
+   27   58.040                              _1027_ (net)
+                  0.109    0.000    1.040 v _1855_/B1 (AOI221_X1)
+                  0.045    0.101    1.141 ^ _1855_/ZN (AOI221_X1)
+    1    2.010                              _1283_ (net)
+                  0.045    0.000    1.141 ^ _1856_/A (INV_X1)
+                  0.011    0.010    1.152 v _1856_/ZN (INV_X1)
+    1    1.807                              _1284_ (net)
+                  0.011    0.000    1.152 v _1857_/A (AOI221_X1)
+                  0.044    0.073    1.225 ^ _1857_/ZN (AOI221_X1)
+    1    1.940                              _1285_ (net)
+                  0.044    0.000    1.225 ^ _1859_/A (OAI221_X1)
+                  0.019    0.039    1.264 v _1859_/ZN (OAI221_X1)
+    1    1.205                              _1287_ (net)
+                  0.019    0.000    1.264 v _1860_/A2 (OR2_X1)
+                  0.009    0.053    1.316 v _1860_/ZN (OR2_X1)
+    1    1.362                              _0000_[6] (net)
+                  0.009    0.000    1.316 v _3039_/D (DFFR_X1)
+                                    1.316   data arrival time
+
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _3039_/CK (DFFR_X1)
+                          -0.041   -0.041   library setup time
+                                   -0.041   data required time
+--------------------------------------------------------------------------------
+                                   -0.041   data required time
+                                   -1.316   data arrival time
+--------------------------------------------------------------------------------
+                                   -1.357   slack (VIOLATED)
+
+
+Startpoint: _3074_ (rising edge-triggered flip-flop clocked by clock)
+Endpoint: _3053_ (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _3074_/CK (DFFR_X1)
+                  0.030    0.118    0.118 v _3074_/Q (DFFR_X1)
+   13   26.090                              r_in[3] (net)
+                  0.030    0.000    0.118 v _1566_/A1 (NOR2_X1)
+                  0.385    0.435    0.553 ^ _1566_/ZN (NOR2_X1)
+   34   81.546                              _1011_ (net)
+                  0.385    0.000    0.553 ^ _1570_/B2 (AOI22_X1)
+                  0.061    0.048    0.601 v _1570_/ZN (AOI22_X1)
+    2    2.875                              _1015_ (net)
+                  0.061    0.000    0.601 v _1580_/A1 (NOR3_X1)
+                  0.213    0.260    0.861 ^ _1580_/ZN (NOR3_X1)
+   13   28.165                              _1025_ (net)
+                  0.213    0.000    0.861 ^ _1582_/A2 (NOR2_X1)
+                  0.109    0.179    1.040 v _1582_/ZN (NOR2_X1)
+   27   58.040                              _1027_ (net)
+                  0.109    0.000    1.040 v _2316_/A2 (AOI22_X1)
+                  0.039    0.079    1.119 ^ _2316_/ZN (AOI22_X1)
+    1    2.010                              _0456_ (net)
+                  0.039    0.000    1.119 ^ _2317_/A (INV_X1)
+                  0.010    0.010    1.129 v _2317_/ZN (INV_X1)
+    1    1.780                              _0457_ (net)
+                  0.010    0.000    1.129 v _2318_/B (AOI211_X1)
+                  0.039    0.065    1.195 ^ _2318_/ZN (AOI211_X1)
+    1    1.940                              _0458_ (net)
+                  0.039    0.000    1.195 ^ _2319_/A (OAI221_X1)
+                  0.020    0.040    1.235 v _2319_/ZN (OAI221_X1)
+    1    1.780                              _0459_ (net)
+                  0.020    0.000    1.235 v _2320_/B (AOI211_X1)
+                  0.050    0.070    1.305 ^ _2320_/ZN (AOI211_X1)
+    1    2.010                              _0460_ (net)
+                  0.050    0.000    1.305 ^ _2321_/A (INV_X1)
+                  0.011    0.008    1.313 v _2321_/ZN (INV_X1)
+    1    1.362                              _0000_[20] (net)
+                  0.011    0.000    1.313 v _3053_/D (DFFR_X1)
+                                    1.313   data arrival time
+
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _3053_/CK (DFFR_X1)
+                          -0.041   -0.041   library setup time
+                                   -0.041   data required time
+--------------------------------------------------------------------------------
+                                   -0.041   data required time
+                                   -1.313   data arrival time
+--------------------------------------------------------------------------------
+                                   -1.354   slack (VIOLATED)
+
+
+Startpoint: _3074_ (rising edge-triggered flip-flop clocked by clock)
+Endpoint: _3048_ (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _3074_/CK (DFFR_X1)
+                  0.030    0.118    0.118 v _3074_/Q (DFFR_X1)
+   13   26.090                              r_in[3] (net)
+                  0.030    0.000    0.118 v _1566_/A1 (NOR2_X1)
+                  0.385    0.435    0.553 ^ _1566_/ZN (NOR2_X1)
+   34   81.546                              _1011_ (net)
+                  0.385    0.000    0.553 ^ _1570_/B2 (AOI22_X1)
+                  0.061    0.048    0.601 v _1570_/ZN (AOI22_X1)
+    2    2.875                              _1015_ (net)
+                  0.061    0.000    0.601 v _1580_/A1 (NOR3_X1)
+                  0.213    0.260    0.861 ^ _1580_/ZN (NOR3_X1)
+   13   28.165                              _1025_ (net)
+                  0.213    0.000    0.861 ^ _1582_/A2 (NOR2_X1)
+                  0.109    0.179    1.040 v _1582_/ZN (NOR2_X1)
+   27   58.040                              _1027_ (net)
+                  0.109    0.000    1.040 v _2146_/C2 (AOI221_X1)
+                  0.052    0.101    1.141 ^ _2146_/ZN (AOI221_X1)
+    1    1.980                              _0291_ (net)
+                  0.052    0.000    1.141 ^ _2147_/A (OAI21_X1)
+                  0.016    0.027    1.168 v _2147_/ZN (OAI21_X1)
+    1    1.807                              _0292_ (net)
+                  0.016    0.000    1.168 v _2148_/A (AOI221_X1)
+                  0.044    0.075    1.243 ^ _2148_/ZN (AOI221_X1)
+    1    1.933                              _0293_ (net)
+                  0.044    0.000    1.243 ^ _2149_/B2 (AOI22_X1)
+                  0.073    0.027    1.271 v _2149_/ZN (AOI22_X1)
+    1    1.362                              _0000_[15] (net)
+                  0.073    0.000    1.271 v _3048_/D (DFFR_X1)
+                                    1.271   data arrival time
+
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _3048_/CK (DFFR_X1)
+                          -0.064   -0.064   library setup time
+                                   -0.064   data required time
+--------------------------------------------------------------------------------
+                                   -0.064   data required time
+                                   -1.271   data arrival time
+--------------------------------------------------------------------------------
+                                   -1.334   slack (VIOLATED)
+
+
+Startpoint: _3074_ (rising edge-triggered flip-flop clocked by clock)
+Endpoint: _3041_ (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _3074_/CK (DFFR_X1)
+                  0.030    0.118    0.118 v _3074_/Q (DFFR_X1)
+   13   26.090                              r_in[3] (net)
+                  0.030    0.000    0.118 v _1566_/A1 (NOR2_X1)
+                  0.385    0.435    0.553 ^ _1566_/ZN (NOR2_X1)
+   34   81.546                              _1011_ (net)
+                  0.385    0.000    0.553 ^ _1570_/B2 (AOI22_X1)
+                  0.061    0.048    0.601 v _1570_/ZN (AOI22_X1)
+    2    2.875                              _1015_ (net)
+                  0.061    0.000    0.601 v _1580_/A1 (NOR3_X1)
+                  0.213    0.260    0.861 ^ _1580_/ZN (NOR3_X1)
+   13   28.165                              _1025_ (net)
+                  0.213    0.000    0.861 ^ _1582_/A2 (NOR2_X1)
+                  0.109    0.179    1.040 v _1582_/ZN (NOR2_X1)
+   27   58.040                              _1027_ (net)
+                  0.109    0.000    1.040 v _1928_/B1 (AOI21_X1)
+                  0.036    0.063    1.103 ^ _1928_/ZN (AOI21_X1)
+    1    1.974                              _1354_ (net)
+                  0.036    0.000    1.103 ^ _1929_/A2 (NAND2_X1)
+                  0.010    0.019    1.122 v _1929_/ZN (NAND2_X1)
+    1    1.807                              _1355_ (net)
+                  0.010    0.000    1.122 v _1930_/A (AOI221_X1)
+                  0.044    0.073    1.194 ^ _1930_/ZN (AOI221_X1)
+    1    1.940                              _1356_ (net)
+                  0.044    0.000    1.194 ^ _1931_/A (OAI221_X1)
+                  0.020    0.041    1.236 v _1931_/ZN (OAI221_X1)
+    1    1.845                              _1357_ (net)
+                  0.020    0.000    1.236 v _1932_/A (AOI21_X1)
+                  0.037    0.046    1.281 ^ _1932_/ZN (AOI21_X1)
+    1    2.010                              _1358_ (net)
+                  0.037    0.000    1.281 ^ _1933_/A (INV_X1)
+                  0.009    0.009    1.290 v _1933_/ZN (INV_X1)
+    1    1.362                              _0000_[8] (net)
+                  0.009    0.000    1.290 v _3041_/D (DFFR_X1)
+                                    1.290   data arrival time
+
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _3041_/CK (DFFR_X1)
+                          -0.041   -0.041   library setup time
+                                   -0.041   data required time
+--------------------------------------------------------------------------------
+                                   -0.041   data required time
+                                   -1.290   data arrival time
+--------------------------------------------------------------------------------
+                                   -1.331   slack (VIOLATED)
+
+
+Startpoint: _3074_ (rising edge-triggered flip-flop clocked by clock)
+Endpoint: _3056_ (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _3074_/CK (DFFR_X1)
+                  0.030    0.118    0.118 v _3074_/Q (DFFR_X1)
+   13   26.090                              r_in[3] (net)
+                  0.030    0.000    0.118 v _1566_/A1 (NOR2_X1)
+                  0.385    0.435    0.553 ^ _1566_/ZN (NOR2_X1)
+   34   81.546                              _1011_ (net)
+                  0.385    0.000    0.553 ^ _1570_/B2 (AOI22_X1)
+                  0.061    0.048    0.601 v _1570_/ZN (AOI22_X1)
+    2    2.875                              _1015_ (net)
+                  0.061    0.000    0.601 v _1580_/A1 (NOR3_X1)
+                  0.213    0.260    0.861 ^ _1580_/ZN (NOR3_X1)
+   13   28.165                              _1025_ (net)
+                  0.213    0.000    0.861 ^ _1582_/A2 (NOR2_X1)
+                  0.109    0.179    1.040 v _1582_/ZN (NOR2_X1)
+   27   58.040                              _1027_ (net)
+                  0.109    0.000    1.040 v _2405_/B1 (AOI221_X1)
+                  0.044    0.101    1.141 ^ _2405_/ZN (AOI221_X1)
+    1    1.980                              _0542_ (net)
+                  0.044    0.000    1.141 ^ _2407_/A (OAI21_X1)
+                  0.022    0.024    1.165 v _2407_/ZN (OAI21_X1)
+    1    1.203                              _0544_ (net)
+                  0.022    0.000    1.165 v _2408_/A4 (OR4_X1)
+                  0.017    0.119    1.284 v _2408_/ZN (OR4_X1)
+    1    1.362                              _0000_[23] (net)
+                  0.017    0.000    1.284 v _3056_/D (DFFR_X1)
+                                    1.284   data arrival time
+
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _3056_/CK (DFFR_X1)
+                          -0.044   -0.044   library setup time
+                                   -0.044   data required time
+--------------------------------------------------------------------------------
+                                   -0.044   data required time
+                                   -1.284   data arrival time
+--------------------------------------------------------------------------------
+                                   -1.328   slack (VIOLATED)
+
+
+Startpoint: _3074_ (rising edge-triggered flip-flop clocked by clock)
+Endpoint: _3038_ (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _3074_/CK (DFFR_X1)
+                  0.030    0.118    0.118 v _3074_/Q (DFFR_X1)
+   13   26.090                              r_in[3] (net)
+                  0.030    0.000    0.118 v _1566_/A1 (NOR2_X1)
+                  0.385    0.435    0.553 ^ _1566_/ZN (NOR2_X1)
+   34   81.546                              _1011_ (net)
+                  0.385    0.000    0.553 ^ _1570_/B2 (AOI22_X1)
+                  0.061    0.048    0.601 v _1570_/ZN (AOI22_X1)
+    2    2.875                              _1015_ (net)
+                  0.061    0.000    0.601 v _1580_/A1 (NOR3_X1)
+                  0.213    0.260    0.861 ^ _1580_/ZN (NOR3_X1)
+   13   28.165                              _1025_ (net)
+                  0.213    0.000    0.861 ^ _1582_/A2 (NOR2_X1)
+                  0.109    0.179    1.040 v _1582_/ZN (NOR2_X1)
+   27   58.040                              _1027_ (net)
+                  0.109    0.000    1.040 v _1827_/B1 (AOI221_X1)
+                  0.044    0.101    1.141 ^ _1827_/ZN (AOI221_X1)
+    1    1.980                              _1256_ (net)
+                  0.044    0.000    1.141 ^ _1828_/A (OAI21_X1)
+                  0.012    0.026    1.167 v _1828_/ZN (OAI21_X1)
+    1    1.780                              _1257_ (net)
+                  0.012    0.000    1.167 v _1829_/B (AOI211_X1)
+                  0.041    0.066    1.233 ^ _1829_/ZN (AOI211_X1)
+    1    1.933                              _1258_ (net)
+                  0.041    0.000    1.233 ^ _1830_/B2 (AOI22_X1)
+                  0.073    0.027    1.260 v _1830_/ZN (AOI22_X1)
+    1    1.362                              _0000_[5] (net)
+                  0.073    0.000    1.260 v _3038_/D (DFFR_X1)
+                                    1.260   data arrival time
+
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _3038_/CK (DFFR_X1)
+                          -0.064   -0.064   library setup time
+                                   -0.064   data required time
+--------------------------------------------------------------------------------
+                                   -0.064   data required time
+                                   -1.260   data arrival time
+--------------------------------------------------------------------------------
+                                   -1.324   slack (VIOLATED)
+
+
+Startpoint: _3074_ (rising edge-triggered flip-flop clocked by clock)
+Endpoint: _3051_ (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _3074_/CK (DFFR_X1)
+                  0.030    0.118    0.118 v _3074_/Q (DFFR_X1)
+   13   26.090                              r_in[3] (net)
+                  0.030    0.000    0.118 v _1566_/A1 (NOR2_X1)
+                  0.385    0.435    0.553 ^ _1566_/ZN (NOR2_X1)
+   34   81.546                              _1011_ (net)
+                  0.385    0.000    0.553 ^ _1570_/B2 (AOI22_X1)
+                  0.061    0.048    0.601 v _1570_/ZN (AOI22_X1)
+    2    2.875                              _1015_ (net)
+                  0.061    0.000    0.601 v _1580_/A1 (NOR3_X1)
+                  0.213    0.260    0.861 ^ _1580_/ZN (NOR3_X1)
+   13   28.165                              _1025_ (net)
+                  0.213    0.000    0.861 ^ _1582_/A2 (NOR2_X1)
+                  0.109    0.179    1.040 v _1582_/ZN (NOR2_X1)
+   27   58.040                              _1027_ (net)
+                  0.109    0.000    1.040 v _2253_/C2 (AOI211_X1)
+                  0.048    0.092    1.132 ^ _2253_/ZN (AOI211_X1)
+    1    1.974                              _0395_ (net)
+                  0.048    0.000    1.132 ^ _2254_/A2 (NAND2_X1)
+                  0.011    0.020    1.152 v _2254_/ZN (NAND2_X1)
+    1    1.807                              _0396_ (net)
+                  0.011    0.000    1.152 v _2255_/A (AOI221_X1)
+                  0.044    0.073    1.225 ^ _2255_/ZN (AOI221_X1)
+    1    1.933                              _0397_ (net)
+                  0.044    0.000    1.225 ^ _2256_/B2 (AOI22_X1)
+                  0.073    0.027    1.252 v _2256_/ZN (AOI22_X1)
+    1    1.362                              _0000_[18] (net)
+                  0.073    0.000    1.252 v _3051_/D (DFFR_X1)
+                                    1.252   data arrival time
+
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _3051_/CK (DFFR_X1)
+                          -0.064   -0.064   library setup time
+                                   -0.064   data required time
+--------------------------------------------------------------------------------
+                                   -0.064   data required time
+                                   -1.252   data arrival time
+--------------------------------------------------------------------------------
+                                   -1.316   slack (VIOLATED)
+
+
+Startpoint: _3074_ (rising edge-triggered flip-flop clocked by clock)
+Endpoint: _3052_ (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _3074_/CK (DFFR_X1)
+                  0.030    0.118    0.118 v _3074_/Q (DFFR_X1)
+   13   26.090                              r_in[3] (net)
+                  0.030    0.000    0.118 v _1566_/A1 (NOR2_X1)
+                  0.385    0.435    0.553 ^ _1566_/ZN (NOR2_X1)
+   34   81.546                              _1011_ (net)
+                  0.385    0.000    0.553 ^ _1570_/B2 (AOI22_X1)
+                  0.061    0.048    0.601 v _1570_/ZN (AOI22_X1)
+    2    2.875                              _1015_ (net)
+                  0.061    0.000    0.601 v _1580_/A1 (NOR3_X1)
+                  0.213    0.260    0.861 ^ _1580_/ZN (NOR3_X1)
+   13   28.165                              _1025_ (net)
+                  0.213    0.000    0.861 ^ _1582_/A2 (NOR2_X1)
+                  0.109    0.179    1.040 v _1582_/ZN (NOR2_X1)
+   27   58.040                              _1027_ (net)
+                  0.109    0.000    1.040 v _2279_/C2 (AOI221_X1)
+                  0.051    0.101    1.141 ^ _2279_/ZN (AOI221_X1)
+    1    1.974                              _0420_ (net)
+                  0.051    0.000    1.141 ^ _2280_/A2 (NAND2_X1)
+                  0.011    0.017    1.159 v _2280_/ZN (NAND2_X1)
+    1    1.162                              _0421_ (net)
+                  0.011    0.000    1.159 v _2282_/A3 (OR4_X1)
+                  0.017    0.111    1.270 v _2282_/ZN (OR4_X1)
+    1    1.362                              _0000_[19] (net)
+                  0.017    0.000    1.270 v _3052_/D (DFFR_X1)
+                                    1.270   data arrival time
+
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _3052_/CK (DFFR_X1)
+                          -0.044   -0.044   library setup time
+                                   -0.044   data required time
+--------------------------------------------------------------------------------
+                                   -0.044   data required time
+                                   -1.270   data arrival time
+--------------------------------------------------------------------------------
+                                   -1.314   slack (VIOLATED)
+
+
+Startpoint: _3074_ (rising edge-triggered flip-flop clocked by clock)
+Endpoint: _3057_ (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _3074_/CK (DFFR_X1)
+                  0.030    0.118    0.118 v _3074_/Q (DFFR_X1)
+   13   26.090                              r_in[3] (net)
+                  0.030    0.000    0.118 v _1566_/A1 (NOR2_X1)
+                  0.385    0.435    0.553 ^ _1566_/ZN (NOR2_X1)
+   34   81.546                              _1011_ (net)
+                  0.385    0.000    0.553 ^ _1570_/B2 (AOI22_X1)
+                  0.061    0.048    0.601 v _1570_/ZN (AOI22_X1)
+    2    2.875                              _1015_ (net)
+                  0.061    0.000    0.601 v _1580_/A1 (NOR3_X1)
+                  0.213    0.260    0.861 ^ _1580_/ZN (NOR3_X1)
+   13   28.165                              _1025_ (net)
+                  0.213    0.000    0.861 ^ _1582_/A2 (NOR2_X1)
+                  0.109    0.179    1.040 v _1582_/ZN (NOR2_X1)
+   27   58.040                              _1027_ (net)
+                  0.109    0.000    1.040 v _2446_/A (AOI21_X1)
+                  0.033    0.073    1.113 ^ _2446_/ZN (AOI21_X1)
+    1    1.965                              _0582_ (net)
+                  0.033    0.000    1.113 ^ _2451_/B1 (OAI221_X1)
+                  0.026    0.033    1.146 v _2451_/ZN (OAI221_X1)
+    1    1.780                              _0587_ (net)
+                  0.026    0.000    1.146 v _2452_/B (AOI211_X1)
+                  0.039    0.072    1.218 ^ _2452_/ZN (AOI211_X1)
+    1    1.933                              _0588_ (net)
+                  0.039    0.000    1.218 ^ _2453_/B2 (AOI22_X1)
+                  0.073    0.027    1.245 v _2453_/ZN (AOI22_X1)
+    1    1.362                              _0000_[24] (net)
+                  0.073    0.000    1.245 v _3057_/D (DFFR_X1)
+                                    1.245   data arrival time
+
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _3057_/CK (DFFR_X1)
+                          -0.064   -0.064   library setup time
+                                   -0.064   data required time
+--------------------------------------------------------------------------------
+                                   -0.064   data required time
+                                   -1.245   data arrival time
+--------------------------------------------------------------------------------
+                                   -1.308   slack (VIOLATED)
+
+
+Startpoint: _3074_ (rising edge-triggered flip-flop clocked by clock)
+Endpoint: _3044_ (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _3074_/CK (DFFR_X1)
+                  0.030    0.118    0.118 v _3074_/Q (DFFR_X1)
+   13   26.090                              r_in[3] (net)
+                  0.030    0.000    0.118 v _1566_/A1 (NOR2_X1)
+                  0.385    0.435    0.553 ^ _1566_/ZN (NOR2_X1)
+   34   81.546                              _1011_ (net)
+                  0.385    0.000    0.553 ^ _1570_/B2 (AOI22_X1)
+                  0.061    0.048    0.601 v _1570_/ZN (AOI22_X1)
+    2    2.875                              _1015_ (net)
+                  0.061    0.000    0.601 v _1580_/A1 (NOR3_X1)
+                  0.213    0.260    0.861 ^ _1580_/ZN (NOR3_X1)
+   13   28.165                              _1025_ (net)
+                  0.213    0.000    0.861 ^ _1582_/A2 (NOR2_X1)
+                  0.109    0.179    1.040 v _1582_/ZN (NOR2_X1)
+   27   58.040                              _1027_ (net)
+                  0.109    0.000    1.040 v _2011_/C2 (AOI221_X1)
+                  0.051    0.101    1.141 ^ _2011_/ZN (AOI221_X1)
+    1    1.924                              _1434_ (net)
+                  0.051    0.000    1.141 ^ _2018_/A (OAI211_X1)
+                  0.018    0.038    1.179 v _2018_/ZN (OAI211_X1)
+    1    1.807                              _1441_ (net)
+                  0.018    0.000    1.179 v _2019_/A (AOI221_X1)
+                  0.046    0.076    1.255 ^ _2019_/ZN (AOI221_X1)
+    1    2.010                              _1442_ (net)
+                  0.046    0.000    1.255 ^ _2020_/A (INV_X1)
+                  0.010    0.009    1.264 v _2020_/ZN (INV_X1)
+    1    1.362                              _0000_[11] (net)
+                  0.010    0.000    1.264 v _3044_/D (DFFR_X1)
+                                    1.264   data arrival time
+
+                  0.000    0.000    0.000   clock clock (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _3044_/CK (DFFR_X1)
+                          -0.041   -0.041   library setup time
+                                   -0.041   data required time
+--------------------------------------------------------------------------------
+                                   -0.041   data required time
+                                   -1.264   data arrival time
+--------------------------------------------------------------------------------
+                                   -1.305   slack (VIOLATED)
+
+

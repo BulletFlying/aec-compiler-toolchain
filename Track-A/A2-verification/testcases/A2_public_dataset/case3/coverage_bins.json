@@ -1,0 +1,32 @@
+{
+  "coverage_bins": {
+    "measurement": "Bin hits are sampled by test_case3_json_sequences.py and reported in functional_coverage.json.",
+    "stream_payload_length": [
+      "one_word",
+      "multi_word",
+      "near_burst",
+      "larger_than_one_burst"
+    ],
+    "stream_flow_control": [
+      "input_pause",
+      "output_pause",
+      "simultaneous_stream_pause"
+    ],
+    "axi_flow_control": [
+      "aw_pause",
+      "w_pause",
+      "b_pause",
+      "ar_pause",
+      "r_pause"
+    ],
+    "configuration": [
+      "enable",
+      "cfg_reset",
+      "post_reset_reenable"
+    ],
+    "scoreboard": [
+      "pre_reset_payload_match",
+      "post_reset_payload_match"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "LSV08",
+  "split": "public",
+  "name": "sog_stage_mult",
+  "top": "stage_mult",
+  "flow": "dc_timing",
+  "flow_label": "Design Compiler timing-biased compile_ultra",
+  "tool": "dc",
+  "status": "ok",
+  "runtime_s": 51.05,
+  "area": 1346.491992,
+  "arrival_ns": 3.12,
+  "wns_ns": -3.12,
+  "tns_ns": -70.51,
+  "source_path": "small_design_sog/rtl/3699.stage_mult.clk.v",
+  "clock_period_ns": 10.0
+}

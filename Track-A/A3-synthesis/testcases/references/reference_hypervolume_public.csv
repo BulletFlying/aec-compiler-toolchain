@@ -1,0 +1,11 @@
+id,split,name,ok_points,front_points,nadir_arrival_ns,nadir_area,reference_hypervolume,reference_runtime_s
+LSV01,public,epfl_priority,7,3,6.930000,538.769700,503.899502,68.79
+LSV02,public,epfl_cavlc,7,4,0.829500,433.752900,18.339017,63.20
+LSV03,public,epfl_adder,7,3,5.439000,1104.352188,727.191363,73.20
+LSV04,public,itc99_b11,7,4,3.234000,2782.665900,1877.712231,71.13
+LSV05,public,sog_axi_downsizer,7,5,0.724500,152.218500,5.047649,56.02
+LSV06,public,sog_pfpu_f2i,7,4,2.257500,913.311000,168.422887,62.11
+LSV07,public,sog_qdiv,7,3,3.685500,2708.092800,798.277559,73.70
+LSV08,public,sog_stage_mult,7,6,3.276000,2131.059000,534.108588,63.73
+LSV09,public,medium_sha256_wishbone,7,2,34.608000,15884.628900,117533.341654,143.96
+LSV10,public,medium_vexriscv_small,7,1,132.174000,20421.578100,936585.998039,133.80

@@ -1,0 +1,17 @@
+{
+  "id": "LSV09",
+  "split": "public",
+  "name": "medium_sha256_wishbone",
+  "top": "Sha256Wishbone",
+  "flow": "yosys_p1",
+  "flow_label": "Yosys ABC p1: compress2rs + dch + Nangate SCL map",
+  "tool": "yosys",
+  "status": "ok",
+  "runtime_s": 9.89,
+  "area": 13972.182,
+  "arrival_ns": 32.96,
+  "wns_ns": -32.96,
+  "tns_ns": -18493.23,
+  "source_path": "medium_design/4.Sha256Wishbone.clock.v",
+  "clock_period_ns": 10.0
+}

@@ -1,0 +1,20 @@
+id: LSV02
+split: public
+name: epfl_cavlc
+top: top
+rtl: rtl/design.v
+source_path: EPFL/cavlc.v
+source_sha256: c4296d85a3b7c9f119c2692c2bcd1a791727bc6521cb4828ef4682b286211f93
+clock: null
+reset: null
+reset_active: null
+clock_period_ns: 10.000
+category: comb_control
+difficulty: easy
+line_count: 766
+baseline:
+  flow: yosys_abc_nangate45_typical
+  elapsed_s: 1.29
+  cells: 368
+  area: 393.680000
+notes: Compact EPFL control-oriented combinational network.

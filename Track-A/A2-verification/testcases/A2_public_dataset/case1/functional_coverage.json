@@ -1,0 +1,167 @@
+{
+  "functional_coverage": {
+    "design": "case1",
+    "status": "passed",
+    "source": "cocotb transaction sampling",
+    "covered_bins": 24,
+    "total_bins": 24,
+    "percent": 100.0,
+    "coverpoints": [
+      {
+        "name": "read_length",
+        "covered_bins": 8,
+        "total_bins": 8,
+        "bins": [
+          {
+            "name": "1",
+            "hits": 69,
+            "covered": true
+          },
+          {
+            "name": "2_to_3",
+            "hits": 121,
+            "covered": true
+          },
+          {
+            "name": "4",
+            "hits": 44,
+            "covered": true
+          },
+          {
+            "name": "5_to_15",
+            "hits": 565,
+            "covered": true
+          },
+          {
+            "name": "16_to_31",
+            "hits": 798,
+            "covered": true
+          },
+          {
+            "name": "32_to_63",
+            "hits": 1608,
+            "covered": true
+          },
+          {
+            "name": "64_to_127",
+            "hits": 1782,
+            "covered": true
+          },
+          {
+            "name": "128_to_256",
+            "hits": 13,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "address_alignment",
+        "covered_bins": 4,
+        "total_bins": 4,
+        "bins": [
+          {
+            "name": "aligned_4_byte",
+            "hits": 1446,
+            "covered": true
+          },
+          {
+            "name": "aligned_2_byte",
+            "hits": 1119,
+            "covered": true
+          },
+          {
+            "name": "unaligned",
+            "hits": 2299,
+            "covered": true
+          },
+          {
+            "name": "near_4k_boundary",
+            "hits": 136,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "burst_size",
+        "covered_bins": 4,
+        "total_bins": 4,
+        "bins": [
+          {
+            "name": "size_1_byte",
+            "hits": 1250,
+            "covered": true
+          },
+          {
+            "name": "size_2_byte",
+            "hits": 1250,
+            "covered": true
+          },
+          {
+            "name": "size_4_byte",
+            "hits": 1250,
+            "covered": true
+          },
+          {
+            "name": "default_max_size",
+            "hits": 1250,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "adapter_path",
+        "covered_bins": 4,
+        "total_bins": 4,
+        "bins": [
+          {
+            "name": "32_bit_slave_to_16_bit_master",
+            "hits": 5000,
+            "covered": true
+          },
+          {
+            "name": "merge_master_beats",
+            "hits": 4876,
+            "covered": true
+          },
+          {
+            "name": "narrow_size_read",
+            "hits": 2500,
+            "covered": true
+          },
+          {
+            "name": "partial_last_beat",
+            "hits": 2524,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "backpressure",
+        "covered_bins": 4,
+        "total_bins": 4,
+        "bins": [
+          {
+            "name": "source_rready_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "downstream_arready_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "downstream_rvalid_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "combined_pause",
+            "hits": 1,
+            "covered": true
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : Sha256Wishbone
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:02:09 2026
+****************************************
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   Sha256Wishbone               0.00       12569.03       -12569.03 (VIOLATED)
+
+
+1

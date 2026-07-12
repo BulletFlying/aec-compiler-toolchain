@@ -1,0 +1,1625 @@
+===============================================================================
+Module : axis_fifo_adapter
+===============================================================================
+SCORE  LINE   BRANCH 
+ 41.67  33.33  50.00 
+
+Source File(s) : 
+
+/workspace/public_dataset/case2/rtl/case2.v
+
+Module self-instances :
+
+SCORE  LINE   BRANCH NAME   
+ 41.67  33.33  50.00 tb.UUT 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : axis_fifo_adapter
+
+             Line No.   Total   Covered  Percent
+TOTAL                        9        3    33.33
+INITIAL           157        9        3    33.33
+
+156                     initial begin
+157        1/1              if (S_BYTE_SIZE * S_BYTE_LANES != S_DATA_WIDTH) begin
+158        0/1     ==>          $error("Error: input data width not evenly divisible (instance %m)");
+159        0/1     ==>          $finish;
+160                         end
+                        MISSING_ELSE
+161                     
+162        1/1              if (M_BYTE_SIZE * M_BYTE_LANES != M_DATA_WIDTH) begin
+163        0/1     ==>          $error("Error: output data width not evenly divisible (instance %m)");
+164        0/1     ==>          $finish;
+165                         end
+                        MISSING_ELSE
+166                     
+167        1/1              if (S_BYTE_SIZE != M_BYTE_SIZE) begin
+168        0/1     ==>          $error("Error: byte size mismatch (instance %m)");
+169        0/1     ==>          $finish;
+170                         end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : axis_fifo_adapter
+         Line No. Total Covered Percent 
+Branches          6     3       50.00   
+IF       157      2     1       50.00   
+IF       162      2     1       50.00   
+IF       167      2     1       50.00   
+
+
+157            if (S_BYTE_SIZE * S_BYTE_LANES != S_DATA_WIDTH) begin
+               -1-  
+158                $error("Error: input data width not evenly divisible (instance %m)");
+                   ==>
+159                $finish;
+160            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+162            if (M_BYTE_SIZE * M_BYTE_LANES != M_DATA_WIDTH) begin
+               -1-  
+163                $error("Error: output data width not evenly divisible (instance %m)");
+                   ==>
+164                $finish;
+165            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+167            if (S_BYTE_SIZE != M_BYTE_SIZE) begin
+               -1-  
+168                $error("Error: byte size mismatch (instance %m)");
+                   ==>
+169                $finish;
+170            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : tb.UUT
+===============================================================================
+
+Instance :
+
+SCORE  LINE   BRANCH 
+ 41.67  33.33  50.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   BRANCH 
+ 61.38  59.74  63.01 
+
+
+Module : 
+
+SCORE  LINE   BRANCH NAME              
+ 41.67  33.33  50.00 axis_fifo_adapter 
+
+
+Parent : 
+
+SCORE  LINE   BRANCH NAME 
+ 57.93  65.85  50.00 tb   
+
+
+Subtrees :
+
+SCORE  LINE   BRANCH NAME                       
+ 87.62  87.23  88.00 downsize_post.adapter_inst 
+ 49.49  48.98  50.00 fifo_inst                  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : axis_fifo
+===============================================================================
+SCORE  LINE   BRANCH 
+ 49.49  48.98  50.00 
+
+Source File(s) : 
+
+/workspace/public_dataset/case2/rtl/case2_1.v
+
+Module self-instances :
+
+SCORE  LINE   BRANCH NAME             
+ 49.49  48.98  50.00 tb.UUT.fifo_inst 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : axis_fifo
+
+             Line No.   Total   Covered  Percent
+TOTAL                       98       48    48.98
+INITIAL           144       21        7    33.33
+ALWAYS            262       59       23    38.98
+ALWAYS            368        2        2   100.00
+ALWAYS            376       16       16   100.00
+
+143                     initial begin
+144        1/1              if (FRAME_FIFO && !LAST_ENABLE) begin
+145        0/1     ==>          $error("Error: FRAME_FIFO set requires LAST_ENABLE set (instance %m)");
+146        0/1     ==>          $finish;
+147                         end
+                        MISSING_ELSE
+148                     
+149        1/1              if (DROP_OVERSIZE_FRAME && !FRAME_FIFO) begin
+150        0/1     ==>          $error("Error: DROP_OVERSIZE_FRAME set requires FRAME_FIFO set (instance %m)");
+151        0/1     ==>          $finish;
+152                         end
+                        MISSING_ELSE
+153                     
+154        1/1              if (DROP_BAD_FRAME && !(FRAME_FIFO && DROP_OVERSIZE_FRAME)) begin
+155        0/1     ==>          $error("Error: DROP_BAD_FRAME set requires FRAME_FIFO and DROP_OVERSIZE_FRAME set (instance %m)");
+156        0/1     ==>          $finish;
+157                         end
+                        MISSING_ELSE
+158                     
+159        1/1              if (DROP_WHEN_FULL && !(FRAME_FIFO && DROP_OVERSIZE_FRAME)) begin
+160        0/1     ==>          $error("Error: DROP_WHEN_FULL set requires FRAME_FIFO and DROP_OVERSIZE_FRAME set (instance %m)");
+161        0/1     ==>          $finish;
+162                         end
+                        MISSING_ELSE
+163                     
+164        1/1              if ((DROP_BAD_FRAME || MARK_WHEN_FULL) && (USER_BAD_FRAME_MASK & {USER_WIDTH{1'b1}}) == 0) begin
+165        0/1     ==>          $error("Error: Invalid USER_BAD_FRAME_MASK value (instance %m)");
+166        0/1     ==>          $finish;
+167                         end
+                        MISSING_ELSE
+168                     
+169        1/1              if (MARK_WHEN_FULL && FRAME_FIFO) begin
+170        0/1     ==>          $error("Error: MARK_WHEN_FULL is not compatible with FRAME_FIFO (instance %m)");
+171        0/1     ==>          $finish;
+172                         end
+                        MISSING_ELSE
+173                     
+174        1/1              if (MARK_WHEN_FULL && !LAST_ENABLE) begin
+175        0/1     ==>          $error("Error: MARK_WHEN_FULL set requires LAST_ENABLE set (instance %m)");
+176        0/1     ==>          $finish;
+177                         end
+                        MISSING_ELSE
+178                     end
+179                     
+180                     localparam KEEP_OFFSET = DATA_WIDTH;
+181                     localparam LAST_OFFSET = KEEP_OFFSET + (KEEP_ENABLE ? KEEP_WIDTH : 0);
+182                     localparam ID_OFFSET   = LAST_OFFSET + (LAST_ENABLE ? 1          : 0);
+183                     localparam DEST_OFFSET = ID_OFFSET   + (ID_ENABLE   ? ID_WIDTH   : 0);
+184                     localparam USER_OFFSET = DEST_OFFSET + (DEST_ENABLE ? DEST_WIDTH : 0);
+185                     localparam WIDTH       = USER_OFFSET + (USER_ENABLE ? USER_WIDTH : 0);
+186                     
+187                     reg [ADDR_WIDTH:0] wr_ptr_reg = {ADDR_WIDTH+1{1'b0}};
+188                     reg [ADDR_WIDTH:0] wr_ptr_commit_reg = {ADDR_WIDTH+1{1'b0}};
+189                     reg [ADDR_WIDTH:0] rd_ptr_reg = {ADDR_WIDTH+1{1'b0}};
+190                     
+191                     (* ramstyle = "no_rw_check" *)
+192                     reg [WIDTH-1:0] mem[(2**ADDR_WIDTH)-1:0];
+193                     reg mem_read_data_valid_reg = 1'b0;
+194                     
+195                     (* shreg_extract = "no" *)
+196                     reg [WIDTH-1:0] m_axis_pipe_reg[RAM_PIPELINE+1-1:0];
+197                     reg [RAM_PIPELINE+1-1:0] m_axis_tvalid_pipe_reg = 0;
+198                     
+199                     // full when first MSB different but rest same
+200                     wire full = wr_ptr_reg == (rd_ptr_reg ^ {1'b1, {ADDR_WIDTH{1'b0}}});
+201                     // empty when pointers match exactly
+202                     wire empty = wr_ptr_commit_reg == rd_ptr_reg;
+203                     // overflow within packet
+204                     wire full_wr = wr_ptr_reg == (wr_ptr_commit_reg ^ {1'b1, {ADDR_WIDTH{1'b0}}});
+205                     
+206                     reg s_frame_reg = 1'b0;
+207                     
+208                     reg drop_frame_reg = 1'b0;
+209                     reg mark_frame_reg = 1'b0;
+210                     reg send_frame_reg = 1'b0;
+211                     reg [ADDR_WIDTH:0] depth_reg = 0;
+212                     reg [ADDR_WIDTH:0] depth_commit_reg = 0;
+213                     reg overflow_reg = 1'b0;
+214                     reg bad_frame_reg = 1'b0;
+215                     reg good_frame_reg = 1'b0;
+216                     
+217                     assign s_axis_tready = FRAME_FIFO ? (!full || (full_wr && DROP_OVERSIZE_FRAME) || DROP_WHEN_FULL) : (!full || MARK_WHEN_FULL);
+218                     
+219                     wire [WIDTH-1:0] s_axis;
+220                     
+221                     generate
+222                         assign s_axis[DATA_WIDTH-1:0] = s_axis_tdata;
+223                         if (KEEP_ENABLE) assign s_axis[KEEP_OFFSET +: KEEP_WIDTH] = s_axis_tkeep;
+224                         if (LAST_ENABLE) assign s_axis[LAST_OFFSET]               = s_axis_tlast | mark_frame_reg;
+225                         if (ID_ENABLE)   assign s_axis[ID_OFFSET   +: ID_WIDTH]   = s_axis_tid;
+226                         if (DEST_ENABLE) assign s_axis[DEST_OFFSET +: DEST_WIDTH] = s_axis_tdest;
+227                         if (USER_ENABLE) assign s_axis[USER_OFFSET +: USER_WIDTH] = mark_frame_reg ? USER_BAD_FRAME_VALUE : s_axis_tuser;
+228                     endgenerate
+229                     
+230                     wire [WIDTH-1:0] m_axis = m_axis_pipe_reg[RAM_PIPELINE+1-1];
+231                     
+232                     wire                   m_axis_tready_pipe;
+233                     wire                   m_axis_tvalid_pipe = m_axis_tvalid_pipe_reg[RAM_PIPELINE+1-1];
+234                     
+235                     wire [DATA_WIDTH-1:0]  m_axis_tdata_pipe  = m_axis[DATA_WIDTH-1:0];
+236                     wire [KEEP_WIDTH-1:0]  m_axis_tkeep_pipe  = KEEP_ENABLE ? m_axis[KEEP_OFFSET +: KEEP_WIDTH] : {KEEP_WIDTH{1'b1}};
+237                     wire                   m_axis_tlast_pipe  = LAST_ENABLE ? m_axis[LAST_OFFSET] : 1'b1;
+238                     wire [ID_WIDTH-1:0]    m_axis_tid_pipe    = ID_ENABLE   ? m_axis[ID_OFFSET +: ID_WIDTH] : {ID_WIDTH{1'b0}};
+239                     wire [DEST_WIDTH-1:0]  m_axis_tdest_pipe  = DEST_ENABLE ? m_axis[DEST_OFFSET +: DEST_WIDTH] : {DEST_WIDTH{1'b0}};
+240                     wire [USER_WIDTH-1:0]  m_axis_tuser_pipe  = USER_ENABLE ? m_axis[USER_OFFSET +: USER_WIDTH] : {USER_WIDTH{1'b0}};
+241                     
+242                     wire                   m_axis_tready_out;
+243                     wire                   m_axis_tvalid_out;
+244                     
+245                     wire [DATA_WIDTH-1:0]  m_axis_tdata_out;
+246                     wire [KEEP_WIDTH-1:0]  m_axis_tkeep_out;
+247                     wire                   m_axis_tlast_out;
+248                     wire [ID_WIDTH-1:0]    m_axis_tid_out;
+249                     wire [DEST_WIDTH-1:0]  m_axis_tdest_out;
+250                     wire [USER_WIDTH-1:0]  m_axis_tuser_out;
+251                     
+252                     wire pipe_ready;
+253                     
+254                     assign status_depth = (KEEP_ENABLE && KEEP_WIDTH > 1) ? {depth_reg, {CL_KEEP_WDITH{1'b0}}} : depth_reg;
+255                     assign status_depth_commit = (KEEP_ENABLE && KEEP_WIDTH > 1) ? {depth_commit_reg, {CL_KEEP_WDITH{1'b0}}} : depth_commit_reg;
+256                     assign status_overflow = overflow_reg;
+257                     assign status_bad_frame = bad_frame_reg;
+258                     assign status_good_frame = good_frame_reg;
+259                     
+260                     // Write logic
+261                     always @(posedge clk) begin
+262        1/1              overflow_reg <= 1'b0;
+263        1/1              bad_frame_reg <= 1'b0;
+264        1/1              good_frame_reg <= 1'b0;
+265                     
+266        1/1              if (s_axis_tready && s_axis_tvalid && LAST_ENABLE) begin
+267                             // track input frame status
+268        1/1                  s_frame_reg <= !s_axis_tlast;
+269                         end
+                        MISSING_ELSE
+270                     
+271        1/1              if (FRAME_FIFO) begin
+272                             // frame FIFO mode
+273        0/1     ==>          if (s_axis_tready && s_axis_tvalid) begin
+274                                 // transfer in
+275        0/1     ==>              if ((full && DROP_WHEN_FULL) || (full_wr && DROP_OVERSIZE_FRAME) || drop_frame_reg) begin
+276                                     // full, packet overflow, or currently dropping frame
+277                                     // drop frame
+278        0/1     ==>                  drop_frame_reg <= 1'b1;
+279        0/1     ==>                  if (s_axis_tlast) begin
+280                                         // end of frame, reset write pointer
+281        0/1     ==>                      wr_ptr_reg <= wr_ptr_commit_reg;
+282        0/1     ==>                      drop_frame_reg <= 1'b0;
+283        0/1     ==>                      overflow_reg <= 1'b1;
+284                                     end
+                   ==>  MISSING_ELSE
+285                                 end else begin
+286                                     // store it
+287        0/1     ==>                  mem[wr_ptr_reg[ADDR_WIDTH-1:0]] <= s_axis;
+288        0/1     ==>                  wr_ptr_reg <= wr_ptr_reg + 1;
+289        0/1     ==>                  if (s_axis_tlast || (!DROP_OVERSIZE_FRAME && (full_wr || send_frame_reg))) begin
+290                                         // end of frame or send frame
+291        0/1     ==>                      send_frame_reg <= !s_axis_tlast;
+292        0/1     ==>                      if (s_axis_tlast && DROP_BAD_FRAME && USER_BAD_FRAME_MASK & ~(s_axis_tuser ^ USER_BAD_FRAME_VALUE)) begin
+293                                             // bad packet, reset write pointer
+294        0/1     ==>                          wr_ptr_reg <= wr_ptr_commit_reg;
+295        0/1     ==>                          bad_frame_reg <= 1'b1;
+296                                         end else begin
+297                                             // good packet or packet overflow, update write pointer
+298        0/1     ==>                          wr_ptr_commit_reg <= wr_ptr_reg + 1;
+299        0/1     ==>                          good_frame_reg <= s_axis_tlast;
+300                                         end
+301                                     end
+                   ==>  MISSING_ELSE
+302                                 end
+303        0/1     ==>          end else if (s_axis_tvalid && full_wr && !DROP_OVERSIZE_FRAME) begin
+304                                 // data valid with packet overflow
+305                                 // update write pointer
+306        0/1     ==>              send_frame_reg <= 1'b1;
+307        0/1     ==>              wr_ptr_commit_reg <= wr_ptr_reg;
+308                             end
+                   ==>  MISSING_ELSE
+309                         end else begin
+310                             // normal FIFO mode
+311        1/1                  if (s_axis_tready && s_axis_tvalid) begin
+312        1/1                      if (drop_frame_reg && MARK_WHEN_FULL) begin
+313                                     // currently dropping frame
+314        0/1     ==>                  if (s_axis_tlast) begin
+315                                         // end of frame
+316        0/1     ==>                      if (!full && mark_frame_reg) begin
+317                                             // terminate marked frame
+318        0/1     ==>                          mark_frame_reg <= 1'b0;
+319        0/1     ==>                          mem[wr_ptr_reg[ADDR_WIDTH-1:0]] <= s_axis;
+320        0/1     ==>                          wr_ptr_reg <= wr_ptr_reg + 1;
+321        0/1     ==>                          wr_ptr_commit_reg <= wr_ptr_reg + 1;
+322                                         end
+                   ==>  MISSING_ELSE
+323                                         // end of frame, clear drop flag
+324        0/1     ==>                      drop_frame_reg <= 1'b0;
+325        0/1     ==>                      overflow_reg <= 1'b1;
+326                                     end
+                   ==>  MISSING_ELSE
+327        1/1                      end else if ((full || mark_frame_reg) && MARK_WHEN_FULL) begin
+328                                     // full or marking frame
+329                                     // drop frame; mark if this isn't the first cycle
+330        0/1     ==>                  drop_frame_reg <= 1'b1;
+331        0/1     ==>                  mark_frame_reg <= mark_frame_reg || s_frame_reg;
+332        0/1     ==>                  if (s_axis_tlast) begin
+333        0/1     ==>                      drop_frame_reg <= 1'b0;
+334        0/1     ==>                      overflow_reg <= 1'b1;
+335                                     end
+                   ==>  MISSING_ELSE
+336                                 end else begin
+337                                     // transfer in
+338        1/1                          mem[wr_ptr_reg[ADDR_WIDTH-1:0]] <= s_axis;
+339        1/1                          wr_ptr_reg <= wr_ptr_reg + 1;
+340        1/1                          wr_ptr_commit_reg <= wr_ptr_reg + 1;
+341                                 end
+342        1/1                  end else if ((!full && !drop_frame_reg && mark_frame_reg) && MARK_WHEN_FULL) begin
+343                                 // terminate marked frame
+344        0/1     ==>              mark_frame_reg <= 1'b0;
+345        0/1     ==>              mem[wr_ptr_reg[ADDR_WIDTH-1:0]] <= s_axis;
+346        0/1     ==>              wr_ptr_reg <= wr_ptr_reg + 1;
+347        0/1     ==>              wr_ptr_commit_reg <= wr_ptr_reg + 1;
+348                             end
+                        MISSING_ELSE
+349                         end
+350                     
+351        1/1              if (rst) begin
+352        1/1                  wr_ptr_reg <= {ADDR_WIDTH+1{1'b0}};
+353        1/1                  wr_ptr_commit_reg <= {ADDR_WIDTH+1{1'b0}};
+354                     
+355        1/1                  s_frame_reg <= 1'b0;
+356                     
+357        1/1                  drop_frame_reg <= 1'b0;
+358        1/1                  mark_frame_reg <= 1'b0;
+359        1/1                  send_frame_reg <= 1'b0;
+360        1/1                  overflow_reg <= 1'b0;
+361        1/1                  bad_frame_reg <= 1'b0;
+362        1/1                  good_frame_reg <= 1'b0;
+363                         end
+                        MISSING_ELSE
+364                     end
+365                     
+366                     // Status
+367                     always @(posedge clk) begin
+368        1/1              depth_reg <= wr_ptr_reg - rd_ptr_reg;
+369        1/1              depth_commit_reg <= wr_ptr_commit_reg - rd_ptr_reg;
+370                     end
+371                     
+372                     // Read logic
+373                     integer j;
+374                     
+375                     always @(posedge clk) begin
+376        1/1              if (m_axis_tready_pipe) begin
+377                             // output ready; invalidate stage
+378        1/1                  m_axis_tvalid_pipe_reg[RAM_PIPELINE+1-1] <= 1'b0;
+379                         end
+                        MISSING_ELSE
+380                     
+381        1/1              for (j = RAM_PIPELINE+1-1; j > 0; j = j - 1) begin
+382        1/1                  if (m_axis_tready_pipe || ((~m_axis_tvalid_pipe_reg) >> j)) begin
+383                                 // output ready or bubble in pipeline; transfer down pipeline
+384        1/1                      m_axis_tvalid_pipe_reg[j] <= m_axis_tvalid_pipe_reg[j-1];
+385        1/1                      m_axis_pipe_reg[j] <= m_axis_pipe_reg[j-1];
+386        1/1                      m_axis_tvalid_pipe_reg[j-1] <= 1'b0;
+387                             end
+                        MISSING_ELSE
+388                         end
+389                     
+390        1/1              if (m_axis_tready_pipe || ~m_axis_tvalid_pipe_reg) begin
+391                             // output ready or bubble in pipeline; read new data from FIFO
+392        1/1                  m_axis_tvalid_pipe_reg[0] <= 1'b0;
+393        1/1                  m_axis_pipe_reg[0] <= mem[rd_ptr_reg[ADDR_WIDTH-1:0]];
+394        1/1                  if (!empty && pipe_ready) begin
+395                                 // not empty, increment pointer
+396        1/1                      m_axis_tvalid_pipe_reg[0] <= 1'b1;
+397        1/1                      rd_ptr_reg <= rd_ptr_reg + 1;
+398                             end
+                        MISSING_ELSE
+399                         end
+                        MISSING_ELSE
+400                     
+401        1/1              if (rst) begin
+402        1/1                  rd_ptr_reg <= {ADDR_WIDTH+1{1'b0}};
+403        1/1                  m_axis_tvalid_pipe_reg <= 0;
+404                         end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : axis_fifo
+         Line No. Total Covered Percent 
+Branches          42    21      50.00   
+TERNARY  227      2     1       50.00   
+IF       144      2     1       50.00   
+IF       149      2     1       50.00   
+IF       154      2     1       50.00   
+IF       159      2     1       50.00   
+IF       164      2     1       50.00   
+IF       169      2     1       50.00   
+IF       174      2     1       50.00   
+IF       266      2     2       100.00  
+IF       271      15    2       13.33   
+IF       351      2     2       100.00  
+IF       376      2     2       100.00  
+IF       390      3     3       100.00  
+IF       401      2     2       100.00  
+
+
+227            if (USER_ENABLE) assign s_axis[USER_OFFSET +: USER_WIDTH] = mark_frame_reg ? USER_BAD_FRAME_VALUE : s_axis_tuser;
+                                                                                          -1-  
+                                                                                          ==>  
+                                                                                          ==>  
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+144            if (FRAME_FIFO && !LAST_ENABLE) begin
+               -1-  
+145                $error("Error: FRAME_FIFO set requires LAST_ENABLE set (instance %m)");
+                   ==>
+146                $finish;
+147            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+149            if (DROP_OVERSIZE_FRAME && !FRAME_FIFO) begin
+               -1-  
+150                $error("Error: DROP_OVERSIZE_FRAME set requires FRAME_FIFO set (instance %m)");
+                   ==>
+151                $finish;
+152            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+154            if (DROP_BAD_FRAME && !(FRAME_FIFO && DROP_OVERSIZE_FRAME)) begin
+               -1-  
+155                $error("Error: DROP_BAD_FRAME set requires FRAME_FIFO and DROP_OVERSIZE_FRAME set (instance %m)");
+                   ==>
+156                $finish;
+157            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+159            if (DROP_WHEN_FULL && !(FRAME_FIFO && DROP_OVERSIZE_FRAME)) begin
+               -1-  
+160                $error("Error: DROP_WHEN_FULL set requires FRAME_FIFO and DROP_OVERSIZE_FRAME set (instance %m)");
+                   ==>
+161                $finish;
+162            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+164            if ((DROP_BAD_FRAME || MARK_WHEN_FULL) && (USER_BAD_FRAME_MASK & {USER_WIDTH{1'b1}}) == 0) begin
+               -1-  
+165                $error("Error: Invalid USER_BAD_FRAME_MASK value (instance %m)");
+                   ==>
+166                $finish;
+167            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+169            if (MARK_WHEN_FULL && FRAME_FIFO) begin
+               -1-  
+170                $error("Error: MARK_WHEN_FULL is not compatible with FRAME_FIFO (instance %m)");
+                   ==>
+171                $finish;
+172            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+174            if (MARK_WHEN_FULL && !LAST_ENABLE) begin
+               -1-  
+175                $error("Error: MARK_WHEN_FULL set requires LAST_ENABLE set (instance %m)");
+                   ==>
+176                $finish;
+177            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+266            if (s_axis_tready && s_axis_tvalid && LAST_ENABLE) begin
+               -1-  
+267                // track input frame status
+268                s_frame_reg <= !s_axis_tlast;
+                   ==>
+269            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+271            if (FRAME_FIFO) begin
+               -1-  
+272                // frame FIFO mode
+273                if (s_axis_tready && s_axis_tvalid) begin
+                   -2-  
+274                    // transfer in
+275                    if ((full && DROP_WHEN_FULL) || (full_wr && DROP_OVERSIZE_FRAME) || drop_frame_reg) begin
+                       -3-  
+276                        // full, packet overflow, or currently dropping frame
+277                        // drop frame
+278                        drop_frame_reg <= 1'b1;
+279                        if (s_axis_tlast) begin
+                           -4-  
+280                            // end of frame, reset write pointer
+281                            wr_ptr_reg <= wr_ptr_commit_reg;
+                               ==>
+282                            drop_frame_reg <= 1'b0;
+283                            overflow_reg <= 1'b1;
+284                        end
+                           MISSING_ELSE
+                           ==>
+285                    end else begin
+286                        // store it
+287                        mem[wr_ptr_reg[ADDR_WIDTH-1:0]] <= s_axis;
+288                        wr_ptr_reg <= wr_ptr_reg + 1;
+289                        if (s_axis_tlast || (!DROP_OVERSIZE_FRAME && (full_wr || send_frame_reg))) begin
+                           -5-  
+290                            // end of frame or send frame
+291                            send_frame_reg <= !s_axis_tlast;
+292                            if (s_axis_tlast && DROP_BAD_FRAME && USER_BAD_FRAME_MASK & ~(s_axis_tuser ^ USER_BAD_FRAME_VALUE)) begin
+                               -6-  
+293                                // bad packet, reset write pointer
+294                                wr_ptr_reg <= wr_ptr_commit_reg;
+                                   ==>
+295                                bad_frame_reg <= 1'b1;
+296                            end else begin
+297                                // good packet or packet overflow, update write pointer
+298                                wr_ptr_commit_reg <= wr_ptr_reg + 1;
+                                   ==>
+299                                good_frame_reg <= s_axis_tlast;
+300                            end
+301                        end
+                           MISSING_ELSE
+                           ==>
+302                    end
+303                end else if (s_axis_tvalid && full_wr && !DROP_OVERSIZE_FRAME) begin
+                            -7-  
+304                    // data valid with packet overflow
+305                    // update write pointer
+306                    send_frame_reg <= 1'b1;
+                       ==>
+307                    wr_ptr_commit_reg <= wr_ptr_reg;
+308                end
+                   MISSING_ELSE
+                   ==>
+309            end else begin
+310                // normal FIFO mode
+311                if (s_axis_tready && s_axis_tvalid) begin
+                   -8-  
+312                    if (drop_frame_reg && MARK_WHEN_FULL) begin
+                       -9-  
+313                        // currently dropping frame
+314                        if (s_axis_tlast) begin
+                           -10-  
+315                            // end of frame
+316                            if (!full && mark_frame_reg) begin
+                               -11-  
+317                                // terminate marked frame
+318                                mark_frame_reg <= 1'b0;
+                                   ==>
+319                                mem[wr_ptr_reg[ADDR_WIDTH-1:0]] <= s_axis;
+320                                wr_ptr_reg <= wr_ptr_reg + 1;
+321                                wr_ptr_commit_reg <= wr_ptr_reg + 1;
+322                            end
+                               MISSING_ELSE
+                               ==>
+323                            // end of frame, clear drop flag
+324                            drop_frame_reg <= 1'b0;
+325                            overflow_reg <= 1'b1;
+326                        end
+                           MISSING_ELSE
+                           ==>
+327                    end else if ((full || mark_frame_reg) && MARK_WHEN_FULL) begin
+                                -12-  
+328                        // full or marking frame
+329                        // drop frame; mark if this isn't the first cycle
+330                        drop_frame_reg <= 1'b1;
+331                        mark_frame_reg <= mark_frame_reg || s_frame_reg;
+332                        if (s_axis_tlast) begin
+                           -13-  
+333                            drop_frame_reg <= 1'b0;
+                               ==>
+334                            overflow_reg <= 1'b1;
+335                        end
+                           MISSING_ELSE
+                           ==>
+336                    end else begin
+337                        // transfer in
+338                        mem[wr_ptr_reg[ADDR_WIDTH-1:0]] <= s_axis;
+                           ==>
+339                        wr_ptr_reg <= wr_ptr_reg + 1;
+340                        wr_ptr_commit_reg <= wr_ptr_reg + 1;
+341                    end
+342                end else if ((!full && !drop_frame_reg && mark_frame_reg) && MARK_WHEN_FULL) begin
+                            -14-  
+343                    // terminate marked frame
+344                    mark_frame_reg <= 1'b0;
+                       ==>
+345                    mem[wr_ptr_reg[ADDR_WIDTH-1:0]] <= s_axis;
+346                    wr_ptr_reg <= wr_ptr_reg + 1;
+347                    wr_ptr_commit_reg <= wr_ptr_reg + 1;
+348                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6- -7- -8- -9- -10- -11- -12- -13- -14- Status      
+1   1   1   1   -   -   -   -   -   -    -    -    -    -    Not Covered 
+1   1   1   0   -   -   -   -   -   -    -    -    -    -    Not Covered 
+1   1   0   -   1   1   -   -   -   -    -    -    -    -    Not Covered 
+1   1   0   -   1   0   -   -   -   -    -    -    -    -    Not Covered 
+1   1   0   -   0   -   -   -   -   -    -    -    -    -    Not Covered 
+1   0   -   -   -   -   1   -   -   -    -    -    -    -    Not Covered 
+1   0   -   -   -   -   0   -   -   -    -    -    -    -    Not Covered 
+0   -   -   -   -   -   -   1   1   1    1    -    -    -    Not Covered 
+0   -   -   -   -   -   -   1   1   1    0    -    -    -    Not Covered 
+0   -   -   -   -   -   -   1   1   0    -    -    -    -    Not Covered 
+0   -   -   -   -   -   -   1   0   -    -    1    1    -    Not Covered 
+0   -   -   -   -   -   -   1   0   -    -    1    0    -    Not Covered 
+0   -   -   -   -   -   -   1   0   -    -    0    -    -    Covered     
+0   -   -   -   -   -   -   0   -   -    -    -    -    1    Not Covered 
+0   -   -   -   -   -   -   0   -   -    -    -    -    0    Covered     
+
+
+351            if (rst) begin
+               -1-  
+352                wr_ptr_reg <= {ADDR_WIDTH+1{1'b0}};
+                   ==>
+353                wr_ptr_commit_reg <= {ADDR_WIDTH+1{1'b0}};
+354        
+355                s_frame_reg <= 1'b0;
+356        
+357                drop_frame_reg <= 1'b0;
+358                mark_frame_reg <= 1'b0;
+359                send_frame_reg <= 1'b0;
+360                overflow_reg <= 1'b0;
+361                bad_frame_reg <= 1'b0;
+362                good_frame_reg <= 1'b0;
+363            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+376            if (m_axis_tready_pipe) begin
+               -1-  
+377                // output ready; invalidate stage
+378                m_axis_tvalid_pipe_reg[RAM_PIPELINE+1-1] <= 1'b0;
+                   ==>
+379            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+390            if (m_axis_tready_pipe || ~m_axis_tvalid_pipe_reg) begin
+               -1-  
+391                // output ready or bubble in pipeline; read new data from FIFO
+392                m_axis_tvalid_pipe_reg[0] <= 1'b0;
+393                m_axis_pipe_reg[0] <= mem[rd_ptr_reg[ADDR_WIDTH-1:0]];
+394                if (!empty && pipe_ready) begin
+                   -2-  
+395                    // not empty, increment pointer
+396                    m_axis_tvalid_pipe_reg[0] <= 1'b1;
+                       ==>
+397                    rd_ptr_reg <= rd_ptr_reg + 1;
+398                end
+                   MISSING_ELSE
+                   ==>
+399            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+401            if (rst) begin
+               -1-  
+402                rd_ptr_reg <= {ADDR_WIDTH+1{1'b0}};
+                   ==>
+403                m_axis_tvalid_pipe_reg <= 0;
+404            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : tb.UUT.fifo_inst
+===============================================================================
+
+Instance :
+
+SCORE  LINE   BRANCH 
+ 49.49  48.98  50.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   BRANCH 
+ 49.49  48.98  50.00 
+
+
+Module : 
+
+SCORE  LINE   BRANCH NAME      
+ 49.49  48.98  50.00 axis_fifo 
+
+
+Parent : 
+
+SCORE  LINE   BRANCH NAME 
+ 41.67  33.33  50.00 UUT  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : tb
+===============================================================================
+SCORE  LINE   BRANCH 
+ 57.93  65.85  50.00 
+
+Source File(s) : 
+
+/workspace/public_dataset/case2/tb/case2_tb.v
+
+Module self-instances :
+
+SCORE  LINE   BRANCH NAME 
+ 57.93  65.85  50.00 tb   
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : tb
+
+             Line No.   Total   Covered  Percent
+TOTAL                       41       27    65.85
+ALWAYS             63        2        2   100.00
+INITIAL           114       39       25    64.10
+
+62                      
+63         2/2          always #5 clk = ~clk;
+64                      
+65                      axis_fifo_adapter #(
+66                          .DEPTH(DEPTH),
+67                          .S_DATA_WIDTH(S_DATA_WIDTH),
+68                          .S_KEEP_ENABLE(S_KEEP_ENABLE),
+69                          .S_KEEP_WIDTH(S_KEEP_WIDTH),
+70                          .M_DATA_WIDTH(M_DATA_WIDTH),
+71                          .M_KEEP_ENABLE(M_KEEP_ENABLE),
+72                          .M_KEEP_WIDTH(M_KEEP_WIDTH),
+73                          .ID_ENABLE(ID_ENABLE),
+74                          .ID_WIDTH(ID_WIDTH),
+75                          .DEST_ENABLE(DEST_ENABLE),
+76                          .DEST_WIDTH(DEST_WIDTH),
+77                          .USER_ENABLE(USER_ENABLE),
+78                          .USER_WIDTH(USER_WIDTH),
+79                          .FRAME_FIFO(FRAME_FIFO),
+80                          .USER_BAD_FRAME_VALUE(USER_BAD_FRAME_VALUE),
+81                          .USER_BAD_FRAME_MASK(USER_BAD_FRAME_MASK),
+82                          .DROP_BAD_FRAME(DROP_BAD_FRAME),
+83                          .DROP_WHEN_FULL(DROP_WHEN_FULL)
+84                      )
+85                      UUT (
+86                          .clk(clk),
+87                          .rst(rst),
+88                          .s_axis_tdata(s_axis_tdata),
+89                          .s_axis_tkeep(s_axis_tkeep),
+90                          .s_axis_tvalid(s_axis_tvalid),
+91                          .s_axis_tready(s_axis_tready),
+92                          .s_axis_tlast(s_axis_tlast),
+93                          .s_axis_tid(s_axis_tid),
+94                          .s_axis_tdest(s_axis_tdest),
+95                          .s_axis_tuser(s_axis_tuser),
+96                          .m_axis_tdata(m_axis_tdata),
+97                          .m_axis_tkeep(m_axis_tkeep),
+98                          .m_axis_tvalid(m_axis_tvalid),
+99                          .m_axis_tready(m_axis_tready),
+100                         .m_axis_tlast(m_axis_tlast),
+101                         .m_axis_tid(m_axis_tid),
+102                         .m_axis_tdest(m_axis_tdest),
+103                         .m_axis_tuser(m_axis_tuser),
+104                         .pause_req(1'b0),
+105                         .pause_ack(),
+106                         .status_depth(),
+107                         .status_depth_commit(),
+108                         .status_overflow(),
+109                         .status_bad_frame(),
+110                         .status_good_frame()
+111                     );
+112                     
+113                     initial begin : main
+114        1/1              input_fd = $fopen("tb/input.mem", "r");
+115        1/1              output_fd = $fopen("tb/output.mem", "r");
+116                     
+117        1/1              if (input_fd == 0 || output_fd == 0) begin
+118        0/1     ==>          $display("FAIL could not open input-output pair files");
+119        0/1     ==>          $finish;
+120                         end
+                        MISSING_ELSE
+121                     
+122        1/1              scan_count = $fgets(input_header, input_fd);
+123        1/1              scan_count = $fgets(output_header, output_fd);
+124                     
+125        1/1              for (cycle = 0; cycle < CYCLE_COUNT; cycle = cycle + 1) begin
+126        1/1                  scan_count = $fscanf(input_fd, "%b,%b,%b,%b,%b,%b,%b,%b,%b\n",
+127                                 rst,
+128                                 s_axis_tdata,
+129                                 s_axis_tkeep,
+130                                 s_axis_tvalid,
+131                                 s_axis_tlast,
+132                                 s_axis_tid,
+133                                 s_axis_tdest,
+134                                 s_axis_tuser,
+135                                 m_axis_tready);
+136                     
+137        1/1                  if (scan_count != 9) begin
+138        0/1     ==>              $display("FAIL failed to read input cycle=%0d count=%0d", cycle, scan_count);
+139        0/1     ==>              $finish;
+140                             end
+                        MISSING_ELSE
+141                     
+142        1/1                  scan_count = $fscanf(output_fd, "%b,%b,%b,%b,%b,%b,%b,%b\n",
+143                                 exp_s_axis_tready,
+144                                 exp_m_axis_tdata,
+145                                 exp_m_axis_tkeep,
+146                                 exp_m_axis_tvalid,
+147                                 exp_m_axis_tlast,
+148                                 exp_m_axis_tid,
+149                                 exp_m_axis_tdest,
+150                                 exp_m_axis_tuser);
+151                     
+152        1/1                  if (scan_count != 8) begin
+153        0/1     ==>              $display("FAIL failed to read output cycle=%0d count=%0d", cycle, scan_count);
+154        0/1     ==>              $finish;
+155                             end
+                        MISSING_ELSE
+156                     
+157        2/2                  @(posedge clk);
+158        2/2                  #1;
+159                     
+160        1/1                  if (s_axis_tready !== exp_s_axis_tready ||
+161                                 m_axis_tdata !== exp_m_axis_tdata ||
+162                                 m_axis_tkeep !== exp_m_axis_tkeep ||
+163                                 m_axis_tvalid !== exp_m_axis_tvalid ||
+164                                 m_axis_tlast !== exp_m_axis_tlast ||
+165                                 m_axis_tid !== exp_m_axis_tid ||
+166                                 m_axis_tdest !== exp_m_axis_tdest ||
+167                                 m_axis_tuser !== exp_m_axis_tuser) begin
+168        0/1     ==>              $display("FAIL cycle=%0d", cycle);
+169        0/1     ==>              $display("  expected: %b,%b,%b,%b,%b,%b,%b,%b",
+170                                     exp_s_axis_tready,
+171                                     exp_m_axis_tdata,
+172                                     exp_m_axis_tkeep,
+173                                     exp_m_axis_tvalid,
+174                                     exp_m_axis_tlast,
+175                                     exp_m_axis_tid,
+176                                     exp_m_axis_tdest,
+177                                     exp_m_axis_tuser);
+178        0/1     ==>              $display("  actual:   %b,%b,%b,%b,%b,%b,%b,%b",
+179                                     s_axis_tready,
+180                                     m_axis_tdata,
+181                                     m_axis_tkeep,
+182                                     m_axis_tvalid,
+183                                     m_axis_tlast,
+184                                     m_axis_tid,
+185                                     m_axis_tdest,
+186                                     m_axis_tuser);
+187        0/1     ==>              $finish;
+188                             end
+                        MISSING_ELSE
+189                     
+190        2/2                  @(negedge clk);
+191                         end
+192                     
+193        1/1              scan_count = $fscanf(input_fd, "%b,%b,%b,%b,%b,%b,%b,%b,%b\n",
+194                             rst,
+195                             s_axis_tdata,
+196                             s_axis_tkeep,
+197                             s_axis_tvalid,
+198                             s_axis_tlast,
+199                             s_axis_tid,
+200                             s_axis_tdest,
+201                             s_axis_tuser,
+202                             m_axis_tready);
+203        1/1              if (scan_count != -1) begin
+204        0/1     ==>          $display("FAIL input has extra data after CYCLE_COUNT=%0d", CYCLE_COUNT);
+205        0/1     ==>          $finish;
+206                         end
+                        MISSING_ELSE
+207                     
+208        1/1              scan_count = $fscanf(output_fd, "%b,%b,%b,%b,%b,%b,%b,%b\n",
+209                             exp_s_axis_tready,
+210                             exp_m_axis_tdata,
+211                             exp_m_axis_tkeep,
+212                             exp_m_axis_tvalid,
+213                             exp_m_axis_tlast,
+214                             exp_m_axis_tid,
+215                             exp_m_axis_tdest,
+216                             exp_m_axis_tuser);
+217        1/1              if (scan_count != -1) begin
+218        0/1     ==>          $display("FAIL output has extra data after CYCLE_COUNT=%0d", CYCLE_COUNT);
+219        0/1     ==>          $finish;
+220                         end
+                        MISSING_ELSE
+221                     
+222        1/1              $fclose(input_fd);
+223        1/1              $fclose(output_fd);
+224                     
+225        1/1              $display("PASS cycles=%0d", cycle);
+226        1/1              $finish;
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : tb
+         Line No. Total Covered Percent 
+Branches          6     3       50.00   
+IF       117      2     1       50.00   
+IF       203      2     1       50.00   
+IF       217      2     1       50.00   
+
+
+117            if (input_fd == 0 || output_fd == 0) begin
+               -1-  
+118                $display("FAIL could not open input-output pair files");
+                   ==>
+119                $finish;
+120            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+203            if (scan_count != -1) begin
+               -1-  
+204                $display("FAIL input has extra data after CYCLE_COUNT=%0d", CYCLE_COUNT);
+                   ==>
+205                $finish;
+206            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+217            if (scan_count != -1) begin
+               -1-  
+218                $display("FAIL output has extra data after CYCLE_COUNT=%0d", CYCLE_COUNT);
+                   ==>
+219                $finish;
+220            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   BRANCH 
+ 57.93  65.85  50.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   BRANCH 
+ 61.53  61.03  62.03 
+
+
+Module : 
+
+SCORE  LINE   BRANCH NAME 
+ 57.93  65.85  50.00 tb   
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   BRANCH NAME 
+ 61.38  59.74  63.01 UUT  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : axis_adapter
+===============================================================================
+SCORE  LINE   BRANCH 
+ 87.62  87.23  88.00 
+
+Source File(s) : 
+
+/workspace/public_dataset/case2/rtl/case2_2.v
+
+Module self-instances :
+
+SCORE  LINE   BRANCH NAME                              
+ 87.62  87.23  88.00 tb.UUT.downsize_post.adapter_inst 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : axis_adapter
+
+             Line No.   Total   Covered  Percent
+TOTAL                       47       41    87.23
+INITIAL           102        9        3    33.33
+ALWAYS            263       38       38   100.00
+
+101                     initial begin
+102        1/1              if (S_BYTE_SIZE * S_BYTE_LANES != S_DATA_WIDTH) begin
+103        0/1     ==>          $error("Error: input data width not evenly divisible (instance %m)");
+104        0/1     ==>          $finish;
+105                         end
+                        MISSING_ELSE
+106                     
+107        1/1              if (M_BYTE_SIZE * M_BYTE_LANES != M_DATA_WIDTH) begin
+108        0/1     ==>          $error("Error: output data width not evenly divisible (instance %m)");
+109        0/1     ==>          $finish;
+110                         end
+                        MISSING_ELSE
+111                     
+112        1/1              if (S_BYTE_SIZE != M_BYTE_SIZE) begin
+113        0/1     ==>          $error("Error: byte size mismatch (instance %m)");
+114        0/1     ==>          $finish;
+115                         end
+                        MISSING_ELSE
+116                     end
+117                     
+118                     wire [S_KEEP_WIDTH-1:0] s_axis_tkeep_int = S_KEEP_ENABLE ? s_axis_tkeep : {S_KEEP_WIDTH{1'b1}};
+119                     
+120                     generate
+121                     
+122                     if (M_BYTE_LANES == S_BYTE_LANES) begin : bypass
+123                         // same width; bypass
+124                     
+125                         assign s_axis_tready = m_axis_tready;
+126                     
+127                         assign m_axis_tdata  = s_axis_tdata;
+128                         assign m_axis_tkeep  = (M_KEEP_ENABLE && S_KEEP_ENABLE) ? s_axis_tkeep : {M_KEEP_WIDTH{1'b1}};
+129                         assign m_axis_tvalid = s_axis_tvalid;
+130                         assign m_axis_tlast  = s_axis_tlast;
+131                         assign m_axis_tid    = ID_ENABLE   ? s_axis_tid   : {ID_WIDTH{1'b0}};
+132                         assign m_axis_tdest  = DEST_ENABLE ? s_axis_tdest : {DEST_WIDTH{1'b0}};
+133                         assign m_axis_tuser  = USER_ENABLE ? s_axis_tuser : {USER_WIDTH{1'b0}};
+134                     
+135                     end else if (M_BYTE_LANES > S_BYTE_LANES) begin : upsize
+136                         // output is wider; upsize
+137                     
+138                         // required number of segments in wider bus
+139                         localparam SEG_COUNT = M_BYTE_LANES / S_BYTE_LANES;
+140                         // data width and keep width per segment
+141                         localparam SEG_DATA_WIDTH = M_DATA_WIDTH / SEG_COUNT;
+142                         localparam SEG_KEEP_WIDTH = M_BYTE_LANES / SEG_COUNT;
+143                     
+144                         reg [$clog2(SEG_COUNT)-1:0] seg_reg = 0;
+145                     
+146                         reg [S_DATA_WIDTH-1:0] s_axis_tdata_reg = {S_DATA_WIDTH{1'b0}};
+147                         reg [S_KEEP_WIDTH-1:0] s_axis_tkeep_reg = {S_KEEP_WIDTH{1'b0}};
+148                         reg s_axis_tvalid_reg = 1'b0;
+149                         reg s_axis_tlast_reg = 1'b0;
+150                         reg [ID_WIDTH-1:0] s_axis_tid_reg = {ID_WIDTH{1'b0}};
+151                         reg [DEST_WIDTH-1:0] s_axis_tdest_reg = {DEST_WIDTH{1'b0}};
+152                         reg [USER_WIDTH-1:0] s_axis_tuser_reg = {USER_WIDTH{1'b0}};
+153                     
+154                         reg [M_DATA_WIDTH-1:0] m_axis_tdata_reg = {M_DATA_WIDTH{1'b0}};
+155                         reg [M_KEEP_WIDTH-1:0] m_axis_tkeep_reg = {M_KEEP_WIDTH{1'b0}};
+156                         reg m_axis_tvalid_reg = 1'b0;
+157                         reg m_axis_tlast_reg = 1'b0;
+158                         reg [ID_WIDTH-1:0] m_axis_tid_reg = {ID_WIDTH{1'b0}};
+159                         reg [DEST_WIDTH-1:0] m_axis_tdest_reg = {DEST_WIDTH{1'b0}};
+160                         reg [USER_WIDTH-1:0] m_axis_tuser_reg = {USER_WIDTH{1'b0}};
+161                     
+162                         assign s_axis_tready = !s_axis_tvalid_reg;
+163                     
+164                         assign m_axis_tdata  = m_axis_tdata_reg;
+165                         assign m_axis_tkeep  = M_KEEP_ENABLE ? m_axis_tkeep_reg : {M_KEEP_WIDTH{1'b1}};
+166                         assign m_axis_tvalid = m_axis_tvalid_reg;
+167                         assign m_axis_tlast  = m_axis_tlast_reg;
+168                         assign m_axis_tid    = ID_ENABLE   ? m_axis_tid_reg   : {ID_WIDTH{1'b0}};
+169                         assign m_axis_tdest  = DEST_ENABLE ? m_axis_tdest_reg : {DEST_WIDTH{1'b0}};
+170                         assign m_axis_tuser  = USER_ENABLE ? m_axis_tuser_reg : {USER_WIDTH{1'b0}};
+171                     
+172                         always @(posedge clk) begin
+173                             m_axis_tvalid_reg <= m_axis_tvalid_reg && !m_axis_tready;
+174                     
+175                             if (!m_axis_tvalid_reg || m_axis_tready) begin
+176                                 // output register empty
+177                     
+178                                 if (seg_reg == 0) begin
+179                                     m_axis_tdata_reg[seg_reg*SEG_DATA_WIDTH +: SEG_DATA_WIDTH] <= s_axis_tvalid_reg ? s_axis_tdata_reg : s_axis_tdata;
+180                                     m_axis_tkeep_reg <= s_axis_tvalid_reg ? s_axis_tkeep_reg : s_axis_tkeep_int;
+181                                 end else begin
+182                                     m_axis_tdata_reg[seg_reg*SEG_DATA_WIDTH +: SEG_DATA_WIDTH] <= s_axis_tdata;
+183                                     m_axis_tkeep_reg[seg_reg*SEG_KEEP_WIDTH +: SEG_KEEP_WIDTH] <= s_axis_tkeep_int;
+184                                 end
+185                                 m_axis_tlast_reg <= s_axis_tvalid_reg ? s_axis_tlast_reg : s_axis_tlast;
+186                                 m_axis_tid_reg <= s_axis_tvalid_reg ? s_axis_tid_reg : s_axis_tid;
+187                                 m_axis_tdest_reg <= s_axis_tvalid_reg ? s_axis_tdest_reg : s_axis_tdest;
+188                                 m_axis_tuser_reg <= s_axis_tvalid_reg ? s_axis_tuser_reg : s_axis_tuser;
+189                     
+190                                 if (s_axis_tvalid_reg) begin
+191                                     // consume data from buffer
+192                                     s_axis_tvalid_reg <= 1'b0;
+193                     
+194                                     if (s_axis_tlast_reg || seg_reg == SEG_COUNT-1) begin
+195                                         seg_reg <= 0;
+196                                         m_axis_tvalid_reg <= 1'b1;
+197                                     end else begin
+198                                         seg_reg <= seg_reg + 1;
+199                                     end
+200                                 end else if (s_axis_tvalid) begin
+201                                     // data direct from input
+202                                     if (s_axis_tlast || seg_reg == SEG_COUNT-1) begin
+203                                         seg_reg <= 0;
+204                                         m_axis_tvalid_reg <= 1'b1;
+205                                     end else begin
+206                                         seg_reg <= seg_reg + 1;
+207                                     end
+208                                 end
+209                             end else if (s_axis_tvalid && s_axis_tready) begin
+210                                 // store input data in skid buffer
+211                                 s_axis_tdata_reg <= s_axis_tdata;
+212                                 s_axis_tkeep_reg <= s_axis_tkeep_int;
+213                                 s_axis_tvalid_reg <= 1'b1;
+214                                 s_axis_tlast_reg <= s_axis_tlast;
+215                                 s_axis_tid_reg <= s_axis_tid;
+216                                 s_axis_tdest_reg <= s_axis_tdest;
+217                                 s_axis_tuser_reg <= s_axis_tuser;
+218                             end
+219                     
+220                             if (rst) begin
+221                                 seg_reg <= 0;
+222                                 s_axis_tvalid_reg <= 1'b0;
+223                                 m_axis_tvalid_reg <= 1'b0;
+224                             end
+225                         end
+226                     
+227                     end else begin : downsize
+228                         // output is narrower; downsize
+229                     
+230                         // required number of segments in wider bus
+231                         localparam SEG_COUNT = S_BYTE_LANES / M_BYTE_LANES;
+232                         // data width and keep width per segment
+233                         localparam SEG_DATA_WIDTH = S_DATA_WIDTH / SEG_COUNT;
+234                         localparam SEG_KEEP_WIDTH = S_BYTE_LANES / SEG_COUNT;
+235                     
+236                         reg [S_DATA_WIDTH-1:0] s_axis_tdata_reg = {S_DATA_WIDTH{1'b0}};
+237                         reg [S_KEEP_WIDTH-1:0] s_axis_tkeep_reg = {S_KEEP_WIDTH{1'b0}};
+238                         reg s_axis_tvalid_reg = 1'b0;
+239                         reg s_axis_tlast_reg = 1'b0;
+240                         reg [ID_WIDTH-1:0] s_axis_tid_reg = {ID_WIDTH{1'b0}};
+241                         reg [DEST_WIDTH-1:0] s_axis_tdest_reg = {DEST_WIDTH{1'b0}};
+242                         reg [USER_WIDTH-1:0] s_axis_tuser_reg = {USER_WIDTH{1'b0}};
+243                     
+244                         reg [M_DATA_WIDTH-1:0] m_axis_tdata_reg = {M_DATA_WIDTH{1'b0}};
+245                         reg [M_KEEP_WIDTH-1:0] m_axis_tkeep_reg = {M_KEEP_WIDTH{1'b0}};
+246                         reg m_axis_tvalid_reg = 1'b0;
+247                         reg m_axis_tlast_reg = 1'b0;
+248                         reg [ID_WIDTH-1:0] m_axis_tid_reg = {ID_WIDTH{1'b0}};
+249                         reg [DEST_WIDTH-1:0] m_axis_tdest_reg = {DEST_WIDTH{1'b0}};
+250                         reg [USER_WIDTH-1:0] m_axis_tuser_reg = {USER_WIDTH{1'b0}};
+251                     
+252                         assign s_axis_tready = !s_axis_tvalid_reg;
+253                     
+254                         assign m_axis_tdata  = m_axis_tdata_reg;
+255                         assign m_axis_tkeep  = M_KEEP_ENABLE ? m_axis_tkeep_reg : {M_KEEP_WIDTH{1'b1}};
+256                         assign m_axis_tvalid = m_axis_tvalid_reg;
+257                         assign m_axis_tlast  = m_axis_tlast_reg;
+258                         assign m_axis_tid    = ID_ENABLE   ? m_axis_tid_reg   : {ID_WIDTH{1'b0}};
+259                         assign m_axis_tdest  = DEST_ENABLE ? m_axis_tdest_reg : {DEST_WIDTH{1'b0}};
+260                         assign m_axis_tuser  = USER_ENABLE ? m_axis_tuser_reg : {USER_WIDTH{1'b0}};
+261                     
+262                         always @(posedge clk) begin
+263        1/1                  m_axis_tvalid_reg <= m_axis_tvalid_reg && !m_axis_tready;
+264                     
+265        1/1                  if (!m_axis_tvalid_reg || m_axis_tready) begin
+266                                 // output register empty
+267                     
+268        1/1                      m_axis_tdata_reg <= s_axis_tvalid_reg ? s_axis_tdata_reg : s_axis_tdata;
+269        1/1                      m_axis_tkeep_reg <= s_axis_tvalid_reg ? s_axis_tkeep_reg : s_axis_tkeep_int;
+270        1/1                      m_axis_tlast_reg <= 1'b0;
+271        1/1                      m_axis_tid_reg <= s_axis_tvalid_reg ? s_axis_tid_reg : s_axis_tid;
+272        1/1                      m_axis_tdest_reg <= s_axis_tvalid_reg ? s_axis_tdest_reg : s_axis_tdest;
+273        1/1                      m_axis_tuser_reg <= s_axis_tvalid_reg ? s_axis_tuser_reg : s_axis_tuser;
+274                     
+275        1/1                      if (s_axis_tvalid_reg) begin
+276                                     // buffer has data; shift out from buffer
+277        1/1                          s_axis_tdata_reg <= s_axis_tdata_reg >> SEG_DATA_WIDTH;
+278        1/1                          s_axis_tkeep_reg <= s_axis_tkeep_reg >> SEG_KEEP_WIDTH;
+279                     
+280        1/1                          m_axis_tvalid_reg <= 1'b1;
+281                     
+282        1/1                          if ((s_axis_tkeep_reg >> SEG_KEEP_WIDTH) == 0) begin
+283        1/1                              s_axis_tvalid_reg <= 1'b0;
+284        1/1                              m_axis_tlast_reg <= s_axis_tlast_reg;
+285                                     end
+                        MISSING_ELSE
+286        1/1                      end else if (s_axis_tvalid && s_axis_tready) begin
+287                                     // buffer is empty; store from input
+288        1/1                          s_axis_tdata_reg <= s_axis_tdata >> SEG_DATA_WIDTH;
+289        1/1                          s_axis_tkeep_reg <= s_axis_tkeep_int >> SEG_KEEP_WIDTH;
+290        1/1                          s_axis_tlast_reg <= s_axis_tlast;
+291        1/1                          s_axis_tid_reg <= s_axis_tid;
+292        1/1                          s_axis_tdest_reg <= s_axis_tdest;
+293        1/1                          s_axis_tuser_reg <= s_axis_tuser;
+294                     
+295        1/1                          m_axis_tvalid_reg <= 1'b1;
+296                     
+297        1/1                          if (S_KEEP_ENABLE && (s_axis_tkeep_int >> SEG_KEEP_WIDTH) == 0) begin
+298        1/1                              s_axis_tvalid_reg <= 1'b0;
+299        1/1                              m_axis_tlast_reg <= s_axis_tlast;
+300                                     end else begin
+301        1/1                              s_axis_tvalid_reg <= 1'b1;
+302                                     end
+303                                 end
+                        MISSING_ELSE
+304        1/1                  end else if (s_axis_tvalid && s_axis_tready) begin
+305                                 // store input data
+306        1/1                      s_axis_tdata_reg <= s_axis_tdata;
+307        1/1                      s_axis_tkeep_reg <= s_axis_tkeep_int;
+308        1/1                      s_axis_tvalid_reg <= 1'b1;
+309        1/1                      s_axis_tlast_reg <= s_axis_tlast;
+310        1/1                      s_axis_tid_reg <= s_axis_tid;
+311        1/1                      s_axis_tdest_reg <= s_axis_tdest;
+312        1/1                      s_axis_tuser_reg <= s_axis_tuser;
+313                             end
+                        MISSING_ELSE
+314                     
+315        1/1                  if (rst) begin
+316        1/1                      s_axis_tvalid_reg <= 1'b0;
+317        1/1                      m_axis_tvalid_reg <= 1'b0;
+318                             end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : axis_adapter
+         Line No. Total Covered Percent 
+Branches          25    22      88.00   
+IF       102      2     1       50.00   
+IF       107      2     1       50.00   
+IF       112      2     1       50.00   
+IF       265      17    17      100.00  
+IF       315      2     2       100.00  
+
+
+102            if (S_BYTE_SIZE * S_BYTE_LANES != S_DATA_WIDTH) begin
+               -1-  
+103                $error("Error: input data width not evenly divisible (instance %m)");
+                   ==>
+104                $finish;
+105            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+107            if (M_BYTE_SIZE * M_BYTE_LANES != M_DATA_WIDTH) begin
+               -1-  
+108                $error("Error: output data width not evenly divisible (instance %m)");
+                   ==>
+109                $finish;
+110            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+112            if (S_BYTE_SIZE != M_BYTE_SIZE) begin
+               -1-  
+113                $error("Error: byte size mismatch (instance %m)");
+                   ==>
+114                $finish;
+115            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+265                if (!m_axis_tvalid_reg || m_axis_tready) begin
+                   -1-  
+266                    // output register empty
+267        
+268                    m_axis_tdata_reg <= s_axis_tvalid_reg ? s_axis_tdata_reg : s_axis_tdata;
+                                                             -2-  
+                                                             ==>  
+                                                             ==>  
+269                    m_axis_tkeep_reg <= s_axis_tvalid_reg ? s_axis_tkeep_reg : s_axis_tkeep_int;
+                                                             -3-  
+                                                             ==>  
+                                                             ==>  
+270                    m_axis_tlast_reg <= 1'b0;
+271                    m_axis_tid_reg <= s_axis_tvalid_reg ? s_axis_tid_reg : s_axis_tid;
+                                                           -4-  
+                                                           ==>  
+                                                           ==>  
+272                    m_axis_tdest_reg <= s_axis_tvalid_reg ? s_axis_tdest_reg : s_axis_tdest;
+                                                             -5-  
+                                                             ==>  
+                                                             ==>  
+273                    m_axis_tuser_reg <= s_axis_tvalid_reg ? s_axis_tuser_reg : s_axis_tuser;
+                                                             -6-  
+                                                             ==>  
+                                                             ==>  
+274        
+275                    if (s_axis_tvalid_reg) begin
+                       -7-  
+276                        // buffer has data; shift out from buffer
+277                        s_axis_tdata_reg <= s_axis_tdata_reg >> SEG_DATA_WIDTH;
+278                        s_axis_tkeep_reg <= s_axis_tkeep_reg >> SEG_KEEP_WIDTH;
+279        
+280                        m_axis_tvalid_reg <= 1'b1;
+281        
+282                        if ((s_axis_tkeep_reg >> SEG_KEEP_WIDTH) == 0) begin
+                           -8-  
+283                            s_axis_tvalid_reg <= 1'b0;
+                               ==>
+284                            m_axis_tlast_reg <= s_axis_tlast_reg;
+285                        end
+                           MISSING_ELSE
+                           ==>
+286                    end else if (s_axis_tvalid && s_axis_tready) begin
+                                -9-  
+287                        // buffer is empty; store from input
+288                        s_axis_tdata_reg <= s_axis_tdata >> SEG_DATA_WIDTH;
+289                        s_axis_tkeep_reg <= s_axis_tkeep_int >> SEG_KEEP_WIDTH;
+290                        s_axis_tlast_reg <= s_axis_tlast;
+291                        s_axis_tid_reg <= s_axis_tid;
+292                        s_axis_tdest_reg <= s_axis_tdest;
+293                        s_axis_tuser_reg <= s_axis_tuser;
+294        
+295                        m_axis_tvalid_reg <= 1'b1;
+296        
+297                        if (S_KEEP_ENABLE && (s_axis_tkeep_int >> SEG_KEEP_WIDTH) == 0) begin
+                           -10-  
+298                            s_axis_tvalid_reg <= 1'b0;
+                               ==>
+299                            m_axis_tlast_reg <= s_axis_tlast;
+300                        end else begin
+301                            s_axis_tvalid_reg <= 1'b1;
+                               ==>
+302                        end
+303                    end
+                       MISSING_ELSE
+                       ==>
+304                end else if (s_axis_tvalid && s_axis_tready) begin
+                            -11-  
+305                    // store input data
+306                    s_axis_tdata_reg <= s_axis_tdata;
+                       ==>
+307                    s_axis_tkeep_reg <= s_axis_tkeep_int;
+308                    s_axis_tvalid_reg <= 1'b1;
+309                    s_axis_tlast_reg <= s_axis_tlast;
+310                    s_axis_tid_reg <= s_axis_tid;
+311                    s_axis_tdest_reg <= s_axis_tdest;
+312                    s_axis_tuser_reg <= s_axis_tuser;
+313                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6- -7- -8- -9- -10- -11- Status  
+1   1   -   -   -   -   -   -   -   -    -    Covered 
+1   0   -   -   -   -   -   -   -   -    -    Covered 
+1   -   1   -   -   -   -   -   -   -    -    Covered 
+1   -   0   -   -   -   -   -   -   -    -    Covered 
+1   -   -   1   -   -   -   -   -   -    -    Covered 
+1   -   -   0   -   -   -   -   -   -    -    Covered 
+1   -   -   -   1   -   -   -   -   -    -    Covered 
+1   -   -   -   0   -   -   -   -   -    -    Covered 
+1   -   -   -   -   1   -   -   -   -    -    Covered 
+1   -   -   -   -   0   -   -   -   -    -    Covered 
+1   -   -   -   -   -   1   1   -   -    -    Covered 
+1   -   -   -   -   -   1   0   -   -    -    Covered 
+1   -   -   -   -   -   0   -   1   1    -    Covered 
+1   -   -   -   -   -   0   -   1   0    -    Covered 
+1   -   -   -   -   -   0   -   0   -    -    Covered 
+0   -   -   -   -   -   -   -   -   -    1    Covered 
+0   -   -   -   -   -   -   -   -   -    0    Covered 
+
+
+315                if (rst) begin
+                   -1-  
+316                    s_axis_tvalid_reg <= 1'b0;
+                       ==>
+317                    m_axis_tvalid_reg <= 1'b0;
+318                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : tb.UUT.downsize_post.adapter_inst
+===============================================================================
+
+Instance :
+
+SCORE  LINE   BRANCH 
+ 87.62  87.23  88.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   BRANCH 
+ 87.62  87.23  88.00 
+
+
+Module : 
+
+SCORE  LINE   BRANCH NAME         
+ 87.62  87.23  88.00 axis_adapter 
+
+
+Parent : 
+
+SCORE  LINE   BRANCH NAME 
+ 41.67  33.33  50.00 UUT  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

@@ -1,0 +1,69 @@
+{
+  "constraint_random_test": {
+    "name": "case3_simple_constraints",
+    "seed": 20260630,
+    "sequence_count": 256,
+    "transaction_variables": {
+      "payload_length_bytes": {
+        "type": "int",
+        "values": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          28,
+          32,
+          48,
+          64,
+          96,
+          128,
+          252,
+          256,
+          260,
+          512
+        ]
+      },
+      "payload_data": {
+        "type": "byte_array",
+        "generator": "fixed-seed pseudo-random"
+      },
+      "stream_backpressure": {
+        "type": "enum",
+        "values": [
+          "fixed_pause_pattern"
+        ]
+      },
+      "axi_backpressure": {
+        "type": "enum",
+        "values": [
+          "fixed_pause_pattern"
+        ]
+      }
+    },
+    "hard_constraints": [
+      "payloads are padded to AXI_DATA_WIDTH/8 bytes before comparison",
+      "cfg_fifo_base_addr is 0x1000",
+      "cfg_fifo_size_mask is 0x0fff",
+      "cfg_enable is asserted before payload traffic",
+      "a directed cfg_reset occurs between the main payload run and a short post-reset run"
+    ],
+    "objective": {
+      "primary": "run a simple reproducible VCS/cocotb sanity and coverage test for case3",
+      "reported_metric": [
+        "line_coverage_percent",
+        "branch_coverage_percent",
+        "functional_coverage_percent"
+      ]
+    },
+    "vcs_execution_model": {
+      "json_supported": true,
+      "method": "cocotb reads this JSON, drives segmented stream payloads, samples functional bins, and uses AxiRam for the AXI backing store; VCS reports line and branch coverage via URG.",
+      "implementation": "public_dataset/case3/test_case3_json_sequences.py",
+      "vcs_options": [
+        "-cm line+branch",
+        "-cm_dir sim_build/coverage.vdb"
+      ]
+    }
+  }
+}

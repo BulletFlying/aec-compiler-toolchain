@@ -1,0 +1,110 @@
+{
+  "design": {
+    "name": "case4",
+    "rtl": "rtl/case4.v",
+    "language": "verilog-2001",
+    "top_module": "case4",
+    "protocol": "AXI4 memory-mapped slave",
+    "parameters": {
+      "DATA_WIDTH": 32,
+      "ADDR_WIDTH": 16,
+      "STRB_WIDTH": 4,
+      "ID_WIDTH": 8,
+      "PIPELINE_OUTPUT": 0
+    },
+    "derived_parameters": {
+      "VALID_ADDR_WIDTH": "ADDR_WIDTH - clog2(STRB_WIDTH)",
+      "WORD_WIDTH": "STRB_WIDTH",
+      "WORD_SIZE": "DATA_WIDTH / WORD_WIDTH"
+    },
+    "clock": {
+      "name": "clk",
+      "period_ns": 10
+    },
+    "reset": {
+      "name": "rst",
+      "active_level": 1,
+      "style": "synchronous",
+      "minimum_cycles": 2
+    },
+    "interfaces": [
+      {
+        "name": "s_axi_aw",
+        "role": "input_driver",
+        "protocol_channel": "AXI write address",
+        "signals": [
+          "s_axi_awid",
+          "s_axi_awaddr",
+          "s_axi_awlen",
+          "s_axi_awsize",
+          "s_axi_awburst",
+          "s_axi_awlock",
+          "s_axi_awcache",
+          "s_axi_awprot",
+          "s_axi_awvalid",
+          "s_axi_awready"
+        ]
+      },
+      {
+        "name": "s_axi_w",
+        "role": "input_driver",
+        "protocol_channel": "AXI write data",
+        "signals": [
+          "s_axi_wdata",
+          "s_axi_wstrb",
+          "s_axi_wlast",
+          "s_axi_wvalid",
+          "s_axi_wready"
+        ]
+      },
+      {
+        "name": "s_axi_b",
+        "role": "output_monitor",
+        "protocol_channel": "AXI write response",
+        "signals": [
+          "s_axi_bid",
+          "s_axi_bresp",
+          "s_axi_bvalid",
+          "s_axi_bready"
+        ]
+      },
+      {
+        "name": "s_axi_ar",
+        "role": "input_driver",
+        "protocol_channel": "AXI read address",
+        "signals": [
+          "s_axi_arid",
+          "s_axi_araddr",
+          "s_axi_arlen",
+          "s_axi_arsize",
+          "s_axi_arburst",
+          "s_axi_arlock",
+          "s_axi_arcache",
+          "s_axi_arprot",
+          "s_axi_arvalid",
+          "s_axi_arready"
+        ]
+      },
+      {
+        "name": "s_axi_r",
+        "role": "output_monitor",
+        "protocol_channel": "AXI read data",
+        "signals": [
+          "s_axi_rid",
+          "s_axi_rdata",
+          "s_axi_rresp",
+          "s_axi_rlast",
+          "s_axi_rvalid",
+          "s_axi_rready"
+        ]
+      }
+    ],
+    "observable_behaviors": [
+      "Read and write response codes are OKAY.",
+      "Write response ID matches the accepted write address ID.",
+      "Read response ID matches the accepted read address ID.",
+      "Byte lanes update only when the corresponding WSTRB bit is asserted.",
+      "INCR bursts advance address by 1 << AxSIZE; FIXED bursts keep address stable."
+    ]
+  }
+}

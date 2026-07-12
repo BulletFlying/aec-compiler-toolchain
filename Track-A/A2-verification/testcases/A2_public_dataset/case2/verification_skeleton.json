@@ -1,0 +1,64 @@
+{
+  "verification_skeleton": {
+    "clock_reset_generation": {
+      "clock": {
+        "signal": "clk",
+        "period_ns": 10,
+        "implementation": "always #5 clk = ~clk;"
+      },
+      "reset": {
+        "signal": "rst",
+        "source": "tb/input.mem rst column",
+        "implementation": "rst is replayed from the input vector file on every cycle"
+      }
+    },
+    "input_drivers": [
+      {
+        "name": "vector_file_input_driver",
+        "interface": "s_axis",
+        "driver": "$fscanf(input_fd, ...)",
+        "drives": [
+          "rst",
+          "s_axis_tdata",
+          "s_axis_tkeep",
+          "s_axis_tvalid",
+          "s_axis_tlast",
+          "s_axis_tid",
+          "s_axis_tdest",
+          "s_axis_tuser",
+          "m_axis_tready"
+        ],
+        "observes": [
+          "s_axis_tready"
+        ],
+        "traffic": "cycle-accurate AXI-Stream vectors from tb/input.mem"
+      }
+    ],
+    "output_monitors": [
+      {
+        "name": "cycle_output_checker",
+        "interface": "m_axis",
+        "monitor": "$fscanf(output_fd, ...) plus post-clock comparisons",
+        "observes": [
+          "s_axis_tready",
+          "m_axis_tdata",
+          "m_axis_tkeep",
+          "m_axis_tvalid",
+          "m_axis_tlast",
+          "m_axis_tid",
+          "m_axis_tdest",
+          "m_axis_tuser"
+        ],
+        "backpressure": "m_axis_tready column in tb/input.mem"
+      }
+    ],
+    "scoreboard": {
+      "model": "precomputed expected waveform",
+      "checks": [
+        "s_axis_tready equals expected value",
+        "m_axis_tdata/tkeep/tvalid/tlast/tid/tdest/tuser equal expected values",
+        "input and output vector files contain no extra data after CYCLE_COUNT"
+      ]
+    }
+  }
+}

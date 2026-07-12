@@ -1,0 +1,103 @@
+{
+  "constraint_random_test": {
+    "name": "case4_z3_constraints",
+    "solver_target": "Z3-compatible integer and enum constraints",
+    "seed": 20260630,
+    "sequence_count": 5000,
+    "transaction_variables": {
+      "op": {
+        "type": "enum",
+        "values": [
+          "write",
+          "read",
+          "write_then_read"
+        ]
+      },
+      "address": {
+        "type": "bitvec",
+        "width": 16
+      },
+      "length_bytes": {
+        "type": "int",
+        "min": 1,
+        "max": 1024
+      },
+      "size": {
+        "type": "int",
+        "min": 0,
+        "max": 2
+      },
+      "burst": {
+        "type": "enum",
+        "values": [
+          "FIXED",
+          "INCR"
+        ],
+        "encoding": {
+          "FIXED": 0,
+          "INCR": 1
+        }
+      },
+      "id": {
+        "type": "bitvec",
+        "width": 8
+      },
+      "wstrb_mask": {
+        "type": "bitvec",
+        "width": 4
+      },
+      "idle_pattern": {
+        "type": "enum",
+        "values": [
+          "none",
+          "cycle_pause",
+          "random_pause"
+        ]
+      },
+      "backpressure_pattern": {
+        "type": "enum",
+        "values": [
+          "none",
+          "cycle_pause",
+          "random_pause"
+        ]
+      }
+    },
+    "hard_constraints": [
+      "0 <= address < 65536",
+      "1 <= length_bytes <= 1024",
+      "0 <= size <= 2",
+      "beat_bytes == (1 << size)",
+      "beat_bytes <= 4",
+      "wstrb_mask != 0 for write-like operations",
+      "address + length_bytes <= 65536",
+      "op == read implies expected_data_source in {reference_memory, zero_initialized_memory}"
+    ],
+    "coverage_guidance_constraints": [
+      "at least 15 percent of transactions use address < 16",
+      "at least 15 percent of transactions cross a 4 KiB boundary",
+      "at least 20 percent of writes use partial wstrb_mask",
+      "at least 10 percent of transactions use FIXED burst",
+      "at least 25 percent of transactions enable idle or backpressure",
+      "include length_bytes in {1, 2, 3, 4, 7, 8, 15, 16, 255, 256, 1024}"
+    ],
+    "objective": {
+      "primary": "maximize uncovered functional bins",
+      "secondary": "maximize VCS line and branch coverage",
+      "reported_metric": [
+        "line_coverage_percent",
+        "branch_coverage_percent",
+        "functional_coverage_percent"
+      ]
+    },
+    "vcs_execution_model": {
+      "json_supported": true,
+      "method": "cocotb reads this JSON, generates 5000 transactions, samples functional bins, and drives the AXI interface; VCS reports line and branch coverage via URG.",
+      "implementation": "public_dataset/case4/test_case4_json_sequences.py",
+      "vcs_options": [
+        "-cm line+branch",
+        "-cm_dir sim_build/coverage.vdb"
+      ]
+    }
+  }
+}

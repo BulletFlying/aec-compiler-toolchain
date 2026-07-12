@@ -1,0 +1,77 @@
+{
+  "design": {
+    "name": "case2",
+    "rtl": [
+      "rtl/case2.v",
+      "rtl/case2_1.v",
+      "rtl/case2_2.v"
+    ],
+    "top_module": "case2",
+    "verilog_testbench_top": "tb/case2_tb.v",
+    "function": "AXI4-Stream FIFO with width conversion",
+    "configuration_under_test": {
+      "DEPTH": 32,
+      "S_DATA_WIDTH": 64,
+      "S_KEEP_WIDTH": 8,
+      "M_DATA_WIDTH": 8,
+      "M_KEEP_WIDTH": 1,
+      "ID_ENABLE": 1,
+      "ID_WIDTH": 8,
+      "DEST_ENABLE": 1,
+      "DEST_WIDTH": 8,
+      "USER_ENABLE": 1,
+      "USER_WIDTH": 1,
+      "FRAME_FIFO": 0,
+      "DROP_BAD_FRAME": 0,
+      "DROP_WHEN_FULL": 0,
+      "PAUSE_ENABLE": 0,
+      "CYCLE_COUNT": 7403
+    },
+    "clock_reset": {
+      "clock": "clk",
+      "reset": "rst",
+      "reset_active": "high"
+    },
+    "interfaces": {
+      "s_axis": {
+        "role": "input stream",
+        "signals": [
+          "s_axis_tdata",
+          "s_axis_tkeep",
+          "s_axis_tvalid",
+          "s_axis_tready",
+          "s_axis_tlast",
+          "s_axis_tid",
+          "s_axis_tdest",
+          "s_axis_tuser"
+        ]
+      },
+      "m_axis": {
+        "role": "output stream",
+        "signals": [
+          "m_axis_tdata",
+          "m_axis_tkeep",
+          "m_axis_tvalid",
+          "m_axis_tready",
+          "m_axis_tlast",
+          "m_axis_tid",
+          "m_axis_tdest",
+          "m_axis_tuser"
+        ]
+      },
+      "control_status": {
+        "inputs": [
+          "pause_req tied to 1'b0 in case2_tb.v"
+        ],
+        "outputs": [
+          "pause_ack",
+          "status_depth",
+          "status_depth_commit",
+          "status_overflow",
+          "status_bad_frame",
+          "status_good_frame"
+        ]
+      }
+    }
+  }
+}

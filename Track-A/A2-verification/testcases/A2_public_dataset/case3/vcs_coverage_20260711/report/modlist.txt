@@ -1,0 +1,15 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   BRANCH 
+ 90.54  93.48  87.61 
+
+
+Total modules in report: 4
+-------------------------------------------------------------------------------
+SCORE  LINE   BRANCH NAME             
+ 89.93  92.81  87.04 axi_vfifo_raw_wr 
+ 90.78  93.80  87.76 axi_vfifo_raw_rd 
+ 93.08  96.15  90.00 axi_vfifo_raw    
+--     --     --     case3_cocotb_top 
+

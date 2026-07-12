@@ -1,0 +1,269 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set target_library [list /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db]
+/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+set link_library [concat "*" $target_library]
+* /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+analyze -format sverilog /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/design.v
+Running PRESTO HDLC
+Compiling source file /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/design.v
+Presto compilation completed successfully.
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+1
+elaborate top
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'top'.
+1
+current_design top
+Current design is 'top'.
+{top}
+link
+
+  Linking design 'top'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  top                         /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/top.db
+  NangateOpenCellLibrary (library) /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+
+1
+check_design > /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/check_design.rpt
+source /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/constraints.sdc
+Warning: Creating virtual clock named 'virtual_clk' with no sources. (UID-348)
+1
+if {[catch {compile_ultra -no_autoungroup} err]} {
+  puts "compile_ultra failed, falling back to compile: $err"
+  compile
+}
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing power optimization. (PWR-850)
+Analyzing: "/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db"
+Library analysis succeeded.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        | O-2018.06-DWBB_201806.1 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+  Simplifying Design 'top'
+
+Loaded alib file './alib-52/NangateOpenCellLibrary_typical.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'top'
+Memory usage for J1 task 114 Mbytes -- main task 114 Mbytes.
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02     391.8      0.00       0.0      16.3                           9548.3164
+    0:00:02     391.8      0.00       0.0      16.3                           9548.3164
+    0:00:02     391.8      0.00       0.0      16.3                           9548.3164
+    0:00:02     391.8      0.00       0.0      16.3                           9548.3164
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:02     388.9      0.00       0.0      15.1                           9440.3789
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02     379.8      0.00       0.0      14.4                           8909.4219
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+    0:00:02     416.6      0.00       0.0       0.0                           10016.6982
+    0:00:02     416.6      0.00       0.0       0.0                           10016.6982
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02     416.6      0.00       0.0       0.0                           10016.6982
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+    0:00:02     386.5      0.00       0.0       0.0                           9004.9619
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+write -format verilog -hierarchy -output /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/netlist.v
+Writing verilog file '/tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/netlist.v'.
+1
+write_sdc /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/final.sdc
+1
+report_qor > /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/qor.rpt
+report_area -hierarchy > /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/area.rpt
+report_timing -delay max -max_paths 20 > /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/timing.rpt
+report_constraint -all_violators > /tmp/logic_synth_ref/runs/LSV02_dc_timing_1513faf012f34557a6f8148884c24bde/case/constraints.rpt
+exit
+
+Memory usage for main task 126 Mbytes.
+Memory usage for this session 126 Mbytes.
+CPU usage for this session 48 seconds ( 0.01 hours ).
+
+Thank you...
+

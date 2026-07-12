@@ -1,0 +1,19 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : qdiv
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:41 2026
+****************************************
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   qdiv                         0.00        2341.07       -2341.07  (VIOLATED)
+
+
+1

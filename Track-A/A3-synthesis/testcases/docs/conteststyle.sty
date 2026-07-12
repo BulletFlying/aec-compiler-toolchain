@@ -1,0 +1,104 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{conteststyle}[2026/07/11 Contest statement style]
+
+\RequirePackage[a4paper,left=2.0cm,right=2.0cm,top=1.65cm,bottom=1.75cm]{geometry}
+\RequirePackage{fontspec}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{longtable}
+\RequirePackage{array}
+\RequirePackage{colortbl}
+\RequirePackage{amsmath}
+\RequirePackage{enumitem}
+\RequirePackage{titlesec}
+\RequirePackage{listings}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{hyperref}
+\RequirePackage{caption}
+\RequirePackage{float}
+\RequirePackage{xurl}
+
+\definecolor{Ink}{HTML}{172033}
+\definecolor{Accent}{HTML}{173E91}
+\definecolor{AccentLine}{HTML}{2E63FF}
+\definecolor{CodeBg}{HTML}{F4F6F8}
+\definecolor{TableHead}{HTML}{E8EEF8}
+\definecolor{TableBorder}{HTML}{9AA7B8}
+\definecolor{Muted}{HTML}{526071}
+\definecolor{WarnBg}{HTML}{FFF7E8}
+\definecolor{WarnLine}{HTML}{D58A00}
+
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\setmonofont{DejaVu Sans Mono}[Scale=0.88]
+\setCJKmainfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+\setCJKsansfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+\renewcommand{\familydefault}{\sfdefault}
+\color{Ink}
+
+\hypersetup{colorlinks=true,linkcolor=Accent,urlcolor=Accent,citecolor=Accent,pdfborder={0 0 0}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\renewcommand{\arraystretch}{1.28}
+\setlength{\tabcolsep}{5pt}
+\linespread{1.15}
+\setlist[itemize]{leftmargin=1.55em,itemsep=0.25em,topsep=0.3em}
+\setlist[enumerate]{leftmargin=1.75em,itemsep=0.3em,topsep=0.3em}
+
+\titleformat{\section}{\color{Accent}\bfseries\LARGE}{\thesection.}{0.45em}{}
+\titleformat{\subsection}{\color{Ink}\bfseries\large}{\thesubsection}{0.55em}{}
+\titleformat{\subsubsection}{\color{Ink}\bfseries\normalsize}{\thesubsubsection}{0.55em}{}
+\titlespacing*{\section}{0pt}{1.35em}{0.55em}
+\titlespacing*{\subsection}{0pt}{1.0em}{0.35em}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.25em}
+
+\newcommand{\ContestTitle}[1]{%
+  {\fontsize{25}{31}\selectfont\color{Ink}\bfseries #1\par}
+  \vspace{0.55em}
+  {\color{AccentLine}\rule{\textwidth}{2.2pt}}
+  \vspace{1.35em}
+}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+\lstdefinestyle{contestcode}{
+  basicstyle=\ttfamily\small,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  breaklines=true,
+  upquote=true,
+  aboveskip=0pt,
+  belowskip=0pt
+}
+\newtcblisting{codebox}[1][]{
+  enhanced,
+  breakable,
+  listing only,
+  listing options={style=contestcode},
+  colback=CodeBg,
+  colframe=TableBorder,
+  boxrule=0.35pt,
+  sharp corners,
+  left=8pt,right=8pt,top=7pt,bottom=7pt,
+  borderline west={2.7pt}{0pt}{AccentLine},
+  #1
+}
+\newtcolorbox{noticebox}[1][]{
+  enhanced,
+  breakable,
+  colback=WarnBg,
+  colframe=WarnLine,
+  boxrule=0.35pt,
+  sharp corners,
+  left=8pt,right=8pt,top=6pt,bottom=6pt,
+  borderline west={2.7pt}{0pt}{WarnLine},
+  #1
+}
+\newcommand{\tableheader}[1]{\rowcolor{TableHead}\bfseries #1}
+\captionsetup{font=small,labelfont=bf,labelsep=space}
+\AtBeginEnvironment{longtable}{\small}

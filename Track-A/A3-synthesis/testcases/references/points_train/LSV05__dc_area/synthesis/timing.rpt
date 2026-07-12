@@ -1,0 +1,700 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : axi_dwidth_converter_v2_1_b_downsizer
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:30 2026
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: M_AXI_BRESP[1]
+              (input port clocked by ACLK)
+  Endpoint: S_AXI_BRESP[0]
+            (output port clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 f
+  M_AXI_BRESP[1] (in)                      0.10       1.10 f
+  U72/Z (CLKBUF_X1)                        0.07       1.17 f
+  U93/ZN (INV_X1)                          0.03       1.21 r
+  U97/ZN (OAI21_X1)                        0.03       1.23 f
+  U95/ZN (NOR3_X1)                         0.10       1.33 r
+  U100/ZN (INV_X1)                         0.03       1.36 f
+  U99/ZN (AOI22_X1)                        0.06       1.41 r
+  U84/ZN (INV_X1)                          0.02       1.44 f
+  S_AXI_BRESP[0] (out)                     0.01       1.44 f
+  data arrival time                                   1.44
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  output external delay                   -1.00      99.00
+  data required time                                 99.00
+  -----------------------------------------------------------
+  data required time                                 99.00
+  data arrival time                                  -1.44
+  -----------------------------------------------------------
+  slack (MET)                                        97.56
+
+
+  Startpoint: cmd_split (input port clocked by ACLK)
+  Endpoint: cmd_ready (output port clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 f
+  cmd_split (in)                           0.10       1.10 f
+  U73/Z (CLKBUF_X1)                        0.07       1.17 f
+  U89/ZN (OAI21_X1)                        0.04       1.21 r
+  U82/ZN (INV_X1)                          0.03       1.24 f
+  U98/ZN (OR2_X1)                          0.06       1.30 f
+  U94/ZN (NAND2_X1)                        0.04       1.34 r
+  U66/ZN (INV_X1)                          0.02       1.37 f
+  U65/ZN (AND3_X1)                         0.04       1.41 f
+  cmd_ready (out)                          0.01       1.41 f
+  data arrival time                                   1.41
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  output external delay                   -1.00      99.00
+  data required time                                 99.00
+  -----------------------------------------------------------
+  data required time                                 99.00
+  data arrival time                                  -1.41
+  -----------------------------------------------------------
+  slack (MET)                                        97.59
+
+
+  Startpoint: M_AXI_BRESP[1]
+              (input port clocked by ACLK)
+  Endpoint: S_AXI_BRESP[1]
+            (output port clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 f
+  M_AXI_BRESP[1] (in)                      0.10       1.10 f
+  U72/Z (CLKBUF_X1)                        0.07       1.17 f
+  U93/ZN (INV_X1)                          0.03       1.21 r
+  U97/ZN (OAI21_X1)                        0.03       1.23 f
+  U95/ZN (NOR3_X1)                         0.10       1.33 r
+  U88/ZN (AOI21_X1)                        0.04       1.37 f
+  U83/ZN (INV_X1)                          0.03       1.40 r
+  S_AXI_BRESP[1] (out)                     0.01       1.41 r
+  data arrival time                                   1.41
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  output external delay                   -1.00      99.00
+  data required time                                 99.00
+  -----------------------------------------------------------
+  data required time                                 99.00
+  data arrival time                                  -1.41
+  -----------------------------------------------------------
+  slack (MET)                                        97.59
+
+
+  Startpoint: cmd_split (input port clocked by ACLK)
+  Endpoint: M_AXI_BREADY
+            (output port clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 f
+  cmd_split (in)                           0.10       1.10 f
+  U73/Z (CLKBUF_X1)                        0.07       1.17 f
+  U89/ZN (OAI21_X1)                        0.04       1.21 r
+  U82/ZN (INV_X1)                          0.03       1.24 f
+  U98/ZN (OR2_X1)                          0.06       1.30 f
+  M_AXI_BREADY (out)                       0.01       1.31 f
+  data arrival time                                   1.31
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  output external delay                   -1.00      99.00
+  data required time                                 99.00
+  -----------------------------------------------------------
+  data required time                                 99.00
+  data arrival time                                  -1.31
+  -----------------------------------------------------------
+  slack (MET)                                        97.69
+
+
+  Startpoint: cmd_split (input port clocked by ACLK)
+  Endpoint: S_AXI_BVALID
+            (output port clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 f
+  cmd_split (in)                           0.10       1.10 f
+  U73/Z (CLKBUF_X1)                        0.07       1.17 f
+  U89/ZN (OAI21_X1)                        0.04       1.21 r
+  U107/ZN (AND2_X1)                        0.05       1.26 r
+  S_AXI_BVALID (out)                       0.01       1.27 r
+  data arrival time                                   1.27
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  output external delay                   -1.00      99.00
+  data required time                                 99.00
+  -----------------------------------------------------------
+  data required time                                 99.00
+  data arrival time                                  -1.27
+  -----------------------------------------------------------
+  slack (MET)                                        97.73
+
+
+  Startpoint: cmd_id[0] (input port clocked by ACLK)
+  Endpoint: S_AXI_BID[0]
+            (output port clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  cmd_id[0] (in)                           0.13       1.13 r
+  S_AXI_BID[0] (out)                       0.01       1.14 r
+  data arrival time                                   1.14
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  output external delay                   -1.00      99.00
+  data required time                                 99.00
+  -----------------------------------------------------------
+  data required time                                 99.00
+  data arrival time                                  -1.14
+  -----------------------------------------------------------
+  slack (MET)                                        97.86
+
+
+  Startpoint: cmd_repeat[0]
+              (input port clocked by ACLK)
+  Endpoint: repeat_cnt_reg[7]
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 f
+  cmd_repeat[0] (in)                       0.12       1.12 f
+  U64/Z (MUX2_X1)                          0.12       1.24 f
+  U133/ZN (NOR2_X1)                        0.06       1.30 r
+  U78/ZN (INV_X1)                          0.02       1.32 f
+  U134/ZN (NOR2_X1)                        0.05       1.36 r
+  U81/ZN (INV_X1)                          0.03       1.39 f
+  U136/ZN (NOR2_X1)                        0.05       1.44 r
+  U80/ZN (INV_X1)                          0.03       1.47 f
+  U138/ZN (NOR2_X1)                        0.05       1.52 r
+  U79/ZN (INV_X1)                          0.03       1.55 f
+  U140/ZN (NOR2_X1)                        0.05       1.60 r
+  U77/ZN (INV_X1)                          0.03       1.63 f
+  U143/ZN (NOR2_X1)                        0.05       1.67 r
+  U144/Z (XOR2_X1)                         0.07       1.74 r
+  U125/ZN (NAND2_X1)                       0.03       1.77 f
+  U124/ZN (OAI21_X1)                       0.03       1.80 r
+  repeat_cnt_reg[7]/D (DFF_X1)             0.01       1.81 r
+  data arrival time                                   1.81
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  repeat_cnt_reg[7]/CK (DFF_X1)            0.00     100.00 r
+  library setup time                      -0.03      99.97
+  data required time                                 99.97
+  -----------------------------------------------------------
+  data required time                                 99.97
+  data arrival time                                  -1.81
+  -----------------------------------------------------------
+  slack (MET)                                        98.15
+
+
+  Startpoint: cmd_repeat[0]
+              (input port clocked by ACLK)
+  Endpoint: repeat_cnt_reg[6]
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 f
+  cmd_repeat[0] (in)                       0.12       1.12 f
+  U64/Z (MUX2_X1)                          0.12       1.24 f
+  U133/ZN (NOR2_X1)                        0.06       1.30 r
+  U78/ZN (INV_X1)                          0.02       1.32 f
+  U134/ZN (NOR2_X1)                        0.05       1.36 r
+  U81/ZN (INV_X1)                          0.03       1.39 f
+  U136/ZN (NOR2_X1)                        0.05       1.44 r
+  U80/ZN (INV_X1)                          0.03       1.47 f
+  U138/ZN (NOR2_X1)                        0.05       1.52 r
+  U79/ZN (INV_X1)                          0.03       1.55 f
+  U140/ZN (NOR2_X1)                        0.05       1.60 r
+  U142/Z (XOR2_X1)                         0.07       1.67 r
+  U109/ZN (NAND2_X1)                       0.03       1.70 f
+  U108/ZN (OAI21_X1)                       0.03       1.73 r
+  repeat_cnt_reg[6]/D (DFF_X1)             0.01       1.74 r
+  data arrival time                                   1.74
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  repeat_cnt_reg[6]/CK (DFF_X1)            0.00     100.00 r
+  library setup time                      -0.03      99.97
+  data required time                                 99.97
+  -----------------------------------------------------------
+  data required time                                 99.97
+  data arrival time                                  -1.74
+  -----------------------------------------------------------
+  slack (MET)                                        98.23
+
+
+  Startpoint: cmd_repeat[0]
+              (input port clocked by ACLK)
+  Endpoint: repeat_cnt_reg[5]
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 f
+  cmd_repeat[0] (in)                       0.12       1.12 f
+  U64/Z (MUX2_X1)                          0.12       1.24 f
+  U133/ZN (NOR2_X1)                        0.06       1.30 r
+  U78/ZN (INV_X1)                          0.02       1.32 f
+  U134/ZN (NOR2_X1)                        0.05       1.36 r
+  U81/ZN (INV_X1)                          0.03       1.39 f
+  U136/ZN (NOR2_X1)                        0.05       1.44 r
+  U80/ZN (INV_X1)                          0.03       1.47 f
+  U138/ZN (NOR2_X1)                        0.05       1.52 r
+  U79/ZN (INV_X1)                          0.03       1.55 f
+  U140/ZN (NOR2_X1)                        0.05       1.60 r
+  U77/ZN (INV_X1)                          0.03       1.63 f
+  U141/ZN (OAI21_X1)                       0.03       1.66 r
+  U111/ZN (NAND2_X1)                       0.03       1.69 f
+  U110/ZN (OAI21_X1)                       0.03       1.72 r
+  repeat_cnt_reg[5]/D (DFF_X1)             0.01       1.73 r
+  data arrival time                                   1.73
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  repeat_cnt_reg[5]/CK (DFF_X1)            0.00     100.00 r
+  library setup time                      -0.03      99.97
+  data required time                                 99.97
+  -----------------------------------------------------------
+  data required time                                 99.97
+  data arrival time                                  -1.73
+  -----------------------------------------------------------
+  slack (MET)                                        98.23
+
+
+  Startpoint: cmd_split (input port clocked by ACLK)
+  Endpoint: first_mi_word_reg
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  cmd_split (in)                           0.11       1.11 r
+  U73/Z (CLKBUF_X1)                        0.07       1.18 r
+  U89/ZN (OAI21_X1)                        0.04       1.22 f
+  U82/ZN (INV_X1)                          0.03       1.25 r
+  U98/ZN (OR2_X1)                          0.04       1.29 r
+  U94/ZN (NAND2_X1)                        0.04       1.33 f
+  U101/ZN (NOR2_X1)                        0.12       1.44 r
+  U86/ZN (INV_X1)                          0.06       1.50 f
+  U85/ZN (NAND2_X1)                        0.08       1.58 r
+  U103/ZN (OAI221_X1)                      0.06       1.64 f
+  first_mi_word_reg/D (DFF_X1)             0.01       1.65 f
+  data arrival time                                   1.65
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  first_mi_word_reg/CK (DFF_X1)            0.00     100.00 r
+  library setup time                      -0.05      99.95
+  data required time                                 99.95
+  -----------------------------------------------------------
+  data required time                                 99.95
+  data arrival time                                  -1.65
+  -----------------------------------------------------------
+  slack (MET)                                        98.30
+
+
+  Startpoint: cmd_repeat[0]
+              (input port clocked by ACLK)
+  Endpoint: repeat_cnt_reg[4]
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 f
+  cmd_repeat[0] (in)                       0.12       1.12 f
+  U64/Z (MUX2_X1)                          0.12       1.24 f
+  U133/ZN (NOR2_X1)                        0.06       1.30 r
+  U78/ZN (INV_X1)                          0.02       1.32 f
+  U134/ZN (NOR2_X1)                        0.05       1.36 r
+  U81/ZN (INV_X1)                          0.03       1.39 f
+  U136/ZN (NOR2_X1)                        0.05       1.44 r
+  U80/ZN (INV_X1)                          0.03       1.47 f
+  U138/ZN (NOR2_X1)                        0.05       1.52 r
+  U79/ZN (INV_X1)                          0.03       1.55 f
+  U139/ZN (OAI21_X1)                       0.03       1.58 r
+  U114/ZN (NAND2_X1)                       0.03       1.61 f
+  U113/ZN (OAI21_X1)                       0.03       1.64 r
+  repeat_cnt_reg[4]/D (DFF_X1)             0.01       1.65 r
+  data arrival time                                   1.65
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  repeat_cnt_reg[4]/CK (DFF_X1)            0.00     100.00 r
+  library setup time                      -0.03      99.97
+  data required time                                 99.97
+  -----------------------------------------------------------
+  data required time                                 99.97
+  data arrival time                                  -1.65
+  -----------------------------------------------------------
+  slack (MET)                                        98.31
+
+
+  Startpoint: cmd_split (input port clocked by ACLK)
+  Endpoint: repeat_cnt_reg[0]
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  cmd_split (in)                           0.11       1.11 r
+  U73/Z (CLKBUF_X1)                        0.07       1.18 r
+  U89/ZN (OAI21_X1)                        0.04       1.22 f
+  U82/ZN (INV_X1)                          0.03       1.25 r
+  U98/ZN (OR2_X1)                          0.04       1.29 r
+  U94/ZN (NAND2_X1)                        0.04       1.33 f
+  U101/ZN (NOR2_X1)                        0.12       1.44 r
+  U86/ZN (INV_X1)                          0.06       1.50 f
+  U85/ZN (NAND2_X1)                        0.08       1.58 r
+  U70/ZN (OAI22_X1)                        0.05       1.63 f
+  repeat_cnt_reg[0]/D (DFF_X1)             0.01       1.64 f
+  data arrival time                                   1.64
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  repeat_cnt_reg[0]/CK (DFF_X1)            0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.64
+  -----------------------------------------------------------
+  slack (MET)                                        98.31
+
+
+  Startpoint: cmd_split (input port clocked by ACLK)
+  Endpoint: repeat_cnt_reg[1]
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  cmd_split (in)                           0.11       1.11 r
+  U73/Z (CLKBUF_X1)                        0.07       1.18 r
+  U89/ZN (OAI21_X1)                        0.04       1.22 f
+  U82/ZN (INV_X1)                          0.03       1.25 r
+  U98/ZN (OR2_X1)                          0.04       1.29 r
+  U94/ZN (NAND2_X1)                        0.04       1.33 f
+  U101/ZN (NOR2_X1)                        0.12       1.44 r
+  U86/ZN (INV_X1)                          0.06       1.50 f
+  U85/ZN (NAND2_X1)                        0.08       1.58 r
+  U122/ZN (OAI21_X1)                       0.04       1.63 f
+  repeat_cnt_reg[1]/D (DFF_X1)             0.01       1.64 f
+  data arrival time                                   1.64
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  repeat_cnt_reg[1]/CK (DFF_X1)            0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.64
+  -----------------------------------------------------------
+  slack (MET)                                        98.32
+
+
+  Startpoint: cmd_split (input port clocked by ACLK)
+  Endpoint: repeat_cnt_reg[2]
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  cmd_split (in)                           0.11       1.11 r
+  U73/Z (CLKBUF_X1)                        0.07       1.18 r
+  U89/ZN (OAI21_X1)                        0.04       1.22 f
+  U82/ZN (INV_X1)                          0.03       1.25 r
+  U98/ZN (OR2_X1)                          0.04       1.29 r
+  U94/ZN (NAND2_X1)                        0.04       1.33 f
+  U101/ZN (NOR2_X1)                        0.12       1.44 r
+  U86/ZN (INV_X1)                          0.06       1.50 f
+  U85/ZN (NAND2_X1)                        0.08       1.58 r
+  U119/ZN (OAI21_X1)                       0.04       1.63 f
+  repeat_cnt_reg[2]/D (DFF_X1)             0.01       1.64 f
+  data arrival time                                   1.64
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  repeat_cnt_reg[2]/CK (DFF_X1)            0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.64
+  -----------------------------------------------------------
+  slack (MET)                                        98.32
+
+
+  Startpoint: cmd_split (input port clocked by ACLK)
+  Endpoint: repeat_cnt_reg[3]
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  cmd_split (in)                           0.11       1.11 r
+  U73/Z (CLKBUF_X1)                        0.07       1.18 r
+  U89/ZN (OAI21_X1)                        0.04       1.22 f
+  U82/ZN (INV_X1)                          0.03       1.25 r
+  U98/ZN (OR2_X1)                          0.04       1.29 r
+  U94/ZN (NAND2_X1)                        0.04       1.33 f
+  U101/ZN (NOR2_X1)                        0.12       1.44 r
+  U86/ZN (INV_X1)                          0.06       1.50 f
+  U85/ZN (NAND2_X1)                        0.08       1.58 r
+  U116/ZN (OAI21_X1)                       0.04       1.63 f
+  repeat_cnt_reg[3]/D (DFF_X1)             0.01       1.64 f
+  data arrival time                                   1.64
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  repeat_cnt_reg[3]/CK (DFF_X1)            0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.64
+  -----------------------------------------------------------
+  slack (MET)                                        98.32
+
+
+  Startpoint: cmd_split (input port clocked by ACLK)
+  Endpoint: S_AXI_BRESP_ACC_reg[0]
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  cmd_split (in)                           0.11       1.11 r
+  U73/Z (CLKBUF_X1)                        0.07       1.18 r
+  U89/ZN (OAI21_X1)                        0.04       1.22 f
+  U82/ZN (INV_X1)                          0.03       1.25 r
+  U98/ZN (OR2_X1)                          0.04       1.29 r
+  U94/ZN (NAND2_X1)                        0.04       1.33 f
+  U101/ZN (NOR2_X1)                        0.12       1.44 r
+  U86/ZN (INV_X1)                          0.06       1.50 f
+  U104/ZN (OAI22_X1)                       0.07       1.57 r
+  S_AXI_BRESP_ACC_reg[0]/D (DFF_X1)        0.01       1.57 r
+  data arrival time                                   1.57
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  S_AXI_BRESP_ACC_reg[0]/CK (DFF_X1)       0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.57
+  -----------------------------------------------------------
+  slack (MET)                                        98.39
+
+
+  Startpoint: cmd_split (input port clocked by ACLK)
+  Endpoint: S_AXI_BRESP_ACC_reg[1]
+            (rising edge-triggered flip-flop clocked by ACLK)
+  Path Group: ACLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  axi_dwidth_converter_v2_1_b_downsizer
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock ACLK (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  cmd_split (in)                           0.11       1.11 r
+  U73/Z (CLKBUF_X1)                        0.07       1.18 r
+  U89/ZN (OAI21_X1)                        0.04       1.22 f
+  U82/ZN (INV_X1)                          0.03       1.25 r
+  U98/ZN (OR2_X1)                          0.04       1.29 r
+  U94/ZN (NAND2_X1)                        0.04       1.33 f
+  U101/ZN (NOR2_X1)                        0.12       1.44 r
+  U86/ZN (INV_X1)                          0.06       1.50 f
+  U102/ZN (OAI22_X1)                       0.07       1.57 r
+  S_AXI_BRESP_ACC_reg[1]/D (DFF_X1)        0.01       1.57 r
+  data arrival time                                   1.57
+
+  clock ACLK (rise edge)                 100.00     100.00
+  clock network delay (ideal)              0.00     100.00
+  S_AXI_BRESP_ACC_reg[1]/CK (DFF_X1)       0.00     100.00 r
+  library setup time                      -0.04      99.96
+  data required time                                 99.96
+  -----------------------------------------------------------
+  data required time                                 99.96
+  data arrival time                                  -1.57
+  -----------------------------------------------------------
+  slack (MET)                                        98.39
+
+
+1

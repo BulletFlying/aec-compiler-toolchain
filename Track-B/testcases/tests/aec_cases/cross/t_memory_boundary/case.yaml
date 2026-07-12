@@ -1,0 +1,15 @@
+case_id: T-MEMORY-BOUNDARY
+category: cross_instruction
+program: program.bin
+
+launch:
+  grid: [1, 1, 1]
+  block: [32, 1, 1]
+
+memory_init: []
+
+expected:
+  status: fail
+
+max_cycles: 10000
+

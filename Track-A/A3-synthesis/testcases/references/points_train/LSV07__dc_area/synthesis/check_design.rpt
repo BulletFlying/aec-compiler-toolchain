@@ -1,0 +1,17 @@
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Sun Jul  5 15:01:38 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Cells                                                               3
+    Cells do not drive (LINT-1)                                     3
+--------------------------------------------------------------------------------
+
+Warning: In design 'qdiv', cell 'C1264' does not drive any nets. (LINT-1)
+Warning: In design 'qdiv', cell 'C1267' does not drive any nets. (LINT-1)
+Warning: In design 'qdiv', cell 'C1269' does not drive any nets. (LINT-1)
+1

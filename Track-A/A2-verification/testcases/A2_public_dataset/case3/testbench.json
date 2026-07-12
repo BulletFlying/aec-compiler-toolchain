@@ -1,0 +1,42 @@
+{
+  "testbench": {
+    "name": "case3_simple_json_cocotb_vcs",
+    "language": "Python cocotb with Verilog wrapper",
+    "driver_library": "local segmented stream driver/sink plus cocotbext-axi AxiRam",
+    "simulator": "VCS",
+    "top": "case3_cocotb_top",
+    "module": "test_case3_json_sequences",
+    "entry_test": "run_json_sequences",
+    "clock": {
+      "core_period_ns": 10,
+      "input_period_ns": 10,
+      "output_period_ns": 10
+    },
+    "reset": {
+      "rst": "core reset",
+      "input_rst": "input stream reset",
+      "output_rst": "output stream reset",
+      "cfg_reset": "directed mid-test FIFO reset"
+    },
+    "stimulus": {
+      "source": "constraints.json",
+      "sequence_count": 256,
+      "payloads": "directed lengths followed by fixed-seed random lengths",
+      "post_reset_payloads": [
+        32,
+        64,
+        96,
+        128
+      ],
+      "backpressure": "fixed pause patterns on input stream, output stream, and AXI RAM channels"
+    },
+    "coverage_collection": {
+      "vcs_options": [
+        "-cm line+branch",
+        "-cm_dir sim_build/coverage.vdb"
+      ],
+      "urg_report": "vcs_coverage_20260711/report",
+      "functional_coverage": "functional_coverage.json"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+case_id: BRX.C1.NORMAL.SIMT
+instruction: BRX
+category: c1_normal_simt
+points: 0.15
+program: program.bin
+launch: {grid: [1, 1, 1], block: [32, 1, 1], program_instructions: 12}
+memory_init: []
+expected:
+  status: done
+  memory: [{address: 0x00000200, size: 128, file: expected/gmem_00000200.bin}]
+  comparison: exact
+max_cycles: 1000

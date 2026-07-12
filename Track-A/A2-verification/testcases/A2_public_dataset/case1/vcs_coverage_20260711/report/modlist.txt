@@ -1,0 +1,13 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   BRANCH 
+ 50.67  53.00  48.33 
+
+
+Total modules in report: 2
+-------------------------------------------------------------------------------
+SCORE  LINE   BRANCH NAME             
+ 50.67  53.00  48.33 axi_adapter_rd   
+--     --     --     case1_cocotb_top 
+

@@ -1,0 +1,2278 @@
+===============================================================================
+Module : axi_vfifo_raw_wr
+===============================================================================
+SCORE  LINE   BRANCH 
+ 89.93  92.81  87.04 
+
+Source File(s) : 
+
+/workspace/public_dataset/case3/rtl/axi_vfifo_raw_wr.v
+
+Module self-instances :
+
+SCORE  LINE   BRANCH NAME                                       
+ 89.93  92.81  87.04 case3_cocotb_top.dut.axi_vfifo_raw_wr_inst 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : axi_vfifo_raw_wr
+
+             Line No.   Total   Covered  Percent
+TOTAL                      167      155    92.81
+INITIAL           147       12        4    33.33
+ALWAYS            207        3        3   100.00
+ALWAYS            215        2        2   100.00
+ALWAYS            293        9        9   100.00
+ALWAYS            293        9        9   100.00
+ALWAYS            310        2        2   100.00
+ALWAYS            310        2        2   100.00
+ALWAYS            321        8        8   100.00
+ALWAYS            336        8        8   100.00
+ALWAYS            352       14       14   100.00
+ALWAYS            414       68       64    94.12
+ALWAYS            524       30       30   100.00
+
+146                     initial begin
+147        1/1              if (AXI_BYTE_SIZE * AXI_STRB_WIDTH != AXI_DATA_WIDTH) begin
+148        0/1     ==>          $error("Error: AXI data width not evenly divisible (instance %m)");
+149        0/1     ==>          $finish;
+150                         end
+                        MISSING_ELSE
+151                     
+152        1/1              if (2**$clog2(AXI_BYTE_LANES) != AXI_BYTE_LANES) begin
+153        0/1     ==>          $error("Error: AXI byte lane count must be even power of two (instance %m)");
+154        0/1     ==>          $finish;
+155                         end
+                        MISSING_ELSE
+156                     
+157        1/1              if (AXI_MAX_BURST_LEN < 1 || AXI_MAX_BURST_LEN > 256) begin
+158        0/1     ==>          $error("Error: AXI_MAX_BURST_LEN must be between 1 and 256 (instance %m)");
+159        0/1     ==>          $finish;
+160                         end
+                        MISSING_ELSE
+161                     
+162        1/1              if (SEG_CNT * SEG_WIDTH != AXI_DATA_WIDTH) begin
+163        0/1     ==>          $error("Error: Width mismatch (instance %m)");
+164        0/1     ==>          $finish;
+165                         end
+                        MISSING_ELSE
+166                     end
+167                     
+168                     localparam [1:0]
+169                         AXI_RESP_OKAY = 2'b00,
+170                         AXI_RESP_EXOKAY = 2'b01,
+171                         AXI_RESP_SLVERR = 2'b10,
+172                         AXI_RESP_DECERR = 2'b11;
+173                     
+174                     reg [AXI_ADDR_WIDTH-1:0] m_axi_awaddr_reg = {AXI_ADDR_WIDTH{1'b0}}, m_axi_awaddr_next;
+175                     reg [7:0] m_axi_awlen_reg = 8'd0, m_axi_awlen_next;
+176                     reg m_axi_awvalid_reg = 1'b0, m_axi_awvalid_next;
+177                     reg [AXI_DATA_WIDTH-1:0] m_axi_wdata_reg = {AXI_DATA_WIDTH{1'b0}}, m_axi_wdata_next;
+178                     reg [AXI_STRB_WIDTH-1:0] m_axi_wstrb_reg = {AXI_STRB_WIDTH{1'b0}}, m_axi_wstrb_next;
+179                     reg m_axi_wlast_reg = 1'b0, m_axi_wlast_next;
+180                     reg m_axi_wvalid_reg = 1'b0, m_axi_wvalid_next;
+181                     reg m_axi_bready_reg = 1'b0, m_axi_bready_next;
+182                     
+183                     assign m_axi_awid = {AXI_ID_WIDTH{1'b0}};
+184                     assign m_axi_awaddr = m_axi_awaddr_reg;
+185                     assign m_axi_awlen = m_axi_awlen_reg;
+186                     assign m_axi_awsize = AXI_BURST_SIZE;
+187                     assign m_axi_awburst = 2'b01;
+188                     assign m_axi_awlock = 1'b0;
+189                     assign m_axi_awcache = 4'b0011;
+190                     assign m_axi_awprot = 3'b010;
+191                     assign m_axi_awvalid = m_axi_awvalid_reg;
+192                     assign m_axi_wdata = m_axi_wdata_reg;
+193                     assign m_axi_wstrb = m_axi_wstrb_reg;
+194                     assign m_axi_wvalid = m_axi_wvalid_reg;
+195                     assign m_axi_wlast = m_axi_wlast_reg;
+196                     assign m_axi_bready = m_axi_bready_reg;
+197                     
+198                     // reset synchronization
+199                     wire rst_req_int = cfg_reset;
+200                     
+201                     (* shreg_extract = "no" *)
+202                     reg rst_sync_1_reg = 1'b1,  rst_sync_2_reg = 1'b1, rst_sync_3_reg = 1'b1;
+203                     
+204                     assign input_rst_out = rst_sync_3_reg;
+205                     
+206                     always @(posedge input_clk or posedge rst_req_int) begin
+207        1/1              if (rst_req_int) begin
+208        1/1                  rst_sync_1_reg <= 1'b1;
+209                         end else begin
+210        1/1                  rst_sync_1_reg <= 1'b0;
+211                         end
+212                     end
+213                     
+214                     always @(posedge input_clk) begin
+215        1/1              rst_sync_2_reg <= rst_sync_1_reg;
+216        1/1              rst_sync_3_reg <= rst_sync_2_reg;
+217                     end
+218                     
+219                     // input datapath logic (write data)
+220                     wire [AXI_DATA_WIDTH-1:0] input_data_int;
+221                     reg input_valid_int_reg = 1'b0;
+222                     
+223                     reg input_read_en;
+224                     
+225                     wire [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_wr_ptr;
+226                     wire [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_wr_ptr_gray;
+227                     reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_rd_ptr_reg = 0;
+228                     reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_rd_ptr_gray_reg = 0;
+229                     
+230                     reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_rd_ptr_temp;
+231                     
+232                     (* shreg_extract = "no" *)
+233                     reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_wr_ptr_gray_sync_1_reg = 0;
+234                     (* shreg_extract = "no" *)
+235                     reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_wr_ptr_gray_sync_2_reg = 0;
+236                     reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_wr_ptr_sync_reg = 0;
+237                     
+238                     (* shreg_extract = "no" *)
+239                     reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_rd_ptr_gray_sync_1_reg = 0;
+240                     (* shreg_extract = "no" *)
+241                     reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_rd_ptr_gray_sync_2_reg = 0;
+242                     reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_rd_ptr_sync_reg = 0;
+243                     
+244                     reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] write_fifo_occupancy_reg = 0;
+245                     
+246                     wire [SEG_CNT-1:0] write_fifo_seg_full;
+247                     wire [SEG_CNT-1:0] write_fifo_seg_empty;
+248                     wire [SEG_CNT-1:0] write_fifo_seg_watermark;
+249                     
+250                     wire write_fifo_full = |write_fifo_seg_full;
+251                     wire write_fifo_empty = |write_fifo_seg_empty;
+252                     
+253                     assign input_watermark = |write_fifo_seg_watermark | input_rst_out;
+254                     
+255                     genvar n;
+256                     integer k;
+257                     
+258                     generate
+259                     
+260                     for (n = 0; n < SEG_CNT; n = n + 1) begin : write_fifo_seg
+261                     
+262                         reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] seg_wr_ptr_reg = 0;
+263                         reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] seg_wr_ptr_gray_reg = 0;
+264                     
+265                         reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] seg_wr_ptr_temp;
+266                     
+267                         reg [WRITE_FIFO_ADDR_WIDTH+1-1:0] seg_occupancy_reg = 0;
+268                     
+269                         (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
+270                         reg [SEG_WIDTH-1:0] seg_mem_data[2**WRITE_FIFO_ADDR_WIDTH-1:0];
+271                     
+272                         reg [SEG_WIDTH-1:0] seg_rd_data_reg = 0;
+273                     
+274                         wire seg_full = seg_wr_ptr_gray_reg == (write_fifo_rd_ptr_gray_sync_2_reg ^ {2'b11, {WRITE_FIFO_ADDR_WIDTH-1{1'b0}}});
+275                         wire seg_empty = write_fifo_rd_ptr_reg == write_fifo_wr_ptr_sync_reg;
+276                         wire seg_watermark = seg_occupancy_reg > WATERMARK_LEVEL;
+277                     
+278                         assign input_data_int[n*SEG_WIDTH +: SEG_WIDTH] = seg_rd_data_reg;
+279                     
+280                         assign input_ready[n] = !seg_full && !input_rst_out;
+281                     
+282                         assign write_fifo_seg_full[n] = seg_full;
+283                         assign write_fifo_seg_empty[n] = seg_empty;
+284                         assign write_fifo_seg_watermark[n] = seg_watermark;
+285                     
+286                         if (n == SEG_CNT-1) begin
+287                             assign write_fifo_wr_ptr = seg_wr_ptr_reg;
+288                             assign write_fifo_wr_ptr_gray = seg_wr_ptr_gray_reg;
+289                         end
+290                     
+291                         // per-segment write logic
+292                         always @(posedge input_clk) begin
+293        1/1                  seg_occupancy_reg <= seg_wr_ptr_reg - write_fifo_rd_ptr_sync_reg;
+294                     
+295        1/1                  if (input_ready[n] && input_valid[n]) begin
+296        1/1                      seg_mem_data[seg_wr_ptr_reg[WRITE_FIFO_ADDR_WIDTH-1:0]] <= input_data[n*SEG_WIDTH +: SEG_WIDTH];
+297                     
+298        1/1                      seg_wr_ptr_temp = seg_wr_ptr_reg + 1;
+299        1/1                      seg_wr_ptr_reg <= seg_wr_ptr_temp;
+300        1/1                      seg_wr_ptr_gray_reg <= seg_wr_ptr_temp ^ (seg_wr_ptr_temp >> 1);
+301                             end
+                        MISSING_ELSE
+302                     
+303        1/1                  if (input_rst || input_rst_out) begin
+304        1/1                      seg_wr_ptr_reg <= 0;
+305        1/1                      seg_wr_ptr_gray_reg <= 0;
+306                             end
+                        MISSING_ELSE
+***repeat 1
+293        1/1                  seg_occupancy_reg <= seg_wr_ptr_reg - write_fifo_rd_ptr_sync_reg;
+294                     
+295        1/1                  if (input_ready[n] && input_valid[n]) begin
+296        1/1                      seg_mem_data[seg_wr_ptr_reg[WRITE_FIFO_ADDR_WIDTH-1:0]] <= input_data[n*SEG_WIDTH +: SEG_WIDTH];
+297                     
+298        1/1                      seg_wr_ptr_temp = seg_wr_ptr_reg + 1;
+299        1/1                      seg_wr_ptr_reg <= seg_wr_ptr_temp;
+300        1/1                      seg_wr_ptr_gray_reg <= seg_wr_ptr_temp ^ (seg_wr_ptr_temp >> 1);
+301                             end
+                        MISSING_ELSE
+302                     
+303        1/1                  if (input_rst || input_rst_out) begin
+304        1/1                      seg_wr_ptr_reg <= 0;
+305        1/1                      seg_wr_ptr_gray_reg <= 0;
+306                             end
+                        MISSING_ELSE
+307                         end
+308                     
+309                         always @(posedge clk) begin
+310        1/1                  if (!write_fifo_empty && (!input_valid_int_reg || input_read_en)) begin
+311        1/1                      seg_rd_data_reg <= seg_mem_data[write_fifo_rd_ptr_reg[WRITE_FIFO_ADDR_WIDTH-1:0]];
+312                             end
+                        MISSING_ELSE
+***repeat 2
+310        1/1                  if (!write_fifo_empty && (!input_valid_int_reg || input_read_en)) begin
+311        1/1                      seg_rd_data_reg <= seg_mem_data[write_fifo_rd_ptr_reg[WRITE_FIFO_ADDR_WIDTH-1:0]];
+312                             end
+                        MISSING_ELSE
+313                         end
+314                     
+315                     end
+316                     
+317                     endgenerate
+318                     
+319                     // pointer synchronization
+320                     always @(posedge input_clk) begin
+321        1/1              write_fifo_rd_ptr_gray_sync_1_reg <= write_fifo_rd_ptr_gray_reg;
+322        1/1              write_fifo_rd_ptr_gray_sync_2_reg <= write_fifo_rd_ptr_gray_sync_1_reg;
+323                     
+324        1/1              for (k = 0; k < WRITE_FIFO_ADDR_WIDTH+1; k = k + 1) begin
+325        1/1                  write_fifo_rd_ptr_sync_reg[k] <= ^(write_fifo_rd_ptr_gray_sync_2_reg >> k);
+326                         end
+327                     
+328        1/1              if (input_rst || input_rst_out) begin
+329        1/1                  write_fifo_rd_ptr_gray_sync_1_reg <= 0;
+330        1/1                  write_fifo_rd_ptr_gray_sync_2_reg <= 0;
+331        1/1                  write_fifo_rd_ptr_sync_reg <= 0;
+332                         end
+                        MISSING_ELSE
+333                     end
+334                     
+335                     always @(posedge clk) begin
+336        1/1              write_fifo_wr_ptr_gray_sync_1_reg <= write_fifo_wr_ptr_gray;
+337        1/1              write_fifo_wr_ptr_gray_sync_2_reg <= write_fifo_wr_ptr_gray_sync_1_reg;
+338                     
+339        1/1              for (k = 0; k < WRITE_FIFO_ADDR_WIDTH+1; k = k + 1) begin
+340        1/1                  write_fifo_wr_ptr_sync_reg[k] <= ^(write_fifo_wr_ptr_gray_sync_2_reg >> k);
+341                         end
+342                     
+343        1/1              if (rst || cfg_reset) begin
+344        1/1                  write_fifo_wr_ptr_gray_sync_1_reg <= 0;
+345        1/1                  write_fifo_wr_ptr_gray_sync_2_reg <= 0;
+346        1/1                  write_fifo_wr_ptr_sync_reg <= 0;
+347                         end
+                        MISSING_ELSE
+348                     end
+349                     
+350                     // read logic
+351                     always @(posedge clk) begin
+352        1/1              write_fifo_occupancy_reg <= write_fifo_wr_ptr_sync_reg - write_fifo_rd_ptr_reg + input_valid_int_reg;
+353                     
+354        1/1              if (input_read_en) begin
+355        1/1                  input_valid_int_reg <= 1'b0;
+356        1/1                  write_fifo_occupancy_reg <= write_fifo_wr_ptr_sync_reg - write_fifo_rd_ptr_reg;
+357                         end
+                        MISSING_ELSE
+358                     
+359        1/1              if (!write_fifo_empty && (!input_valid_int_reg || input_read_en)) begin
+360        1/1                  input_valid_int_reg <= 1'b1;
+361                     
+362        1/1                  write_fifo_rd_ptr_temp = write_fifo_rd_ptr_reg + 1;
+363        1/1                  write_fifo_rd_ptr_reg <= write_fifo_rd_ptr_temp;
+364        1/1                  write_fifo_rd_ptr_gray_reg <= write_fifo_rd_ptr_temp ^ (write_fifo_rd_ptr_temp >> 1);
+365                     
+366        1/1                  write_fifo_occupancy_reg <= write_fifo_wr_ptr_sync_reg - write_fifo_rd_ptr_reg;
+367                         end
+                        MISSING_ELSE
+368                     
+369        1/1              if (rst || cfg_reset) begin
+370        1/1                  write_fifo_rd_ptr_reg <= 0;
+371        1/1                  write_fifo_rd_ptr_gray_reg <= 0;
+372        1/1                  input_valid_int_reg <= 1'b0;
+373                         end
+                        MISSING_ELSE
+374                     end
+375                     
+376                     reg [WRITE_BURST_LEN_WIDTH+1-1:0] wr_burst_len;
+377                     reg [LEN_WIDTH+1-1:0] wr_start_ptr;
+378                     reg [LEN_WIDTH+1-1:0] wr_start_ptr_blk_adj;
+379                     reg wr_burst_reg = 1'b0, wr_burst_next;
+380                     reg [WRITE_BURST_LEN_WIDTH-1:0] wr_burst_len_reg = 0, wr_burst_len_next;
+381                     reg [7:0] wr_timeout_count_reg = 0, wr_timeout_count_next;
+382                     reg wr_timeout_reg = 0, wr_timeout_next;
+383                     reg fifo_full_wr_blk_adj_reg = 1'b0, fifo_full_wr_blk_adj_next;
+384                     
+385                     reg [LEN_WIDTH+1-1:0] wr_start_ptr_reg = 0, wr_start_ptr_next;
+386                     reg [LEN_WIDTH+1-1:0] wr_start_ptr_blk_adj_reg = 0, wr_start_ptr_blk_adj_next;
+387                     reg [LEN_WIDTH+1-1:0] wr_finish_ptr_reg = 0, wr_finish_ptr_next;
+388                     
+389                     reg resp_fifo_we_reg = 1'b0, resp_fifo_we_next;
+390                     reg [RESP_FIFO_ADDR_WIDTH+1-1:0] resp_fifo_wr_ptr_reg = 0;
+391                     reg [RESP_FIFO_ADDR_WIDTH+1-1:0] resp_fifo_rd_ptr_reg = 0, resp_fifo_rd_ptr_next;
+392                     reg [WRITE_BURST_LEN_WIDTH+1-1:0] resp_fifo_burst_len[(2**RESP_FIFO_ADDR_WIDTH)-1:0];
+393                     reg [WRITE_BURST_LEN_WIDTH+1-1:0] resp_fifo_wr_burst_len_reg = 0, resp_fifo_wr_burst_len_next;
+394                     
+395                     assign wr_start_ptr_out = wr_start_ptr_reg;
+396                     assign wr_finish_ptr_out = wr_finish_ptr_reg;
+397                     
+398                     // FIFO occupancy using adjusted write start pointer
+399                     wire [LEN_WIDTH+1-1:0] fifo_occupancy_wr_blk_adj = wr_start_ptr_blk_adj_reg - rd_finish_ptr_in;
+400                     // FIFO full indication - no space to start writing a complete block
+401                     wire fifo_full_wr_blk_adj = (fifo_occupancy_wr_blk_adj & ~cfg_fifo_size_mask) || ((~fifo_occupancy_wr_blk_adj & cfg_fifo_size_mask & ~WRITE_BURST_ADDR_MASK) == 0 && (fifo_occupancy_wr_blk_adj & WRITE_BURST_ADDR_MASK));
+402                     
+403                     // FIFO occupancy (including all in-progress reads and writes)
+404                     assign sts_fifo_occupancy = wr_start_ptr_reg - rd_finish_ptr_in;
+405                     // FIFO empty (including all in-progress reads and writes)
+406                     assign sts_fifo_empty = wr_start_ptr_reg == rd_finish_ptr_in;
+407                     // FIFO full
+408                     assign sts_fifo_full = fifo_full_wr_blk_adj_reg;
+409                     
+410                     assign sts_write_active = wr_burst_reg || resp_fifo_we_reg || (resp_fifo_wr_ptr_reg != resp_fifo_rd_ptr_reg);
+411                     
+412                     // write logic
+413                     always @* begin
+414        1/1              wr_start_ptr_next = wr_start_ptr_reg;
+415        1/1              wr_start_ptr_blk_adj_next = wr_start_ptr_blk_adj_reg;
+416        1/1              wr_finish_ptr_next = wr_finish_ptr_reg;
+417                     
+418        1/1              wr_burst_next = wr_burst_reg;
+419        1/1              wr_burst_len_next = wr_burst_len_reg;
+420        1/1              wr_timeout_count_next = wr_timeout_count_reg;
+421        1/1              wr_timeout_next = wr_timeout_reg;
+422                     
+423        1/1              fifo_full_wr_blk_adj_next = fifo_full_wr_blk_adj;
+424                     
+425        1/1              resp_fifo_we_next = 1'b0;
+426        1/1              resp_fifo_rd_ptr_next = resp_fifo_rd_ptr_reg;
+427        1/1              resp_fifo_wr_burst_len_next = wr_burst_len_reg;
+428                     
+429        1/1              input_read_en = 1'b0;
+430                     
+431        1/1              m_axi_awaddr_next = m_axi_awaddr_reg;
+432        1/1              m_axi_awlen_next = m_axi_awlen_reg;
+433        1/1              m_axi_awvalid_next = m_axi_awvalid_reg && !m_axi_awready;
+434                     
+435        1/1              m_axi_wdata_next = m_axi_wdata_reg;
+436        1/1              m_axi_wstrb_next = m_axi_wstrb_reg;
+437        1/1              m_axi_wlast_next = m_axi_wlast_reg;
+438        1/1              m_axi_wvalid_next = m_axi_wvalid_reg && !m_axi_wready;
+439                     
+440        1/1              m_axi_bready_next = 1'b0;
+441                     
+442                         // partial burst timeout handling
+443        1/1              wr_timeout_next = wr_timeout_count_reg == 0;
+444        1/1              if (!input_valid_int_reg || m_axi_awvalid) begin
+445        1/1                  wr_timeout_count_next = 8'hff;
+446        1/1                  wr_timeout_next = 1'b0;
+447        1/1              end else if (wr_timeout_count_reg > 0) begin
+448        1/1                  wr_timeout_count_next = wr_timeout_count_reg - 1;
+449                         end
+                   ==>  MISSING_ELSE
+450                     
+451                         // compute length based on input FIFO occupancy
+452        1/1              if ((((wr_start_ptr_reg & WRITE_BURST_ADDR_MASK) >> AXI_BURST_SIZE) + write_fifo_occupancy_reg) >> WRITE_BURST_LEN_WIDTH != 0) begin
+453                             // crosses burst boundary, write up to burst boundary
+454        1/1                  wr_burst_len = WRITE_MAX_BURST_LEN_INT-1 - ((wr_start_ptr_reg & WRITE_BURST_ADDR_MASK) >> AXI_BURST_SIZE);
+455        1/1                  wr_start_ptr = (wr_start_ptr_reg & ~WRITE_BURST_ADDR_MASK) + (1 << WRITE_BURST_ADDR_WIDTH);
+456        1/1                  wr_start_ptr_blk_adj = (wr_start_ptr_reg & ~WRITE_BURST_ADDR_MASK) + (1 << WRITE_BURST_ADDR_WIDTH);
+457                         end else begin
+458                             // does not cross burst boundary, write available data
+459        1/1                  wr_burst_len = write_fifo_occupancy_reg-1;
+460        1/1                  wr_start_ptr = wr_start_ptr_reg + (write_fifo_occupancy_reg << AXI_BURST_SIZE);
+461        1/1                  wr_start_ptr_blk_adj = (wr_start_ptr_reg & ~WRITE_BURST_ADDR_MASK) + (1 << WRITE_BURST_ADDR_WIDTH);
+462                         end
+463                     
+464        1/1              resp_fifo_wr_burst_len_next = wr_burst_len;
+465                     
+466                         // generate AXI write bursts
+467        1/1              if (!m_axi_awvalid_reg && !wr_burst_reg) begin
+468                             // ready to start new burst
+469                     
+470        1/1                  wr_burst_len_next = wr_burst_len;
+471                     
+472        1/1                  m_axi_awaddr_next = cfg_fifo_base_addr + (wr_start_ptr_reg & cfg_fifo_size_mask);
+473        1/1                  m_axi_awlen_next = wr_burst_len;
+474                     
+475        1/1                  if (cfg_enable && input_valid_int_reg && !fifo_full_wr_blk_adj_reg) begin
+476                                 // enabled, have data to write, have space for data
+477        1/1                      if ((write_fifo_occupancy_reg) >> WRITE_BURST_LEN_WIDTH != 0 || wr_timeout_reg) begin
+478                                     // have full burst or timed out
+479        1/1                          wr_burst_next = 1'b1;
+480        1/1                          m_axi_awvalid_next = 1'b1;
+481        1/1                          resp_fifo_we_next = 1'b1;
+482        1/1                          wr_start_ptr_next = wr_start_ptr;
+483        1/1                          wr_start_ptr_blk_adj_next = wr_start_ptr_blk_adj;
+484                                 end
+                        MISSING_ELSE
+485                             end
+                        MISSING_ELSE
+486                         end
+                        MISSING_ELSE
+487                     
+488        1/1              if (!m_axi_wvalid_reg || m_axi_wready) begin
+489                             // transfer data
+490        1/1                  m_axi_wdata_next = input_data_int;
+491        1/1                  m_axi_wlast_next = wr_burst_len_reg == 0;
+492                     
+493        1/1                  if (wr_burst_reg) begin
+494        1/1                      m_axi_wstrb_next = {AXI_STRB_WIDTH{1'b1}};
+495        1/1                      if (cfg_reset) begin
+496        0/1     ==>                  m_axi_wstrb_next = 0;
+497        0/1     ==>                  m_axi_wvalid_next = 1'b1;
+498        0/1     ==>                  wr_burst_len_next = wr_burst_len_reg - 1;
+499        0/1     ==>                  wr_burst_next = wr_burst_len_reg != 0;
+500        1/1                      end else if (input_valid_int_reg) begin
+501        1/1                          input_read_en = 1'b1;
+502        1/1                          m_axi_wvalid_next = 1'b1;
+503        1/1                          wr_burst_len_next = wr_burst_len_reg - 1;
+504        1/1                          wr_burst_next = wr_burst_len_reg != 0;
+505                                 end
+                   ==>  MISSING_ELSE
+506                             end
+                        MISSING_ELSE
+507                         end
+                        MISSING_ELSE
+508                     
+509                         // handle AXI write completions
+510        1/1              m_axi_bready_next = 1'b1;
+511        1/1              if (m_axi_bvalid) begin
+512        1/1                  wr_finish_ptr_next = wr_finish_ptr_reg + ((resp_fifo_burst_len[resp_fifo_rd_ptr_reg[RESP_FIFO_ADDR_WIDTH-1:0]]+1) << AXI_BURST_SIZE);
+513        1/1                  resp_fifo_rd_ptr_next = resp_fifo_rd_ptr_reg + 1;
+514                         end
+                        MISSING_ELSE
+515                     
+516        1/1              if (cfg_reset) begin
+517        1/1                  wr_start_ptr_next = 0;
+518        1/1                  wr_start_ptr_blk_adj_next = 0;
+519        1/1                  wr_finish_ptr_next = 0;
+520                         end
+                        MISSING_ELSE
+521                     end
+522                     
+523                     always @(posedge clk) begin
+524        1/1              wr_start_ptr_reg <= wr_start_ptr_next;
+525        1/1              wr_start_ptr_blk_adj_reg <= wr_start_ptr_blk_adj_next;
+526        1/1              wr_finish_ptr_reg <= wr_finish_ptr_next;
+527                     
+528        1/1              wr_burst_reg <= wr_burst_next;
+529        1/1              wr_burst_len_reg <= wr_burst_len_next;
+530        1/1              wr_timeout_count_reg <= wr_timeout_count_next;
+531        1/1              wr_timeout_reg <= wr_timeout_next;
+532        1/1              fifo_full_wr_blk_adj_reg <= fifo_full_wr_blk_adj_next;
+533                     
+534        1/1              m_axi_awaddr_reg <= m_axi_awaddr_next;
+535        1/1              m_axi_awlen_reg <= m_axi_awlen_next;
+536        1/1              m_axi_awvalid_reg <= m_axi_awvalid_next;
+537                     
+538        1/1              m_axi_wdata_reg <= m_axi_wdata_next;
+539        1/1              m_axi_wstrb_reg <= m_axi_wstrb_next;
+540        1/1              m_axi_wlast_reg <= m_axi_wlast_next;
+541        1/1              m_axi_wvalid_reg <= m_axi_wvalid_next;
+542                     
+543        1/1              m_axi_bready_reg <= m_axi_bready_next;
+544                     
+545        1/1              resp_fifo_we_reg <= resp_fifo_we_next;
+546        1/1              resp_fifo_wr_burst_len_reg <= resp_fifo_wr_burst_len_next;
+547                     
+548        1/1              if (resp_fifo_we_reg) begin
+549        1/1                  resp_fifo_burst_len[resp_fifo_wr_ptr_reg[RESP_FIFO_ADDR_WIDTH-1:0]] <= resp_fifo_wr_burst_len_reg;
+550        1/1                  resp_fifo_wr_ptr_reg <= resp_fifo_wr_ptr_reg + 1;
+551                         end
+                        MISSING_ELSE
+552        1/1              resp_fifo_rd_ptr_reg <= resp_fifo_rd_ptr_next;
+553                     
+554        1/1              if (rst) begin
+555        1/1                  wr_burst_reg <= 1'b0;
+556        1/1                  m_axi_awvalid_reg <= 1'b0;
+557        1/1                  m_axi_wvalid_reg <= 1'b0;
+558        1/1                  m_axi_bready_reg <= 1'b0;
+559        1/1                  resp_fifo_we_reg <= 1'b0;
+560        1/1                  resp_fifo_wr_ptr_reg <= 0;
+561        1/1                  resp_fifo_rd_ptr_reg <= 0;
+562                         end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : axi_vfifo_raw_wr
+         Line No. Total Covered Percent 
+Branches          54    47      87.04   
+IF       147      2     1       50.00   
+IF       152      2     1       50.00   
+IF       157      2     1       50.00   
+IF       162      2     1       50.00   
+IF       207      2     2       100.00  
+IF       328      2     2       100.00  
+IF       343      2     2       100.00  
+IF       354      2     2       100.00  
+IF       359      2     2       100.00  
+IF       369      2     2       100.00  
+IF       444      3     2       66.67   
+IF       452      2     2       100.00  
+IF       467      4     4       100.00  
+IF       488      5     3       60.00   
+IF       511      2     2       100.00  
+IF       516      2     2       100.00  
+IF       548      2     2       100.00  
+IF       554      2     2       100.00  
+IF       295      2     2       100.00  
+IF       303      2     2       100.00  
+IF       310      2     2       100.00  
+IF       295      2     2       100.00  
+IF       303      2     2       100.00  
+IF       310      2     2       100.00  
+
+
+147            if (AXI_BYTE_SIZE * AXI_STRB_WIDTH != AXI_DATA_WIDTH) begin
+               -1-  
+148                $error("Error: AXI data width not evenly divisible (instance %m)");
+                   ==>
+149                $finish;
+150            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+152            if (2**$clog2(AXI_BYTE_LANES) != AXI_BYTE_LANES) begin
+               -1-  
+153                $error("Error: AXI byte lane count must be even power of two (instance %m)");
+                   ==>
+154                $finish;
+155            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+157            if (AXI_MAX_BURST_LEN < 1 || AXI_MAX_BURST_LEN > 256) begin
+               -1-  
+158                $error("Error: AXI_MAX_BURST_LEN must be between 1 and 256 (instance %m)");
+                   ==>
+159                $finish;
+160            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+162            if (SEG_CNT * SEG_WIDTH != AXI_DATA_WIDTH) begin
+               -1-  
+163                $error("Error: Width mismatch (instance %m)");
+                   ==>
+164                $finish;
+165            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+207            if (rst_req_int) begin
+               -1-  
+208                rst_sync_1_reg <= 1'b1;
+                   ==>
+209            end else begin
+210                rst_sync_1_reg <= 1'b0;
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+328            if (input_rst || input_rst_out) begin
+               -1-  
+329                write_fifo_rd_ptr_gray_sync_1_reg <= 0;
+                   ==>
+330                write_fifo_rd_ptr_gray_sync_2_reg <= 0;
+331                write_fifo_rd_ptr_sync_reg <= 0;
+332            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+343            if (rst || cfg_reset) begin
+               -1-  
+344                write_fifo_wr_ptr_gray_sync_1_reg <= 0;
+                   ==>
+345                write_fifo_wr_ptr_gray_sync_2_reg <= 0;
+346                write_fifo_wr_ptr_sync_reg <= 0;
+347            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+354            if (input_read_en) begin
+               -1-  
+355                input_valid_int_reg <= 1'b0;
+                   ==>
+356                write_fifo_occupancy_reg <= write_fifo_wr_ptr_sync_reg - write_fifo_rd_ptr_reg;
+357            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+359            if (!write_fifo_empty && (!input_valid_int_reg || input_read_en)) begin
+               -1-            
+360                input_valid_int_reg <= 1'b1;
+                   ==>
+361        
+362                write_fifo_rd_ptr_temp = write_fifo_rd_ptr_reg + 1;
+363                write_fifo_rd_ptr_reg <= write_fifo_rd_ptr_temp;
+364                write_fifo_rd_ptr_gray_reg <= write_fifo_rd_ptr_temp ^ (write_fifo_rd_ptr_temp >> 1);
+365        
+366                write_fifo_occupancy_reg <= write_fifo_wr_ptr_sync_reg - write_fifo_rd_ptr_reg;
+367            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+369            if (rst || cfg_reset) begin
+               -1-  
+370                write_fifo_rd_ptr_reg <= 0;
+                   ==>
+371                write_fifo_rd_ptr_gray_reg <= 0;
+372                input_valid_int_reg <= 1'b0;
+373            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+444            if (!input_valid_int_reg || m_axi_awvalid) begin
+               -1-  
+445                wr_timeout_count_next = 8'hff;
+                   ==>
+446                wr_timeout_next = 1'b0;
+447            end else if (wr_timeout_count_reg > 0) begin
+                        -2-  
+448                wr_timeout_count_next = wr_timeout_count_reg - 1;
+                   ==>
+449            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status      
+1   -   Covered     
+0   1   Covered     
+0   0   Not Covered 
+
+
+452            if ((((wr_start_ptr_reg & WRITE_BURST_ADDR_MASK) >> AXI_BURST_SIZE) + write_fifo_occupancy_reg) >> WRITE_BURST_LEN_WIDTH != 0) begin
+               -1-                                                                             
+453                // crosses burst boundary, write up to burst boundary
+454                wr_burst_len = WRITE_MAX_BURST_LEN_INT-1 - ((wr_start_ptr_reg & WRITE_BURST_ADDR_MASK) >> AXI_BURST_SIZE);
+                   ==>
+455                wr_start_ptr = (wr_start_ptr_reg & ~WRITE_BURST_ADDR_MASK) + (1 << WRITE_BURST_ADDR_WIDTH);
+456                wr_start_ptr_blk_adj = (wr_start_ptr_reg & ~WRITE_BURST_ADDR_MASK) + (1 << WRITE_BURST_ADDR_WIDTH);
+457            end else begin
+458                // does not cross burst boundary, write available data
+459                wr_burst_len = write_fifo_occupancy_reg-1;
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+467            if (!m_axi_awvalid_reg && !wr_burst_reg) begin
+               -1-  
+468                // ready to start new burst
+469        
+470                wr_burst_len_next = wr_burst_len;
+471        
+472                m_axi_awaddr_next = cfg_fifo_base_addr + (wr_start_ptr_reg & cfg_fifo_size_mask);
+473                m_axi_awlen_next = wr_burst_len;
+474        
+475                if (cfg_enable && input_valid_int_reg && !fifo_full_wr_blk_adj_reg) begin
+                   -2-                                           
+476                    // enabled, have data to write, have space for data
+477                    if ((write_fifo_occupancy_reg) >> WRITE_BURST_LEN_WIDTH != 0 || wr_timeout_reg) begin
+                       -3-            
+478                        // have full burst or timed out
+479                        wr_burst_next = 1'b1;
+                           ==>
+480                        m_axi_awvalid_next = 1'b1;
+481                        resp_fifo_we_next = 1'b1;
+482                        wr_start_ptr_next = wr_start_ptr;
+483                        wr_start_ptr_blk_adj_next = wr_start_ptr_blk_adj;
+484                    end
+                       MISSING_ELSE
+                       ==>
+485                end
+                   MISSING_ELSE
+                   ==>
+486            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   1   1   Covered 
+1   1   0   Covered 
+1   0   -   Covered 
+0   -   -   Covered 
+
+
+488            if (!m_axi_wvalid_reg || m_axi_wready) begin
+               -1-  
+489                // transfer data
+490                m_axi_wdata_next = input_data_int;
+491                m_axi_wlast_next = wr_burst_len_reg == 0;
+492        
+493                if (wr_burst_reg) begin
+                   -2-  
+494                    m_axi_wstrb_next = {AXI_STRB_WIDTH{1'b1}};
+495                    if (cfg_reset) begin
+                       -3-  
+496                        m_axi_wstrb_next = 0;
+                           ==>
+497                        m_axi_wvalid_next = 1'b1;
+498                        wr_burst_len_next = wr_burst_len_reg - 1;
+499                        wr_burst_next = wr_burst_len_reg != 0;
+500                    end else if (input_valid_int_reg) begin
+                                -4-  
+501                        input_read_en = 1'b1;
+                           ==>
+502                        m_axi_wvalid_next = 1'b1;
+503                        wr_burst_len_next = wr_burst_len_reg - 1;
+504                        wr_burst_next = wr_burst_len_reg != 0;
+505                    end
+                       MISSING_ELSE
+                       ==>
+506                end
+                   MISSING_ELSE
+                   ==>
+507            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- -4- Status      
+1   1   1   -   Not Covered 
+1   1   0   1   Covered     
+1   1   0   0   Not Covered 
+1   0   -   -   Covered     
+0   -   -   -   Covered     
+
+
+511            if (m_axi_bvalid) begin
+               -1-  
+512                wr_finish_ptr_next = wr_finish_ptr_reg + ((resp_fifo_burst_len[resp_fifo_rd_ptr_reg[RESP_FIFO_ADDR_WIDTH-1:0]]+1) << AXI_BURST_SIZE);
+                   ==>
+513                resp_fifo_rd_ptr_next = resp_fifo_rd_ptr_reg + 1;
+514            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+516            if (cfg_reset) begin
+               -1-  
+517                wr_start_ptr_next = 0;
+                   ==>
+518                wr_start_ptr_blk_adj_next = 0;
+519                wr_finish_ptr_next = 0;
+520            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+548            if (resp_fifo_we_reg) begin
+               -1-          
+549                resp_fifo_burst_len[resp_fifo_wr_ptr_reg[RESP_FIFO_ADDR_WIDTH-1:0]] <= resp_fifo_wr_burst_len_reg;
+                   ==>
+550                resp_fifo_wr_ptr_reg <= resp_fifo_wr_ptr_reg + 1;
+551            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+554            if (rst) begin
+               -1-  
+555                wr_burst_reg <= 1'b0;
+                   ==>
+556                m_axi_awvalid_reg <= 1'b0;
+557                m_axi_wvalid_reg <= 1'b0;
+558                m_axi_bready_reg <= 1'b0;
+559                resp_fifo_we_reg <= 1'b0;
+560                resp_fifo_wr_ptr_reg <= 0;
+561                resp_fifo_rd_ptr_reg <= 0;
+562            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+295                if (input_ready[n] && input_valid[n]) begin
+                   -1-  
+296                    seg_mem_data[seg_wr_ptr_reg[WRITE_FIFO_ADDR_WIDTH-1:0]] <= input_data[n*SEG_WIDTH +: SEG_WIDTH];
+                       ==>
+297        
+298                    seg_wr_ptr_temp = seg_wr_ptr_reg + 1;
+299                    seg_wr_ptr_reg <= seg_wr_ptr_temp;
+300                    seg_wr_ptr_gray_reg <= seg_wr_ptr_temp ^ (seg_wr_ptr_temp >> 1);
+301                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+303                if (input_rst || input_rst_out) begin
+                   -1-  
+304                    seg_wr_ptr_reg <= 0;
+                       ==>
+305                    seg_wr_ptr_gray_reg <= 0;
+306                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+310                if (!write_fifo_empty && (!input_valid_int_reg || input_read_en)) begin
+                   -1-            
+311                    seg_rd_data_reg <= seg_mem_data[write_fifo_rd_ptr_reg[WRITE_FIFO_ADDR_WIDTH-1:0]];
+                       ==>
+312                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+295                if (input_ready[n] && input_valid[n]) begin
+                   -1-  
+296                    seg_mem_data[seg_wr_ptr_reg[WRITE_FIFO_ADDR_WIDTH-1:0]] <= input_data[n*SEG_WIDTH +: SEG_WIDTH];
+                       ==>
+297        
+298                    seg_wr_ptr_temp = seg_wr_ptr_reg + 1;
+299                    seg_wr_ptr_reg <= seg_wr_ptr_temp;
+300                    seg_wr_ptr_gray_reg <= seg_wr_ptr_temp ^ (seg_wr_ptr_temp >> 1);
+301                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+303                if (input_rst || input_rst_out) begin
+                   -1-  
+304                    seg_wr_ptr_reg <= 0;
+                       ==>
+305                    seg_wr_ptr_gray_reg <= 0;
+306                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+310                if (!write_fifo_empty && (!input_valid_int_reg || input_read_en)) begin
+                   -1-            
+311                    seg_rd_data_reg <= seg_mem_data[write_fifo_rd_ptr_reg[WRITE_FIFO_ADDR_WIDTH-1:0]];
+                       ==>
+312                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : case3_cocotb_top.dut.axi_vfifo_raw_wr_inst
+===============================================================================
+
+Instance :
+
+SCORE  LINE   BRANCH 
+ 89.93  92.81  87.04 
+
+
+Instance's subtree :
+
+SCORE  LINE   BRANCH 
+ 89.93  92.81  87.04 
+
+
+Module : 
+
+SCORE  LINE   BRANCH NAME             
+ 89.93  92.81  87.04 axi_vfifo_raw_wr 
+
+
+Parent : 
+
+SCORE  LINE   BRANCH NAME 
+ 93.08  96.15  90.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : axi_vfifo_raw_rd
+===============================================================================
+SCORE  LINE   BRANCH 
+ 90.78  93.80  87.76 
+
+Source File(s) : 
+
+/workspace/public_dataset/case3/rtl/axi_vfifo_raw_rd.v
+
+Module self-instances :
+
+SCORE  LINE   BRANCH NAME                                       
+ 90.78  93.80  87.76 case3_cocotb_top.dut.axi_vfifo_raw_rd_inst 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : axi_vfifo_raw_rd
+
+             Line No.   Total   Covered  Percent
+TOTAL                      129      121    93.80
+INITIAL           142       12        4    33.33
+ALWAYS            192        3        3   100.00
+ALWAYS            200        2        2   100.00
+ALWAYS            279        2        2   100.00
+ALWAYS            279        2        2   100.00
+ALWAYS            286       11       11   100.00
+ALWAYS            286       11       11   100.00
+ALWAYS            310       15       15   100.00
+ALWAYS            337        8        8   100.00
+ALWAYS            352        8        8   100.00
+ALWAYS            367        5        5   100.00
+ALWAYS            491       39       39   100.00
+ALWAYS            561       11       11   100.00
+
+141                     initial begin
+142        1/1              if (AXI_BYTE_SIZE * AXI_STRB_WIDTH != AXI_DATA_WIDTH) begin
+143        0/1     ==>          $error("Error: AXI data width not evenly divisible (instance %m)");
+144        0/1     ==>          $finish;
+145                         end
+                        MISSING_ELSE
+146                     
+147        1/1              if (2**$clog2(AXI_BYTE_LANES) != AXI_BYTE_LANES) begin
+148        0/1     ==>          $error("Error: AXI byte lane count must be even power of two (instance %m)");
+149        0/1     ==>          $finish;
+150                         end
+                        MISSING_ELSE
+151                     
+152        1/1              if (AXI_MAX_BURST_LEN < 1 || AXI_MAX_BURST_LEN > 256) begin
+153        0/1     ==>          $error("Error: AXI_MAX_BURST_LEN must be between 1 and 256 (instance %m)");
+154        0/1     ==>          $finish;
+155                         end
+                        MISSING_ELSE
+156                     
+157        1/1              if (SEG_CNT * SEG_WIDTH != AXI_DATA_WIDTH) begin
+158        0/1     ==>          $error("Error: Width mismatch (instance %m)");
+159        0/1     ==>          $finish;
+160                         end
+                        MISSING_ELSE
+161                     end
+162                     
+163                     localparam [1:0]
+164                         AXI_RESP_OKAY = 2'b00,
+165                         AXI_RESP_EXOKAY = 2'b01,
+166                         AXI_RESP_SLVERR = 2'b10,
+167                         AXI_RESP_DECERR = 2'b11;
+168                     
+169                     reg [AXI_ADDR_WIDTH-1:0] m_axi_araddr_reg = {AXI_ADDR_WIDTH{1'b0}}, m_axi_araddr_next;
+170                     reg [7:0] m_axi_arlen_reg = 8'd0, m_axi_arlen_next;
+171                     reg m_axi_arvalid_reg = 1'b0, m_axi_arvalid_next;
+172                     
+173                     assign m_axi_arid = {AXI_ID_WIDTH{1'b0}};
+174                     assign m_axi_araddr = m_axi_araddr_reg;
+175                     assign m_axi_arlen = m_axi_arlen_reg;
+176                     assign m_axi_arsize = AXI_BURST_SIZE;
+177                     assign m_axi_arburst = 2'b01;
+178                     assign m_axi_arlock = 1'b0;
+179                     assign m_axi_arcache = 4'b0011;
+180                     assign m_axi_arprot = 3'b010;
+181                     assign m_axi_arvalid = m_axi_arvalid_reg;
+182                     
+183                     // reset synchronization
+184                     wire rst_req_int = cfg_reset;
+185                     
+186                     (* shreg_extract = "no" *)
+187                     reg rst_sync_1_reg = 1'b1,  rst_sync_2_reg = 1'b1, rst_sync_3_reg = 1'b1;
+188                     
+189                     assign output_rst_out = rst_sync_3_reg;
+190                     
+191                     always @(posedge output_clk or posedge rst_req_int) begin
+192        1/1              if (rst_req_int) begin
+193        1/1                  rst_sync_1_reg <= 1'b1;
+194                         end else begin
+195        1/1                  rst_sync_1_reg <= 1'b0;
+196                         end
+197                     end
+198                     
+199                     always @(posedge output_clk) begin
+200        1/1              rst_sync_2_reg <= rst_sync_1_reg;
+201        1/1              rst_sync_3_reg <= rst_sync_2_reg;
+202                     end
+203                     
+204                     // output datapath logic (read data)
+205                     reg [AXI_DATA_WIDTH-1:0] m_axis_tdata_reg  = {AXI_DATA_WIDTH{1'b0}};
+206                     reg                      m_axis_tvalid_reg = 1'b0;
+207                     
+208                     reg [READ_FIFO_ADDR_WIDTH-1:0] read_fifo_read_start_cnt = 0;
+209                     reg read_fifo_read_start_en = 1'b0;
+210                     
+211                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_read_start_ptr_reg = 0;
+212                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_wr_ptr_reg = 0;
+213                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_wr_ptr_gray_reg = 0;
+214                     wire [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_rd_ptr;
+215                     wire [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_rd_ptr_gray;
+216                     wire [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_ctrl_rd_ptr;
+217                     wire [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_ctrl_rd_ptr_gray;
+218                     
+219                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_wr_ptr_temp;
+220                     
+221                     (* shreg_extract = "no" *)
+222                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_wr_ptr_gray_sync_1_reg = 0;
+223                     (* shreg_extract = "no" *)
+224                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_wr_ptr_gray_sync_2_reg = 0;
+225                     
+226                     (* shreg_extract = "no" *)
+227                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_rd_ptr_gray_sync_1_reg = 0;
+228                     (* shreg_extract = "no" *)
+229                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_rd_ptr_gray_sync_2_reg = 0;
+230                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_rd_ptr_sync_reg = 0;
+231                     
+232                     (* shreg_extract = "no" *)
+233                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_ctrl_rd_ptr_gray_sync_1_reg = 0;
+234                     (* shreg_extract = "no" *)
+235                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_ctrl_rd_ptr_gray_sync_2_reg = 0;
+236                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_ctrl_rd_ptr_sync_reg = 0;
+237                     
+238                     reg read_fifo_half_full_reg = 1'b0;
+239                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_occupancy_reg = 0;
+240                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] read_fifo_occupancy_lookahead_reg = 0;
+241                     
+242                     wire read_fifo_full = read_fifo_wr_ptr_gray_reg == (read_fifo_rd_ptr_gray_sync_2_reg ^ {2'b11, {READ_FIFO_ADDR_WIDTH-1{1'b0}}});
+243                     wire read_fifo_empty = read_fifo_rd_ptr_gray == read_fifo_wr_ptr_gray_sync_2_reg;
+244                     
+245                     wire read_fifo_ctrl_full = read_fifo_wr_ptr_gray_reg == (read_fifo_ctrl_rd_ptr_gray_sync_2_reg ^ {2'b11, {READ_FIFO_ADDR_WIDTH-1{1'b0}}});
+246                     wire read_fifo_ctrl_empty = read_fifo_ctrl_rd_ptr_gray == read_fifo_wr_ptr_gray_sync_2_reg;
+247                     
+248                     assign m_axi_rready = (!read_fifo_full && (!CTRL_OUT_EN || !read_fifo_ctrl_full)) || cfg_reset;
+249                     
+250                     genvar n;
+251                     integer k;
+252                     
+253                     generate
+254                     
+255                     for (n = 0; n < SEG_CNT; n = n + 1) begin : read_fifo_seg
+256                     
+257                         reg [READ_FIFO_ADDR_WIDTH+1-1:0] seg_rd_ptr_reg = 0;
+258                         reg [READ_FIFO_ADDR_WIDTH+1-1:0] seg_rd_ptr_gray_reg = 0;
+259                     
+260                         reg [READ_FIFO_ADDR_WIDTH+1-1:0] seg_rd_ptr_temp;
+261                     
+262                         (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
+263                         reg [SEG_WIDTH-1:0] seg_mem_data[2**READ_FIFO_ADDR_WIDTH-1:0];
+264                     
+265                         reg [SEG_WIDTH-1:0] seg_rd_data_reg = 0;
+266                         reg seg_rd_data_valid_reg = 0;
+267                     
+268                         wire seg_empty = seg_rd_ptr_gray_reg == read_fifo_wr_ptr_gray_sync_2_reg;
+269                     
+270                         assign output_data[n*SEG_WIDTH +: SEG_WIDTH] = seg_rd_data_reg;
+271                         assign output_valid[n] = seg_rd_data_valid_reg;
+272                     
+273                         if (n == SEG_CNT-1) begin
+274                             assign read_fifo_rd_ptr = seg_rd_ptr_reg;
+275                             assign read_fifo_rd_ptr_gray = seg_rd_ptr_gray_reg;
+276                         end
+277                     
+278                         always @(posedge clk) begin
+279        1/1                  if (!read_fifo_full && m_axi_rready && m_axi_rvalid) begin
+280        1/1                      seg_mem_data[read_fifo_wr_ptr_reg[READ_FIFO_ADDR_WIDTH-1:0]] <= m_axi_rdata[n*SEG_WIDTH +: SEG_WIDTH];
+281                             end
+                        MISSING_ELSE
+***repeat 1
+279        1/1                  if (!read_fifo_full && m_axi_rready && m_axi_rvalid) begin
+280        1/1                      seg_mem_data[read_fifo_wr_ptr_reg[READ_FIFO_ADDR_WIDTH-1:0]] <= m_axi_rdata[n*SEG_WIDTH +: SEG_WIDTH];
+281                             end
+                        MISSING_ELSE
+282                         end
+283                     
+284                         // per-segment read logic
+285                         always @(posedge output_clk) begin
+286        1/1                  seg_rd_data_valid_reg <= seg_rd_data_valid_reg && !output_ready[n];
+287                     
+288        1/1                  if (!seg_empty && (!seg_rd_data_valid_reg || output_ready[n])) begin
+289        1/1                      seg_rd_data_reg <= seg_mem_data[seg_rd_ptr_reg[READ_FIFO_ADDR_WIDTH-1:0]];
+290        1/1                      seg_rd_data_valid_reg <= 1'b1;
+291                     
+292        1/1                      seg_rd_ptr_temp = seg_rd_ptr_reg + 1;
+293        1/1                      seg_rd_ptr_reg <= seg_rd_ptr_temp;
+294        1/1                      seg_rd_ptr_gray_reg <= seg_rd_ptr_temp ^ (seg_rd_ptr_temp >> 1);
+295                             end
+                        MISSING_ELSE
+296                     
+297        1/1                  if (output_rst || output_rst_out) begin
+298        1/1                      seg_rd_ptr_reg <= 0;
+299        1/1                      seg_rd_ptr_gray_reg <= 0;
+300        1/1                      seg_rd_data_valid_reg <= 1'b0;
+301                             end
+                        MISSING_ELSE
+***repeat 2
+286        1/1                  seg_rd_data_valid_reg <= seg_rd_data_valid_reg && !output_ready[n];
+287                     
+288        1/1                  if (!seg_empty && (!seg_rd_data_valid_reg || output_ready[n])) begin
+289        1/1                      seg_rd_data_reg <= seg_mem_data[seg_rd_ptr_reg[READ_FIFO_ADDR_WIDTH-1:0]];
+290        1/1                      seg_rd_data_valid_reg <= 1'b1;
+291                     
+292        1/1                      seg_rd_ptr_temp = seg_rd_ptr_reg + 1;
+293        1/1                      seg_rd_ptr_reg <= seg_rd_ptr_temp;
+294        1/1                      seg_rd_ptr_gray_reg <= seg_rd_ptr_temp ^ (seg_rd_ptr_temp >> 1);
+295                             end
+                        MISSING_ELSE
+296                     
+297        1/1                  if (output_rst || output_rst_out) begin
+298        1/1                      seg_rd_ptr_reg <= 0;
+299        1/1                      seg_rd_ptr_gray_reg <= 0;
+300        1/1                      seg_rd_data_valid_reg <= 1'b0;
+301                             end
+                        MISSING_ELSE
+302                         end
+303                     
+304                     end
+305                     
+306                     endgenerate
+307                     
+308                     // write logic
+309                     always @(posedge clk) begin
+310        1/1              read_fifo_occupancy_reg <= read_fifo_wr_ptr_reg - read_fifo_rd_ptr_sync_reg;
+311        1/1              read_fifo_half_full_reg <= $unsigned(read_fifo_wr_ptr_reg - read_fifo_rd_ptr_sync_reg) >= 2**(READ_FIFO_ADDR_WIDTH-1);
+312                     
+313        1/1              if (read_fifo_read_start_en) begin
+314        1/1                  read_fifo_read_start_ptr_reg <= read_fifo_read_start_ptr_reg + read_fifo_read_start_cnt;
+315        1/1                  read_fifo_occupancy_lookahead_reg <= read_fifo_read_start_ptr_reg + read_fifo_read_start_cnt - read_fifo_rd_ptr_sync_reg;
+316                         end else begin
+317        1/1                  read_fifo_occupancy_lookahead_reg <= read_fifo_read_start_ptr_reg - read_fifo_rd_ptr_sync_reg;
+318                         end
+319                     
+320        1/1              if (!read_fifo_full && m_axi_rready && m_axi_rvalid) begin
+321        1/1                  read_fifo_wr_ptr_temp = read_fifo_wr_ptr_reg + 1;
+322        1/1                  read_fifo_wr_ptr_reg <= read_fifo_wr_ptr_temp;
+323        1/1                  read_fifo_wr_ptr_gray_reg <= read_fifo_wr_ptr_temp ^ (read_fifo_wr_ptr_temp >> 1);
+324                     
+325        1/1                  read_fifo_occupancy_reg <= read_fifo_wr_ptr_temp - read_fifo_rd_ptr_sync_reg;
+326                         end
+                        MISSING_ELSE
+327                     
+328        1/1              if (rst || cfg_reset) begin
+329        1/1                  read_fifo_read_start_ptr_reg <= 0;
+330        1/1                  read_fifo_wr_ptr_reg <= 0;
+331        1/1                  read_fifo_wr_ptr_gray_reg <= 0;
+332                         end
+                        MISSING_ELSE
+333                     end
+334                     
+335                     // pointer synchronization
+336                     always @(posedge clk) begin
+337        1/1              read_fifo_rd_ptr_gray_sync_1_reg <= read_fifo_rd_ptr_gray;
+338        1/1              read_fifo_rd_ptr_gray_sync_2_reg <= read_fifo_rd_ptr_gray_sync_1_reg;
+339                     
+340        1/1              for (k = 0; k < READ_FIFO_ADDR_WIDTH+1; k = k + 1) begin
+341        1/1                  read_fifo_rd_ptr_sync_reg[k] <= ^(read_fifo_rd_ptr_gray_sync_2_reg >> k);
+342                         end
+343                     
+344        1/1              if (rst || cfg_reset) begin
+345        1/1                  read_fifo_rd_ptr_gray_sync_1_reg <= 0;
+346        1/1                  read_fifo_rd_ptr_gray_sync_2_reg <= 0;
+347        1/1                  read_fifo_rd_ptr_sync_reg <= 0;
+348                         end
+                        MISSING_ELSE
+349                     end
+350                     
+351                     always @(posedge clk) begin
+352        1/1              read_fifo_ctrl_rd_ptr_gray_sync_1_reg <= read_fifo_ctrl_rd_ptr_gray;
+353        1/1              read_fifo_ctrl_rd_ptr_gray_sync_2_reg <= read_fifo_ctrl_rd_ptr_gray_sync_1_reg;
+354                     
+355        1/1              for (k = 0; k < READ_FIFO_ADDR_WIDTH+1; k = k + 1) begin
+356        1/1                  read_fifo_ctrl_rd_ptr_sync_reg[k] <= ^(read_fifo_ctrl_rd_ptr_gray_sync_2_reg >> k);
+357                         end
+358                     
+359        1/1              if (rst || cfg_reset) begin
+360        1/1                  read_fifo_ctrl_rd_ptr_gray_sync_1_reg <= 0;
+361        1/1                  read_fifo_ctrl_rd_ptr_gray_sync_2_reg <= 0;
+362        1/1                  read_fifo_ctrl_rd_ptr_sync_reg <= 0;
+363                         end
+                        MISSING_ELSE
+364                     end
+365                     
+366                     always @(posedge output_clk) begin
+367        1/1              read_fifo_wr_ptr_gray_sync_1_reg <= read_fifo_wr_ptr_gray_reg;
+368        1/1              read_fifo_wr_ptr_gray_sync_2_reg <= read_fifo_wr_ptr_gray_sync_1_reg;
+369                     
+370        1/1              if (output_rst || output_rst_out) begin
+371        1/1                  read_fifo_wr_ptr_gray_sync_1_reg <= 0;
+372        1/1                  read_fifo_wr_ptr_gray_sync_2_reg <= 0;
+373                         end
+                        MISSING_ELSE
+374                     end
+375                     
+376                     generate
+377                     
+378                     if (CTRL_OUT_EN) begin
+379                         
+380                         for (n = 0; n < SEG_CNT; n = n + 1) begin : read_fifo_ctrl_seg
+381                     
+382                             reg [READ_FIFO_ADDR_WIDTH+1-1:0] seg_rd_ptr_reg = 0;
+383                             reg [READ_FIFO_ADDR_WIDTH+1-1:0] seg_rd_ptr_gray_reg = 0;
+384                     
+385                             reg [READ_FIFO_ADDR_WIDTH+1-1:0] seg_rd_ptr_temp;
+386                     
+387                             (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
+388                             reg [SEG_WIDTH-1:0] seg_mem_data[2**READ_FIFO_ADDR_WIDTH-1:0];
+389                     
+390                             reg [SEG_WIDTH-1:0] seg_rd_data_reg = 0;
+391                             reg seg_rd_data_valid_reg = 0;
+392                     
+393                             reg seg_output_ready_reg = 1'b0;
+394                     
+395                             wire seg_empty = seg_rd_ptr_gray_reg == read_fifo_wr_ptr_gray_sync_2_reg;
+396                     
+397                             if (n == SEG_CNT-1) begin
+398                                 assign read_fifo_ctrl_rd_ptr = seg_rd_ptr_reg;
+399                                 assign read_fifo_ctrl_rd_ptr_gray = seg_rd_ptr_gray_reg;
+400                             end
+401                     
+402                             always @(posedge clk) begin
+403                                 if (!read_fifo_full && m_axi_rready && m_axi_rvalid) begin
+404                                     seg_mem_data[read_fifo_wr_ptr_reg[READ_FIFO_ADDR_WIDTH-1:0]] <= m_axi_rdata[n*SEG_WIDTH +: SEG_WIDTH];
+405                                 end
+406                             end
+407                     
+408                             // per-segment read logic
+409                             always @(posedge output_clk) begin
+410                                 seg_rd_data_valid_reg <= seg_rd_data_valid_reg && !seg_output_ready_reg;
+411                     
+412                                 if (!seg_empty && (!seg_rd_data_valid_reg || seg_output_ready_reg)) begin
+413                                     seg_rd_data_reg <= seg_mem_data[seg_rd_ptr_reg[READ_FIFO_ADDR_WIDTH-1:0]];
+414                                     seg_rd_data_valid_reg <= 1'b1;
+415                     
+416                                     seg_rd_ptr_temp = seg_rd_ptr_reg + 1;
+417                                     seg_rd_ptr_reg <= seg_rd_ptr_temp;
+418                                     seg_rd_ptr_gray_reg <= seg_rd_ptr_temp ^ (seg_rd_ptr_temp >> 1);
+419                                 end
+420                     
+421                                 if (output_rst || output_rst_out) begin
+422                                     seg_rd_ptr_reg <= 0;
+423                                     seg_rd_ptr_gray_reg <= 0;
+424                                     seg_rd_data_valid_reg <= 1'b0;
+425                                 end
+426                             end
+427                     
+428                             // skid buffer
+429                             reg [SEG_WIDTH-1:0] seg_output_data_reg = 0;
+430                             reg seg_output_valid_reg = 1'b0;
+431                     
+432                             reg [SEG_WIDTH-1:0] temp_seg_output_data_reg = 0;
+433                             reg temp_seg_output_valid_reg = 1'b0;
+434                     
+435                             assign output_ctrl_data[n*SEG_WIDTH +: SEG_WIDTH] = seg_output_data_reg;
+436                             assign output_ctrl_valid[n] = seg_output_valid_reg;
+437                     
+438                             always @(posedge output_clk) begin
+439                                 // enable ready input next cycle if output is ready or the temp reg will not be filled on the next cycle (output reg empty or no input)
+440                                 seg_output_ready_reg <= output_ctrl_ready[n] || (!temp_seg_output_valid_reg && (!seg_output_valid_reg || !seg_rd_data_valid_reg));
+441                     
+442                                 if (seg_output_ready_reg) begin
+443                                     // input is ready
+444                                     if (output_ctrl_ready[n] || !seg_output_valid_reg) begin
+445                                         // output is ready or currently not valid, transfer data to output
+446                                         seg_output_data_reg <= seg_rd_data_reg;
+447                                         seg_output_valid_reg <= seg_rd_data_valid_reg;
+448                                     end else begin
+449                                         // output is not ready, store input in temp
+450                                         temp_seg_output_data_reg <= seg_rd_data_reg;
+451                                         temp_seg_output_valid_reg <= seg_rd_data_valid_reg;
+452                                     end
+453                                 end else if (output_ctrl_ready[n]) begin
+454                                     // input is not ready, but output is ready
+455                                     seg_output_data_reg <= temp_seg_output_data_reg;
+456                                     seg_output_valid_reg <= temp_seg_output_valid_reg;
+457                                     temp_seg_output_valid_reg <= 1'b0;
+458                                 end
+459                     
+460                                 if (output_rst || output_rst_out) begin
+461                                     seg_output_ready_reg <= 1'b0;
+462                                     seg_output_valid_reg <= 1'b0;
+463                                     temp_seg_output_valid_reg <= 1'b0;
+464                                 end
+465                             end
+466                     
+467                         end
+468                     
+469                     end
+470                     
+471                     endgenerate
+472                     
+473                     reg [READ_BURST_LEN_WIDTH+1-1:0] rd_burst_len;
+474                     reg [READ_BURST_LEN_WIDTH+1-1:0] rd_outstanding_inc;
+475                     reg rd_outstanding_dec;
+476                     reg [READ_FIFO_ADDR_WIDTH+1-1:0] rd_outstanding_reg = 0, rd_outstanding_next;
+477                     reg [LEN_WIDTH+1-1:0] rd_start_ptr;
+478                     reg [7:0] rd_timeout_count_reg = 0, rd_timeout_count_next;
+479                     reg rd_timeout_reg = 0, rd_timeout_next;
+480                     
+481                     reg [LEN_WIDTH+1-1:0] rd_start_ptr_reg = 0, rd_start_ptr_next;
+482                     reg [LEN_WIDTH+1-1:0] rd_finish_ptr_reg = 0, rd_finish_ptr_next;
+483                     
+484                     assign rd_start_ptr_out = rd_start_ptr_reg;
+485                     assign rd_finish_ptr_out = rd_finish_ptr_reg;
+486                     
+487                     assign sts_read_active = rd_outstanding_reg != 0;
+488                     
+489                     // read logic
+490                     always @* begin
+491        1/1              rd_start_ptr_next = rd_start_ptr_reg;
+492        1/1              rd_finish_ptr_next = rd_finish_ptr_reg;
+493                     
+494        1/1              rd_outstanding_inc = 0;
+495        1/1              rd_outstanding_dec = 0;
+496        1/1              rd_outstanding_next = rd_outstanding_reg;
+497        1/1              rd_timeout_count_next = rd_timeout_count_reg;
+498        1/1              rd_timeout_next = rd_timeout_reg;
+499                     
+500        1/1              m_axi_araddr_next = m_axi_araddr_reg;
+501        1/1              m_axi_arlen_next = m_axi_arlen_reg;
+502        1/1              m_axi_arvalid_next = m_axi_arvalid_reg && !m_axi_arready;
+503                     
+504                         // partial burst timeout handling
+505        1/1              rd_timeout_next = rd_timeout_count_reg == 0;
+506        1/1              if (wr_finish_ptr_in == rd_start_ptr_reg || m_axi_arvalid) begin
+507        1/1                  rd_timeout_count_next = 8'hff;
+508        1/1                  rd_timeout_next = 1'b0;
+509        1/1              end else if (rd_timeout_count_reg > 0) begin
+510        1/1                  rd_timeout_count_next = rd_timeout_count_reg - 1;
+511                         end
+                   ==>  MISSING_ELSE
+512                     
+513                         // compute length based on DRAM occupancy
+514        1/1              if ((wr_finish_ptr_in ^ rd_start_ptr_reg) >> READ_BURST_ADDR_WIDTH != 0) begin
+515                             // crosses burst boundary, read up to burst boundary
+516        1/1                  rd_burst_len = READ_MAX_BURST_LEN_INT - ((rd_start_ptr_reg & READ_BURST_ADDR_MASK) >> AXI_BURST_SIZE);
+517        1/1                  rd_start_ptr = (rd_start_ptr_reg & ~READ_BURST_ADDR_MASK) + (1 << READ_BURST_ADDR_WIDTH);
+518                         end else begin
+519                             // does not cross burst boundary, read available data
+520        1/1                  rd_burst_len = (wr_finish_ptr_in - rd_start_ptr_reg) >> AXI_BURST_SIZE;
+521        1/1                  rd_start_ptr = wr_finish_ptr_in;
+522                         end
+523                     
+524        1/1              read_fifo_read_start_cnt = rd_burst_len;
+525        1/1              read_fifo_read_start_en = 1'b0;
+526                     
+527                         // generate AXI read bursts
+528        1/1              if (!m_axi_arvalid_reg) begin
+529                             // ready to start new burst
+530                     
+531        1/1                  m_axi_araddr_next = cfg_fifo_base_addr + (rd_start_ptr_reg & cfg_fifo_size_mask);
+532        1/1                  m_axi_arlen_next = rd_burst_len - 1;
+533                     
+534        1/1                  if (cfg_enable && (wr_finish_ptr_in ^ rd_start_ptr_reg) != 0 && read_fifo_occupancy_lookahead_reg < 2**READ_FIFO_ADDR_WIDTH - READ_MAX_BURST_LEN_INT) begin
+535                                 // enabled, have data to write, have space for data
+536        1/1                      if ((wr_finish_ptr_in ^ rd_start_ptr_reg) >> READ_BURST_ADDR_WIDTH != 0 || rd_timeout_reg) begin
+537                                     // have full burst or timed out
+538        1/1                          read_fifo_read_start_en = 1'b1;
+539        1/1                          rd_outstanding_inc = rd_burst_len;
+540        1/1                          m_axi_arvalid_next = 1'b1;
+541        1/1                          rd_start_ptr_next = rd_start_ptr;
+542                                 end
+                   ==>  MISSING_ELSE
+543                             end
+                        MISSING_ELSE
+544                         end
+                        MISSING_ELSE
+545                     
+546                         // handle AXI read completions
+547        1/1              if (m_axi_rready && m_axi_rvalid) begin
+548        1/1                  rd_finish_ptr_next = rd_finish_ptr_reg + AXI_BYTE_LANES;
+549        1/1                  rd_outstanding_dec = 1;
+550                         end
+                        MISSING_ELSE
+551                     
+552        1/1              rd_outstanding_next = rd_outstanding_reg + rd_outstanding_inc - rd_outstanding_dec;
+553                     
+554        1/1              if (cfg_reset) begin
+555        1/1                  rd_start_ptr_next = 0;
+556        1/1                  rd_finish_ptr_next = 0;
+557                         end
+                        MISSING_ELSE
+558                     end
+559                     
+560                     always @(posedge clk) begin
+561        1/1              rd_start_ptr_reg <= rd_start_ptr_next;
+562        1/1              rd_finish_ptr_reg <= rd_finish_ptr_next;
+563                     
+564        1/1              rd_outstanding_reg <= rd_outstanding_next;
+565        1/1              rd_timeout_count_reg <= rd_timeout_count_next;
+566        1/1              rd_timeout_reg <= rd_timeout_next;
+567                     
+568        1/1              m_axi_araddr_reg <= m_axi_araddr_next;
+569        1/1              m_axi_arlen_reg <= m_axi_arlen_next;
+570        1/1              m_axi_arvalid_reg <= m_axi_arvalid_next;
+571                     
+572        1/1              if (rst) begin
+573        1/1                  rd_outstanding_reg <= 0;
+574        1/1                  m_axi_arvalid_reg <= 1'b0;
+575                         end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : axi_vfifo_raw_rd
+         Line No. Total Covered Percent 
+Branches          49    43      87.76   
+IF       142      2     1       50.00   
+IF       147      2     1       50.00   
+IF       152      2     1       50.00   
+IF       157      2     1       50.00   
+IF       192      2     2       100.00  
+IF       313      2     2       100.00  
+IF       320      2     2       100.00  
+IF       328      2     2       100.00  
+IF       344      2     2       100.00  
+IF       359      2     2       100.00  
+IF       370      2     2       100.00  
+IF       506      3     2       66.67   
+IF       514      2     2       100.00  
+IF       528      4     3       75.00   
+IF       547      2     2       100.00  
+IF       554      2     2       100.00  
+IF       572      2     2       100.00  
+IF       279      2     2       100.00  
+IF       288      2     2       100.00  
+IF       297      2     2       100.00  
+IF       279      2     2       100.00  
+IF       288      2     2       100.00  
+IF       297      2     2       100.00  
+
+
+142            if (AXI_BYTE_SIZE * AXI_STRB_WIDTH != AXI_DATA_WIDTH) begin
+               -1-  
+143                $error("Error: AXI data width not evenly divisible (instance %m)");
+                   ==>
+144                $finish;
+145            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+147            if (2**$clog2(AXI_BYTE_LANES) != AXI_BYTE_LANES) begin
+               -1-  
+148                $error("Error: AXI byte lane count must be even power of two (instance %m)");
+                   ==>
+149                $finish;
+150            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+152            if (AXI_MAX_BURST_LEN < 1 || AXI_MAX_BURST_LEN > 256) begin
+               -1-  
+153                $error("Error: AXI_MAX_BURST_LEN must be between 1 and 256 (instance %m)");
+                   ==>
+154                $finish;
+155            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+157            if (SEG_CNT * SEG_WIDTH != AXI_DATA_WIDTH) begin
+               -1-  
+158                $error("Error: Width mismatch (instance %m)");
+                   ==>
+159                $finish;
+160            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+192            if (rst_req_int) begin
+               -1-  
+193                rst_sync_1_reg <= 1'b1;
+                   ==>
+194            end else begin
+195                rst_sync_1_reg <= 1'b0;
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+313            if (read_fifo_read_start_en) begin
+               -1-          
+314                read_fifo_read_start_ptr_reg <= read_fifo_read_start_ptr_reg + read_fifo_read_start_cnt;
+                   ==>
+315                read_fifo_occupancy_lookahead_reg <= read_fifo_read_start_ptr_reg + read_fifo_read_start_cnt - read_fifo_rd_ptr_sync_reg;
+316            end else begin
+317                read_fifo_occupancy_lookahead_reg <= read_fifo_read_start_ptr_reg - read_fifo_rd_ptr_sync_reg;
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+320            if (!read_fifo_full && m_axi_rready && m_axi_rvalid) begin
+               -1-           
+321                read_fifo_wr_ptr_temp = read_fifo_wr_ptr_reg + 1;
+                   ==>
+322                read_fifo_wr_ptr_reg <= read_fifo_wr_ptr_temp;
+323                read_fifo_wr_ptr_gray_reg <= read_fifo_wr_ptr_temp ^ (read_fifo_wr_ptr_temp >> 1);
+324        
+325                read_fifo_occupancy_reg <= read_fifo_wr_ptr_temp - read_fifo_rd_ptr_sync_reg;
+326            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+328            if (rst || cfg_reset) begin
+               -1-  
+329                read_fifo_read_start_ptr_reg <= 0;
+                   ==>
+330                read_fifo_wr_ptr_reg <= 0;
+331                read_fifo_wr_ptr_gray_reg <= 0;
+332            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+344            if (rst || cfg_reset) begin
+               -1-  
+345                read_fifo_rd_ptr_gray_sync_1_reg <= 0;
+                   ==>
+346                read_fifo_rd_ptr_gray_sync_2_reg <= 0;
+347                read_fifo_rd_ptr_sync_reg <= 0;
+348            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+359            if (rst || cfg_reset) begin
+               -1-  
+360                read_fifo_ctrl_rd_ptr_gray_sync_1_reg <= 0;
+                   ==>
+361                read_fifo_ctrl_rd_ptr_gray_sync_2_reg <= 0;
+362                read_fifo_ctrl_rd_ptr_sync_reg <= 0;
+363            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+370            if (output_rst || output_rst_out) begin
+               -1-  
+371                read_fifo_wr_ptr_gray_sync_1_reg <= 0;
+                   ==>
+372                read_fifo_wr_ptr_gray_sync_2_reg <= 0;
+373            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+506            if (wr_finish_ptr_in == rd_start_ptr_reg || m_axi_arvalid) begin
+               -1-  
+507                rd_timeout_count_next = 8'hff;
+                   ==>
+508                rd_timeout_next = 1'b0;
+509            end else if (rd_timeout_count_reg > 0) begin
+                        -2-  
+510                rd_timeout_count_next = rd_timeout_count_reg - 1;
+                   ==>
+511            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status      
+1   -   Covered     
+0   1   Covered     
+0   0   Not Covered 
+
+
+514            if ((wr_finish_ptr_in ^ rd_start_ptr_reg) >> READ_BURST_ADDR_WIDTH != 0) begin
+               -1-  
+515                // crosses burst boundary, read up to burst boundary
+516                rd_burst_len = READ_MAX_BURST_LEN_INT - ((rd_start_ptr_reg & READ_BURST_ADDR_MASK) >> AXI_BURST_SIZE);
+                   ==>
+517                rd_start_ptr = (rd_start_ptr_reg & ~READ_BURST_ADDR_MASK) + (1 << READ_BURST_ADDR_WIDTH);
+518            end else begin
+519                // does not cross burst boundary, read available data
+520                rd_burst_len = (wr_finish_ptr_in - rd_start_ptr_reg) >> AXI_BURST_SIZE;
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+528            if (!m_axi_arvalid_reg) begin
+               -1-  
+529                // ready to start new burst
+530        
+531                m_axi_araddr_next = cfg_fifo_base_addr + (rd_start_ptr_reg & cfg_fifo_size_mask);
+532                m_axi_arlen_next = rd_burst_len - 1;
+533        
+534                if (cfg_enable && (wr_finish_ptr_in ^ rd_start_ptr_reg) != 0 && read_fifo_occupancy_lookahead_reg < 2**READ_FIFO_ADDR_WIDTH - READ_MAX_BURST_LEN_INT) begin
+                   -2-                                                                      
+535                    // enabled, have data to write, have space for data
+536                    if ((wr_finish_ptr_in ^ rd_start_ptr_reg) >> READ_BURST_ADDR_WIDTH != 0 || rd_timeout_reg) begin
+                       -3-  
+537                        // have full burst or timed out
+538                        read_fifo_read_start_en = 1'b1;
+                           ==>
+539                        rd_outstanding_inc = rd_burst_len;
+540                        m_axi_arvalid_next = 1'b1;
+541                        rd_start_ptr_next = rd_start_ptr;
+542                    end
+                       MISSING_ELSE
+                       ==>
+543                end
+                   MISSING_ELSE
+                   ==>
+544            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- Status      
+1   1   1   Covered     
+1   1   0   Not Covered 
+1   0   -   Covered     
+0   -   -   Covered     
+
+
+547            if (m_axi_rready && m_axi_rvalid) begin
+               -1-  
+548                rd_finish_ptr_next = rd_finish_ptr_reg + AXI_BYTE_LANES;
+                   ==>
+549                rd_outstanding_dec = 1;
+550            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+554            if (cfg_reset) begin
+               -1-  
+555                rd_start_ptr_next = 0;
+                   ==>
+556                rd_finish_ptr_next = 0;
+557            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+572            if (rst) begin
+               -1-  
+573                rd_outstanding_reg <= 0;
+                   ==>
+574                m_axi_arvalid_reg <= 1'b0;
+575            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+279                if (!read_fifo_full && m_axi_rready && m_axi_rvalid) begin
+                   -1-           
+280                    seg_mem_data[read_fifo_wr_ptr_reg[READ_FIFO_ADDR_WIDTH-1:0]] <= m_axi_rdata[n*SEG_WIDTH +: SEG_WIDTH];
+                       ==>
+281                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+288                if (!seg_empty && (!seg_rd_data_valid_reg || output_ready[n])) begin
+                   -1-  
+289                    seg_rd_data_reg <= seg_mem_data[seg_rd_ptr_reg[READ_FIFO_ADDR_WIDTH-1:0]];
+                       ==>
+290                    seg_rd_data_valid_reg <= 1'b1;
+291        
+292                    seg_rd_ptr_temp = seg_rd_ptr_reg + 1;
+293                    seg_rd_ptr_reg <= seg_rd_ptr_temp;
+294                    seg_rd_ptr_gray_reg <= seg_rd_ptr_temp ^ (seg_rd_ptr_temp >> 1);
+295                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+297                if (output_rst || output_rst_out) begin
+                   -1-  
+298                    seg_rd_ptr_reg <= 0;
+                       ==>
+299                    seg_rd_ptr_gray_reg <= 0;
+300                    seg_rd_data_valid_reg <= 1'b0;
+301                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+279                if (!read_fifo_full && m_axi_rready && m_axi_rvalid) begin
+                   -1-           
+280                    seg_mem_data[read_fifo_wr_ptr_reg[READ_FIFO_ADDR_WIDTH-1:0]] <= m_axi_rdata[n*SEG_WIDTH +: SEG_WIDTH];
+                       ==>
+281                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+288                if (!seg_empty && (!seg_rd_data_valid_reg || output_ready[n])) begin
+                   -1-  
+289                    seg_rd_data_reg <= seg_mem_data[seg_rd_ptr_reg[READ_FIFO_ADDR_WIDTH-1:0]];
+                       ==>
+290                    seg_rd_data_valid_reg <= 1'b1;
+291        
+292                    seg_rd_ptr_temp = seg_rd_ptr_reg + 1;
+293                    seg_rd_ptr_reg <= seg_rd_ptr_temp;
+294                    seg_rd_ptr_gray_reg <= seg_rd_ptr_temp ^ (seg_rd_ptr_temp >> 1);
+295                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+297                if (output_rst || output_rst_out) begin
+                   -1-  
+298                    seg_rd_ptr_reg <= 0;
+                       ==>
+299                    seg_rd_ptr_gray_reg <= 0;
+300                    seg_rd_data_valid_reg <= 1'b0;
+301                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : case3_cocotb_top.dut.axi_vfifo_raw_rd_inst
+===============================================================================
+
+Instance :
+
+SCORE  LINE   BRANCH 
+ 90.78  93.80  87.76 
+
+
+Instance's subtree :
+
+SCORE  LINE   BRANCH 
+ 90.78  93.80  87.76 
+
+
+Module : 
+
+SCORE  LINE   BRANCH NAME             
+ 90.78  93.80  87.76 axi_vfifo_raw_rd 
+
+
+Parent : 
+
+SCORE  LINE   BRANCH NAME 
+ 93.08  96.15  90.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : axi_vfifo_raw
+===============================================================================
+SCORE  LINE   BRANCH 
+ 93.08  96.15  90.00 
+
+Source File(s) : 
+
+/workspace/public_dataset/case3/rtl/case3.v
+
+Module self-instances :
+
+SCORE  LINE   BRANCH NAME                 
+ 93.08  96.15  90.00 case3_cocotb_top.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : axi_vfifo_raw
+
+             Line No.   Total   Covered  Percent
+TOTAL                       26       25    96.15
+ALWAYS            330        3        3   100.00
+ALWAYS            338        2        2   100.00
+ALWAYS            344       14       13    92.86
+ALWAYS            368        7        7   100.00
+
+329                     always @(posedge clk or posedge rst_req_int) begin
+330        1/1              if (rst_req_int) begin
+331        1/1                  rst_sync_1_reg <= 1'b1;
+332                         end else begin
+333        1/1                  rst_sync_1_reg <= 1'b0;
+334                         end
+335                     end
+336                     
+337                     always @(posedge clk) begin
+338        1/1              rst_sync_2_reg <= rst_sync_1_reg;
+339        1/1              rst_sync_3_reg <= rst_sync_2_reg;
+340                     end
+341                     
+342                     // reset and enable logic
+343                     always @* begin
+344        1/1              fifo_reset_next = 1'b0;
+345        1/1              fifo_enable_next = fifo_enable_reg;
+346        1/1              fifo_base_addr_next = fifo_base_addr_reg;
+347        1/1              fifo_size_mask_next = fifo_size_mask_reg;
+348                     
+349        1/1              if (cfg_reset || rst_sync_3_reg) begin
+350        1/1                  fifo_reset_next = 1'b1;
+351                         end
+                        MISSING_ELSE
+352                     
+353        1/1              if (fifo_reset_reg) begin
+354        1/1                  fifo_enable_next = 1'b0;
+355                             // hold reset until everything is flushed
+356        1/1                  if (sts_write_active || sts_read_active) begin
+357        0/1     ==>              fifo_reset_next = 1'b1;
+358                             end
+                        MISSING_ELSE
+359        1/1              end else if (!fifo_enable_reg && cfg_enable) begin
+360        1/1                  fifo_base_addr_next = cfg_fifo_base_addr & ADDR_MASK;
+361        1/1                  fifo_size_mask_next = cfg_fifo_size_mask | ~ADDR_MASK;
+362                     
+363        1/1                  fifo_enable_next = 1'b1;
+364                         end
+                        MISSING_ELSE
+365                     end
+366                     
+367                     always @(posedge clk) begin
+368        1/1              fifo_reset_reg <= fifo_reset_next;
+369        1/1              fifo_enable_reg <= fifo_enable_next;
+370        1/1              fifo_base_addr_reg <= fifo_base_addr_next;
+371        1/1              fifo_size_mask_reg <= fifo_size_mask_next;
+372                     
+373        1/1              if (rst) begin
+374        1/1                  fifo_reset_reg <= 1'b1;
+375        1/1                  fifo_enable_reg <= 1'b0;
+376                         end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : axi_vfifo_raw
+         Line No. Total Covered Percent 
+Branches          10    9       90.00   
+IF       330      2     2       100.00  
+IF       349      2     2       100.00  
+IF       353      4     3       75.00   
+IF       373      2     2       100.00  
+
+
+330            if (rst_req_int) begin
+               -1-  
+331                rst_sync_1_reg <= 1'b1;
+                   ==>
+332            end else begin
+333                rst_sync_1_reg <= 1'b0;
+                   ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+349            if (cfg_reset || rst_sync_3_reg) begin
+               -1-  
+350                fifo_reset_next = 1'b1;
+                   ==>
+351            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+353            if (fifo_reset_reg) begin
+               -1-     
+354                fifo_enable_next = 1'b0;
+355                // hold reset until everything is flushed
+356                if (sts_write_active || sts_read_active) begin
+                   -2-  
+357                    fifo_reset_next = 1'b1;
+                       ==>
+358                end
+                   MISSING_ELSE
+                   ==>
+359            end else if (!fifo_enable_reg && cfg_enable) begin
+                        -3-      
+360                fifo_base_addr_next = cfg_fifo_base_addr & ADDR_MASK;
+                   ==>
+361                fifo_size_mask_next = cfg_fifo_size_mask | ~ADDR_MASK;
+362        
+363                fifo_enable_next = 1'b1;
+364            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- Status      
+1   1   -   Not Covered 
+1   0   -   Covered     
+0   -   1   Covered     
+0   -   0   Covered     
+
+
+373            if (rst) begin
+               -1-  
+374                fifo_reset_reg <= 1'b1;
+                   ==>
+375                fifo_enable_reg <= 1'b0;
+376            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : case3_cocotb_top.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   BRANCH 
+ 93.08  96.15  90.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   BRANCH 
+ 90.54  93.48  87.61 
+
+
+Module : 
+
+SCORE  LINE   BRANCH NAME          
+ 93.08  96.15  90.00 axi_vfifo_raw 
+
+
+Parent : 
+
+SCORE  LINE   BRANCH NAME             
+--     --     --     case3_cocotb_top 
+
+
+Subtrees :
+
+SCORE  LINE   BRANCH NAME                  
+ 90.78  93.80  87.76 axi_vfifo_raw_rd_inst 
+ 89.93  92.81  87.04 axi_vfifo_raw_wr_inst 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : case3_cocotb_top
+===============================================================================
+SCORE  LINE   BRANCH 
+--     --     --     
+
+Source File(s) : 
+
+/workspace/public_dataset/case3/case3_cocotb_top.v
+
+Module self-instances :
+
+SCORE  LINE   BRANCH NAME             
+--     --     --     case3_cocotb_top 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : case3_cocotb_top
+===============================================================================
+
+Instance :
+
+SCORE  LINE   BRANCH 
+--     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   BRANCH 
+ 90.54  93.48  87.61 
+
+
+Module : 
+
+SCORE  LINE   BRANCH NAME             
+--     --     --     case3_cocotb_top 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   BRANCH NAME 
+ 90.54  93.48  87.61 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

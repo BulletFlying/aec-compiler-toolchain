@@ -1,0 +1,36 @@
+{
+  "testbench": {
+    "json_driven_testbench": "public_dataset/case1/test_case1_json_sequences.py",
+    "generated_top": "public_dataset/case1/case1_cocotb_top.v",
+    "framework": "cocotb",
+    "driver_library": "cocotbext-axi AxiMasterRead/AxiRamRead",
+    "not_used_for_coverage": {
+      "path": "verilog-axi/tb/axi_dma_rd",
+      "reason": "Its DUT is axi_dma_rd. The requested RTL case1.v is not instantiated in axi_dma_rd.v."
+    },
+    "vcs_json_input_support": {
+      "supported": true,
+      "mechanism": "cocotb reads constraints.json, generates AXI read operations, drives case1 through VPI, and VCS collects RTL coverage with -cm line+branch.",
+      "important_detail": "VCS does not directly parse the JSON; the Python testbench consumes it."
+    },
+    "public_dataset_run": {
+      "simulator": "vcs",
+      "module": "test_case1_json_sequences",
+      "testcase": "run_json_sequences",
+      "constraints": "public_dataset/case1/constraints.json",
+      "seed": 20260630,
+      "sequence_count": 5000,
+      "result": "pass",
+      "results_xml": "public_dataset/case1/vcs_coverage_20260711/results.xml",
+      "coverage_report": "public_dataset/case1/vcs_coverage_20260711/report",
+      "functional_coverage": "public_dataset/case1/functional_coverage.json",
+      "command_shape": "CASE1_CONSTRAINT_JSON=constraints.json make SIM=vcs MODULE=test_case1_json_sequences TESTCASE=run_json_sequences EXTRA_ARGS=\"-cm line+branch\" COMPILE_ARGS=\"-cm_dir coverage.vdb\" SIM_ARGS=\"-cm_dir sim_build/coverage.vdb\""
+    },
+    "scoreboard": {
+      "reference_model": "AxiRamRead memory model on m_axi plus byte-for-byte comparison at s_axi",
+      "write_update_rule": "each generated read fills the downstream RAM at the selected address with expected bytes before issuing AR",
+      "read_compare_rule": "AxiMasterRead result data must equal the expected byte sequence for every generated read",
+      "response_rule": "read responses must complete without cocotbext-axi protocol errors"
+    }
+  }
+}

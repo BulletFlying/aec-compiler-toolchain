@@ -1,0 +1,20 @@
+id: LSV06
+split: public
+name: sog_pfpu_f2i
+top: pfpu_f2i
+rtl: rtl/design.v
+source_path: small_design_sog/rtl/8642.pfpu_f2i.sys_clk.v
+source_sha256: e4ff1efe9824e7095aa10240404e336648b179c43f5981b6c4a12571a506391b
+clock: sys_clk
+reset: alu_rst
+reset_active: high
+clock_period_ns: 10.000
+category: seq_fp
+difficulty: easy
+line_count: 23
+baseline:
+  flow: yosys_abc_nangate45_typical
+  elapsed_s: 0.77
+  cells: 563
+  area: 788.158000
+notes: Floating-point to integer conversion datapath.

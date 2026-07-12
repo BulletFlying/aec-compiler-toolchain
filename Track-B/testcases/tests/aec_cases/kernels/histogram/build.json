@@ -1,0 +1,46 @@
+{
+  "assembler": {
+    "path": "tools/assemble.py",
+    "sha256": "b72fcd498c51a1517ba1f7cd53e9bb6d0f1ba03d33c4183c7cca694332c710f4"
+  },
+  "assembler_meta": {
+    "code_size_bytes": 160,
+    "entry_pc": 0,
+    "format": "aecbin-raw",
+    "hex_order": "w3,w2,w1,w0 msb-first",
+    "instruction_count": 10,
+    "instruction_width_bits": 128,
+    "labels": {},
+    "version": 1,
+    "word_order": "w0,w1,w2,w3 little-endian u32"
+  },
+  "binary": {
+    "path": "program.bin",
+    "sha256": "bd259fb7b9e48823d4cd4a6910cb156a3f9b164d32a9b0efec9e01f912be831c",
+    "size_bytes": 160
+  },
+  "case_dir": "tests/aec_cases/kernels/histogram",
+  "case_id": "K-HISTOGRAM",
+  "checker": {
+    "path": "tools/check_aec_asm.py",
+    "sha256": "161a6cdadf81cc6777a031f674e36aaf77b7c18495ab202f0af1bd12bb0b831b"
+  },
+  "generated_artifacts": {
+    "expected/gmem_00000100.bin": {
+      "sha256": "b6076d00a1baaf5ea399a2f68e4211cb0f2e7a0e303d0cb57c85c91d11ec8022",
+      "size_bytes": 128
+    },
+    "input/gmem_00000100.bin": {
+      "sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca",
+      "size_bytes": 128
+    }
+  },
+  "hex": {
+    "path": "program.hex",
+    "sha256": "9aa74a07325f0c37a13cf709fc1d962ea755ae341816507324664ab0dcf24a99"
+  },
+  "source": {
+    "path": "program.aec",
+    "sha256": "bf3cbc476a23fd901d7ebdc224a0a2022d5a5e58b6674f607adbd71dd20381cf"
+  }
+}

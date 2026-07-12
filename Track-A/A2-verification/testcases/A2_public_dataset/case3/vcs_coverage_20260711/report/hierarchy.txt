@@ -1,0 +1,16 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   BRANCH                  
+ 90.54  93.48  87.61 case3_cocotb_top 
+  
+  ----------------
+  SCORE  LINE   BRANCH     
+   90.54  93.48  87.61 dut 
+    
+    ----------------
+    SCORE  LINE   BRANCH                       
+     90.78  93.80  87.76 axi_vfifo_raw_rd_inst 
+     89.93  92.81  87.04 axi_vfifo_raw_wr_inst 
+

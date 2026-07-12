@@ -1,0 +1,13 @@
+# A uniform true condition selects the target for the whole warp.
+CPY.u32 R1, %laneid
+LOADI R2, 1
+CMPP.eq.u32 P1, R2, R2
+BRX P1, taken
+LOADI R3, 0xdeadbeef
+taken: LOADI R3, 0x200
+LOADI R4, 2
+SHL.u32 R5, R1, R4
+ADD.u32 R6, R3, R5
+ADD.u32 R7, R3, R1
+ST.gmem.u32 [R6], R7
+HALT

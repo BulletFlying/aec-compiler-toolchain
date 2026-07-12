@@ -1,0 +1,44 @@
+ 
+****************************************
+Report : area
+Design : axi_dwidth_converter_v2_1_b_downsizer
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:08:44 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                           23
+Number of nets:                           108
+Number of cells:                           85
+Number of combinational cells:             74
+Number of sequential cells:                11
+Number of macros/black boxes:               0
+Number of buf/inv:                         26
+Number of references:                      16
+
+Combinational area:                 74.480000
+Buf/Inv area:                       17.024000
+Noncombinational area:              49.741998
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                   124.221999
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  --------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-    Noncombi-  Black-
+                                  Total      Total    national  national   boxes   Design
+--------------------------------  ---------  -------  --------  ---------  ------  ---------
+axi_dwidth_converter_v2_1_b_downsizer
+                                   124.2220    100.0   74.4800    49.7420  0.0000  axi_dwidth_converter_v2_1_b_downsizer
+--------------------------------  ---------  -------  --------  ---------  ------  ---------
+Total                                                  74.4800    49.7420  0.0000
+
+1

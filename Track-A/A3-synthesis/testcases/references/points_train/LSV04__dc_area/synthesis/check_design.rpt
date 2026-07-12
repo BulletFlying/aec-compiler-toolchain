@@ -1,0 +1,24 @@
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Sun Jul  5 15:01:22 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Cells                                                              10
+    Cells do not drive (LINT-1)                                    10
+--------------------------------------------------------------------------------
+
+Warning: In design 'b11', cell 'C1135' does not drive any nets. (LINT-1)
+Warning: In design 'b11', cell 'C1141' does not drive any nets. (LINT-1)
+Warning: In design 'b11', cell 'C1142' does not drive any nets. (LINT-1)
+Warning: In design 'b11', cell 'C1145' does not drive any nets. (LINT-1)
+Warning: In design 'b11', cell 'C1148' does not drive any nets. (LINT-1)
+Warning: In design 'b11', cell 'C1156' does not drive any nets. (LINT-1)
+Warning: In design 'b11', cell 'C1157' does not drive any nets. (LINT-1)
+Warning: In design 'b11', cell 'C1158' does not drive any nets. (LINT-1)
+Warning: In design 'b11', cell 'C1159' does not drive any nets. (LINT-1)
+Warning: In design 'b11', cell 'C1163' does not drive any nets. (LINT-1)
+1

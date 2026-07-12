@@ -1,0 +1,2221 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : Sha256Wishbone
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:02:09 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/e_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/CO (FA_X1)
+                                                          0.09       3.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_30/CO (FA_X1)
+                                                          0.09       3.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_31/S (FA_X1)
+                                                          0.16       3.65 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[31] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.65 r
+  accel/accel/add_0_root_add_0_root_add_460_aco/A[31] (CompressionFunction_DW01_add_19)
+                                                          0.00       3.65 r
+  accel/accel/add_0_root_add_0_root_add_460_aco/U1_31/S (FA_X1)
+                                                          0.13       3.78 f
+  accel/accel/add_0_root_add_0_root_add_460_aco/SUM[31] (CompressionFunction_DW01_add_19)
+                                                          0.00       3.78 f
+  accel/accel/U692/ZN (NAND2_X1)                          0.03       3.81 r
+  accel/accel/U691/ZN (OAI221_X1)                         0.04       3.86 f
+  accel/accel/e_reg[31]/D (DFF_X1)                        0.01       3.87 f
+  data arrival time                                                  3.87
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/e_reg[31]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.87
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.08
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/a_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/CO (FA_X1)
+                                                          0.09       3.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_30/CO (FA_X1)
+                                                          0.09       3.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_31/S (FA_X1)
+                                                          0.16       3.65 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[31] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.65 r
+  accel/accel/add_0_root_add_0_root_add_456_aco/A[31] (CompressionFunction_DW01_add_21)
+                                                          0.00       3.65 r
+  accel/accel/add_0_root_add_0_root_add_456_aco/U1_31/S (FA_X1)
+                                                          0.13       3.78 f
+  accel/accel/add_0_root_add_0_root_add_456_aco/SUM[31] (CompressionFunction_DW01_add_21)
+                                                          0.00       3.78 f
+  accel/accel/U660/ZN (NAND2_X1)                          0.03       3.81 r
+  accel/accel/U659/ZN (OAI221_X1)                         0.04       3.86 f
+  accel/accel/a_reg[31]/D (DFF_X1)                        0.01       3.87 f
+  data arrival time                                                  3.87
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/a_reg[31]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.87
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.08
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_4_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/CO (FA_X1)
+                                                          0.09       3.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_30/CO (FA_X1)
+                                                          0.09       3.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_31/S (FA_X1)
+                                                          0.16       3.65 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[31] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.65 r
+  accel/accel/add_0_root_add_0_root_add_470/B[31] (CompressionFunction_DW01_add_17)
+                                                          0.00       3.65 r
+  accel/accel/add_0_root_add_0_root_add_470/U1_31/S (FA_X1)
+                                                          0.13       3.78 f
+  accel/accel/add_0_root_add_0_root_add_470/SUM[31] (CompressionFunction_DW01_add_17)
+                                                          0.00       3.78 f
+  accel/accel/U1483/ZN (NAND2_X1)                         0.03       3.81 r
+  accel/accel/U1482/ZN (OAI21_X1)                         0.03       3.85 f
+  accel/accel/hash_val_4_reg[31]/D (DFF_X1)               0.01       3.85 f
+  data arrival time                                                  3.85
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/hash_val_4_reg[31]/CK (DFF_X1)              0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.85
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.10
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_0_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/CO (FA_X1)
+                                                          0.09       3.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_30/CO (FA_X1)
+                                                          0.09       3.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_31/S (FA_X1)
+                                                          0.16       3.65 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[31] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.65 r
+  accel/accel/add_0_root_add_0_root_add_465/B[31] (CompressionFunction_DW01_add_23)
+                                                          0.00       3.65 r
+  accel/accel/add_0_root_add_0_root_add_465/U1_31/S (FA_X1)
+                                                          0.13       3.78 f
+  accel/accel/add_0_root_add_0_root_add_465/SUM[31] (CompressionFunction_DW01_add_23)
+                                                          0.00       3.78 f
+  accel/accel/U1451/ZN (NAND2_X1)                         0.03       3.81 r
+  accel/accel/U1450/ZN (OAI21_X1)                         0.03       3.85 f
+  accel/accel/hash_val_0_reg[31]/D (DFF_X1)               0.01       3.85 f
+  data arrival time                                                  3.85
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/hash_val_0_reg[31]/CK (DFF_X1)              0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.85
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.10
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/a_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/CO (FA_X1)
+                                                          0.09       3.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_30/S (FA_X1)
+                                                          0.16       3.56 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[30] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.56 r
+  accel/accel/add_0_root_add_0_root_add_456_aco/A[30] (CompressionFunction_DW01_add_21)
+                                                          0.00       3.56 r
+  accel/accel/add_0_root_add_0_root_add_456_aco/U1_30/S (FA_X1)
+                                                          0.13       3.69 f
+  accel/accel/add_0_root_add_0_root_add_456_aco/SUM[30] (CompressionFunction_DW01_add_21)
+                                                          0.00       3.69 f
+  accel/accel/U1042/ZN (AOI22_X1)                         0.06       3.75 r
+  accel/accel/U1041/ZN (OAI211_X1)                        0.04       3.79 f
+  accel/accel/a_reg[30]/D (DFF_X1)                        0.01       3.80 f
+  data arrival time                                                  3.80
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/a_reg[30]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.80
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.15
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/e_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/CO (FA_X1)
+                                                          0.09       3.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_30/S (FA_X1)
+                                                          0.16       3.56 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[30] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.56 r
+  accel/accel/add_0_root_add_0_root_add_460_aco/A[30] (CompressionFunction_DW01_add_19)
+                                                          0.00       3.56 r
+  accel/accel/add_0_root_add_0_root_add_460_aco/U1_30/S (FA_X1)
+                                                          0.13       3.69 f
+  accel/accel/add_0_root_add_0_root_add_460_aco/SUM[30] (CompressionFunction_DW01_add_19)
+                                                          0.00       3.69 f
+  accel/accel/U1136/ZN (AOI22_X1)                         0.06       3.75 r
+  accel/accel/U1135/ZN (OAI211_X1)                        0.04       3.79 f
+  accel/accel/e_reg[30]/D (DFF_X1)                        0.01       3.80 f
+  data arrival time                                                  3.80
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/e_reg[30]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.80
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.15
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_4_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/CO (FA_X1)
+                                                          0.09       3.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_30/S (FA_X1)
+                                                          0.16       3.56 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[30] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.56 r
+  accel/accel/add_0_root_add_0_root_add_470/B[30] (CompressionFunction_DW01_add_17)
+                                                          0.00       3.56 r
+  accel/accel/add_0_root_add_0_root_add_470/U1_30/S (FA_X1)
+                                                          0.13       3.69 f
+  accel/accel/add_0_root_add_0_root_add_470/SUM[30] (CompressionFunction_DW01_add_17)
+                                                          0.00       3.69 f
+  accel/accel/U946/ZN (NAND2_X1)                          0.03       3.72 r
+  accel/accel/U945/ZN (OAI211_X1)                         0.04       3.76 f
+  accel/accel/hash_val_4_reg[30]/D (DFF_X1)               0.01       3.77 f
+  data arrival time                                                  3.77
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/hash_val_4_reg[30]/CK (DFF_X1)              0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.77
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.18
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_0_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/CO (FA_X1)
+                                                          0.09       3.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_30/S (FA_X1)
+                                                          0.16       3.56 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[30] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.56 r
+  accel/accel/add_0_root_add_0_root_add_465/B[30] (CompressionFunction_DW01_add_23)
+                                                          0.00       3.56 r
+  accel/accel/add_0_root_add_0_root_add_465/U1_30/S (FA_X1)
+                                                          0.13       3.69 f
+  accel/accel/add_0_root_add_0_root_add_465/SUM[30] (CompressionFunction_DW01_add_23)
+                                                          0.00       3.69 f
+  accel/accel/U796/ZN (NAND2_X1)                          0.03       3.72 r
+  accel/accel/U795/ZN (OAI211_X1)                         0.04       3.76 f
+  accel/accel/hash_val_0_reg[30]/D (DFF_X1)               0.01       3.77 f
+  data arrival time                                                  3.77
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/hash_val_0_reg[30]/CK (DFF_X1)              0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.77
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.18
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/a_reg[29]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/S (FA_X1)
+                                                          0.16       3.47 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[29] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.47 r
+  accel/accel/add_0_root_add_0_root_add_456_aco/A[29] (CompressionFunction_DW01_add_21)
+                                                          0.00       3.47 r
+  accel/accel/add_0_root_add_0_root_add_456_aco/U1_29/S (FA_X1)
+                                                          0.13       3.60 f
+  accel/accel/add_0_root_add_0_root_add_456_aco/SUM[29] (CompressionFunction_DW01_add_21)
+                                                          0.00       3.60 f
+  accel/accel/U1040/ZN (AOI22_X1)                         0.06       3.66 r
+  accel/accel/U1039/ZN (OAI211_X1)                        0.04       3.70 f
+  accel/accel/a_reg[29]/D (DFF_X1)                        0.01       3.71 f
+  data arrival time                                                  3.71
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/a_reg[29]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.71
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.24
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/e_reg[29]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/S (FA_X1)
+                                                          0.16       3.47 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[29] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.47 r
+  accel/accel/add_0_root_add_0_root_add_460_aco/A[29] (CompressionFunction_DW01_add_19)
+                                                          0.00       3.47 r
+  accel/accel/add_0_root_add_0_root_add_460_aco/U1_29/S (FA_X1)
+                                                          0.13       3.60 f
+  accel/accel/add_0_root_add_0_root_add_460_aco/SUM[29] (CompressionFunction_DW01_add_19)
+                                                          0.00       3.60 f
+  accel/accel/U690/ZN (NAND2_X1)                          0.03       3.63 r
+  accel/accel/U689/ZN (OAI221_X1)                         0.04       3.68 f
+  accel/accel/e_reg[29]/D (DFF_X1)                        0.01       3.68 f
+  data arrival time                                                  3.68
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/e_reg[29]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.68
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.26
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_0_reg[29]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/S (FA_X1)
+                                                          0.16       3.47 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[29] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.47 r
+  accel/accel/add_0_root_add_0_root_add_465/B[29] (CompressionFunction_DW01_add_23)
+                                                          0.00       3.47 r
+  accel/accel/add_0_root_add_0_root_add_465/U1_29/S (FA_X1)
+                                                          0.13       3.60 f
+  accel/accel/add_0_root_add_0_root_add_465/SUM[29] (CompressionFunction_DW01_add_23)
+                                                          0.00       3.60 f
+  accel/accel/U794/ZN (NAND2_X1)                          0.03       3.63 r
+  accel/accel/U793/ZN (OAI211_X1)                         0.04       3.67 f
+  accel/accel/hash_val_0_reg[29]/D (DFF_X1)               0.01       3.68 f
+  data arrival time                                                  3.68
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/hash_val_0_reg[29]/CK (DFF_X1)              0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.68
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.27
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_4_reg[29]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/CO (FA_X1)
+                                                          0.09       3.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_29/S (FA_X1)
+                                                          0.16       3.47 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[29] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.47 r
+  accel/accel/add_0_root_add_0_root_add_470/B[29] (CompressionFunction_DW01_add_17)
+                                                          0.00       3.47 r
+  accel/accel/add_0_root_add_0_root_add_470/U1_29/S (FA_X1)
+                                                          0.13       3.60 f
+  accel/accel/add_0_root_add_0_root_add_470/SUM[29] (CompressionFunction_DW01_add_17)
+                                                          0.00       3.60 f
+  accel/accel/U1481/ZN (NAND2_X1)                         0.03       3.63 r
+  accel/accel/U1480/ZN (OAI21_X1)                         0.03       3.67 f
+  accel/accel/hash_val_4_reg[29]/D (DFF_X1)               0.01       3.67 f
+  data arrival time                                                  3.67
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/hash_val_4_reg[29]/CK (DFF_X1)              0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.67
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.28
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/e_reg[28]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/S (FA_X1)
+                                                          0.16       3.38 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[28] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.38 r
+  accel/accel/add_0_root_add_0_root_add_460_aco/A[28] (CompressionFunction_DW01_add_19)
+                                                          0.00       3.38 r
+  accel/accel/add_0_root_add_0_root_add_460_aco/U1_28/S (FA_X1)
+                                                          0.13       3.51 f
+  accel/accel/add_0_root_add_0_root_add_460_aco/SUM[28] (CompressionFunction_DW01_add_19)
+                                                          0.00       3.51 f
+  accel/accel/U1134/ZN (AOI22_X1)                         0.06       3.57 r
+  accel/accel/U1133/ZN (OAI211_X1)                        0.04       3.61 f
+  accel/accel/e_reg[28]/D (DFF_X1)                        0.01       3.62 f
+  data arrival time                                                  3.62
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/e_reg[28]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.62
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.33
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/a_reg[28]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/S (FA_X1)
+                                                          0.16       3.38 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[28] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.38 r
+  accel/accel/add_0_root_add_0_root_add_456_aco/A[28] (CompressionFunction_DW01_add_21)
+                                                          0.00       3.38 r
+  accel/accel/add_0_root_add_0_root_add_456_aco/U1_28/S (FA_X1)
+                                                          0.13       3.51 f
+  accel/accel/add_0_root_add_0_root_add_456_aco/SUM[28] (CompressionFunction_DW01_add_21)
+                                                          0.00       3.51 f
+  accel/accel/U658/ZN (NAND2_X1)                          0.03       3.54 r
+  accel/accel/U657/ZN (OAI221_X1)                         0.04       3.59 f
+  accel/accel/a_reg[28]/D (DFF_X1)                        0.01       3.59 f
+  data arrival time                                                  3.59
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/a_reg[28]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.59
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.36
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_4_reg[28]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/S (FA_X1)
+                                                          0.16       3.38 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[28] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.38 r
+  accel/accel/add_0_root_add_0_root_add_470/B[28] (CompressionFunction_DW01_add_17)
+                                                          0.00       3.38 r
+  accel/accel/add_0_root_add_0_root_add_470/U1_28/S (FA_X1)
+                                                          0.13       3.51 f
+  accel/accel/add_0_root_add_0_root_add_470/SUM[28] (CompressionFunction_DW01_add_17)
+                                                          0.00       3.51 f
+  accel/accel/U944/ZN (NAND2_X1)                          0.03       3.54 r
+  accel/accel/U943/ZN (OAI211_X1)                         0.04       3.58 f
+  accel/accel/hash_val_4_reg[28]/D (DFF_X1)               0.01       3.59 f
+  data arrival time                                                  3.59
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/hash_val_4_reg[28]/CK (DFF_X1)              0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.59
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.36
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_0_reg[28]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U201/ZN (NAND2_X1)                          0.05       0.31 f
+  accel/accel/U72/ZN (INV_X1)                             0.04       0.35 r
+  accel/accel/U200/ZN (NAND2_X1)                          0.04       0.39 f
+  accel/accel/U75/ZN (INV_X1)                             0.04       0.43 r
+  accel/accel/U195/ZN (NAND2_X1)                          0.04       0.47 f
+  accel/accel/U71/ZN (NOR4_X1)                            0.10       0.57 r
+  accel/accel/U1614/ZN (NAND3_X1)                         0.05       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/A[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.62 f
+  accel/accel/add_1_root_add_0_root_add_440/U1_1/S (FA_X1)
+                                                          0.13       0.75 f
+  accel/accel/add_1_root_add_0_root_add_440/SUM[1] (CompressionFunction_DW01_add_14)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/B[1] (CompressionFunction_DW01_add_13)
+                                                          0.00       0.75 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_1/CO (FA_X1)
+                                                          0.10       0.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_2/CO (FA_X1)
+                                                          0.09       0.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_3/CO (FA_X1)
+                                                          0.09       1.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_4/CO (FA_X1)
+                                                          0.09       1.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_5/CO (FA_X1)
+                                                          0.09       1.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_6/CO (FA_X1)
+                                                          0.09       1.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_7/CO (FA_X1)
+                                                          0.09       1.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_8/CO (FA_X1)
+                                                          0.09       1.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_9/CO (FA_X1)
+                                                          0.09       1.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_10/CO (FA_X1)
+                                                          0.09       1.68 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_11/CO (FA_X1)
+                                                          0.09       1.77 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_12/CO (FA_X1)
+                                                          0.09       1.86 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_13/CO (FA_X1)
+                                                          0.09       1.95 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_14/CO (FA_X1)
+                                                          0.09       2.04 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_15/CO (FA_X1)
+                                                          0.09       2.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_16/CO (FA_X1)
+                                                          0.09       2.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_17/CO (FA_X1)
+                                                          0.09       2.31 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_18/CO (FA_X1)
+                                                          0.09       2.40 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_19/CO (FA_X1)
+                                                          0.09       2.49 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_20/CO (FA_X1)
+                                                          0.09       2.58 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_21/CO (FA_X1)
+                                                          0.09       2.67 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_22/CO (FA_X1)
+                                                          0.09       2.76 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_23/CO (FA_X1)
+                                                          0.09       2.85 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_24/CO (FA_X1)
+                                                          0.09       2.94 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_25/CO (FA_X1)
+                                                          0.09       3.03 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_26/CO (FA_X1)
+                                                          0.09       3.13 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_27/CO (FA_X1)
+                                                          0.09       3.22 f
+  accel/accel/add_0_root_add_0_root_add_440/U1_28/S (FA_X1)
+                                                          0.16       3.38 r
+  accel/accel/add_0_root_add_0_root_add_440/SUM[28] (CompressionFunction_DW01_add_13)
+                                                          0.00       3.38 r
+  accel/accel/add_0_root_add_0_root_add_465/B[28] (CompressionFunction_DW01_add_23)
+                                                          0.00       3.38 r
+  accel/accel/add_0_root_add_0_root_add_465/U1_28/S (FA_X1)
+                                                          0.13       3.51 f
+  accel/accel/add_0_root_add_0_root_add_465/SUM[28] (CompressionFunction_DW01_add_23)
+                                                          0.00       3.51 f
+  accel/accel/U1449/ZN (NAND2_X1)                         0.03       3.54 r
+  accel/accel/U1448/ZN (OAI21_X1)                         0.03       3.57 f
+  accel/accel/hash_val_0_reg[28]/D (DFF_X1)               0.01       3.58 f
+  data arrival time                                                  3.58
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/hash_val_0_reg[28]/CK (DFF_X1)              0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.58
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.37
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/h_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U14/ZN (INV_X1)                             0.11       0.37 f
+  accel/accel/mult_add_463_aco/B[0] (CompressionFunction_DW02_mult_5)
+                                                          0.00       0.37 f
+  accel/accel/mult_add_463_aco/U3/Z (BUF_X1)              0.13       0.51 f
+  accel/accel/mult_add_463_aco/U34/ZN (AND2_X1)           0.08       0.58 f
+  accel/accel/mult_add_463_aco/PRODUCT[0] (CompressionFunction_DW02_mult_5)
+                                                          0.00       0.58 f
+  accel/accel/add_463_aco/B[0] (CompressionFunction_DW01_add_12)
+                                                          0.00       0.58 f
+  accel/accel/add_463_aco/U1/ZN (AND2_X1)                 0.04       0.62 f
+  accel/accel/add_463_aco/U1_1/CO (FA_X1)                 0.09       0.71 f
+  accel/accel/add_463_aco/U1_2/CO (FA_X1)                 0.09       0.80 f
+  accel/accel/add_463_aco/U1_3/CO (FA_X1)                 0.09       0.89 f
+  accel/accel/add_463_aco/U1_4/CO (FA_X1)                 0.09       0.98 f
+  accel/accel/add_463_aco/U1_5/CO (FA_X1)                 0.09       1.07 f
+  accel/accel/add_463_aco/U1_6/CO (FA_X1)                 0.09       1.17 f
+  accel/accel/add_463_aco/U1_7/CO (FA_X1)                 0.09       1.26 f
+  accel/accel/add_463_aco/U1_8/CO (FA_X1)                 0.09       1.35 f
+  accel/accel/add_463_aco/U1_9/CO (FA_X1)                 0.09       1.44 f
+  accel/accel/add_463_aco/U1_10/CO (FA_X1)                0.09       1.53 f
+  accel/accel/add_463_aco/U1_11/CO (FA_X1)                0.09       1.62 f
+  accel/accel/add_463_aco/U1_12/CO (FA_X1)                0.09       1.71 f
+  accel/accel/add_463_aco/U1_13/CO (FA_X1)                0.09       1.80 f
+  accel/accel/add_463_aco/U1_14/CO (FA_X1)                0.09       1.89 f
+  accel/accel/add_463_aco/U1_15/CO (FA_X1)                0.09       1.98 f
+  accel/accel/add_463_aco/U1_16/CO (FA_X1)                0.09       2.07 f
+  accel/accel/add_463_aco/U1_17/CO (FA_X1)                0.09       2.16 f
+  accel/accel/add_463_aco/U1_18/CO (FA_X1)                0.09       2.25 f
+  accel/accel/add_463_aco/U1_19/CO (FA_X1)                0.09       2.34 f
+  accel/accel/add_463_aco/U1_20/CO (FA_X1)                0.09       2.43 f
+  accel/accel/add_463_aco/U1_21/CO (FA_X1)                0.09       2.53 f
+  accel/accel/add_463_aco/U1_22/CO (FA_X1)                0.09       2.62 f
+  accel/accel/add_463_aco/U1_23/CO (FA_X1)                0.09       2.71 f
+  accel/accel/add_463_aco/U1_24/CO (FA_X1)                0.09       2.80 f
+  accel/accel/add_463_aco/U1_25/CO (FA_X1)                0.09       2.89 f
+  accel/accel/add_463_aco/U1_26/CO (FA_X1)                0.09       2.98 f
+  accel/accel/add_463_aco/U1_27/CO (FA_X1)                0.09       3.07 f
+  accel/accel/add_463_aco/U1_28/CO (FA_X1)                0.09       3.16 f
+  accel/accel/add_463_aco/U1_29/CO (FA_X1)                0.09       3.25 f
+  accel/accel/add_463_aco/U1_30/CO (FA_X1)                0.09       3.34 f
+  accel/accel/add_463_aco/U1_31/S (FA_X1)                 0.11       3.45 f
+  accel/accel/add_463_aco/SUM[31] (CompressionFunction_DW01_add_12)
+                                                          0.00       3.45 f
+  accel/accel/U1268/ZN (AOI222_X1)                        0.10       3.55 r
+  accel/accel/U1267/ZN (INV_X1)                           0.02       3.57 f
+  accel/accel/h_reg[31]/D (DFF_X1)                        0.01       3.58 f
+  data arrival time                                                  3.58
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/h_reg[31]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.58
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.38
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/b_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U14/ZN (INV_X1)                             0.11       0.37 f
+  accel/accel/mult_add_457_aco/B[0] (CompressionFunction_DW02_mult_0)
+                                                          0.00       0.37 f
+  accel/accel/mult_add_457_aco/U3/Z (BUF_X1)              0.13       0.51 f
+  accel/accel/mult_add_457_aco/U34/ZN (AND2_X1)           0.08       0.58 f
+  accel/accel/mult_add_457_aco/PRODUCT[0] (CompressionFunction_DW02_mult_0)
+                                                          0.00       0.58 f
+  accel/accel/add_457_aco/B[0] (CompressionFunction_DW01_add_7)
+                                                          0.00       0.58 f
+  accel/accel/add_457_aco/U1/ZN (AND2_X1)                 0.04       0.62 f
+  accel/accel/add_457_aco/U1_1/CO (FA_X1)                 0.09       0.71 f
+  accel/accel/add_457_aco/U1_2/CO (FA_X1)                 0.09       0.80 f
+  accel/accel/add_457_aco/U1_3/CO (FA_X1)                 0.09       0.89 f
+  accel/accel/add_457_aco/U1_4/CO (FA_X1)                 0.09       0.98 f
+  accel/accel/add_457_aco/U1_5/CO (FA_X1)                 0.09       1.07 f
+  accel/accel/add_457_aco/U1_6/CO (FA_X1)                 0.09       1.17 f
+  accel/accel/add_457_aco/U1_7/CO (FA_X1)                 0.09       1.26 f
+  accel/accel/add_457_aco/U1_8/CO (FA_X1)                 0.09       1.35 f
+  accel/accel/add_457_aco/U1_9/CO (FA_X1)                 0.09       1.44 f
+  accel/accel/add_457_aco/U1_10/CO (FA_X1)                0.09       1.53 f
+  accel/accel/add_457_aco/U1_11/CO (FA_X1)                0.09       1.62 f
+  accel/accel/add_457_aco/U1_12/CO (FA_X1)                0.09       1.71 f
+  accel/accel/add_457_aco/U1_13/CO (FA_X1)                0.09       1.80 f
+  accel/accel/add_457_aco/U1_14/CO (FA_X1)                0.09       1.89 f
+  accel/accel/add_457_aco/U1_15/CO (FA_X1)                0.09       1.98 f
+  accel/accel/add_457_aco/U1_16/CO (FA_X1)                0.09       2.07 f
+  accel/accel/add_457_aco/U1_17/CO (FA_X1)                0.09       2.16 f
+  accel/accel/add_457_aco/U1_18/CO (FA_X1)                0.09       2.25 f
+  accel/accel/add_457_aco/U1_19/CO (FA_X1)                0.09       2.34 f
+  accel/accel/add_457_aco/U1_20/CO (FA_X1)                0.09       2.43 f
+  accel/accel/add_457_aco/U1_21/CO (FA_X1)                0.09       2.53 f
+  accel/accel/add_457_aco/U1_22/CO (FA_X1)                0.09       2.62 f
+  accel/accel/add_457_aco/U1_23/CO (FA_X1)                0.09       2.71 f
+  accel/accel/add_457_aco/U1_24/CO (FA_X1)                0.09       2.80 f
+  accel/accel/add_457_aco/U1_25/CO (FA_X1)                0.09       2.89 f
+  accel/accel/add_457_aco/U1_26/CO (FA_X1)                0.09       2.98 f
+  accel/accel/add_457_aco/U1_27/CO (FA_X1)                0.09       3.07 f
+  accel/accel/add_457_aco/U1_28/CO (FA_X1)                0.09       3.16 f
+  accel/accel/add_457_aco/U1_29/CO (FA_X1)                0.09       3.25 f
+  accel/accel/add_457_aco/U1_30/CO (FA_X1)                0.09       3.34 f
+  accel/accel/add_457_aco/U1_31/S (FA_X1)                 0.11       3.45 f
+  accel/accel/add_457_aco/SUM[31] (CompressionFunction_DW01_add_7)
+                                                          0.00       3.45 f
+  accel/accel/U998/ZN (AOI22_X1)                          0.06       3.50 r
+  accel/accel/U997/ZN (OAI211_X1)                         0.04       3.55 f
+  accel/accel/b_reg[31]/D (DFF_X1)                        0.01       3.55 f
+  data arrival time                                                  3.55
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/b_reg[31]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.55
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.40
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/f_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U14/ZN (INV_X1)                             0.11       0.37 f
+  accel/accel/mult_add_461_aco/B[0] (CompressionFunction_DW02_mult_3)
+                                                          0.00       0.37 f
+  accel/accel/mult_add_461_aco/U3/Z (BUF_X1)              0.13       0.51 f
+  accel/accel/mult_add_461_aco/U34/ZN (AND2_X1)           0.08       0.58 f
+  accel/accel/mult_add_461_aco/PRODUCT[0] (CompressionFunction_DW02_mult_3)
+                                                          0.00       0.58 f
+  accel/accel/add_461_aco/B[0] (CompressionFunction_DW01_add_10)
+                                                          0.00       0.58 f
+  accel/accel/add_461_aco/U1/ZN (AND2_X1)                 0.04       0.62 f
+  accel/accel/add_461_aco/U1_1/CO (FA_X1)                 0.09       0.71 f
+  accel/accel/add_461_aco/U1_2/CO (FA_X1)                 0.09       0.80 f
+  accel/accel/add_461_aco/U1_3/CO (FA_X1)                 0.09       0.89 f
+  accel/accel/add_461_aco/U1_4/CO (FA_X1)                 0.09       0.98 f
+  accel/accel/add_461_aco/U1_5/CO (FA_X1)                 0.09       1.07 f
+  accel/accel/add_461_aco/U1_6/CO (FA_X1)                 0.09       1.17 f
+  accel/accel/add_461_aco/U1_7/CO (FA_X1)                 0.09       1.26 f
+  accel/accel/add_461_aco/U1_8/CO (FA_X1)                 0.09       1.35 f
+  accel/accel/add_461_aco/U1_9/CO (FA_X1)                 0.09       1.44 f
+  accel/accel/add_461_aco/U1_10/CO (FA_X1)                0.09       1.53 f
+  accel/accel/add_461_aco/U1_11/CO (FA_X1)                0.09       1.62 f
+  accel/accel/add_461_aco/U1_12/CO (FA_X1)                0.09       1.71 f
+  accel/accel/add_461_aco/U1_13/CO (FA_X1)                0.09       1.80 f
+  accel/accel/add_461_aco/U1_14/CO (FA_X1)                0.09       1.89 f
+  accel/accel/add_461_aco/U1_15/CO (FA_X1)                0.09       1.98 f
+  accel/accel/add_461_aco/U1_16/CO (FA_X1)                0.09       2.07 f
+  accel/accel/add_461_aco/U1_17/CO (FA_X1)                0.09       2.16 f
+  accel/accel/add_461_aco/U1_18/CO (FA_X1)                0.09       2.25 f
+  accel/accel/add_461_aco/U1_19/CO (FA_X1)                0.09       2.34 f
+  accel/accel/add_461_aco/U1_20/CO (FA_X1)                0.09       2.43 f
+  accel/accel/add_461_aco/U1_21/CO (FA_X1)                0.09       2.53 f
+  accel/accel/add_461_aco/U1_22/CO (FA_X1)                0.09       2.62 f
+  accel/accel/add_461_aco/U1_23/CO (FA_X1)                0.09       2.71 f
+  accel/accel/add_461_aco/U1_24/CO (FA_X1)                0.09       2.80 f
+  accel/accel/add_461_aco/U1_25/CO (FA_X1)                0.09       2.89 f
+  accel/accel/add_461_aco/U1_26/CO (FA_X1)                0.09       2.98 f
+  accel/accel/add_461_aco/U1_27/CO (FA_X1)                0.09       3.07 f
+  accel/accel/add_461_aco/U1_28/CO (FA_X1)                0.09       3.16 f
+  accel/accel/add_461_aco/U1_29/CO (FA_X1)                0.09       3.25 f
+  accel/accel/add_461_aco/U1_30/CO (FA_X1)                0.09       3.34 f
+  accel/accel/add_461_aco/U1_31/S (FA_X1)                 0.11       3.45 f
+  accel/accel/add_461_aco/SUM[31] (CompressionFunction_DW01_add_10)
+                                                          0.00       3.45 f
+  accel/accel/U1102/ZN (AOI22_X1)                         0.06       3.50 r
+  accel/accel/U1101/ZN (OAI211_X1)                        0.04       3.55 f
+  accel/accel/f_reg[31]/D (DFF_X1)                        0.01       3.55 f
+  data arrival time                                                  3.55
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/f_reg[31]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.55
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.40
+
+
+  Startpoint: accel/accel/i_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/d_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[2]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[2]/Q (DFF_X1)                         0.09       0.09 f
+  accel/accel/U9/ZN (AND2_X1)                             0.08       0.17 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.09       0.26 r
+  accel/accel/U14/ZN (INV_X1)                             0.11       0.37 f
+  accel/accel/mult_add_459_aco/B[0] (CompressionFunction_DW02_mult_2)
+                                                          0.00       0.37 f
+  accel/accel/mult_add_459_aco/U3/Z (BUF_X1)              0.13       0.51 f
+  accel/accel/mult_add_459_aco/U34/ZN (AND2_X1)           0.08       0.58 f
+  accel/accel/mult_add_459_aco/PRODUCT[0] (CompressionFunction_DW02_mult_2)
+                                                          0.00       0.58 f
+  accel/accel/add_459_aco/B[0] (CompressionFunction_DW01_add_9)
+                                                          0.00       0.58 f
+  accel/accel/add_459_aco/U1/ZN (AND2_X1)                 0.04       0.62 f
+  accel/accel/add_459_aco/U1_1/CO (FA_X1)                 0.09       0.71 f
+  accel/accel/add_459_aco/U1_2/CO (FA_X1)                 0.09       0.80 f
+  accel/accel/add_459_aco/U1_3/CO (FA_X1)                 0.09       0.89 f
+  accel/accel/add_459_aco/U1_4/CO (FA_X1)                 0.09       0.98 f
+  accel/accel/add_459_aco/U1_5/CO (FA_X1)                 0.09       1.07 f
+  accel/accel/add_459_aco/U1_6/CO (FA_X1)                 0.09       1.17 f
+  accel/accel/add_459_aco/U1_7/CO (FA_X1)                 0.09       1.26 f
+  accel/accel/add_459_aco/U1_8/CO (FA_X1)                 0.09       1.35 f
+  accel/accel/add_459_aco/U1_9/CO (FA_X1)                 0.09       1.44 f
+  accel/accel/add_459_aco/U1_10/CO (FA_X1)                0.09       1.53 f
+  accel/accel/add_459_aco/U1_11/CO (FA_X1)                0.09       1.62 f
+  accel/accel/add_459_aco/U1_12/CO (FA_X1)                0.09       1.71 f
+  accel/accel/add_459_aco/U1_13/CO (FA_X1)                0.09       1.80 f
+  accel/accel/add_459_aco/U1_14/CO (FA_X1)                0.09       1.89 f
+  accel/accel/add_459_aco/U1_15/CO (FA_X1)                0.09       1.98 f
+  accel/accel/add_459_aco/U1_16/CO (FA_X1)                0.09       2.07 f
+  accel/accel/add_459_aco/U1_17/CO (FA_X1)                0.09       2.16 f
+  accel/accel/add_459_aco/U1_18/CO (FA_X1)                0.09       2.25 f
+  accel/accel/add_459_aco/U1_19/CO (FA_X1)                0.09       2.34 f
+  accel/accel/add_459_aco/U1_20/CO (FA_X1)                0.09       2.43 f
+  accel/accel/add_459_aco/U1_21/CO (FA_X1)                0.09       2.53 f
+  accel/accel/add_459_aco/U1_22/CO (FA_X1)                0.09       2.62 f
+  accel/accel/add_459_aco/U1_23/CO (FA_X1)                0.09       2.71 f
+  accel/accel/add_459_aco/U1_24/CO (FA_X1)                0.09       2.80 f
+  accel/accel/add_459_aco/U1_25/CO (FA_X1)                0.09       2.89 f
+  accel/accel/add_459_aco/U1_26/CO (FA_X1)                0.09       2.98 f
+  accel/accel/add_459_aco/U1_27/CO (FA_X1)                0.09       3.07 f
+  accel/accel/add_459_aco/U1_28/CO (FA_X1)                0.09       3.16 f
+  accel/accel/add_459_aco/U1_29/CO (FA_X1)                0.09       3.25 f
+  accel/accel/add_459_aco/U1_30/CO (FA_X1)                0.09       3.34 f
+  accel/accel/add_459_aco/U1_31/S (FA_X1)                 0.11       3.45 f
+  accel/accel/add_459_aco/SUM[31] (CompressionFunction_DW01_add_9)
+                                                          0.00       3.45 f
+  accel/accel/U700/ZN (AOI22_X1)                          0.06       3.50 r
+  accel/accel/U699/ZN (OAI211_X1)                         0.04       3.55 f
+  accel/accel/d_reg[31]/D (DFF_X1)                        0.01       3.55 f
+  data arrival time                                                  3.55
+
+  clock clock (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  accel/accel/d_reg[31]/CK (DFF_X1)                       0.00     100.00 r
+  library setup time                                     -0.05      99.95
+  data required time                                                99.95
+  --------------------------------------------------------------------------
+  data required time                                                99.95
+  data arrival time                                                 -3.55
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.40
+
+
+1

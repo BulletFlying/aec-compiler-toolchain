@@ -1,0 +1,132 @@
+{
+  "functional_coverage": {
+    "design": "case3",
+    "status": "passed",
+    "source": "cocotb transaction and configuration sampling",
+    "covered_bins": 17,
+    "total_bins": 17,
+    "percent": 100.0,
+    "coverpoints": [
+      {
+        "name": "stream_payload_length",
+        "covered_bins": 4,
+        "total_bins": 4,
+        "bins": [
+          {
+            "name": "one_word",
+            "hits": 27,
+            "covered": true
+          },
+          {
+            "name": "multi_word",
+            "hits": 229,
+            "covered": true
+          },
+          {
+            "name": "near_burst",
+            "hits": 2,
+            "covered": true
+          },
+          {
+            "name": "larger_than_one_burst",
+            "hits": 2,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "stream_flow_control",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "input_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "output_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "simultaneous_stream_pause",
+            "hits": 1,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "axi_flow_control",
+        "covered_bins": 5,
+        "total_bins": 5,
+        "bins": [
+          {
+            "name": "aw_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "w_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "b_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "ar_pause",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "r_pause",
+            "hits": 1,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "configuration",
+        "covered_bins": 3,
+        "total_bins": 3,
+        "bins": [
+          {
+            "name": "enable",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "cfg_reset",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "post_reset_reenable",
+            "hits": 1,
+            "covered": true
+          }
+        ]
+      },
+      {
+        "name": "scoreboard",
+        "covered_bins": 2,
+        "total_bins": 2,
+        "bins": [
+          {
+            "name": "pre_reset_payload_match",
+            "hits": 1,
+            "covered": true
+          },
+          {
+            "name": "post_reset_payload_match",
+            "hits": 1,
+            "covered": true
+          }
+        ]
+      }
+    ]
+  }
+}

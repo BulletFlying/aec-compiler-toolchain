@@ -1,0 +1,101 @@
+{
+  "design": {
+    "name": "case5",
+    "rtl": "rtl/case5.v",
+    "top_module": "case5",
+    "generated_cocotb_top": "public_dataset/case5/case5_cocotb_top.v",
+    "function": "AXI4 crossbar address decode, destination selection, transaction admission, and completion tracking",
+    "configuration_under_test": {
+      "S": 1,
+      "S_COUNT": 2,
+      "M_COUNT": 4,
+      "ADDR_WIDTH": 32,
+      "ID_WIDTH": 4,
+      "S_THREADS": 8,
+      "S_ACCEPT": 4,
+      "M_REGIONS": 2,
+      "M_BASE_ADDR": [
+        [
+          "0x00000000",
+          "0x10000000"
+        ],
+        [
+          "0x01000000",
+          "0x11000000"
+        ],
+        [
+          "0x02000000",
+          "0x12000000"
+        ],
+        [
+          "0x03000000",
+          "0x13000000"
+        ]
+      ],
+      "M_ADDR_WIDTH": 24,
+      "M_CONNECT": "all masters connected to both slave-interface slots",
+      "M_SECURE": {
+        "M0": false,
+        "M1": false,
+        "M2": true,
+        "M3": false
+      },
+      "WC_OUTPUT": 1
+    },
+    "clock_reset": {
+      "clock": "clk",
+      "reset": "rst",
+      "reset_active": "high"
+    },
+    "interfaces": {
+      "s_axi_a": {
+        "role": "source address request",
+        "signals": [
+          "s_axi_aid",
+          "s_axi_aaddr",
+          "s_axi_aprot",
+          "s_axi_aqos",
+          "s_axi_avalid",
+          "s_axi_aready"
+        ]
+      },
+      "m_axi_a": {
+        "role": "decoded downstream address command",
+        "signals": [
+          "m_axi_aregion",
+          "m_select",
+          "m_axi_avalid",
+          "m_axi_aready"
+        ]
+      },
+      "m_wc": {
+        "role": "write command metadata",
+        "signals": [
+          "m_wc_select",
+          "m_wc_decerr",
+          "m_wc_valid",
+          "m_wc_ready"
+        ]
+      },
+      "m_rc": {
+        "role": "reply command metadata for decode errors",
+        "signals": [
+          "m_rc_decerr",
+          "m_rc_valid",
+          "m_rc_ready"
+        ]
+      },
+      "completion": {
+        "role": "outstanding transaction release",
+        "signals": [
+          "s_cpl_id",
+          "s_cpl_valid"
+        ]
+      }
+    },
+    "related_testbench_note": {
+      "found_path": "tb/case5_tb.py",
+      "finding": "The upstream cocotb verifies the full axi_crossbar and indirectly covers case5 through axi_crossbar_rd and axi_crossbar_wr. This package uses a direct wrapper so the measured coverage is attributable to the requested RTL."
+    }
+  }
+}

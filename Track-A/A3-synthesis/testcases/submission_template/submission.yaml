@@ -1,0 +1,10 @@
+schema_version: 1
+team_name: REPLACE_ME
+tool_name: REPLACE_ME
+development_track: open_source_based  # open_source_based | from_scratch
+build_target: build
+synth_target: synth
+tool_entry: bin/synth_tool
+point_config: config.json
+originality_declaration: ORIGINALITY_DECLARATION.md
+third_party_manifest: THIRD_PARTY.md

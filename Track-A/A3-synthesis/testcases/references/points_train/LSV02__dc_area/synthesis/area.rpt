@@ -1,0 +1,43 @@
+ 
+****************************************
+Report : area
+Design : top
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:13 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                           21
+Number of nets:                           393
+Number of cells:                          383
+Number of combinational cells:            383
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         74
+Number of references:                      23
+
+Combinational area:                399.000001
+Buf/Inv area:                       42.028000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                   399.000001
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  --------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-    Noncombi-  Black-
+                                  Total      Total    national  national   boxes   Design
+--------------------------------  ---------  -------  --------  ---------  ------  ---------
+top                                399.0000    100.0  399.0000     0.0000  0.0000  top
+--------------------------------  ---------  -------  --------  ---------  ------  ---------
+Total                                                 399.0000     0.0000  0.0000
+
+1

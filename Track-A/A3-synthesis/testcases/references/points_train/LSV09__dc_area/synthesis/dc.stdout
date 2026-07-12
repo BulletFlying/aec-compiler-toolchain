@@ -1,0 +1,360 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set target_library [list /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db]
+/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+set link_library [concat "*" $target_library]
+* /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+analyze -format sverilog /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/design.v
+Running PRESTO HDLC
+Compiling source file /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/design.v
+Presto compilation completed successfully.
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+1
+elaborate Sha256Wishbone
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine Sha256Wishbone line 1019 in file
+		'/tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/design.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     data_rd_reg     | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|       ack_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'Sha256Wishbone'.
+Information: Building the design 'Sha256Accel'. (HDL-193)
+
+Inferred memory devices in process
+	in routine Sha256Accel line 863 in file
+		'/tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/design.v'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+|       first_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        ctr_reg        | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+| io_inputReady_REG_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+=================================================================================
+Presto compilation completed successfully.
+Information: Building the design 'CompressionFunction'. (HDL-193)
+
+Inferred memory devices in process
+	in routine CompressionFunction line 496 in file
+		'/tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/design.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      valid_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        i_reg        | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_0_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_1_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_2_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_3_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_4_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_5_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_6_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_7_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        a_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        b_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        c_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        d_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        e_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        f_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        g_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        h_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     shiftIn_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'MessageScheduleArray'. (HDL-193)
+
+Inferred memory devices in process
+	in routine MessageScheduleArray line 225 in file
+		'/tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/design.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      iReg_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|       out_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'ShiftRegister'. (HDL-193)
+
+Inferred memory devices in process
+	in routine ShiftRegister line 48 in file
+		'/tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/design.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      reg_0_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_1_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_2_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_3_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_4_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_5_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_6_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_7_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_8_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_9_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_10_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_11_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_12_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_13_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_14_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_15_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+1
+current_design Sha256Wishbone
+Current design is 'Sha256Wishbone'.
+{Sha256Wishbone}
+link
+
+  Linking design 'Sha256Wishbone'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (5 designs)               /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/Sha256Wishbone.db, etc
+  NangateOpenCellLibrary (library) /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+
+1
+check_design > /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/check_design.rpt
+source /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/constraints.sdc
+1
+set_max_area 0
+1
+if {[catch {compile -area_effort high -map_effort high} err]} {
+  puts "area compile failed, falling back to compile: $err"
+  compile
+}
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 14 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'ShiftRegister'
+  Processing 'MessageScheduleArray'
+  Processing 'CompressionFunction'
+  Processing 'Sha256Accel'
+  Processing 'Sha256Wishbone'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'Sha256Accel_DW01_inc_0'
+  Processing 'CompressionFunction_DW01_add_0'
+  Processing 'CompressionFunction_DW01_add_1'
+  Processing 'CompressionFunction_DW01_add_2'
+  Processing 'CompressionFunction_DW01_add_3'
+  Processing 'CompressionFunction_DW01_add_4'
+  Processing 'CompressionFunction_DW01_add_5'
+  Processing 'CompressionFunction_DW01_inc_0'
+  Processing 'CompressionFunction_DW01_add_6'
+  Processing 'MessageScheduleArray_DW01_inc_0'
+  Allocating blocks in 'DW02_mult_A_width32_B_width1'
+  Allocating blocks in 'DW01_absval_width32'
+  Building model 'DW01_NAND2'
+  Processing 'DW01_NAND2'
+  Building model 'DW01_inc_width32' (cla)
+  Processing 'DW01_inc_width32'
+  Building model 'DW01_absval_width32' (cla)
+  Processing 'DW01_absval_width32'
+  Allocating blocks in 'DW01_absval_width1'
+  Building model 'DW01_inc_width1' (cla)
+  Processing 'DW01_inc_width1'
+  Building model 'DW01_absval_width1' (cla)
+  Processing 'DW01_absval_width1'
+  Building model 'DW01_inc_width33' (cla)
+  Processing 'DW01_inc_width33'
+  Building model 'DW02_mult_A_width32_B_width1' (csa)
+  Processing 'DW02_mult_A_width32_B_width1'
+  Processing 'MessageScheduleArray_DW01_add_0'
+  Processing 'MessageScheduleArray_DW01_add_1'
+  Processing 'MessageScheduleArray_DW01_add_2'
+  Processing 'CompressionFunction_DW01_add_7'
+  Processing 'CompressionFunction_DW02_mult_0'
+  Processing 'CompressionFunction_DW01_add_8'
+  Processing 'CompressionFunction_DW02_mult_1'
+  Processing 'CompressionFunction_DW01_add_9'
+  Processing 'CompressionFunction_DW02_mult_2'
+  Processing 'CompressionFunction_DW01_add_10'
+  Processing 'CompressionFunction_DW02_mult_3'
+  Processing 'CompressionFunction_DW01_add_11'
+  Processing 'CompressionFunction_DW02_mult_4'
+  Processing 'CompressionFunction_DW01_add_12'
+  Processing 'CompressionFunction_DW02_mult_5'
+  Processing 'CompressionFunction_DW01_add_13'
+  Processing 'CompressionFunction_DW01_add_14'
+  Processing 'CompressionFunction_DW01_add_15'
+  Processing 'CompressionFunction_DW01_add_16'
+  Processing 'CompressionFunction_DW01_add_17'
+  Processing 'CompressionFunction_DW01_add_18'
+  Processing 'CompressionFunction_DW01_add_19'
+  Processing 'CompressionFunction_DW01_add_20'
+  Processing 'CompressionFunction_DW02_mult_6'
+  Processing 'CompressionFunction_DW01_add_21'
+  Processing 'CompressionFunction_DW01_add_22'
+  Processing 'CompressionFunction_DW02_mult_7'
+  Processing 'CompressionFunction_DW01_add_23'
+  Processing 'CompressionFunction_DW01_add_24'
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:10   15811.8      0.00       0.0      23.6                          
+    0:00:10   15811.8      0.00       0.0      23.6                          
+    0:00:10   15811.8      0.00       0.0      23.6                          
+    0:00:10   15811.8      0.00       0.0      23.6                          
+    0:00:10   15811.8      0.00       0.0      23.6                          
+    0:00:11   13049.2      0.00       0.0       6.2                          
+    0:00:11   13046.8      0.00       0.0       6.2                          
+    0:00:11   13046.8      0.00       0.0       6.2                          
+    0:00:11   13046.8      0.00       0.0       6.2                          
+    0:00:11   13046.8      0.00       0.0       6.2                          
+    0:00:11   13046.8      0.00       0.0       6.2                          
+    0:00:11   13048.4      0.00       0.0       5.6                          
+    0:00:11   13048.4      0.00       0.0       5.6                          
+    0:00:11   13048.4      0.00       0.0       5.6                          
+    0:00:11   13048.4      0.00       0.0       5.6                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:11   13048.4      0.00       0.0       5.6                          
+    0:00:11   13048.4      0.00       0.0       5.6                          
+    0:00:12   13048.4      0.00       0.0       5.6                          
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:12   13048.4      0.00       0.0       5.6                          
+    0:00:12   13088.3      0.00       0.0       0.0 io_bus_data_wr[10]       
+    0:00:12   13095.4      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (max_area 0)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:12   13095.4      0.00       0.0       0.0                          
+    0:00:12   13095.4      0.00       0.0       0.0                          
+    0:00:12   12951.8      0.00       0.0       0.0                          
+    0:00:12   12874.4      0.00       0.0       0.0                          
+    0:00:12   12853.7      0.00       0.0       0.0                          
+    0:00:12   12850.5      0.00       0.0       0.0                          
+    0:00:12   12847.3      0.00       0.0       0.0                          
+    0:00:13   12843.3      0.00       0.0       0.0                          
+    0:00:13   12843.3      0.00       0.0       0.0                          
+    0:00:13   12843.3      0.00       0.0       0.0                          
+    0:00:13   12837.7      0.00       0.0       0.0                          
+    0:00:13   12837.7      0.00       0.0       0.0                          
+    0:00:13   12837.7      0.00       0.0       0.0                          
+    0:00:13   12837.7      0.00       0.0       0.0                          
+    0:00:13   12837.7      0.00       0.0       0.0                          
+    0:00:13   12837.7      0.00       0.0       0.0                          
+    0:00:14   12724.6      0.00       0.0       0.0                          
+    0:00:14   12611.6      0.00       0.0       0.0                          
+    0:00:15   12571.4      0.00       0.0       0.0                          
+    0:00:15   12571.4      0.00       0.0       0.0                          
+    0:00:15   12571.4      0.00       0.0       0.0                          
+    0:00:15   12571.4      0.00       0.0       0.0                          
+    0:00:15   12571.4      0.00       0.0       0.0                          
+    0:00:15   12571.4      0.00       0.0       0.0                          
+    0:00:15   12571.4      0.00       0.0       0.0                          
+    0:00:16   12570.4      0.00       0.0       0.0                          
+    0:00:16   12569.6      0.00       0.0       0.0                          
+    0:00:16   12569.3      0.00       0.0       0.0                          
+    0:00:17   12569.0      0.00       0.0       0.0                          
+    0:00:17   12569.0      0.00       0.0       0.0                          
+    0:00:17   12569.0      0.00       0.0       0.0                          
+    0:00:17   12569.0      0.00       0.0       0.0                          
+    0:00:17   12569.0      0.00       0.0       0.0                          
+    0:00:17   12569.0      0.00       0.0       0.0                          
+    0:00:17   12569.0      0.00       0.0       0.0                          
+    0:00:17   12569.0      0.00       0.0       0.0                          
+    0:00:17   12569.0      0.00       0.0       0.0                          
+    0:00:17   12569.0      0.00       0.0       0.0                          
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'Sha256Wishbone' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'accel/accel/messageScheduleArray/shreg/clock': 1116 load(s), 1 driver(s)
+write -format verilog -hierarchy -output /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/netlist.v
+Writing verilog file '/tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/netlist.v'.
+Warning: Verilog writer has added 8 nets to module CompressionFunction using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 1 nets to module Sha256Accel using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write_sdc /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/final.sdc
+1
+report_qor > /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/qor.rpt
+report_area -hierarchy > /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/area.rpt
+report_timing -delay max -max_paths 20 > /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/timing.rpt
+report_constraint -all_violators > /tmp/logic_synth_ref/runs/LSV09_dc_area_b590157decb244b7af3af6ab603ea06c/case/constraints.rpt
+exit
+
+Memory usage for main task 140 Mbytes.
+Memory usage for this session 140 Mbytes.
+CPU usage for this session 18 seconds ( 0.01 hours ).
+
+Thank you...
+

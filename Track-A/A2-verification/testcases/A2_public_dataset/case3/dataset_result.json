@@ -1,0 +1,16 @@
+{
+  "public_dataset_result": {
+    "name": "case3",
+    "status": "complete",
+    "simulation": {"type": "cocotb", "status": "passed", "seed": 20260630, "sequence_count": 256},
+    "coverage": {
+      "scope": "case3 and its axi_vfifo_raw_rd/wr dependencies",
+      "line_percent": 93.48,
+      "branch_percent": 87.61,
+      "functional_percent": 100.0,
+      "composite_percent": 93.79,
+      "artifact": "coverage_result.json"
+    },
+    "artifacts": ["design.json", "testbench.json", "verification_skeleton.json", "constraints.json", "coverage_bins.json", "functional_coverage.json", "coverage_result.json", "case3_cocotb_top.v", "test_case3_json_sequences.py", "Makefile"]
+  }
+}

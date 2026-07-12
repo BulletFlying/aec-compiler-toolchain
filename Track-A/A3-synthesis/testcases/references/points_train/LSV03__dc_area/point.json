@@ -1,0 +1,17 @@
+{
+  "id": "LSV03",
+  "split": "public",
+  "name": "epfl_adder",
+  "top": "top",
+  "flow": "dc_area",
+  "flow_label": "Design Compiler area-biased compile",
+  "tool": "dc",
+  "status": "ok",
+  "runtime_s": 4.88,
+  "area": 984.199991,
+  "arrival_ns": 5.18,
+  "wns_ns": -5.18,
+  "tns_ns": -342.91,
+  "source_path": "EPFL/adder.v",
+  "clock_period_ns": 10.0
+}

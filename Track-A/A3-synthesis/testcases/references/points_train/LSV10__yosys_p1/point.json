@@ -1,0 +1,17 @@
+{
+  "id": "LSV10",
+  "split": "public",
+  "name": "medium_vexriscv_small",
+  "top": "VexRiscv_small",
+  "flow": "yosys_p1",
+  "flow_label": "Yosys ABC p1: compress2rs + dch + Nangate SCL map",
+  "tool": "yosys",
+  "status": "ok",
+  "runtime_s": 8.19,
+  "area": 15494.5,
+  "arrival_ns": 15.03,
+  "wns_ns": -15.03,
+  "tns_ns": -3381.05,
+  "source_path": "medium_design/9.VexRiscv_small.clk.v",
+  "clock_period_ns": 10.0
+}

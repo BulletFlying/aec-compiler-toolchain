@@ -1,0 +1,16 @@
+{
+  "public_dataset_result": {
+    "name": "case2",
+    "status": "complete",
+    "simulation": {"type": "plain_verilog", "status": "passed", "result": "PASS cycles=7403", "seed": 20260630},
+    "coverage": {
+      "scope": "RTL only, tb.UUT subtree",
+      "line_percent": 59.74,
+      "branch_percent": 63.01,
+      "functional_percent": 92.86,
+      "composite_percent": 70.59,
+      "artifact": "coverage_result.json"
+    },
+    "artifacts": ["rtl/case2.v", "rtl/case2_1.v", "rtl/case2_2.v", "tb/case2_tb.v", "tb/input.mem", "tb/output.mem", "filelist.txt", "design.json", "testbench.json", "verification_skeleton.json", "vector_io_schema.json", "constraints.json", "coverage_bins.json", "functional_coverage.json", "coverage_result.json", "analyze_functional_coverage.py"]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "design": {
+    "name": "case1",
+    "rtl": "rtl/case1.v",
+    "top_module": "case1",
+    "generated_cocotb_top": "public_dataset/case1/case1_cocotb_top.v",
+    "function": "AXI4 read data-width adapter",
+    "configuration_under_test": {
+      "ADDR_WIDTH": 16,
+      "S_DATA_WIDTH": 32,
+      "S_STRB_WIDTH": 4,
+      "M_DATA_WIDTH": 16,
+      "M_STRB_WIDTH": 2,
+      "ID_WIDTH": 8,
+      "ARUSER_ENABLE": 0,
+      "RUSER_ENABLE": 0,
+      "CONVERT_BURST": 1,
+      "CONVERT_NARROW_BURST": 1,
+      "FORWARD_ID": 1
+    },
+    "clock_reset": {
+      "clock": "clk",
+      "reset": "rst",
+      "reset_active": "high"
+    },
+    "interfaces": {
+      "s_axi": {
+        "role": "slave/read requester side",
+        "channels": [
+          "AR",
+          "R"
+        ]
+      },
+      "m_axi": {
+        "role": "master/downstream memory side",
+        "channels": [
+          "AR",
+          "R"
+        ]
+      }
+    },
+    "related_testbench_note": {
+      "user_named_path": "verilog-axi/tb/axi_dma_rd",
+      "finding": "That cocotb testbench targets axi_dma_rd and does not instantiate case1. This result uses a direct case1 cocotb wrapper so the coverage matches the requested RTL."
+    },
+    "vcs_compatibility_note": {
+      "finding": "rtl/case1.v was patched to guard parameter-dependent part-selects with generate-time safe wires, allowing VCS O-2018.09-SP2 to compile unequal S/M widths without changing behavior."
+    }
+  }
+}

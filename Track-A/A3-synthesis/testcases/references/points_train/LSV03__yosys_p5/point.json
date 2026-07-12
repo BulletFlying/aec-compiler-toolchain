@@ -1,0 +1,17 @@
+{
+  "id": "LSV03",
+  "split": "public",
+  "name": "epfl_adder",
+  "top": "top",
+  "flow": "yosys_p5",
+  "flow_label": "Yosys ABC p5: 2x if -K 6 -g -C 8 + dch + Nangate SCL map",
+  "tool": "yosys",
+  "status": "ok",
+  "runtime_s": 3.03,
+  "area": 1011.864,
+  "arrival_ns": 1.19,
+  "wns_ns": -1.19,
+  "tns_ns": -91.37,
+  "source_path": "EPFL/adder.v",
+  "clock_period_ns": 10.0
+}

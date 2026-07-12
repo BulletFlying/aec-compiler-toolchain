@@ -1,0 +1,2146 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : Sha256Wishbone
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:12:56 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: accel/accel/i_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_0_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[1]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[1]/Q (DFF_X1)                         0.16       0.16 r
+  accel/accel/U14/ZN (NAND2_X1)                           0.07       0.23 f
+  accel/accel/U27/ZN (NOR2_X1)                            0.11       0.34 r
+  accel/accel/U16/ZN (NAND2_X1)                           0.10       0.44 f
+  accel/accel/U723/ZN (INV_X1)                            0.20       0.64 r
+  accel/accel/U1684/ZN (AOI21_X1)                         0.06       0.70 f
+  accel/accel/intadd_8/U5/S (FA_X1)                       0.16       0.85 r
+  accel/accel/U663/S (FA_X1)                              0.11       0.97 f
+  accel/accel/U444/ZN (INV_X1)                            0.05       1.01 r
+  accel/accel/intadd_0/U32/S (FA_X1)                      0.13       1.14 f
+  accel/accel/U490/ZN (INV_X1)                            0.04       1.18 r
+  accel/accel/U491/ZN (NAND2_X1)                          0.04       1.22 f
+  accel/accel/U492/ZN (NOR2_X1)                           0.06       1.28 r
+  accel/accel/U495/ZN (OAI22_X1)                          0.04       1.32 f
+  accel/accel/U496/ZN (INV_X1)                            0.04       1.36 r
+  accel/accel/U498/ZN (NOR2_X1)                           0.03       1.39 f
+  accel/accel/U499/ZN (AOI21_X1)                          0.09       1.48 r
+  accel/accel/U502/ZN (XNOR2_X1)                          0.08       1.56 r
+  accel/accel/U503/ZN (NAND2_X1)                          0.04       1.59 f
+  accel/accel/U504/ZN (NAND2_X1)                          0.04       1.63 r
+  accel/accel/U506/ZN (XNOR2_X1)                          0.07       1.70 r
+  accel/accel/U507/ZN (OR2_X1)                            0.04       1.74 r
+  accel/accel/U508/ZN (NAND2_X1)                          0.03       1.77 f
+  accel/accel/U510/ZN (OR2_X1)                            0.06       1.83 f
+  accel/accel/U511/ZN (NAND2_X1)                          0.03       1.86 r
+  accel/accel/U512/ZN (NAND2_X1)                          0.03       1.89 f
+  accel/accel/U513/ZN (NOR2_X1)                           0.05       1.95 r
+  accel/accel/U515/ZN (OAI21_X1)                          0.04       1.98 f
+  accel/accel/U2402/CO (FA_X1)                            0.10       2.08 f
+  accel/accel/U516/ZN (OR2_X1)                            0.07       2.15 f
+  accel/accel/U517/ZN (AOI22_X1)                          0.07       2.22 r
+  accel/accel/U520/ZN (NOR2_X1)                           0.03       2.25 f
+  accel/accel/U521/ZN (AOI21_X1)                          0.06       2.31 r
+  accel/accel/U524/ZN (AND2_X1)                           0.05       2.36 r
+  accel/accel/U525/ZN (NOR2_X1)                           0.03       2.39 f
+  accel/accel/U526/ZN (NOR2_X1)                           0.05       2.44 r
+  accel/accel/U529/ZN (NOR2_X1)                           0.03       2.47 f
+  accel/accel/U530/ZN (AOI21_X1)                          0.06       2.54 r
+  accel/accel/U533/ZN (NOR2_X1)                           0.03       2.57 f
+  accel/accel/U534/ZN (AOI21_X1)                          0.07       2.63 r
+  accel/accel/U536/ZN (NOR2_X1)                           0.03       2.66 f
+  accel/accel/U538/ZN (OAI21_X1)                          0.05       2.72 r
+  accel/accel/U539/ZN (NOR2_X1)                           0.03       2.75 f
+  accel/accel/U541/ZN (OAI21_X1)                          0.05       2.80 r
+  accel/accel/U543/ZN (NOR2_X1)                           0.03       2.83 f
+  accel/accel/U544/ZN (AOI21_X1)                          0.07       2.89 r
+  accel/accel/U546/ZN (NOR2_X1)                           0.03       2.93 f
+  accel/accel/U547/ZN (AOI21_X1)                          0.06       2.99 r
+  accel/accel/U555/CO (FA_X1)                             0.08       3.07 r
+  accel/accel/U556/ZN (OR2_X1)                            0.04       3.11 r
+  accel/accel/U557/ZN (AOI22_X1)                          0.03       3.14 f
+  accel/accel/U559/ZN (NOR2_X1)                           0.05       3.19 r
+  accel/accel/U560/ZN (AOI21_X1)                          0.03       3.23 f
+  accel/accel/U562/ZN (AND2_X1)                           0.04       3.27 f
+  accel/accel/U563/ZN (NOR2_X1)                           0.05       3.32 r
+  accel/accel/U564/ZN (NOR2_X1)                           0.03       3.35 f
+  accel/accel/U565/ZN (NOR2_X1)                           0.05       3.40 r
+  accel/accel/U567/ZN (OAI21_X1)                          0.04       3.44 f
+  accel/accel/U569/ZN (NOR2_X1)                           0.06       3.50 r
+  accel/accel/U570/ZN (AOI21_X1)                          0.04       3.54 f
+  accel/accel/U571/ZN (AOI222_X1)                         0.10       3.64 r
+  accel/accel/U2516/CO (FA_X1)                            0.08       3.72 r
+  accel/accel/U2517/ZN (NOR2_X1)                          0.03       3.75 f
+  accel/accel/U2526/ZN (AOI21_X1)                         0.06       3.82 r
+  accel/accel/U2527/ZN (NOR2_X1)                          0.03       3.85 f
+  accel/accel/U2536/ZN (AOI21_X1)                         0.07       3.91 r
+  accel/accel/U2537/ZN (NOR2_X1)                          0.03       3.94 f
+  accel/accel/U2546/ZN (AOI21_X1)                         0.07       4.01 r
+  accel/accel/U2548/ZN (NOR2_X1)                          0.03       4.04 f
+  accel/accel/U2556/ZN (OAI21_X1)                         0.05       4.09 r
+  accel/accel/U2557/ZN (NOR2_X1)                          0.03       4.12 f
+  accel/accel/U2566/ZN (AOI21_X1)                         0.06       4.18 r
+  accel/accel/U2567/ZN (AND2_X1)                          0.05       4.24 r
+  accel/accel/U2572/ZN (NOR2_X1)                          0.03       4.26 f
+  accel/accel/U2573/ZN (NOR2_X1)                          0.04       4.30 r
+  accel/accel/U2581/ZN (XNOR2_X1)                         0.06       4.36 r
+  accel/accel/U2582/ZN (XNOR2_X1)                         0.06       4.42 r
+  accel/accel/U2583/ZN (OAI22_X1)                         0.03       4.45 f
+  accel/accel/hash_val_0_reg[31]/D (DFF_X1)               0.01       4.46 f
+  data arrival time                                                  4.46
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/hash_val_0_reg[31]/CK (DFF_X1)              0.00      10.00 r
+  library setup time                                     -0.05       9.95
+  data required time                                                 9.95
+  --------------------------------------------------------------------------
+  data required time                                                 9.95
+  data arrival time                                                 -4.46
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.49
+
+
+  Startpoint: accel/accel/i_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/a_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  accel/accel/i_reg[1]/CK (DFF_X1)         0.00 #     0.00 r
+  accel/accel/i_reg[1]/Q (DFF_X1)          0.16       0.16 r
+  accel/accel/U14/ZN (NAND2_X1)            0.07       0.23 f
+  accel/accel/U27/ZN (NOR2_X1)             0.11       0.34 r
+  accel/accel/U16/ZN (NAND2_X1)            0.10       0.44 f
+  accel/accel/U723/ZN (INV_X1)             0.20       0.64 r
+  accel/accel/U1684/ZN (AOI21_X1)          0.06       0.70 f
+  accel/accel/intadd_8/U5/S (FA_X1)        0.16       0.85 r
+  accel/accel/U663/S (FA_X1)               0.11       0.97 f
+  accel/accel/U444/ZN (INV_X1)             0.05       1.01 r
+  accel/accel/intadd_0/U32/S (FA_X1)       0.13       1.14 f
+  accel/accel/U490/ZN (INV_X1)             0.04       1.18 r
+  accel/accel/U491/ZN (NAND2_X1)           0.04       1.22 f
+  accel/accel/U492/ZN (NOR2_X1)            0.06       1.28 r
+  accel/accel/U495/ZN (OAI22_X1)           0.04       1.32 f
+  accel/accel/U496/ZN (INV_X1)             0.04       1.36 r
+  accel/accel/U498/ZN (NOR2_X1)            0.03       1.39 f
+  accel/accel/U499/ZN (AOI21_X1)           0.09       1.48 r
+  accel/accel/U500/ZN (INV_X1)             0.04       1.52 f
+  accel/accel/U2625/ZN (AOI221_X1)         0.12       1.64 r
+  accel/accel/U2626/ZN (NOR2_X1)           0.03       1.67 f
+  accel/accel/U2627/ZN (AOI22_X1)          0.08       1.75 r
+  accel/accel/U2632/ZN (INV_X1)            0.02       1.77 f
+  accel/accel/U2634/ZN (AOI22_X1)          0.06       1.84 r
+  accel/accel/U2638/CO (FA_X1)             0.08       1.92 r
+  accel/accel/U2643/CO (FA_X1)             0.09       2.00 r
+  accel/accel/U2651/ZN (OR2_X1)            0.04       2.04 r
+  accel/accel/U2652/ZN (AOI22_X1)          0.03       2.08 f
+  accel/accel/U2658/CO (FA_X1)             0.11       2.18 f
+  accel/accel/U2661/CO (FA_X1)             0.11       2.29 f
+  accel/accel/U2669/ZN (AOI21_X1)          0.06       2.35 r
+  accel/accel/U2670/ZN (AOI21_X1)          0.03       2.39 f
+  accel/accel/U2675/CO (FA_X1)             0.11       2.49 f
+  accel/accel/U2679/CO (FA_X1)             0.11       2.61 f
+  accel/accel/U2686/ZN (AOI21_X1)          0.06       2.67 r
+  accel/accel/U2687/ZN (AOI21_X1)          0.03       2.70 f
+  accel/accel/intadd_4/U18/CO (FA_X1)      0.10       2.80 f
+  accel/accel/intadd_4/U17/CO (FA_X1)      0.09       2.89 f
+  accel/accel/intadd_4/U16/CO (FA_X1)      0.09       2.98 f
+  accel/accel/intadd_4/U15/CO (FA_X1)      0.09       3.07 f
+  accel/accel/intadd_4/U14/CO (FA_X1)      0.09       3.17 f
+  accel/accel/intadd_4/U13/CO (FA_X1)      0.09       3.26 f
+  accel/accel/intadd_4/U12/CO (FA_X1)      0.09       3.35 f
+  accel/accel/intadd_4/U11/CO (FA_X1)      0.09       3.44 f
+  accel/accel/intadd_4/U10/CO (FA_X1)      0.09       3.53 f
+  accel/accel/intadd_4/U9/CO (FA_X1)       0.09       3.62 f
+  accel/accel/intadd_4/U8/CO (FA_X1)       0.09       3.71 f
+  accel/accel/intadd_4/U7/CO (FA_X1)       0.09       3.80 f
+  accel/accel/intadd_4/U6/CO (FA_X1)       0.09       3.89 f
+  accel/accel/intadd_4/U5/CO (FA_X1)       0.09       3.98 f
+  accel/accel/intadd_4/U4/CO (FA_X1)       0.09       4.07 f
+  accel/accel/intadd_4/U3/CO (FA_X1)       0.09       4.16 f
+  accel/accel/intadd_4/U2/CO (FA_X1)       0.09       4.25 f
+  accel/accel/U2736/ZN (XNOR2_X1)          0.06       4.31 r
+  accel/accel/U2737/ZN (XNOR2_X1)          0.06       4.37 r
+  accel/accel/U2738/ZN (OAI222_X1)         0.05       4.42 f
+  accel/accel/a_reg[31]/D (DFF_X1)         0.01       4.42 f
+  data arrival time                                   4.42
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  accel/accel/a_reg[31]/CK (DFF_X1)        0.00      10.00 r
+  library setup time                      -0.05       9.95
+  data required time                                  9.95
+  -----------------------------------------------------------
+  data required time                                  9.95
+  data arrival time                                  -4.42
+  -----------------------------------------------------------
+  slack (MET)                                         5.52
+
+
+  Startpoint: accel/accel/i_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_0_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[1]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[1]/Q (DFF_X1)                         0.16       0.16 r
+  accel/accel/U14/ZN (NAND2_X1)                           0.07       0.23 f
+  accel/accel/U27/ZN (NOR2_X1)                            0.11       0.34 r
+  accel/accel/U16/ZN (NAND2_X1)                           0.10       0.44 f
+  accel/accel/U723/ZN (INV_X1)                            0.20       0.64 r
+  accel/accel/U1684/ZN (AOI21_X1)                         0.06       0.70 f
+  accel/accel/intadd_8/U5/S (FA_X1)                       0.16       0.85 r
+  accel/accel/U663/S (FA_X1)                              0.11       0.97 f
+  accel/accel/U444/ZN (INV_X1)                            0.05       1.01 r
+  accel/accel/intadd_0/U32/S (FA_X1)                      0.13       1.14 f
+  accel/accel/U490/ZN (INV_X1)                            0.04       1.18 r
+  accel/accel/U491/ZN (NAND2_X1)                          0.04       1.22 f
+  accel/accel/U492/ZN (NOR2_X1)                           0.06       1.28 r
+  accel/accel/U495/ZN (OAI22_X1)                          0.04       1.32 f
+  accel/accel/U496/ZN (INV_X1)                            0.04       1.36 r
+  accel/accel/U498/ZN (NOR2_X1)                           0.03       1.39 f
+  accel/accel/U499/ZN (AOI21_X1)                          0.09       1.48 r
+  accel/accel/U502/ZN (XNOR2_X1)                          0.08       1.56 r
+  accel/accel/U503/ZN (NAND2_X1)                          0.04       1.59 f
+  accel/accel/U504/ZN (NAND2_X1)                          0.04       1.63 r
+  accel/accel/U506/ZN (XNOR2_X1)                          0.07       1.70 r
+  accel/accel/U507/ZN (OR2_X1)                            0.04       1.74 r
+  accel/accel/U508/ZN (NAND2_X1)                          0.03       1.77 f
+  accel/accel/U510/ZN (OR2_X1)                            0.06       1.83 f
+  accel/accel/U511/ZN (NAND2_X1)                          0.03       1.86 r
+  accel/accel/U512/ZN (NAND2_X1)                          0.03       1.89 f
+  accel/accel/U513/ZN (NOR2_X1)                           0.05       1.95 r
+  accel/accel/U515/ZN (OAI21_X1)                          0.04       1.98 f
+  accel/accel/U2402/CO (FA_X1)                            0.10       2.08 f
+  accel/accel/U516/ZN (OR2_X1)                            0.07       2.15 f
+  accel/accel/U517/ZN (AOI22_X1)                          0.07       2.22 r
+  accel/accel/U520/ZN (NOR2_X1)                           0.03       2.25 f
+  accel/accel/U521/ZN (AOI21_X1)                          0.06       2.31 r
+  accel/accel/U524/ZN (AND2_X1)                           0.05       2.36 r
+  accel/accel/U525/ZN (NOR2_X1)                           0.03       2.39 f
+  accel/accel/U526/ZN (NOR2_X1)                           0.05       2.44 r
+  accel/accel/U529/ZN (NOR2_X1)                           0.03       2.47 f
+  accel/accel/U530/ZN (AOI21_X1)                          0.06       2.54 r
+  accel/accel/U533/ZN (NOR2_X1)                           0.03       2.57 f
+  accel/accel/U534/ZN (AOI21_X1)                          0.07       2.63 r
+  accel/accel/U536/ZN (NOR2_X1)                           0.03       2.66 f
+  accel/accel/U538/ZN (OAI21_X1)                          0.05       2.72 r
+  accel/accel/U539/ZN (NOR2_X1)                           0.03       2.75 f
+  accel/accel/U541/ZN (OAI21_X1)                          0.05       2.80 r
+  accel/accel/U543/ZN (NOR2_X1)                           0.03       2.83 f
+  accel/accel/U544/ZN (AOI21_X1)                          0.07       2.89 r
+  accel/accel/U546/ZN (NOR2_X1)                           0.03       2.93 f
+  accel/accel/U547/ZN (AOI21_X1)                          0.06       2.99 r
+  accel/accel/U555/CO (FA_X1)                             0.08       3.07 r
+  accel/accel/U556/ZN (OR2_X1)                            0.04       3.11 r
+  accel/accel/U557/ZN (AOI22_X1)                          0.03       3.14 f
+  accel/accel/U559/ZN (NOR2_X1)                           0.05       3.19 r
+  accel/accel/U560/ZN (AOI21_X1)                          0.03       3.23 f
+  accel/accel/U562/ZN (AND2_X1)                           0.04       3.27 f
+  accel/accel/U563/ZN (NOR2_X1)                           0.05       3.32 r
+  accel/accel/U564/ZN (NOR2_X1)                           0.03       3.35 f
+  accel/accel/U565/ZN (NOR2_X1)                           0.05       3.40 r
+  accel/accel/U567/ZN (OAI21_X1)                          0.04       3.44 f
+  accel/accel/U569/ZN (NOR2_X1)                           0.06       3.50 r
+  accel/accel/U570/ZN (AOI21_X1)                          0.04       3.54 f
+  accel/accel/U571/ZN (AOI222_X1)                         0.10       3.64 r
+  accel/accel/U2516/CO (FA_X1)                            0.08       3.72 r
+  accel/accel/U2517/ZN (NOR2_X1)                          0.03       3.75 f
+  accel/accel/U2526/ZN (AOI21_X1)                         0.06       3.82 r
+  accel/accel/U2527/ZN (NOR2_X1)                          0.03       3.85 f
+  accel/accel/U2536/ZN (AOI21_X1)                         0.07       3.91 r
+  accel/accel/U2537/ZN (NOR2_X1)                          0.03       3.94 f
+  accel/accel/U2546/ZN (AOI21_X1)                         0.07       4.01 r
+  accel/accel/U2548/ZN (NOR2_X1)                          0.03       4.04 f
+  accel/accel/U2556/ZN (OAI21_X1)                         0.05       4.09 r
+  accel/accel/U2557/ZN (NOR2_X1)                          0.03       4.12 f
+  accel/accel/U2566/ZN (AOI21_X1)                         0.06       4.18 r
+  accel/accel/U2568/ZN (NOR2_X1)                          0.03       4.21 f
+  accel/accel/U2569/ZN (NOR3_X1)                          0.07       4.29 r
+  accel/accel/U2570/ZN (XNOR2_X1)                         0.06       4.35 r
+  accel/accel/U2571/ZN (NAND2_X1)                         0.03       4.38 f
+  accel/accel/hash_val_0_reg[30]/D (DFF_X1)               0.01       4.39 f
+  data arrival time                                                  4.39
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/hash_val_0_reg[30]/CK (DFF_X1)              0.00      10.00 r
+  library setup time                                     -0.04       9.96
+  data required time                                                 9.96
+  --------------------------------------------------------------------------
+  data required time                                                 9.96
+  data arrival time                                                 -4.39
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.57
+
+
+  Startpoint: accel/accel/i_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/a_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  accel/accel/i_reg[1]/CK (DFF_X1)         0.00 #     0.00 r
+  accel/accel/i_reg[1]/Q (DFF_X1)          0.16       0.16 r
+  accel/accel/U14/ZN (NAND2_X1)            0.07       0.23 f
+  accel/accel/U27/ZN (NOR2_X1)             0.11       0.34 r
+  accel/accel/U16/ZN (NAND2_X1)            0.10       0.44 f
+  accel/accel/U723/ZN (INV_X1)             0.20       0.64 r
+  accel/accel/U1684/ZN (AOI21_X1)          0.06       0.70 f
+  accel/accel/intadd_8/U5/S (FA_X1)        0.16       0.85 r
+  accel/accel/U663/S (FA_X1)               0.11       0.97 f
+  accel/accel/U444/ZN (INV_X1)             0.05       1.01 r
+  accel/accel/intadd_0/U32/S (FA_X1)       0.13       1.14 f
+  accel/accel/U490/ZN (INV_X1)             0.04       1.18 r
+  accel/accel/U491/ZN (NAND2_X1)           0.04       1.22 f
+  accel/accel/U492/ZN (NOR2_X1)            0.06       1.28 r
+  accel/accel/U495/ZN (OAI22_X1)           0.04       1.32 f
+  accel/accel/U496/ZN (INV_X1)             0.04       1.36 r
+  accel/accel/U498/ZN (NOR2_X1)            0.03       1.39 f
+  accel/accel/U499/ZN (AOI21_X1)           0.09       1.48 r
+  accel/accel/U500/ZN (INV_X1)             0.04       1.52 f
+  accel/accel/U2625/ZN (AOI221_X1)         0.12       1.64 r
+  accel/accel/U2626/ZN (NOR2_X1)           0.03       1.67 f
+  accel/accel/U2627/ZN (AOI22_X1)          0.08       1.75 r
+  accel/accel/U2632/ZN (INV_X1)            0.02       1.77 f
+  accel/accel/U2634/ZN (AOI22_X1)          0.06       1.84 r
+  accel/accel/U2638/CO (FA_X1)             0.08       1.92 r
+  accel/accel/U2643/CO (FA_X1)             0.09       2.00 r
+  accel/accel/U2651/ZN (OR2_X1)            0.04       2.04 r
+  accel/accel/U2652/ZN (AOI22_X1)          0.03       2.08 f
+  accel/accel/U2658/CO (FA_X1)             0.11       2.18 f
+  accel/accel/U2661/CO (FA_X1)             0.11       2.29 f
+  accel/accel/U2669/ZN (AOI21_X1)          0.06       2.35 r
+  accel/accel/U2670/ZN (AOI21_X1)          0.03       2.39 f
+  accel/accel/U2675/CO (FA_X1)             0.11       2.49 f
+  accel/accel/U2679/CO (FA_X1)             0.11       2.61 f
+  accel/accel/U2686/ZN (AOI21_X1)          0.06       2.67 r
+  accel/accel/U2687/ZN (AOI21_X1)          0.03       2.70 f
+  accel/accel/intadd_4/U18/CO (FA_X1)      0.10       2.80 f
+  accel/accel/intadd_4/U17/CO (FA_X1)      0.09       2.89 f
+  accel/accel/intadd_4/U16/CO (FA_X1)      0.09       2.98 f
+  accel/accel/intadd_4/U15/CO (FA_X1)      0.09       3.07 f
+  accel/accel/intadd_4/U14/CO (FA_X1)      0.09       3.17 f
+  accel/accel/intadd_4/U13/CO (FA_X1)      0.09       3.26 f
+  accel/accel/intadd_4/U12/CO (FA_X1)      0.09       3.35 f
+  accel/accel/intadd_4/U11/CO (FA_X1)      0.09       3.44 f
+  accel/accel/intadd_4/U10/CO (FA_X1)      0.09       3.53 f
+  accel/accel/intadd_4/U9/CO (FA_X1)       0.09       3.62 f
+  accel/accel/intadd_4/U8/CO (FA_X1)       0.09       3.71 f
+  accel/accel/intadd_4/U7/CO (FA_X1)       0.09       3.80 f
+  accel/accel/intadd_4/U6/CO (FA_X1)       0.09       3.89 f
+  accel/accel/intadd_4/U5/CO (FA_X1)       0.09       3.98 f
+  accel/accel/intadd_4/U4/CO (FA_X1)       0.09       4.07 f
+  accel/accel/intadd_4/U3/CO (FA_X1)       0.09       4.16 f
+  accel/accel/intadd_4/U2/S (FA_X1)        0.11       4.27 f
+  accel/accel/U2733/ZN (AOI22_X1)          0.05       4.32 r
+  accel/accel/U2734/ZN (OAI211_X1)         0.05       4.36 f
+  accel/accel/a_reg[30]/D (DFF_X1)         0.01       4.37 f
+  data arrival time                                   4.37
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  accel/accel/a_reg[30]/CK (DFF_X1)        0.00      10.00 r
+  library setup time                      -0.05       9.95
+  data required time                                  9.95
+  -----------------------------------------------------------
+  data required time                                  9.95
+  data arrival time                                  -4.37
+  -----------------------------------------------------------
+  slack (MET)                                         5.58
+
+
+  Startpoint: accel/accel/c_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/d_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  accel/accel/c_reg[0]/CK (DFF_X1)         0.00 #     0.00 r
+  accel/accel/c_reg[0]/Q (DFF_X1)          0.10       0.10 r
+  accel/accel/U30/ZN (NAND2_X1)            0.04       0.14 f
+  accel/accel/U31/ZN (INV_X1)              0.04       0.19 r
+  accel/accel/U159/ZN (NOR2_X1)            0.03       0.22 f
+  accel/accel/U160/ZN (AOI21_X1)           0.06       0.28 r
+  accel/accel/U162/ZN (NOR2_X1)            0.03       0.31 f
+  accel/accel/U163/ZN (INV_X1)             0.03       0.34 r
+  accel/accel/U164/ZN (OAI21_X1)           0.03       0.38 f
+  accel/accel/U165/ZN (INV_X1)             0.04       0.42 r
+  accel/accel/U167/ZN (NOR2_X1)            0.03       0.45 f
+  accel/accel/U168/ZN (AOI21_X1)           0.08       0.52 r
+  accel/accel/U170/ZN (INV_X1)             0.03       0.55 f
+  accel/accel/U171/ZN (NAND2_X1)           0.04       0.59 r
+  accel/accel/U172/ZN (NAND2_X1)           0.03       0.62 f
+  accel/accel/U173/ZN (NAND2_X1)           0.04       0.66 r
+  accel/accel/U175/ZN (INV_X1)             0.03       0.69 f
+  accel/accel/U176/ZN (NAND2_X1)           0.03       0.72 r
+  accel/accel/U177/ZN (NAND2_X1)           0.03       0.75 f
+  accel/accel/U178/ZN (NAND2_X1)           0.04       0.79 r
+  accel/accel/U179/ZN (XNOR2_X1)           0.07       0.85 r
+  accel/accel/U180/ZN (NOR2_X1)            0.03       0.89 f
+  accel/accel/U181/ZN (INV_X1)             0.03       0.92 r
+  accel/accel/U1024/ZN (NAND2_X1)          0.03       0.95 f
+  accel/accel/U1025/ZN (XNOR2_X1)          0.06       1.01 f
+  accel/accel/U1026/ZN (NOR2_X1)           0.06       1.07 r
+  accel/accel/U1031/ZN (NOR2_X1)           0.03       1.11 f
+  accel/accel/U1032/ZN (INV_X1)            0.04       1.15 r
+  accel/accel/U1036/ZN (NOR2_X1)           0.03       1.18 f
+  accel/accel/U1038/ZN (OAI21_X1)          0.06       1.23 r
+  accel/accel/U1039/Z (XOR2_X1)            0.09       1.32 r
+  accel/accel/U1040/ZN (NAND2_X1)          0.04       1.37 f
+  accel/accel/U1044/ZN (NAND2_X1)          0.05       1.41 r
+  accel/accel/U1049/ZN (NOR2_X1)           0.03       1.45 f
+  accel/accel/U1051/ZN (OAI21_X1)          0.05       1.50 r
+  accel/accel/U1054/ZN (NOR2_X1)           0.03       1.53 f
+  accel/accel/U1059/ZN (OAI21_X1)          0.06       1.60 r
+  accel/accel/U1060/ZN (INV_X1)            0.03       1.63 f
+  accel/accel/U1065/ZN (NAND2_X1)          0.04       1.66 r
+  accel/accel/U1066/ZN (NAND2_X1)          0.03       1.69 f
+  accel/accel/U1067/ZN (NAND2_X1)          0.04       1.74 r
+  accel/accel/U1070/ZN (NOR2_X1)           0.03       1.77 f
+  accel/accel/U1074/ZN (OAI21_X1)          0.07       1.84 r
+  accel/accel/U1079/ZN (NOR2_X1)           0.04       1.88 f
+  accel/accel/U1081/ZN (OAI21_X1)          0.08       1.96 r
+  accel/accel/U1086/ZN (NOR2_X1)           0.04       1.99 f
+  accel/accel/U1088/ZN (OAI21_X1)          0.08       2.07 r
+  accel/accel/U1093/ZN (NOR2_X1)           0.04       2.11 f
+  accel/accel/U1095/ZN (OAI21_X1)          0.06       2.17 r
+  accel/accel/U1096/ZN (INV_X1)            0.03       2.20 f
+  accel/accel/U1101/ZN (NAND2_X1)          0.04       2.24 r
+  accel/accel/U1102/ZN (NAND2_X1)          0.03       2.27 f
+  accel/accel/U1103/ZN (NAND2_X1)          0.04       2.31 r
+  accel/accel/U1108/ZN (NOR2_X1)           0.03       2.34 f
+  accel/accel/U1110/ZN (OAI21_X1)          0.07       2.42 r
+  accel/accel/U1115/ZN (NOR2_X1)           0.04       2.45 f
+  accel/accel/U1117/ZN (OAI21_X1)          0.06       2.51 r
+  accel/accel/U1118/Z (XOR2_X1)            0.09       2.60 r
+  accel/accel/U1119/ZN (NAND2_X1)          0.04       2.64 f
+  accel/accel/U1123/ZN (NAND2_X1)          0.04       2.69 r
+  accel/accel/U1124/Z (XOR2_X1)            0.08       2.76 r
+  accel/accel/U1125/ZN (NAND2_X1)          0.04       2.80 f
+  accel/accel/U1129/ZN (NAND2_X1)          0.05       2.85 r
+  accel/accel/U1135/ZN (NOR2_X1)           0.03       2.88 f
+  accel/accel/U1136/ZN (AOI21_X1)          0.07       2.95 r
+  accel/accel/U1137/Z (XOR2_X1)            0.09       3.04 r
+  accel/accel/U1138/ZN (NAND2_X1)          0.05       3.09 f
+  accel/accel/U1142/ZN (NAND2_X1)          0.05       3.14 r
+  accel/accel/U1147/ZN (NOR2_X1)           0.03       3.17 f
+  accel/accel/U1149/ZN (OAI21_X1)          0.06       3.23 r
+  accel/accel/U1150/Z (XOR2_X1)            0.08       3.31 r
+  accel/accel/U1152/ZN (NAND2_X1)          0.04       3.35 f
+  accel/accel/U1156/ZN (NAND2_X1)          0.05       3.41 r
+  accel/accel/U1161/ZN (NOR2_X1)           0.03       3.44 f
+  accel/accel/U1163/ZN (OAI21_X1)          0.06       3.50 r
+  accel/accel/U1164/Z (XOR2_X1)            0.09       3.59 r
+  accel/accel/U1165/ZN (NAND2_X1)          0.04       3.63 f
+  accel/accel/U1169/ZN (NAND2_X1)          0.04       3.67 r
+  accel/accel/U1170/Z (XOR2_X1)            0.08       3.75 r
+  accel/accel/U1171/ZN (NAND2_X1)          0.04       3.79 f
+  accel/accel/U1177/ZN (NAND2_X1)          0.05       3.84 r
+  accel/accel/U1178/ZN (NOR2_X1)           0.03       3.87 f
+  accel/accel/U1184/ZN (AOI21_X1)          0.07       3.94 r
+  accel/accel/U1185/Z (XOR2_X1)            0.09       4.03 r
+  accel/accel/U1186/ZN (NAND2_X1)          0.05       4.08 f
+  accel/accel/U1190/ZN (NAND2_X1)          0.04       4.12 r
+  accel/accel/U1191/Z (XOR2_X1)            0.07       4.19 r
+  accel/accel/U1192/ZN (INV_X1)            0.03       4.22 f
+  accel/accel/U3634/ZN (NOR2_X1)           0.04       4.26 r
+  accel/accel/U3635/ZN (XNOR2_X1)          0.06       4.32 r
+  accel/accel/U3637/ZN (OAI211_X1)         0.04       4.36 f
+  accel/accel/d_reg[31]/D (DFF_X1)         0.01       4.37 f
+  data arrival time                                   4.37
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  accel/accel/d_reg[31]/CK (DFF_X1)        0.00      10.00 r
+  library setup time                      -0.05       9.95
+  data required time                                  9.95
+  -----------------------------------------------------------
+  data required time                                  9.95
+  data arrival time                                  -4.37
+  -----------------------------------------------------------
+  slack (MET)                                         5.58
+
+
+  Startpoint: accel/accel/hash_val_7_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/h_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/hash_val_7_reg[0]/CK (DFF_X1)               0.00 #     0.00 r
+  accel/accel/hash_val_7_reg[0]/Q (DFF_X1)                0.12       0.12 r
+  accel/accel/U254/ZN (AOI21_X1)                          0.05       0.17 f
+  accel/accel/U255/ZN (AOI21_X1)                          0.07       0.24 r
+  accel/accel/U257/ZN (NOR2_X1)                           0.03       0.27 f
+  accel/accel/U258/ZN (AOI21_X1)                          0.08       0.34 r
+  accel/accel/U260/ZN (INV_X1)                            0.03       0.38 f
+  accel/accel/U261/ZN (NAND2_X1)                          0.04       0.41 r
+  accel/accel/U262/ZN (NAND2_X1)                          0.03       0.44 f
+  accel/accel/U263/ZN (NAND2_X1)                          0.04       0.48 r
+  accel/accel/U264/ZN (NOR2_X1)                           0.03       0.52 f
+  accel/accel/U266/ZN (OAI21_X1)                          0.06       0.57 r
+  accel/accel/U268/ZN (XNOR2_X1)                          0.07       0.65 r
+  accel/accel/U269/ZN (NOR2_X1)                           0.03       0.68 f
+  accel/accel/U270/ZN (INV_X1)                            0.03       0.71 r
+  accel/accel/U271/ZN (NAND2_X1)                          0.03       0.74 f
+  accel/accel/U272/ZN (XNOR2_X1)                          0.06       0.81 f
+  accel/accel/U273/ZN (NOR2_X1)                           0.05       0.86 r
+  accel/accel/U274/ZN (INV_X1)                            0.03       0.88 f
+  accel/accel/U1443/ZN (NAND2_X1)                         0.04       0.92 r
+  accel/accel/U1444/Z (XOR2_X1)                           0.09       1.01 r
+  accel/accel/U1445/ZN (NAND2_X1)                         0.04       1.05 f
+  accel/accel/U1449/ZN (NAND2_X1)                         0.04       1.10 r
+  accel/accel/U1450/ZN (INV_X1)                           0.03       1.12 f
+  accel/accel/U1455/ZN (NAND2_X1)                         0.03       1.16 r
+  accel/accel/U1456/ZN (NAND2_X1)                         0.03       1.19 f
+  accel/accel/U1457/ZN (NAND2_X1)                         0.04       1.22 r
+  accel/accel/U1458/Z (XOR2_X1)                           0.09       1.31 r
+  accel/accel/U1459/ZN (NAND2_X1)                         0.04       1.35 f
+  accel/accel/U1463/ZN (NAND2_X1)                         0.04       1.40 r
+  accel/accel/U1464/ZN (INV_X1)                           0.03       1.43 f
+  accel/accel/U1469/ZN (NAND2_X1)                         0.03       1.46 r
+  accel/accel/U1470/ZN (NAND2_X1)                         0.03       1.49 f
+  accel/accel/U1471/ZN (NAND2_X1)                         0.04       1.53 r
+  accel/accel/U1476/ZN (NOR2_X1)                          0.03       1.56 f
+  accel/accel/U1478/ZN (OAI21_X1)                         0.06       1.62 r
+  accel/accel/U1479/Z (XOR2_X1)                           0.08       1.70 r
+  accel/accel/U1480/ZN (NAND2_X1)                         0.04       1.74 f
+  accel/accel/U1484/ZN (NAND2_X1)                         0.04       1.78 r
+  accel/accel/U1485/Z (XOR2_X1)                           0.09       1.87 r
+  accel/accel/U1486/ZN (NAND2_X1)                         0.04       1.91 f
+  accel/accel/U1490/ZN (NAND2_X1)                         0.04       1.95 r
+  accel/accel/U1491/ZN (INV_X1)                           0.03       1.98 f
+  accel/accel/U1496/ZN (NAND2_X1)                         0.03       2.01 r
+  accel/accel/U1497/ZN (NAND2_X1)                         0.03       2.04 f
+  accel/accel/U1498/ZN (NAND2_X1)                         0.04       2.09 r
+  accel/accel/U1503/ZN (NOR2_X1)                          0.03       2.12 f
+  accel/accel/U1505/ZN (OAI21_X1)                         0.06       2.18 r
+  accel/accel/U1506/Z (XOR2_X1)                           0.08       2.26 r
+  accel/accel/U1507/ZN (NOR2_X1)                          0.03       2.29 f
+  accel/accel/U1511/ZN (AOI21_X1)                         0.06       2.35 r
+  accel/accel/U1512/ZN (INV_X1)                           0.02       2.38 f
+  accel/accel/U1515/CO (FA_X1)                            0.09       2.47 f
+  accel/accel/U1516/ZN (XNOR2_X1)                         0.06       2.53 f
+  accel/accel/U1517/ZN (NOR2_X1)                          0.07       2.59 r
+  accel/accel/U1522/ZN (NOR2_X1)                          0.03       2.63 f
+  accel/accel/U1523/Z (XOR2_X1)                           0.07       2.70 f
+  accel/accel/U1524/ZN (NAND2_X1)                         0.04       2.74 r
+  accel/accel/U1529/ZN (NAND2_X1)                         0.04       2.78 f
+  accel/accel/U1530/Z (XOR2_X1)                           0.08       2.86 f
+  accel/accel/U1531/ZN (NAND2_X1)                         0.05       2.90 r
+  accel/accel/U1535/ZN (NAND2_X1)                         0.05       2.95 f
+  accel/accel/U1540/ZN (NOR2_X1)                          0.06       3.01 r
+  accel/accel/U1542/ZN (OAI21_X1)                         0.04       3.05 f
+  accel/accel/U1545/ZN (NOR2_X1)                          0.06       3.11 r
+  accel/accel/U1549/ZN (INV_X1)                           0.02       3.13 f
+  accel/accel/U1550/ZN (AOI21_X1)                         0.05       3.18 r
+  accel/accel/U1551/ZN (INV_X1)                           0.03       3.21 f
+  accel/accel/U1555/ZN (NOR2_X1)                          0.06       3.27 r
+  accel/accel/U1557/ZN (OAI21_X1)                         0.05       3.32 f
+  accel/accel/U1562/ZN (NOR2_X1)                          0.06       3.38 r
+  accel/accel/U1564/ZN (OAI21_X1)                         0.04       3.42 f
+  accel/accel/U1565/ZN (INV_X1)                           0.04       3.46 r
+  accel/accel/U1570/ZN (NOR2_X1)                          0.03       3.49 f
+  accel/accel/U1571/ZN (INV_X1)                           0.03       3.51 r
+  accel/accel/U1572/ZN (OAI21_X1)                         0.03       3.55 f
+  accel/accel/U1575/CO (FA_X1)                            0.10       3.65 f
+  accel/accel/U1581/ZN (OAI21_X1)                         0.06       3.71 r
+  accel/accel/U1582/ZN (NAND2_X1)                         0.05       3.76 f
+  accel/accel/U1587/ZN (NOR2_X1)                          0.06       3.82 r
+  accel/accel/U1589/ZN (OAI21_X1)                         0.04       3.86 f
+  accel/accel/U1590/Z (XOR2_X1)                           0.08       3.94 f
+  accel/accel/U1591/ZN (NAND2_X1)                         0.04       3.98 r
+  accel/accel/U1595/ZN (NAND2_X1)                         0.04       4.02 f
+  accel/accel/U1596/ZN (INV_X1)                           0.04       4.06 r
+  accel/accel/U1601/ZN (NAND2_X1)                         0.03       4.09 f
+  accel/accel/U1602/ZN (NAND2_X1)                         0.03       4.12 r
+  accel/accel/U1603/ZN (NAND2_X1)                         0.03       4.15 f
+  accel/accel/U1604/Z (XOR2_X1)                           0.08       4.23 f
+  accel/accel/U3503/ZN (NAND2_X1)                         0.03       4.26 r
+  accel/accel/U3504/Z (XOR2_X1)                           0.07       4.33 r
+  accel/accel/U3506/ZN (OAI21_X1)                         0.03       4.35 f
+  accel/accel/h_reg[31]/D (DFF_X1)                        0.01       4.36 f
+  data arrival time                                                  4.36
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/h_reg[31]/CK (DFF_X1)                       0.00      10.00 r
+  library setup time                                     -0.05       9.95
+  data required time                                                 9.95
+  --------------------------------------------------------------------------
+  data required time                                                 9.95
+  data arrival time                                                 -4.36
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.59
+
+
+  Startpoint: accel/accel/hash_val_7_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_7_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/hash_val_7_reg[0]/CK (DFF_X1)               0.00 #     0.00 r
+  accel/accel/hash_val_7_reg[0]/Q (DFF_X1)                0.12       0.12 r
+  accel/accel/U254/ZN (AOI21_X1)                          0.05       0.17 f
+  accel/accel/U255/ZN (AOI21_X1)                          0.07       0.24 r
+  accel/accel/U257/ZN (NOR2_X1)                           0.03       0.27 f
+  accel/accel/U258/ZN (AOI21_X1)                          0.08       0.34 r
+  accel/accel/U260/ZN (INV_X1)                            0.03       0.38 f
+  accel/accel/U261/ZN (NAND2_X1)                          0.04       0.41 r
+  accel/accel/U262/ZN (NAND2_X1)                          0.03       0.44 f
+  accel/accel/U263/ZN (NAND2_X1)                          0.04       0.48 r
+  accel/accel/U264/ZN (NOR2_X1)                           0.03       0.52 f
+  accel/accel/U266/ZN (OAI21_X1)                          0.06       0.57 r
+  accel/accel/U268/ZN (XNOR2_X1)                          0.07       0.65 r
+  accel/accel/U269/ZN (NOR2_X1)                           0.03       0.68 f
+  accel/accel/U270/ZN (INV_X1)                            0.03       0.71 r
+  accel/accel/U271/ZN (NAND2_X1)                          0.03       0.74 f
+  accel/accel/U272/ZN (XNOR2_X1)                          0.06       0.81 f
+  accel/accel/U273/ZN (NOR2_X1)                           0.05       0.86 r
+  accel/accel/U274/ZN (INV_X1)                            0.03       0.88 f
+  accel/accel/U1443/ZN (NAND2_X1)                         0.04       0.92 r
+  accel/accel/U1444/Z (XOR2_X1)                           0.09       1.01 r
+  accel/accel/U1445/ZN (NAND2_X1)                         0.04       1.05 f
+  accel/accel/U1449/ZN (NAND2_X1)                         0.04       1.10 r
+  accel/accel/U1450/ZN (INV_X1)                           0.03       1.12 f
+  accel/accel/U1455/ZN (NAND2_X1)                         0.03       1.16 r
+  accel/accel/U1456/ZN (NAND2_X1)                         0.03       1.19 f
+  accel/accel/U1457/ZN (NAND2_X1)                         0.04       1.22 r
+  accel/accel/U1458/Z (XOR2_X1)                           0.09       1.31 r
+  accel/accel/U1459/ZN (NAND2_X1)                         0.04       1.35 f
+  accel/accel/U1463/ZN (NAND2_X1)                         0.04       1.40 r
+  accel/accel/U1464/ZN (INV_X1)                           0.03       1.43 f
+  accel/accel/U1469/ZN (NAND2_X1)                         0.03       1.46 r
+  accel/accel/U1470/ZN (NAND2_X1)                         0.03       1.49 f
+  accel/accel/U1471/ZN (NAND2_X1)                         0.04       1.53 r
+  accel/accel/U1476/ZN (NOR2_X1)                          0.03       1.56 f
+  accel/accel/U1478/ZN (OAI21_X1)                         0.06       1.62 r
+  accel/accel/U1479/Z (XOR2_X1)                           0.08       1.70 r
+  accel/accel/U1480/ZN (NAND2_X1)                         0.04       1.74 f
+  accel/accel/U1484/ZN (NAND2_X1)                         0.04       1.78 r
+  accel/accel/U1485/Z (XOR2_X1)                           0.09       1.87 r
+  accel/accel/U1486/ZN (NAND2_X1)                         0.04       1.91 f
+  accel/accel/U1490/ZN (NAND2_X1)                         0.04       1.95 r
+  accel/accel/U1491/ZN (INV_X1)                           0.03       1.98 f
+  accel/accel/U1496/ZN (NAND2_X1)                         0.03       2.01 r
+  accel/accel/U1497/ZN (NAND2_X1)                         0.03       2.04 f
+  accel/accel/U1498/ZN (NAND2_X1)                         0.04       2.09 r
+  accel/accel/U1503/ZN (NOR2_X1)                          0.03       2.12 f
+  accel/accel/U1505/ZN (OAI21_X1)                         0.06       2.18 r
+  accel/accel/U1506/Z (XOR2_X1)                           0.08       2.26 r
+  accel/accel/U1507/ZN (NOR2_X1)                          0.03       2.29 f
+  accel/accel/U1511/ZN (AOI21_X1)                         0.06       2.35 r
+  accel/accel/U1512/ZN (INV_X1)                           0.02       2.38 f
+  accel/accel/U1515/CO (FA_X1)                            0.09       2.47 f
+  accel/accel/U1516/ZN (XNOR2_X1)                         0.06       2.53 f
+  accel/accel/U1517/ZN (NOR2_X1)                          0.07       2.59 r
+  accel/accel/U1522/ZN (NOR2_X1)                          0.03       2.63 f
+  accel/accel/U1523/Z (XOR2_X1)                           0.07       2.70 f
+  accel/accel/U1524/ZN (NAND2_X1)                         0.04       2.74 r
+  accel/accel/U1529/ZN (NAND2_X1)                         0.04       2.78 f
+  accel/accel/U1530/Z (XOR2_X1)                           0.08       2.86 f
+  accel/accel/U1531/ZN (NAND2_X1)                         0.05       2.90 r
+  accel/accel/U1535/ZN (NAND2_X1)                         0.05       2.95 f
+  accel/accel/U1540/ZN (NOR2_X1)                          0.06       3.01 r
+  accel/accel/U1542/ZN (OAI21_X1)                         0.04       3.05 f
+  accel/accel/U1545/ZN (NOR2_X1)                          0.06       3.11 r
+  accel/accel/U1549/ZN (INV_X1)                           0.02       3.13 f
+  accel/accel/U1550/ZN (AOI21_X1)                         0.05       3.18 r
+  accel/accel/U1551/ZN (INV_X1)                           0.03       3.21 f
+  accel/accel/U1555/ZN (NOR2_X1)                          0.06       3.27 r
+  accel/accel/U1557/ZN (OAI21_X1)                         0.05       3.32 f
+  accel/accel/U1562/ZN (NOR2_X1)                          0.06       3.38 r
+  accel/accel/U1564/ZN (OAI21_X1)                         0.04       3.42 f
+  accel/accel/U1565/ZN (INV_X1)                           0.04       3.46 r
+  accel/accel/U1570/ZN (NOR2_X1)                          0.03       3.49 f
+  accel/accel/U1571/ZN (INV_X1)                           0.03       3.51 r
+  accel/accel/U1572/ZN (OAI21_X1)                         0.03       3.55 f
+  accel/accel/U1575/CO (FA_X1)                            0.10       3.65 f
+  accel/accel/U1581/ZN (OAI21_X1)                         0.06       3.71 r
+  accel/accel/U1582/ZN (NAND2_X1)                         0.05       3.76 f
+  accel/accel/U1587/ZN (NOR2_X1)                          0.06       3.82 r
+  accel/accel/U1589/ZN (OAI21_X1)                         0.04       3.86 f
+  accel/accel/U1590/Z (XOR2_X1)                           0.08       3.94 f
+  accel/accel/U1591/ZN (NAND2_X1)                         0.04       3.98 r
+  accel/accel/U1595/ZN (NAND2_X1)                         0.04       4.02 f
+  accel/accel/U1596/ZN (INV_X1)                           0.04       4.06 r
+  accel/accel/U1601/ZN (NAND2_X1)                         0.03       4.09 f
+  accel/accel/U1602/ZN (NAND2_X1)                         0.03       4.12 r
+  accel/accel/U1603/ZN (NAND2_X1)                         0.03       4.15 f
+  accel/accel/U1604/Z (XOR2_X1)                           0.08       4.23 f
+  accel/accel/U1605/ZN (XNOR2_X1)                         0.06       4.29 f
+  accel/accel/U1606/ZN (OAI22_X1)                         0.04       4.33 r
+  accel/accel/hash_val_7_reg[31]/D (DFF_X1)               0.01       4.34 r
+  data arrival time                                                  4.34
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/hash_val_7_reg[31]/CK (DFF_X1)              0.00      10.00 r
+  library setup time                                     -0.04       9.96
+  data required time                                                 9.96
+  --------------------------------------------------------------------------
+  data required time                                                 9.96
+  data arrival time                                                 -4.34
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.62
+
+
+  Startpoint: accel/accel/c_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_3_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/c_reg[0]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/c_reg[0]/Q (DFF_X1)                         0.10       0.10 r
+  accel/accel/U30/ZN (NAND2_X1)                           0.04       0.14 f
+  accel/accel/U31/ZN (INV_X1)                             0.04       0.19 r
+  accel/accel/U159/ZN (NOR2_X1)                           0.03       0.22 f
+  accel/accel/U160/ZN (AOI21_X1)                          0.06       0.28 r
+  accel/accel/U162/ZN (NOR2_X1)                           0.03       0.31 f
+  accel/accel/U163/ZN (INV_X1)                            0.03       0.34 r
+  accel/accel/U164/ZN (OAI21_X1)                          0.03       0.38 f
+  accel/accel/U165/ZN (INV_X1)                            0.04       0.42 r
+  accel/accel/U167/ZN (NOR2_X1)                           0.03       0.45 f
+  accel/accel/U168/ZN (AOI21_X1)                          0.08       0.52 r
+  accel/accel/U170/ZN (INV_X1)                            0.03       0.55 f
+  accel/accel/U171/ZN (NAND2_X1)                          0.04       0.59 r
+  accel/accel/U172/ZN (NAND2_X1)                          0.03       0.62 f
+  accel/accel/U173/ZN (NAND2_X1)                          0.04       0.66 r
+  accel/accel/U175/ZN (INV_X1)                            0.03       0.69 f
+  accel/accel/U176/ZN (NAND2_X1)                          0.03       0.72 r
+  accel/accel/U177/ZN (NAND2_X1)                          0.03       0.75 f
+  accel/accel/U178/ZN (NAND2_X1)                          0.04       0.79 r
+  accel/accel/U179/ZN (XNOR2_X1)                          0.07       0.85 r
+  accel/accel/U180/ZN (NOR2_X1)                           0.03       0.89 f
+  accel/accel/U181/ZN (INV_X1)                            0.03       0.92 r
+  accel/accel/U1024/ZN (NAND2_X1)                         0.03       0.95 f
+  accel/accel/U1025/ZN (XNOR2_X1)                         0.06       1.01 f
+  accel/accel/U1026/ZN (NOR2_X1)                          0.06       1.07 r
+  accel/accel/U1031/ZN (NOR2_X1)                          0.03       1.11 f
+  accel/accel/U1032/ZN (INV_X1)                           0.04       1.15 r
+  accel/accel/U1036/ZN (NOR2_X1)                          0.03       1.18 f
+  accel/accel/U1038/ZN (OAI21_X1)                         0.06       1.23 r
+  accel/accel/U1039/Z (XOR2_X1)                           0.09       1.32 r
+  accel/accel/U1040/ZN (NAND2_X1)                         0.04       1.37 f
+  accel/accel/U1044/ZN (NAND2_X1)                         0.05       1.41 r
+  accel/accel/U1049/ZN (NOR2_X1)                          0.03       1.45 f
+  accel/accel/U1051/ZN (OAI21_X1)                         0.05       1.50 r
+  accel/accel/U1054/ZN (NOR2_X1)                          0.03       1.53 f
+  accel/accel/U1059/ZN (OAI21_X1)                         0.06       1.60 r
+  accel/accel/U1060/ZN (INV_X1)                           0.03       1.63 f
+  accel/accel/U1065/ZN (NAND2_X1)                         0.04       1.66 r
+  accel/accel/U1066/ZN (NAND2_X1)                         0.03       1.69 f
+  accel/accel/U1067/ZN (NAND2_X1)                         0.04       1.74 r
+  accel/accel/U1070/ZN (NOR2_X1)                          0.03       1.77 f
+  accel/accel/U1074/ZN (OAI21_X1)                         0.07       1.84 r
+  accel/accel/U1079/ZN (NOR2_X1)                          0.04       1.88 f
+  accel/accel/U1081/ZN (OAI21_X1)                         0.08       1.96 r
+  accel/accel/U1086/ZN (NOR2_X1)                          0.04       1.99 f
+  accel/accel/U1088/ZN (OAI21_X1)                         0.08       2.07 r
+  accel/accel/U1093/ZN (NOR2_X1)                          0.04       2.11 f
+  accel/accel/U1095/ZN (OAI21_X1)                         0.06       2.17 r
+  accel/accel/U1096/ZN (INV_X1)                           0.03       2.20 f
+  accel/accel/U1101/ZN (NAND2_X1)                         0.04       2.24 r
+  accel/accel/U1102/ZN (NAND2_X1)                         0.03       2.27 f
+  accel/accel/U1103/ZN (NAND2_X1)                         0.04       2.31 r
+  accel/accel/U1108/ZN (NOR2_X1)                          0.03       2.34 f
+  accel/accel/U1110/ZN (OAI21_X1)                         0.07       2.42 r
+  accel/accel/U1115/ZN (NOR2_X1)                          0.04       2.45 f
+  accel/accel/U1117/ZN (OAI21_X1)                         0.06       2.51 r
+  accel/accel/U1118/Z (XOR2_X1)                           0.09       2.60 r
+  accel/accel/U1119/ZN (NAND2_X1)                         0.04       2.64 f
+  accel/accel/U1123/ZN (NAND2_X1)                         0.04       2.69 r
+  accel/accel/U1124/Z (XOR2_X1)                           0.08       2.76 r
+  accel/accel/U1125/ZN (NAND2_X1)                         0.04       2.80 f
+  accel/accel/U1129/ZN (NAND2_X1)                         0.05       2.85 r
+  accel/accel/U1135/ZN (NOR2_X1)                          0.03       2.88 f
+  accel/accel/U1136/ZN (AOI21_X1)                         0.07       2.95 r
+  accel/accel/U1137/Z (XOR2_X1)                           0.09       3.04 r
+  accel/accel/U1138/ZN (NAND2_X1)                         0.05       3.09 f
+  accel/accel/U1142/ZN (NAND2_X1)                         0.05       3.14 r
+  accel/accel/U1147/ZN (NOR2_X1)                          0.03       3.17 f
+  accel/accel/U1149/ZN (OAI21_X1)                         0.06       3.23 r
+  accel/accel/U1150/Z (XOR2_X1)                           0.08       3.31 r
+  accel/accel/U1152/ZN (NAND2_X1)                         0.04       3.35 f
+  accel/accel/U1156/ZN (NAND2_X1)                         0.05       3.41 r
+  accel/accel/U1161/ZN (NOR2_X1)                          0.03       3.44 f
+  accel/accel/U1163/ZN (OAI21_X1)                         0.06       3.50 r
+  accel/accel/U1164/Z (XOR2_X1)                           0.09       3.59 r
+  accel/accel/U1165/ZN (NAND2_X1)                         0.04       3.63 f
+  accel/accel/U1169/ZN (NAND2_X1)                         0.04       3.67 r
+  accel/accel/U1170/Z (XOR2_X1)                           0.08       3.75 r
+  accel/accel/U1171/ZN (NAND2_X1)                         0.04       3.79 f
+  accel/accel/U1177/ZN (NAND2_X1)                         0.05       3.84 r
+  accel/accel/U1178/ZN (NOR2_X1)                          0.03       3.87 f
+  accel/accel/U1184/ZN (AOI21_X1)                         0.07       3.94 r
+  accel/accel/U1185/Z (XOR2_X1)                           0.09       4.03 r
+  accel/accel/U1186/ZN (NAND2_X1)                         0.05       4.08 f
+  accel/accel/U1190/ZN (NAND2_X1)                         0.04       4.12 r
+  accel/accel/U1191/Z (XOR2_X1)                           0.07       4.19 r
+  accel/accel/U1192/ZN (INV_X1)                           0.03       4.22 f
+  accel/accel/U1193/ZN (AOI22_X1)                         0.05       4.27 r
+  accel/accel/U1194/ZN (OAI221_X1)                        0.04       4.31 f
+  accel/accel/hash_val_3_reg[31]/D (DFF_X1)               0.01       4.32 f
+  data arrival time                                                  4.32
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/hash_val_3_reg[31]/CK (DFF_X1)              0.00      10.00 r
+  library setup time                                     -0.05       9.95
+  data required time                                                 9.95
+  --------------------------------------------------------------------------
+  data required time                                                 9.95
+  data arrival time                                                 -4.32
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.63
+
+
+  Startpoint: accel/accel/i_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/e_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  accel/accel/i_reg[1]/CK (DFF_X1)         0.00 #     0.00 r
+  accel/accel/i_reg[1]/Q (DFF_X1)          0.16       0.16 r
+  accel/accel/U14/ZN (NAND2_X1)            0.07       0.23 f
+  accel/accel/U27/ZN (NOR2_X1)             0.11       0.34 r
+  accel/accel/U16/ZN (NAND2_X1)            0.10       0.44 f
+  accel/accel/U723/ZN (INV_X1)             0.20       0.64 r
+  accel/accel/U1684/ZN (AOI21_X1)          0.06       0.70 f
+  accel/accel/intadd_8/U5/CO (FA_X1)       0.11       0.81 f
+  accel/accel/intadd_8/U4/S (FA_X1)        0.11       0.92 f
+  accel/accel/U1783/CO (FA_X1)             0.11       1.03 f
+  accel/accel/intadd_8/U3/CO (FA_X1)       0.10       1.13 f
+  accel/accel/intadd_8/U2/CO (FA_X1)       0.09       1.22 f
+  accel/accel/U667/ZN (INV_X1)             0.03       1.25 r
+  accel/accel/intadd_3/U28/S (FA_X1)       0.09       1.34 r
+  accel/accel/U624/ZN (INV_X1)             0.03       1.37 f
+  accel/accel/intadd_1/U28/CO (FA_X1)      0.10       1.47 f
+  accel/accel/intadd_1/U27/CO (FA_X1)      0.09       1.56 f
+  accel/accel/intadd_1/U26/CO (FA_X1)      0.09       1.65 f
+  accel/accel/intadd_1/U25/CO (FA_X1)      0.09       1.74 f
+  accel/accel/intadd_1/U24/S (FA_X1)       0.12       1.86 f
+  accel/accel/U623/ZN (INV_X1)             0.04       1.89 r
+  accel/accel/intadd_7/U2/CO (FA_X1)       0.08       1.98 r
+  accel/accel/U3048/ZN (INV_X1)            0.03       2.00 f
+  accel/accel/U3049/ZN (AOI21_X1)          0.05       2.05 r
+  accel/accel/U3051/ZN (OAI22_X1)          0.04       2.10 f
+  accel/accel/U3056/CO (FA_X1)             0.11       2.21 f
+  accel/accel/U3063/ZN (AOI21_X1)          0.06       2.27 r
+  accel/accel/U3064/ZN (AOI21_X1)          0.03       2.30 f
+  accel/accel/intadd_5/U9/CO (FA_X1)       0.10       2.40 f
+  accel/accel/intadd_5/U8/CO (FA_X1)       0.09       2.49 f
+  accel/accel/intadd_5/U7/CO (FA_X1)       0.09       2.59 f
+  accel/accel/intadd_5/U6/CO (FA_X1)       0.09       2.68 f
+  accel/accel/intadd_5/U5/CO (FA_X1)       0.09       2.77 f
+  accel/accel/intadd_5/U4/CO (FA_X1)       0.09       2.86 f
+  accel/accel/intadd_5/U3/CO (FA_X1)       0.09       2.95 f
+  accel/accel/intadd_5/U2/CO (FA_X1)       0.10       3.05 f
+  accel/accel/U3091/ZN (AOI21_X1)          0.06       3.11 r
+  accel/accel/U3093/ZN (OAI21_X1)          0.04       3.14 f
+  accel/accel/intadd_9/U4/CO (FA_X1)       0.10       3.25 f
+  accel/accel/intadd_9/U3/CO (FA_X1)       0.09       3.34 f
+  accel/accel/intadd_9/U2/CO (FA_X1)       0.10       3.44 f
+  accel/accel/U3111/ZN (AOI21_X1)          0.06       3.50 r
+  accel/accel/U3112/ZN (AOI21_X1)          0.03       3.53 f
+  accel/accel/intadd_6/U7/CO (FA_X1)       0.10       3.63 f
+  accel/accel/intadd_6/U6/CO (FA_X1)       0.09       3.73 f
+  accel/accel/intadd_6/U5/CO (FA_X1)       0.09       3.82 f
+  accel/accel/intadd_6/U4/CO (FA_X1)       0.09       3.91 f
+  accel/accel/intadd_6/U3/CO (FA_X1)       0.09       4.00 f
+  accel/accel/intadd_6/U2/CO (FA_X1)       0.09       4.09 f
+  accel/accel/U3131/Z (XOR2_X1)            0.08       4.16 f
+  accel/accel/U3132/ZN (XNOR2_X1)          0.06       4.22 f
+  accel/accel/U3133/ZN (OAI222_X1)         0.06       4.28 r
+  accel/accel/e_reg[31]/D (DFF_X1)         0.01       4.29 r
+  data arrival time                                   4.29
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  accel/accel/e_reg[31]/CK (DFF_X1)        0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -4.29
+  -----------------------------------------------------------
+  slack (MET)                                         5.67
+
+
+  Startpoint: accel/accel/i_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/a_reg[29]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  accel/accel/i_reg[1]/CK (DFF_X1)         0.00 #     0.00 r
+  accel/accel/i_reg[1]/Q (DFF_X1)          0.16       0.16 r
+  accel/accel/U14/ZN (NAND2_X1)            0.07       0.23 f
+  accel/accel/U27/ZN (NOR2_X1)             0.11       0.34 r
+  accel/accel/U16/ZN (NAND2_X1)            0.10       0.44 f
+  accel/accel/U723/ZN (INV_X1)             0.20       0.64 r
+  accel/accel/U1684/ZN (AOI21_X1)          0.06       0.70 f
+  accel/accel/intadd_8/U5/S (FA_X1)        0.16       0.85 r
+  accel/accel/U663/S (FA_X1)               0.11       0.97 f
+  accel/accel/U444/ZN (INV_X1)             0.05       1.01 r
+  accel/accel/intadd_0/U32/S (FA_X1)       0.13       1.14 f
+  accel/accel/U490/ZN (INV_X1)             0.04       1.18 r
+  accel/accel/U491/ZN (NAND2_X1)           0.04       1.22 f
+  accel/accel/U492/ZN (NOR2_X1)            0.06       1.28 r
+  accel/accel/U495/ZN (OAI22_X1)           0.04       1.32 f
+  accel/accel/U496/ZN (INV_X1)             0.04       1.36 r
+  accel/accel/U498/ZN (NOR2_X1)            0.03       1.39 f
+  accel/accel/U499/ZN (AOI21_X1)           0.09       1.48 r
+  accel/accel/U500/ZN (INV_X1)             0.04       1.52 f
+  accel/accel/U2625/ZN (AOI221_X1)         0.12       1.64 r
+  accel/accel/U2626/ZN (NOR2_X1)           0.03       1.67 f
+  accel/accel/U2627/ZN (AOI22_X1)          0.08       1.75 r
+  accel/accel/U2632/ZN (INV_X1)            0.02       1.77 f
+  accel/accel/U2634/ZN (AOI22_X1)          0.06       1.84 r
+  accel/accel/U2638/CO (FA_X1)             0.08       1.92 r
+  accel/accel/U2643/CO (FA_X1)             0.09       2.00 r
+  accel/accel/U2651/ZN (OR2_X1)            0.04       2.04 r
+  accel/accel/U2652/ZN (AOI22_X1)          0.03       2.08 f
+  accel/accel/U2658/CO (FA_X1)             0.11       2.18 f
+  accel/accel/U2661/CO (FA_X1)             0.11       2.29 f
+  accel/accel/U2669/ZN (AOI21_X1)          0.06       2.35 r
+  accel/accel/U2670/ZN (AOI21_X1)          0.03       2.39 f
+  accel/accel/U2675/CO (FA_X1)             0.11       2.49 f
+  accel/accel/U2679/CO (FA_X1)             0.11       2.61 f
+  accel/accel/U2686/ZN (AOI21_X1)          0.06       2.67 r
+  accel/accel/U2687/ZN (AOI21_X1)          0.03       2.70 f
+  accel/accel/intadd_4/U18/CO (FA_X1)      0.10       2.80 f
+  accel/accel/intadd_4/U17/CO (FA_X1)      0.09       2.89 f
+  accel/accel/intadd_4/U16/CO (FA_X1)      0.09       2.98 f
+  accel/accel/intadd_4/U15/CO (FA_X1)      0.09       3.07 f
+  accel/accel/intadd_4/U14/CO (FA_X1)      0.09       3.17 f
+  accel/accel/intadd_4/U13/CO (FA_X1)      0.09       3.26 f
+  accel/accel/intadd_4/U12/CO (FA_X1)      0.09       3.35 f
+  accel/accel/intadd_4/U11/CO (FA_X1)      0.09       3.44 f
+  accel/accel/intadd_4/U10/CO (FA_X1)      0.09       3.53 f
+  accel/accel/intadd_4/U9/CO (FA_X1)       0.09       3.62 f
+  accel/accel/intadd_4/U8/CO (FA_X1)       0.09       3.71 f
+  accel/accel/intadd_4/U7/CO (FA_X1)       0.09       3.80 f
+  accel/accel/intadd_4/U6/CO (FA_X1)       0.09       3.89 f
+  accel/accel/intadd_4/U5/CO (FA_X1)       0.09       3.98 f
+  accel/accel/intadd_4/U4/CO (FA_X1)       0.09       4.07 f
+  accel/accel/intadd_4/U3/S (FA_X1)        0.11       4.18 f
+  accel/accel/U2731/ZN (AOI22_X1)          0.05       4.23 r
+  accel/accel/U2732/ZN (OAI211_X1)         0.05       4.27 f
+  accel/accel/a_reg[29]/D (DFF_X1)         0.01       4.28 f
+  data arrival time                                   4.28
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  accel/accel/a_reg[29]/CK (DFF_X1)        0.00      10.00 r
+  library setup time                      -0.05       9.95
+  data required time                                  9.95
+  -----------------------------------------------------------
+  data required time                                  9.95
+  data arrival time                                  -4.28
+  -----------------------------------------------------------
+  slack (MET)                                         5.67
+
+
+  Startpoint: accel/accel/i_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_4_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[1]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[1]/Q (DFF_X1)                         0.16       0.16 r
+  accel/accel/U14/ZN (NAND2_X1)                           0.07       0.23 f
+  accel/accel/U27/ZN (NOR2_X1)                            0.11       0.34 r
+  accel/accel/U16/ZN (NAND2_X1)                           0.10       0.44 f
+  accel/accel/U723/ZN (INV_X1)                            0.20       0.64 r
+  accel/accel/U1684/ZN (AOI21_X1)                         0.06       0.70 f
+  accel/accel/intadd_8/U5/CO (FA_X1)                      0.11       0.81 f
+  accel/accel/intadd_8/U4/S (FA_X1)                       0.11       0.92 f
+  accel/accel/U1783/CO (FA_X1)                            0.11       1.03 f
+  accel/accel/intadd_8/U3/CO (FA_X1)                      0.10       1.13 f
+  accel/accel/intadd_8/U2/CO (FA_X1)                      0.09       1.22 f
+  accel/accel/U667/ZN (INV_X1)                            0.03       1.25 r
+  accel/accel/intadd_3/U28/S (FA_X1)                      0.12       1.38 f
+  accel/accel/U624/ZN (INV_X1)                            0.04       1.41 r
+  accel/accel/intadd_1/U28/S (FA_X1)                      0.12       1.54 f
+  accel/accel/U458/ZN (AND2_X1)                           0.05       1.59 f
+  accel/accel/U459/ZN (NOR2_X1)                           0.04       1.63 r
+  accel/accel/U460/ZN (NOR2_X1)                           0.03       1.66 f
+  accel/accel/U462/ZN (NOR2_X1)                           0.05       1.70 r
+  accel/accel/U463/ZN (AOI21_X1)                          0.03       1.74 f
+  accel/accel/U465/ZN (NOR2_X1)                           0.06       1.79 r
+  accel/accel/U466/ZN (AOI21_X1)                          0.03       1.83 f
+  accel/accel/U469/CO (FA_X1)                             0.09       1.92 f
+  accel/accel/U550/CO (FA_X1)                             0.10       2.01 f
+  accel/accel/U470/ZN (OR2_X1)                            0.07       2.08 f
+  accel/accel/U471/ZN (AOI22_X1)                          0.07       2.15 r
+  accel/accel/U474/ZN (NOR2_X1)                           0.03       2.18 f
+  accel/accel/U475/ZN (AOI21_X1)                          0.06       2.24 r
+  accel/accel/U478/ZN (NAND2_X1)                          0.04       2.28 f
+  accel/accel/U479/ZN (INV_X1)                            0.03       2.31 r
+  accel/accel/U480/ZN (AOI21_X1)                          0.03       2.34 f
+  accel/accel/U482/ZN (NOR2_X1)                           0.05       2.39 r
+  accel/accel/U483/ZN (AOI21_X1)                          0.03       2.42 f
+  accel/accel/U2042/CO (FA_X1)                            0.09       2.51 f
+  accel/accel/U2043/ZN (NOR2_X1)                          0.06       2.57 r
+  accel/accel/U2058/ZN (AOI21_X1)                         0.03       2.60 f
+  accel/accel/U2060/ZN (AND2_X1)                          0.04       2.64 f
+  accel/accel/U2061/ZN (NOR2_X1)                          0.05       2.70 r
+  accel/accel/U2079/ZN (NOR2_X1)                          0.03       2.73 f
+  accel/accel/U2081/ZN (NOR2_X1)                          0.05       2.78 r
+  accel/accel/U2098/ZN (OAI21_X1)                         0.04       2.82 f
+  accel/accel/U2101/ZN (NOR2_X1)                          0.06       2.88 r
+  accel/accel/U2119/ZN (OAI21_X1)                         0.04       2.92 f
+  accel/accel/U2122/ZN (NOR2_X1)                          0.06       2.97 r
+  accel/accel/U2135/ZN (OAI21_X1)                         0.04       3.01 f
+  accel/accel/U2136/ZN (AND2_X1)                          0.04       3.05 f
+  accel/accel/U2153/ZN (NOR2_X1)                          0.04       3.09 r
+  accel/accel/U2154/ZN (OR2_X1)                           0.04       3.13 r
+  accel/accel/U2156/ZN (NAND2_X1)                         0.03       3.16 f
+  accel/accel/U2157/ZN (NAND2_X1)                         0.04       3.20 r
+  accel/accel/U2173/ZN (NAND2_X1)                         0.03       3.23 f
+  accel/accel/U2175/ZN (NOR2_X1)                          0.05       3.29 r
+  accel/accel/U2191/ZN (OAI21_X1)                         0.04       3.32 f
+  accel/accel/U2193/ZN (NOR2_X1)                          0.06       3.38 r
+  accel/accel/U2213/ZN (OAI21_X1)                         0.04       3.42 f
+  accel/accel/U2214/ZN (NOR2_X1)                          0.06       3.47 r
+  accel/accel/U2228/ZN (AOI21_X1)                         0.03       3.51 f
+  accel/accel/U2229/ZN (NOR2_X1)                          0.06       3.57 r
+  accel/accel/U2245/ZN (AOI21_X1)                         0.03       3.60 f
+  accel/accel/U2246/ZN (NOR2_X1)                          0.05       3.65 r
+  accel/accel/U2260/ZN (AOI21_X1)                         0.03       3.68 f
+  accel/accel/U2261/ZN (NOR2_X1)                          0.05       3.73 r
+  accel/accel/U2276/ZN (AOI21_X1)                         0.03       3.77 f
+  accel/accel/U2277/ZN (NOR2_X1)                          0.05       3.82 r
+  accel/accel/U2293/ZN (AOI21_X1)                         0.03       3.85 f
+  accel/accel/U2294/ZN (NOR2_X1)                          0.05       3.90 r
+  accel/accel/U2307/ZN (AOI21_X1)                         0.03       3.94 f
+  accel/accel/U2309/ZN (NOR2_X1)                          0.06       3.99 r
+  accel/accel/U2314/ZN (OAI21_X1)                         0.04       4.03 f
+  accel/accel/U2315/ZN (NOR2_X1)                          0.06       4.09 r
+  accel/accel/U2331/ZN (AOI21_X1)                         0.03       4.12 f
+  accel/accel/U2350/ZN (XNOR2_X1)                         0.06       4.17 f
+  accel/accel/U2351/ZN (XNOR2_X1)                         0.06       4.23 f
+  accel/accel/U2352/ZN (OAI22_X1)                         0.04       4.28 r
+  accel/accel/hash_val_4_reg[31]/D (DFF_X1)               0.01       4.29 r
+  data arrival time                                                  4.29
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/hash_val_4_reg[31]/CK (DFF_X1)              0.00      10.00 r
+  library setup time                                     -0.04       9.96
+  data required time                                                 9.96
+  --------------------------------------------------------------------------
+  data required time                                                 9.96
+  data arrival time                                                 -4.29
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.67
+
+
+  Startpoint: accel/accel/f_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/g_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  accel/accel/f_reg[0]/CK (DFF_X1)         0.00 #     0.00 r
+  accel/accel/f_reg[0]/QN (DFF_X1)         0.08       0.08 f
+  accel/accel/U279/ZN (NOR2_X1)            0.08       0.16 r
+  accel/accel/U281/ZN (NOR2_X1)            0.04       0.20 f
+  accel/accel/U282/ZN (AOI21_X1)           0.07       0.26 r
+  accel/accel/U284/ZN (NOR2_X1)            0.03       0.30 f
+  accel/accel/U285/ZN (AOI21_X1)           0.09       0.38 r
+  accel/accel/U287/ZN (NOR2_X1)            0.04       0.42 f
+  accel/accel/U288/ZN (AOI21_X1)           0.07       0.49 r
+  accel/accel/U290/ZN (XNOR2_X1)           0.07       0.56 r
+  accel/accel/U291/ZN (OR2_X1)             0.05       0.61 r
+  accel/accel/U292/ZN (NAND2_X1)           0.04       0.65 f
+  accel/accel/U293/ZN (NOR2_X1)            0.06       0.71 r
+  accel/accel/U295/ZN (OAI21_X1)           0.04       0.75 f
+  accel/accel/U297/ZN (XNOR2_X1)           0.07       0.81 r
+  accel/accel/U298/ZN (NOR2_X1)            0.03       0.85 f
+  accel/accel/U299/ZN (NOR2_X1)            0.06       0.90 r
+  accel/accel/U300/ZN (INV_X1)             0.03       0.94 f
+  accel/accel/U301/ZN (NOR2_X1)            0.06       0.99 r
+  accel/accel/U303/ZN (OAI21_X1)           0.04       1.03 f
+  accel/accel/U305/ZN (INV_X1)             0.04       1.07 r
+  accel/accel/U306/ZN (NOR2_X1)            0.03       1.10 f
+  accel/accel/U307/ZN (INV_X1)             0.03       1.13 r
+  accel/accel/U308/ZN (OAI21_X1)           0.03       1.16 f
+  accel/accel/U1348/CO (FA_X1)             0.09       1.25 f
+  accel/accel/U309/ZN (XNOR2_X1)           0.06       1.31 f
+  accel/accel/U310/ZN (OR2_X1)             0.06       1.38 f
+  accel/accel/U315/ZN (NAND2_X1)           0.05       1.43 r
+  accel/accel/U316/ZN (NOR2_X1)            0.03       1.46 f
+  accel/accel/U318/ZN (OAI21_X1)           0.07       1.53 r
+  accel/accel/U319/ZN (NOR2_X1)            0.04       1.57 f
+  accel/accel/U321/ZN (OAI21_X1)           0.05       1.62 r
+  accel/accel/U323/ZN (NOR2_X1)            0.03       1.66 f
+  accel/accel/U324/ZN (AOI21_X1)           0.08       1.73 r
+  accel/accel/U327/ZN (INV_X1)             0.03       1.76 f
+  accel/accel/U328/ZN (NOR2_X1)            0.05       1.81 r
+  accel/accel/U329/ZN (AOI21_X1)           0.03       1.85 f
+  accel/accel/U330/ZN (INV_X1)             0.04       1.89 r
+  accel/accel/U331/ZN (NOR2_X1)            0.03       1.92 f
+  accel/accel/U333/ZN (OAI21_X1)           0.06       1.98 r
+  accel/accel/U335/ZN (INV_X1)             0.03       2.01 f
+  accel/accel/U336/ZN (NAND2_X1)           0.04       2.05 r
+  accel/accel/U337/ZN (NAND2_X1)           0.03       2.08 f
+  accel/accel/U338/ZN (NAND2_X1)           0.04       2.11 r
+  accel/accel/U340/ZN (INV_X1)             0.03       2.14 f
+  accel/accel/U341/ZN (NAND2_X1)           0.03       2.18 r
+  accel/accel/U342/ZN (NAND2_X1)           0.03       2.21 f
+  accel/accel/U343/ZN (NAND2_X1)           0.04       2.24 r
+  accel/accel/U344/ZN (XNOR2_X1)           0.07       2.31 r
+  accel/accel/U345/ZN (NOR2_X1)            0.03       2.34 f
+  accel/accel/U346/ZN (INV_X1)             0.03       2.37 r
+  accel/accel/U576/ZN (NAND2_X1)           0.03       2.41 f
+  accel/accel/U578/ZN (XNOR2_X1)           0.06       2.47 f
+  accel/accel/U579/ZN (NOR2_X1)            0.07       2.54 r
+  accel/accel/U580/ZN (NOR2_X1)            0.04       2.57 f
+  accel/accel/U581/ZN (XNOR2_X1)           0.06       2.64 f
+  accel/accel/U582/ZN (NOR2_X1)            0.07       2.70 r
+  accel/accel/U583/ZN (INV_X1)             0.03       2.73 f
+  accel/accel/U584/ZN (OAI21_X1)           0.04       2.76 r
+  accel/accel/U1382/CO (FA_X1)             0.07       2.84 r
+  accel/accel/U586/ZN (XNOR2_X1)           0.06       2.90 r
+  accel/accel/U587/ZN (NOR2_X1)            0.03       2.94 f
+  accel/accel/U588/ZN (NOR2_X1)            0.06       2.99 r
+  accel/accel/U589/ZN (INV_X1)             0.03       3.02 f
+  accel/accel/U590/ZN (NOR2_X1)            0.06       3.08 r
+  accel/accel/U592/ZN (OAI21_X1)           0.05       3.13 f
+  accel/accel/U593/ZN (NOR2_X1)            0.06       3.19 r
+  accel/accel/U595/ZN (OAI21_X1)           0.04       3.23 f
+  accel/accel/U597/ZN (INV_X1)             0.04       3.27 r
+  accel/accel/U598/ZN (NAND2_X1)           0.03       3.30 f
+  accel/accel/U599/ZN (NAND2_X1)           0.03       3.33 r
+  accel/accel/U600/ZN (NAND2_X1)           0.04       3.37 f
+  accel/accel/U601/ZN (NOR2_X1)            0.06       3.43 r
+  accel/accel/U603/ZN (OAI21_X1)           0.05       3.48 f
+  accel/accel/U604/ZN (NOR2_X1)            0.06       3.54 r
+  accel/accel/U606/ZN (OAI21_X1)           0.04       3.58 f
+  accel/accel/U608/ZN (INV_X1)             0.04       3.62 r
+  accel/accel/U609/ZN (NAND2_X1)           0.03       3.65 f
+  accel/accel/U610/ZN (NAND2_X1)           0.03       3.68 r
+  accel/accel/U611/ZN (NAND2_X1)           0.03       3.71 f
+  accel/accel/U612/ZN (XNOR2_X1)           0.06       3.77 f
+  accel/accel/U613/ZN (NOR2_X1)            0.05       3.82 r
+  accel/accel/U614/ZN (INV_X1)             0.03       3.85 f
+  accel/accel/U1410/ZN (NAND2_X1)          0.04       3.89 r
+  accel/accel/U1411/Z (XOR2_X1)            0.09       3.98 r
+  accel/accel/U1412/ZN (NAND2_X1)          0.04       4.02 f
+  accel/accel/U1416/ZN (NAND2_X1)          0.03       4.05 r
+  accel/accel/U1417/ZN (XNOR2_X1)          0.06       4.11 r
+  accel/accel/U1419/ZN (AOI21_X1)          0.04       4.15 f
+  accel/accel/U3381/ZN (AOI21_X1)          0.07       4.22 r
+  accel/accel/U3383/ZN (OAI221_X1)         0.05       4.27 f
+  accel/accel/g_reg[31]/D (DFF_X1)         0.01       4.28 f
+  data arrival time                                   4.28
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  accel/accel/g_reg[31]/CK (DFF_X1)        0.00      10.00 r
+  library setup time                      -0.05       9.95
+  data required time                                  9.95
+  -----------------------------------------------------------
+  data required time                                  9.95
+  data arrival time                                  -4.28
+  -----------------------------------------------------------
+  slack (MET)                                         5.68
+
+
+  Startpoint: accel/accel/e_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/f_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  accel/accel/e_reg[0]/CK (DFF_X1)         0.00 #     0.00 r
+  accel/accel/e_reg[0]/Q (DFF_X1)          0.12       0.12 r
+  accel/accel/U356/ZN (NAND2_X1)           0.05       0.18 f
+  accel/accel/U357/ZN (NOR2_X1)            0.06       0.24 r
+  accel/accel/U359/ZN (OAI21_X1)           0.04       0.27 f
+  accel/accel/U360/ZN (INV_X1)             0.04       0.32 r
+  accel/accel/U362/ZN (NOR2_X1)            0.03       0.35 f
+  accel/accel/U363/ZN (AOI21_X1)           0.09       0.43 r
+  accel/accel/U365/ZN (NOR2_X1)            0.04       0.47 f
+  accel/accel/U366/ZN (AOI21_X1)           0.07       0.54 r
+  accel/accel/U369/ZN (NAND2_X1)           0.04       0.57 f
+  accel/accel/U370/ZN (NAND2_X1)           0.04       0.61 r
+  accel/accel/U371/ZN (NAND2_X1)           0.03       0.64 f
+  accel/accel/U372/ZN (NOR2_X1)            0.05       0.69 r
+  accel/accel/U373/ZN (NOR2_X1)            0.03       0.72 f
+  accel/accel/U375/ZN (NOR2_X1)            0.04       0.77 r
+  accel/accel/U1219/CO (FA_X1)             0.08       0.85 r
+  accel/accel/U376/ZN (NOR2_X1)            0.03       0.88 f
+  accel/accel/U378/ZN (OAI21_X1)           0.06       0.94 r
+  accel/accel/U380/ZN (XNOR2_X1)           0.07       1.01 r
+  accel/accel/U381/ZN (NAND2_X1)           0.05       1.06 f
+  accel/accel/U382/ZN (NAND2_X1)           0.04       1.10 r
+  accel/accel/U384/Z (XOR2_X1)             0.08       1.18 r
+  accel/accel/U385/ZN (NAND2_X1)           0.04       1.22 f
+  accel/accel/U386/ZN (NAND2_X1)           0.04       1.26 r
+  accel/accel/U388/Z (XOR2_X1)             0.08       1.34 r
+  accel/accel/U389/ZN (NAND2_X1)           0.04       1.38 f
+  accel/accel/U390/ZN (NAND2_X1)           0.05       1.43 r
+  accel/accel/U391/ZN (NOR2_X1)            0.03       1.47 f
+  accel/accel/U393/ZN (OAI21_X1)           0.06       1.52 r
+  accel/accel/U395/ZN (XNOR2_X1)           0.07       1.59 r
+  accel/accel/U396/ZN (OR2_X1)             0.05       1.64 r
+  accel/accel/U397/ZN (NAND2_X1)           0.04       1.69 f
+  accel/accel/U398/ZN (NOR2_X1)            0.06       1.75 r
+  accel/accel/U400/ZN (OAI21_X1)           0.05       1.79 f
+  accel/accel/U401/ZN (NOR2_X1)            0.06       1.85 r
+  accel/accel/U403/ZN (OAI21_X1)           0.04       1.89 f
+  accel/accel/U405/ZN (XNOR2_X1)           0.06       1.96 f
+  accel/accel/U406/ZN (OR2_X1)             0.06       2.02 f
+  accel/accel/U407/ZN (NAND2_X1)           0.05       2.07 r
+  accel/accel/U408/ZN (NOR2_X1)            0.03       2.11 f
+  accel/accel/U410/ZN (OAI21_X1)           0.06       2.16 r
+  accel/accel/U412/Z (XOR2_X1)             0.09       2.25 r
+  accel/accel/U413/ZN (NAND2_X1)           0.04       2.29 f
+  accel/accel/U414/ZN (NAND2_X1)           0.05       2.34 r
+  accel/accel/U415/ZN (NOR2_X1)            0.03       2.38 f
+  accel/accel/U417/ZN (OAI21_X1)           0.06       2.43 r
+  accel/accel/U419/Z (XOR2_X1)             0.09       2.53 r
+  accel/accel/U420/ZN (NAND2_X1)           0.05       2.57 f
+  accel/accel/U421/ZN (NAND2_X1)           0.04       2.62 r
+  accel/accel/U423/Z (XOR2_X1)             0.08       2.69 r
+  accel/accel/U424/ZN (NAND2_X1)           0.04       2.74 f
+  accel/accel/U425/ZN (OAI21_X1)           0.04       2.78 r
+  accel/accel/U1261/CO (FA_X1)             0.08       2.86 r
+  accel/accel/U427/Z (XOR2_X1)             0.08       2.93 r
+  accel/accel/U428/ZN (NAND2_X1)           0.04       2.98 f
+  accel/accel/U429/ZN (NAND2_X1)           0.04       3.02 r
+  accel/accel/U430/Z (XOR2_X1)             0.08       3.10 r
+  accel/accel/U431/ZN (NAND2_X1)           0.04       3.14 f
+  accel/accel/U1268/ZN (NAND2_X1)          0.05       3.19 r
+  accel/accel/U1273/ZN (NOR2_X1)           0.03       3.23 f
+  accel/accel/U1275/ZN (OAI21_X1)          0.10       3.32 r
+  accel/accel/U1281/ZN (OAI21_X1)          0.04       3.37 f
+  accel/accel/U1282/ZN (NAND2_X1)          0.04       3.40 r
+  accel/accel/U1285/CO (FA_X1)             0.08       3.48 r
+  accel/accel/U1290/ZN (NOR2_X1)           0.03       3.52 f
+  accel/accel/U1292/ZN (OAI21_X1)          0.07       3.59 r
+  accel/accel/U1297/ZN (NOR2_X1)           0.04       3.63 f
+  accel/accel/U1299/ZN (OAI21_X1)          0.06       3.68 r
+  accel/accel/U1300/Z (XOR2_X1)            0.09       3.78 r
+  accel/accel/U1301/ZN (NAND2_X1)          0.05       3.82 f
+  accel/accel/U1305/ZN (NAND2_X1)          0.04       3.87 r
+  accel/accel/U1306/Z (XOR2_X1)            0.08       3.94 r
+  accel/accel/U1307/ZN (NAND2_X1)          0.04       3.99 f
+  accel/accel/U1312/ZN (NAND2_X1)          0.04       4.02 r
+  accel/accel/U1313/ZN (XNOR2_X1)          0.04       4.06 f
+  accel/accel/U1315/ZN (NOR2_X1)           0.05       4.11 r
+  accel/accel/U3255/ZN (OAI22_X1)          0.04       4.15 f
+  accel/accel/U3256/ZN (AOI22_X1)          0.07       4.22 r
+  accel/accel/U3257/ZN (OAI211_X1)         0.04       4.26 f
+  accel/accel/f_reg[31]/D (DFF_X1)         0.01       4.27 f
+  data arrival time                                   4.27
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  accel/accel/f_reg[31]/CK (DFF_X1)        0.00      10.00 r
+  library setup time                      -0.05       9.95
+  data required time                                  9.95
+  -----------------------------------------------------------
+  data required time                                  9.95
+  data arrival time                                  -4.27
+  -----------------------------------------------------------
+  slack (MET)                                         5.68
+
+
+  Startpoint: accel/accel/i_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_0_reg[29]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[1]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[1]/Q (DFF_X1)                         0.16       0.16 r
+  accel/accel/U14/ZN (NAND2_X1)                           0.07       0.23 f
+  accel/accel/U27/ZN (NOR2_X1)                            0.11       0.34 r
+  accel/accel/U16/ZN (NAND2_X1)                           0.10       0.44 f
+  accel/accel/U723/ZN (INV_X1)                            0.20       0.64 r
+  accel/accel/U1684/ZN (AOI21_X1)                         0.06       0.70 f
+  accel/accel/intadd_8/U5/S (FA_X1)                       0.16       0.85 r
+  accel/accel/U663/S (FA_X1)                              0.11       0.97 f
+  accel/accel/U444/ZN (INV_X1)                            0.05       1.01 r
+  accel/accel/intadd_0/U32/S (FA_X1)                      0.13       1.14 f
+  accel/accel/U490/ZN (INV_X1)                            0.04       1.18 r
+  accel/accel/U491/ZN (NAND2_X1)                          0.04       1.22 f
+  accel/accel/U492/ZN (NOR2_X1)                           0.06       1.28 r
+  accel/accel/U495/ZN (OAI22_X1)                          0.04       1.32 f
+  accel/accel/U496/ZN (INV_X1)                            0.04       1.36 r
+  accel/accel/U498/ZN (NOR2_X1)                           0.03       1.39 f
+  accel/accel/U499/ZN (AOI21_X1)                          0.09       1.48 r
+  accel/accel/U502/ZN (XNOR2_X1)                          0.08       1.56 r
+  accel/accel/U503/ZN (NAND2_X1)                          0.04       1.59 f
+  accel/accel/U504/ZN (NAND2_X1)                          0.04       1.63 r
+  accel/accel/U506/ZN (XNOR2_X1)                          0.07       1.70 r
+  accel/accel/U507/ZN (OR2_X1)                            0.04       1.74 r
+  accel/accel/U508/ZN (NAND2_X1)                          0.03       1.77 f
+  accel/accel/U510/ZN (OR2_X1)                            0.06       1.83 f
+  accel/accel/U511/ZN (NAND2_X1)                          0.03       1.86 r
+  accel/accel/U512/ZN (NAND2_X1)                          0.03       1.89 f
+  accel/accel/U513/ZN (NOR2_X1)                           0.05       1.95 r
+  accel/accel/U515/ZN (OAI21_X1)                          0.04       1.98 f
+  accel/accel/U2402/CO (FA_X1)                            0.10       2.08 f
+  accel/accel/U516/ZN (OR2_X1)                            0.07       2.15 f
+  accel/accel/U517/ZN (AOI22_X1)                          0.07       2.22 r
+  accel/accel/U520/ZN (NOR2_X1)                           0.03       2.25 f
+  accel/accel/U521/ZN (AOI21_X1)                          0.06       2.31 r
+  accel/accel/U524/ZN (AND2_X1)                           0.05       2.36 r
+  accel/accel/U525/ZN (NOR2_X1)                           0.03       2.39 f
+  accel/accel/U526/ZN (NOR2_X1)                           0.05       2.44 r
+  accel/accel/U529/ZN (NOR2_X1)                           0.03       2.47 f
+  accel/accel/U530/ZN (AOI21_X1)                          0.06       2.54 r
+  accel/accel/U533/ZN (NOR2_X1)                           0.03       2.57 f
+  accel/accel/U534/ZN (AOI21_X1)                          0.07       2.63 r
+  accel/accel/U536/ZN (NOR2_X1)                           0.03       2.66 f
+  accel/accel/U538/ZN (OAI21_X1)                          0.05       2.72 r
+  accel/accel/U539/ZN (NOR2_X1)                           0.03       2.75 f
+  accel/accel/U541/ZN (OAI21_X1)                          0.05       2.80 r
+  accel/accel/U543/ZN (NOR2_X1)                           0.03       2.83 f
+  accel/accel/U544/ZN (AOI21_X1)                          0.07       2.89 r
+  accel/accel/U546/ZN (NOR2_X1)                           0.03       2.93 f
+  accel/accel/U547/ZN (AOI21_X1)                          0.06       2.99 r
+  accel/accel/U555/CO (FA_X1)                             0.08       3.07 r
+  accel/accel/U556/ZN (OR2_X1)                            0.04       3.11 r
+  accel/accel/U557/ZN (AOI22_X1)                          0.03       3.14 f
+  accel/accel/U559/ZN (NOR2_X1)                           0.05       3.19 r
+  accel/accel/U560/ZN (AOI21_X1)                          0.03       3.23 f
+  accel/accel/U562/ZN (AND2_X1)                           0.04       3.27 f
+  accel/accel/U563/ZN (NOR2_X1)                           0.05       3.32 r
+  accel/accel/U564/ZN (NOR2_X1)                           0.03       3.35 f
+  accel/accel/U565/ZN (NOR2_X1)                           0.05       3.40 r
+  accel/accel/U567/ZN (OAI21_X1)                          0.04       3.44 f
+  accel/accel/U569/ZN (NOR2_X1)                           0.06       3.50 r
+  accel/accel/U570/ZN (AOI21_X1)                          0.04       3.54 f
+  accel/accel/U571/ZN (AOI222_X1)                         0.10       3.64 r
+  accel/accel/U2516/CO (FA_X1)                            0.08       3.72 r
+  accel/accel/U2517/ZN (NOR2_X1)                          0.03       3.75 f
+  accel/accel/U2526/ZN (AOI21_X1)                         0.06       3.82 r
+  accel/accel/U2527/ZN (NOR2_X1)                          0.03       3.85 f
+  accel/accel/U2536/ZN (AOI21_X1)                         0.07       3.91 r
+  accel/accel/U2537/ZN (NOR2_X1)                          0.03       3.94 f
+  accel/accel/U2546/ZN (AOI21_X1)                         0.07       4.01 r
+  accel/accel/U2548/ZN (NOR2_X1)                          0.03       4.04 f
+  accel/accel/U2556/ZN (OAI21_X1)                         0.05       4.09 r
+  accel/accel/U2558/ZN (NAND2_X1)                         0.04       4.13 f
+  accel/accel/U2559/ZN (INV_X1)                           0.03       4.16 r
+  accel/accel/U2560/ZN (NOR3_X1)                          0.03       4.18 f
+  accel/accel/U2561/ZN (NAND2_X1)                         0.04       4.22 r
+  accel/accel/U2562/ZN (OAI211_X1)                        0.04       4.26 f
+  accel/accel/hash_val_0_reg[29]/D (DFF_X1)               0.01       4.27 f
+  data arrival time                                                  4.27
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/hash_val_0_reg[29]/CK (DFF_X1)              0.00      10.00 r
+  library setup time                                     -0.05       9.95
+  data required time                                                 9.95
+  --------------------------------------------------------------------------
+  data required time                                                 9.95
+  data arrival time                                                 -4.27
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.69
+
+
+  Startpoint: accel/accel/i_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_4_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/i_reg[1]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/i_reg[1]/Q (DFF_X1)                         0.16       0.16 r
+  accel/accel/U14/ZN (NAND2_X1)                           0.07       0.23 f
+  accel/accel/U27/ZN (NOR2_X1)                            0.11       0.34 r
+  accel/accel/U16/ZN (NAND2_X1)                           0.10       0.44 f
+  accel/accel/U723/ZN (INV_X1)                            0.20       0.64 r
+  accel/accel/U1684/ZN (AOI21_X1)                         0.06       0.70 f
+  accel/accel/intadd_8/U5/CO (FA_X1)                      0.11       0.81 f
+  accel/accel/intadd_8/U4/S (FA_X1)                       0.11       0.92 f
+  accel/accel/U1783/CO (FA_X1)                            0.11       1.03 f
+  accel/accel/intadd_8/U3/CO (FA_X1)                      0.10       1.13 f
+  accel/accel/intadd_8/U2/CO (FA_X1)                      0.09       1.22 f
+  accel/accel/U667/ZN (INV_X1)                            0.03       1.25 r
+  accel/accel/intadd_3/U28/S (FA_X1)                      0.12       1.38 f
+  accel/accel/U624/ZN (INV_X1)                            0.04       1.41 r
+  accel/accel/intadd_1/U28/S (FA_X1)                      0.12       1.54 f
+  accel/accel/U458/ZN (AND2_X1)                           0.05       1.59 f
+  accel/accel/U459/ZN (NOR2_X1)                           0.04       1.63 r
+  accel/accel/U460/ZN (NOR2_X1)                           0.03       1.66 f
+  accel/accel/U462/ZN (NOR2_X1)                           0.05       1.70 r
+  accel/accel/U463/ZN (AOI21_X1)                          0.03       1.74 f
+  accel/accel/U465/ZN (NOR2_X1)                           0.06       1.79 r
+  accel/accel/U466/ZN (AOI21_X1)                          0.03       1.83 f
+  accel/accel/U469/CO (FA_X1)                             0.09       1.92 f
+  accel/accel/U550/CO (FA_X1)                             0.10       2.01 f
+  accel/accel/U470/ZN (OR2_X1)                            0.07       2.08 f
+  accel/accel/U471/ZN (AOI22_X1)                          0.07       2.15 r
+  accel/accel/U474/ZN (NOR2_X1)                           0.03       2.18 f
+  accel/accel/U475/ZN (AOI21_X1)                          0.06       2.24 r
+  accel/accel/U478/ZN (NAND2_X1)                          0.04       2.28 f
+  accel/accel/U479/ZN (INV_X1)                            0.03       2.31 r
+  accel/accel/U480/ZN (AOI21_X1)                          0.03       2.34 f
+  accel/accel/U482/ZN (NOR2_X1)                           0.05       2.39 r
+  accel/accel/U483/ZN (AOI21_X1)                          0.03       2.42 f
+  accel/accel/U2042/CO (FA_X1)                            0.09       2.51 f
+  accel/accel/U2043/ZN (NOR2_X1)                          0.06       2.57 r
+  accel/accel/U2058/ZN (AOI21_X1)                         0.03       2.60 f
+  accel/accel/U2060/ZN (AND2_X1)                          0.04       2.64 f
+  accel/accel/U2061/ZN (NOR2_X1)                          0.05       2.70 r
+  accel/accel/U2079/ZN (NOR2_X1)                          0.03       2.73 f
+  accel/accel/U2081/ZN (NOR2_X1)                          0.05       2.78 r
+  accel/accel/U2098/ZN (OAI21_X1)                         0.04       2.82 f
+  accel/accel/U2101/ZN (NOR2_X1)                          0.06       2.88 r
+  accel/accel/U2119/ZN (OAI21_X1)                         0.04       2.92 f
+  accel/accel/U2122/ZN (NOR2_X1)                          0.06       2.97 r
+  accel/accel/U2135/ZN (OAI21_X1)                         0.04       3.01 f
+  accel/accel/U2136/ZN (AND2_X1)                          0.04       3.05 f
+  accel/accel/U2153/ZN (NOR2_X1)                          0.04       3.09 r
+  accel/accel/U2154/ZN (OR2_X1)                           0.04       3.13 r
+  accel/accel/U2156/ZN (NAND2_X1)                         0.03       3.16 f
+  accel/accel/U2157/ZN (NAND2_X1)                         0.04       3.20 r
+  accel/accel/U2173/ZN (NAND2_X1)                         0.03       3.23 f
+  accel/accel/U2175/ZN (NOR2_X1)                          0.05       3.29 r
+  accel/accel/U2191/ZN (OAI21_X1)                         0.04       3.32 f
+  accel/accel/U2193/ZN (NOR2_X1)                          0.06       3.38 r
+  accel/accel/U2213/ZN (OAI21_X1)                         0.04       3.42 f
+  accel/accel/U2214/ZN (NOR2_X1)                          0.06       3.47 r
+  accel/accel/U2228/ZN (AOI21_X1)                         0.03       3.51 f
+  accel/accel/U2229/ZN (NOR2_X1)                          0.06       3.57 r
+  accel/accel/U2245/ZN (AOI21_X1)                         0.03       3.60 f
+  accel/accel/U2246/ZN (NOR2_X1)                          0.05       3.65 r
+  accel/accel/U2260/ZN (AOI21_X1)                         0.03       3.68 f
+  accel/accel/U2261/ZN (NOR2_X1)                          0.05       3.73 r
+  accel/accel/U2276/ZN (AOI21_X1)                         0.03       3.77 f
+  accel/accel/U2277/ZN (NOR2_X1)                          0.05       3.82 r
+  accel/accel/U2293/ZN (AOI21_X1)                         0.03       3.85 f
+  accel/accel/U2294/ZN (NOR2_X1)                          0.05       3.90 r
+  accel/accel/U2307/ZN (AOI21_X1)                         0.03       3.94 f
+  accel/accel/U2309/ZN (NOR2_X1)                          0.06       3.99 r
+  accel/accel/U2314/ZN (OAI21_X1)                         0.04       4.03 f
+  accel/accel/U2316/ZN (NAND2_X1)                         0.04       4.07 r
+  accel/accel/U2317/ZN (INV_X1)                           0.02       4.09 f
+  accel/accel/U2318/ZN (NOR3_X1)                          0.07       4.16 r
+  accel/accel/U2319/ZN (NAND2_X1)                         0.03       4.20 f
+  accel/accel/U2320/ZN (OAI211_X1)                        0.03       4.23 r
+  accel/accel/hash_val_4_reg[30]/D (DFF_X1)               0.01       4.24 r
+  data arrival time                                                  4.24
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/hash_val_4_reg[30]/CK (DFF_X1)              0.00      10.00 r
+  library setup time                                     -0.04       9.96
+  data required time                                                 9.96
+  --------------------------------------------------------------------------
+  data required time                                                 9.96
+  data arrival time                                                 -4.24
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.72
+
+
+  Startpoint: accel/accel/hash_val_7_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/h_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/hash_val_7_reg[0]/CK (DFF_X1)               0.00 #     0.00 r
+  accel/accel/hash_val_7_reg[0]/Q (DFF_X1)                0.12       0.12 r
+  accel/accel/U254/ZN (AOI21_X1)                          0.05       0.17 f
+  accel/accel/U255/ZN (AOI21_X1)                          0.07       0.24 r
+  accel/accel/U257/ZN (NOR2_X1)                           0.03       0.27 f
+  accel/accel/U258/ZN (AOI21_X1)                          0.08       0.34 r
+  accel/accel/U260/ZN (INV_X1)                            0.03       0.38 f
+  accel/accel/U261/ZN (NAND2_X1)                          0.04       0.41 r
+  accel/accel/U262/ZN (NAND2_X1)                          0.03       0.44 f
+  accel/accel/U263/ZN (NAND2_X1)                          0.04       0.48 r
+  accel/accel/U264/ZN (NOR2_X1)                           0.03       0.52 f
+  accel/accel/U266/ZN (OAI21_X1)                          0.06       0.57 r
+  accel/accel/U268/ZN (XNOR2_X1)                          0.07       0.65 r
+  accel/accel/U269/ZN (NOR2_X1)                           0.03       0.68 f
+  accel/accel/U270/ZN (INV_X1)                            0.03       0.71 r
+  accel/accel/U271/ZN (NAND2_X1)                          0.03       0.74 f
+  accel/accel/U272/ZN (XNOR2_X1)                          0.06       0.81 f
+  accel/accel/U273/ZN (NOR2_X1)                           0.05       0.86 r
+  accel/accel/U274/ZN (INV_X1)                            0.03       0.88 f
+  accel/accel/U1443/ZN (NAND2_X1)                         0.04       0.92 r
+  accel/accel/U1444/Z (XOR2_X1)                           0.09       1.01 r
+  accel/accel/U1445/ZN (NAND2_X1)                         0.04       1.05 f
+  accel/accel/U1449/ZN (NAND2_X1)                         0.04       1.10 r
+  accel/accel/U1450/ZN (INV_X1)                           0.03       1.12 f
+  accel/accel/U1455/ZN (NAND2_X1)                         0.03       1.16 r
+  accel/accel/U1456/ZN (NAND2_X1)                         0.03       1.19 f
+  accel/accel/U1457/ZN (NAND2_X1)                         0.04       1.22 r
+  accel/accel/U1458/Z (XOR2_X1)                           0.09       1.31 r
+  accel/accel/U1459/ZN (NAND2_X1)                         0.04       1.35 f
+  accel/accel/U1463/ZN (NAND2_X1)                         0.04       1.40 r
+  accel/accel/U1464/ZN (INV_X1)                           0.03       1.43 f
+  accel/accel/U1469/ZN (NAND2_X1)                         0.03       1.46 r
+  accel/accel/U1470/ZN (NAND2_X1)                         0.03       1.49 f
+  accel/accel/U1471/ZN (NAND2_X1)                         0.04       1.53 r
+  accel/accel/U1476/ZN (NOR2_X1)                          0.03       1.56 f
+  accel/accel/U1478/ZN (OAI21_X1)                         0.06       1.62 r
+  accel/accel/U1479/Z (XOR2_X1)                           0.08       1.70 r
+  accel/accel/U1480/ZN (NAND2_X1)                         0.04       1.74 f
+  accel/accel/U1484/ZN (NAND2_X1)                         0.04       1.78 r
+  accel/accel/U1485/Z (XOR2_X1)                           0.09       1.87 r
+  accel/accel/U1486/ZN (NAND2_X1)                         0.04       1.91 f
+  accel/accel/U1490/ZN (NAND2_X1)                         0.04       1.95 r
+  accel/accel/U1491/ZN (INV_X1)                           0.03       1.98 f
+  accel/accel/U1496/ZN (NAND2_X1)                         0.03       2.01 r
+  accel/accel/U1497/ZN (NAND2_X1)                         0.03       2.04 f
+  accel/accel/U1498/ZN (NAND2_X1)                         0.04       2.09 r
+  accel/accel/U1503/ZN (NOR2_X1)                          0.03       2.12 f
+  accel/accel/U1505/ZN (OAI21_X1)                         0.06       2.18 r
+  accel/accel/U1506/Z (XOR2_X1)                           0.08       2.26 r
+  accel/accel/U1507/ZN (NOR2_X1)                          0.03       2.29 f
+  accel/accel/U1511/ZN (AOI21_X1)                         0.06       2.35 r
+  accel/accel/U1512/ZN (INV_X1)                           0.02       2.38 f
+  accel/accel/U1515/CO (FA_X1)                            0.09       2.47 f
+  accel/accel/U1516/ZN (XNOR2_X1)                         0.06       2.53 f
+  accel/accel/U1517/ZN (NOR2_X1)                          0.07       2.59 r
+  accel/accel/U1522/ZN (NOR2_X1)                          0.03       2.63 f
+  accel/accel/U1523/Z (XOR2_X1)                           0.07       2.70 f
+  accel/accel/U1524/ZN (NAND2_X1)                         0.04       2.74 r
+  accel/accel/U1529/ZN (NAND2_X1)                         0.04       2.78 f
+  accel/accel/U1530/Z (XOR2_X1)                           0.08       2.86 f
+  accel/accel/U1531/ZN (NAND2_X1)                         0.05       2.90 r
+  accel/accel/U1535/ZN (NAND2_X1)                         0.05       2.95 f
+  accel/accel/U1540/ZN (NOR2_X1)                          0.06       3.01 r
+  accel/accel/U1542/ZN (OAI21_X1)                         0.04       3.05 f
+  accel/accel/U1545/ZN (NOR2_X1)                          0.06       3.11 r
+  accel/accel/U1549/ZN (INV_X1)                           0.02       3.13 f
+  accel/accel/U1550/ZN (AOI21_X1)                         0.05       3.18 r
+  accel/accel/U1551/ZN (INV_X1)                           0.03       3.21 f
+  accel/accel/U1555/ZN (NOR2_X1)                          0.06       3.27 r
+  accel/accel/U1557/ZN (OAI21_X1)                         0.05       3.32 f
+  accel/accel/U1562/ZN (NOR2_X1)                          0.06       3.38 r
+  accel/accel/U1564/ZN (OAI21_X1)                         0.04       3.42 f
+  accel/accel/U1565/ZN (INV_X1)                           0.04       3.46 r
+  accel/accel/U1570/ZN (NOR2_X1)                          0.03       3.49 f
+  accel/accel/U1571/ZN (INV_X1)                           0.03       3.51 r
+  accel/accel/U1572/ZN (OAI21_X1)                         0.03       3.55 f
+  accel/accel/U1575/CO (FA_X1)                            0.10       3.65 f
+  accel/accel/U1581/ZN (OAI21_X1)                         0.06       3.71 r
+  accel/accel/U1582/ZN (NAND2_X1)                         0.05       3.76 f
+  accel/accel/U1587/ZN (NOR2_X1)                          0.06       3.82 r
+  accel/accel/U1589/ZN (OAI21_X1)                         0.04       3.86 f
+  accel/accel/U1590/Z (XOR2_X1)                           0.08       3.94 f
+  accel/accel/U1591/ZN (NAND2_X1)                         0.04       3.98 r
+  accel/accel/U1595/ZN (NAND2_X1)                         0.04       4.02 f
+  accel/accel/U1596/ZN (INV_X1)                           0.04       4.06 r
+  accel/accel/U1601/ZN (NAND2_X1)                         0.03       4.09 f
+  accel/accel/U3499/ZN (NAND3_X1)                         0.03       4.12 r
+  accel/accel/U3500/ZN (XNOR2_X1)                         0.06       4.18 r
+  accel/accel/U3502/ZN (OAI211_X1)                        0.04       4.22 f
+  accel/accel/h_reg[30]/D (DFF_X1)                        0.01       4.23 f
+  data arrival time                                                  4.23
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/h_reg[30]/CK (DFF_X1)                       0.00      10.00 r
+  library setup time                                     -0.05       9.95
+  data required time                                                 9.95
+  --------------------------------------------------------------------------
+  data required time                                                 9.95
+  data arrival time                                                 -4.23
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.72
+
+
+  Startpoint: accel/accel/b_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/c_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  accel/accel/b_reg[0]/CK (DFF_X1)         0.00 #     0.00 r
+  accel/accel/b_reg[0]/QN (DFF_X1)         0.07       0.07 f
+  accel/accel/U121/ZN (NOR2_X1)            0.08       0.15 r
+  accel/accel/U123/ZN (NOR2_X1)            0.04       0.18 f
+  accel/accel/U124/ZN (AOI21_X1)           0.07       0.25 r
+  accel/accel/U126/ZN (NOR2_X1)            0.03       0.28 f
+  accel/accel/U127/ZN (AOI21_X1)           0.06       0.34 r
+  accel/accel/U129/ZN (NOR2_X1)            0.03       0.38 f
+  accel/accel/U130/ZN (INV_X1)             0.03       0.40 r
+  accel/accel/U131/ZN (OAI21_X1)           0.03       0.44 f
+  accel/accel/U132/ZN (INV_X1)             0.04       0.48 r
+  accel/accel/U134/ZN (NOR2_X1)            0.03       0.51 f
+  accel/accel/U135/ZN (AOI21_X1)           0.09       0.60 r
+  accel/accel/U137/ZN (NOR2_X1)            0.04       0.63 f
+  accel/accel/U138/ZN (AOI21_X1)           0.09       0.72 r
+  accel/accel/U140/ZN (NOR2_X1)            0.04       0.76 f
+  accel/accel/U141/ZN (AOI21_X1)           0.07       0.83 r
+  accel/accel/U143/ZN (XNOR2_X1)           0.04       0.87 f
+  accel/accel/U144/ZN (OR2_X1)             0.06       0.94 f
+  accel/accel/U145/ZN (NAND2_X1)           0.05       0.98 r
+  accel/accel/U146/ZN (NOR2_X1)            0.03       1.02 f
+  accel/accel/U148/ZN (OAI21_X1)           0.07       1.09 r
+  accel/accel/U150/ZN (NOR2_X1)            0.04       1.13 f
+  accel/accel/U151/ZN (AOI21_X1)           0.07       1.20 r
+  accel/accel/U152/ZN (XNOR2_X1)           0.07       1.27 r
+  accel/accel/U153/ZN (OR2_X1)             0.05       1.31 r
+  accel/accel/U186/ZN (NAND2_X1)           0.04       1.35 f
+  accel/accel/U188/ZN (XNOR2_X1)           0.06       1.41 f
+  accel/accel/U189/ZN (OR2_X1)             0.06       1.48 f
+  accel/accel/U190/ZN (NAND2_X1)           0.05       1.53 r
+  accel/accel/U191/ZN (NOR2_X1)            0.03       1.56 f
+  accel/accel/U193/ZN (OAI21_X1)           0.07       1.63 r
+  accel/accel/U194/ZN (NOR2_X1)            0.04       1.67 f
+  accel/accel/U196/ZN (OAI21_X1)           0.08       1.74 r
+  accel/accel/U197/ZN (NOR2_X1)            0.04       1.78 f
+  accel/accel/U199/ZN (OAI21_X1)           0.08       1.86 r
+  accel/accel/U200/ZN (NOR2_X1)            0.04       1.89 f
+  accel/accel/U202/ZN (OAI21_X1)           0.06       1.95 r
+  accel/accel/U203/ZN (XNOR2_X1)           0.07       2.02 r
+  accel/accel/U204/ZN (OR2_X1)             0.05       2.07 r
+  accel/accel/U215/ZN (NAND2_X1)           0.04       2.11 f
+  accel/accel/U217/ZN (INV_X1)             0.04       2.14 r
+  accel/accel/U218/ZN (NAND2_X1)           0.03       2.18 f
+  accel/accel/U219/ZN (NAND2_X1)           0.03       2.21 r
+  accel/accel/U220/ZN (NAND2_X1)           0.04       2.25 f
+  accel/accel/U221/ZN (NOR2_X1)            0.06       2.31 r
+  accel/accel/U223/ZN (OAI21_X1)           0.05       2.35 f
+  accel/accel/U224/ZN (NOR2_X1)            0.06       2.41 r
+  accel/accel/U226/ZN (OAI21_X1)           0.04       2.45 f
+  accel/accel/U228/Z (XOR2_X1)             0.08       2.53 f
+  accel/accel/U229/ZN (NAND2_X1)           0.04       2.57 r
+  accel/accel/U230/ZN (NAND2_X1)           0.05       2.62 f
+  accel/accel/U231/ZN (NOR2_X1)            0.06       2.68 r
+  accel/accel/U233/ZN (OAI21_X1)           0.04       2.72 f
+  accel/accel/U235/ZN (INV_X1)             0.04       2.76 r
+  accel/accel/U236/ZN (NAND2_X1)           0.03       2.79 f
+  accel/accel/U237/ZN (NAND2_X1)           0.03       2.82 r
+  accel/accel/U238/ZN (NAND2_X1)           0.03       2.85 f
+  accel/accel/U240/Z (XOR2_X1)             0.08       2.93 f
+  accel/accel/U241/ZN (NAND2_X1)           0.04       2.97 r
+  accel/accel/U242/ZN (NAND2_X1)           0.04       3.01 f
+  accel/accel/U243/ZN (XNOR2_X1)           0.06       3.07 f
+  accel/accel/U244/ZN (OR2_X1)             0.06       3.14 f
+  accel/accel/U960/ZN (NAND2_X1)           0.04       3.18 r
+  accel/accel/U961/Z (XOR2_X1)             0.09       3.27 r
+  accel/accel/U962/ZN (NAND2_X1)           0.05       3.31 f
+  accel/accel/U966/ZN (NAND2_X1)           0.05       3.36 r
+  accel/accel/U967/ZN (INV_X1)             0.03       3.39 f
+  accel/accel/U972/ZN (NAND2_X1)           0.03       3.42 r
+  accel/accel/U973/ZN (NAND2_X1)           0.03       3.45 f
+  accel/accel/U974/ZN (NAND2_X1)           0.04       3.50 r
+  accel/accel/U979/ZN (NOR2_X1)            0.03       3.53 f
+  accel/accel/U981/ZN (OAI21_X1)           0.07       3.60 r
+  accel/accel/U986/ZN (NOR2_X1)            0.04       3.64 f
+  accel/accel/U988/ZN (OAI21_X1)           0.08       3.72 r
+  accel/accel/U993/ZN (NOR2_X1)            0.04       3.75 f
+  accel/accel/U995/ZN (OAI21_X1)           0.06       3.81 r
+  accel/accel/U996/Z (XOR2_X1)             0.09       3.90 r
+  accel/accel/U997/ZN (NAND2_X1)           0.05       3.95 f
+  accel/accel/U1001/ZN (NAND2_X1)          0.04       3.99 r
+  accel/accel/U1002/ZN (XNOR2_X1)          0.06       4.05 r
+  accel/accel/U1004/ZN (AOI21_X1)          0.04       4.09 f
+  accel/accel/U3004/ZN (AOI21_X1)          0.07       4.16 r
+  accel/accel/U3006/ZN (OAI221_X1)         0.05       4.21 f
+  accel/accel/c_reg[31]/D (DFF_X1)         0.01       4.22 f
+  data arrival time                                   4.22
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  accel/accel/c_reg[31]/CK (DFF_X1)        0.00      10.00 r
+  library setup time                      -0.05       9.95
+  data required time                                  9.95
+  -----------------------------------------------------------
+  data required time                                  9.95
+  data arrival time                                  -4.22
+  -----------------------------------------------------------
+  slack (MET)                                         5.73
+
+
+  Startpoint: accel/accel/e_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_5_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/e_reg[0]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/e_reg[0]/Q (DFF_X1)                         0.12       0.12 r
+  accel/accel/U356/ZN (NAND2_X1)                          0.05       0.18 f
+  accel/accel/U357/ZN (NOR2_X1)                           0.06       0.24 r
+  accel/accel/U359/ZN (OAI21_X1)                          0.04       0.27 f
+  accel/accel/U360/ZN (INV_X1)                            0.04       0.32 r
+  accel/accel/U362/ZN (NOR2_X1)                           0.03       0.35 f
+  accel/accel/U363/ZN (AOI21_X1)                          0.09       0.43 r
+  accel/accel/U365/ZN (NOR2_X1)                           0.04       0.47 f
+  accel/accel/U366/ZN (AOI21_X1)                          0.07       0.54 r
+  accel/accel/U369/ZN (NAND2_X1)                          0.04       0.57 f
+  accel/accel/U370/ZN (NAND2_X1)                          0.04       0.61 r
+  accel/accel/U371/ZN (NAND2_X1)                          0.03       0.64 f
+  accel/accel/U372/ZN (NOR2_X1)                           0.05       0.69 r
+  accel/accel/U373/ZN (NOR2_X1)                           0.03       0.72 f
+  accel/accel/U375/ZN (NOR2_X1)                           0.04       0.77 r
+  accel/accel/U1219/CO (FA_X1)                            0.08       0.85 r
+  accel/accel/U376/ZN (NOR2_X1)                           0.03       0.88 f
+  accel/accel/U378/ZN (OAI21_X1)                          0.06       0.94 r
+  accel/accel/U380/ZN (XNOR2_X1)                          0.07       1.01 r
+  accel/accel/U381/ZN (NAND2_X1)                          0.05       1.06 f
+  accel/accel/U382/ZN (NAND2_X1)                          0.04       1.10 r
+  accel/accel/U384/Z (XOR2_X1)                            0.08       1.18 r
+  accel/accel/U385/ZN (NAND2_X1)                          0.04       1.22 f
+  accel/accel/U386/ZN (NAND2_X1)                          0.04       1.26 r
+  accel/accel/U388/Z (XOR2_X1)                            0.08       1.34 r
+  accel/accel/U389/ZN (NAND2_X1)                          0.04       1.38 f
+  accel/accel/U390/ZN (NAND2_X1)                          0.05       1.43 r
+  accel/accel/U391/ZN (NOR2_X1)                           0.03       1.47 f
+  accel/accel/U393/ZN (OAI21_X1)                          0.06       1.52 r
+  accel/accel/U395/ZN (XNOR2_X1)                          0.07       1.59 r
+  accel/accel/U396/ZN (OR2_X1)                            0.05       1.64 r
+  accel/accel/U397/ZN (NAND2_X1)                          0.04       1.69 f
+  accel/accel/U398/ZN (NOR2_X1)                           0.06       1.75 r
+  accel/accel/U400/ZN (OAI21_X1)                          0.05       1.79 f
+  accel/accel/U401/ZN (NOR2_X1)                           0.06       1.85 r
+  accel/accel/U403/ZN (OAI21_X1)                          0.04       1.89 f
+  accel/accel/U405/ZN (XNOR2_X1)                          0.06       1.96 f
+  accel/accel/U406/ZN (OR2_X1)                            0.06       2.02 f
+  accel/accel/U407/ZN (NAND2_X1)                          0.05       2.07 r
+  accel/accel/U408/ZN (NOR2_X1)                           0.03       2.11 f
+  accel/accel/U410/ZN (OAI21_X1)                          0.06       2.16 r
+  accel/accel/U412/Z (XOR2_X1)                            0.09       2.25 r
+  accel/accel/U413/ZN (NAND2_X1)                          0.04       2.29 f
+  accel/accel/U414/ZN (NAND2_X1)                          0.05       2.34 r
+  accel/accel/U415/ZN (NOR2_X1)                           0.03       2.38 f
+  accel/accel/U417/ZN (OAI21_X1)                          0.06       2.43 r
+  accel/accel/U419/Z (XOR2_X1)                            0.09       2.53 r
+  accel/accel/U420/ZN (NAND2_X1)                          0.05       2.57 f
+  accel/accel/U421/ZN (NAND2_X1)                          0.04       2.62 r
+  accel/accel/U423/Z (XOR2_X1)                            0.08       2.69 r
+  accel/accel/U424/ZN (NAND2_X1)                          0.04       2.74 f
+  accel/accel/U425/ZN (OAI21_X1)                          0.04       2.78 r
+  accel/accel/U1261/CO (FA_X1)                            0.08       2.86 r
+  accel/accel/U427/Z (XOR2_X1)                            0.08       2.93 r
+  accel/accel/U428/ZN (NAND2_X1)                          0.04       2.98 f
+  accel/accel/U429/ZN (NAND2_X1)                          0.04       3.02 r
+  accel/accel/U430/Z (XOR2_X1)                            0.08       3.10 r
+  accel/accel/U431/ZN (NAND2_X1)                          0.04       3.14 f
+  accel/accel/U1268/ZN (NAND2_X1)                         0.05       3.19 r
+  accel/accel/U1273/ZN (NOR2_X1)                          0.03       3.23 f
+  accel/accel/U1275/ZN (OAI21_X1)                         0.10       3.32 r
+  accel/accel/U1281/ZN (OAI21_X1)                         0.04       3.37 f
+  accel/accel/U1282/ZN (NAND2_X1)                         0.04       3.40 r
+  accel/accel/U1285/CO (FA_X1)                            0.08       3.48 r
+  accel/accel/U1290/ZN (NOR2_X1)                          0.03       3.52 f
+  accel/accel/U1292/ZN (OAI21_X1)                         0.07       3.59 r
+  accel/accel/U1297/ZN (NOR2_X1)                          0.04       3.63 f
+  accel/accel/U1299/ZN (OAI21_X1)                         0.06       3.68 r
+  accel/accel/U1300/Z (XOR2_X1)                           0.09       3.78 r
+  accel/accel/U1301/ZN (NAND2_X1)                         0.05       3.82 f
+  accel/accel/U1305/ZN (NAND2_X1)                         0.04       3.87 r
+  accel/accel/U1306/Z (XOR2_X1)                           0.08       3.94 r
+  accel/accel/U1307/ZN (NAND2_X1)                         0.04       3.99 f
+  accel/accel/U1312/ZN (NAND2_X1)                         0.04       4.02 r
+  accel/accel/U1313/ZN (XNOR2_X1)                         0.06       4.09 r
+  accel/accel/U1315/ZN (NOR2_X1)                          0.03       4.12 f
+  accel/accel/U1316/ZN (INV_X1)                           0.03       4.15 r
+  accel/accel/U1317/ZN (NAND2_X1)                         0.03       4.17 f
+  accel/accel/U1318/ZN (OAI221_X1)                        0.05       4.22 r
+  accel/accel/hash_val_5_reg[31]/D (DFF_X1)               0.01       4.23 r
+  data arrival time                                                  4.23
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/hash_val_5_reg[31]/CK (DFF_X1)              0.00      10.00 r
+  library setup time                                     -0.04       9.96
+  data required time                                                 9.96
+  --------------------------------------------------------------------------
+  data required time                                                 9.96
+  data arrival time                                                 -4.23
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.73
+
+
+  Startpoint: accel/accel/f_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/hash_val_6_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  accel/accel/f_reg[0]/CK (DFF_X1)                        0.00 #     0.00 r
+  accel/accel/f_reg[0]/QN (DFF_X1)                        0.08       0.08 f
+  accel/accel/U279/ZN (NOR2_X1)                           0.08       0.16 r
+  accel/accel/U281/ZN (NOR2_X1)                           0.04       0.20 f
+  accel/accel/U282/ZN (AOI21_X1)                          0.07       0.26 r
+  accel/accel/U284/ZN (NOR2_X1)                           0.03       0.30 f
+  accel/accel/U285/ZN (AOI21_X1)                          0.09       0.38 r
+  accel/accel/U287/ZN (NOR2_X1)                           0.04       0.42 f
+  accel/accel/U288/ZN (AOI21_X1)                          0.07       0.49 r
+  accel/accel/U290/ZN (XNOR2_X1)                          0.07       0.56 r
+  accel/accel/U291/ZN (OR2_X1)                            0.05       0.61 r
+  accel/accel/U292/ZN (NAND2_X1)                          0.04       0.65 f
+  accel/accel/U293/ZN (NOR2_X1)                           0.06       0.71 r
+  accel/accel/U295/ZN (OAI21_X1)                          0.04       0.75 f
+  accel/accel/U297/ZN (XNOR2_X1)                          0.07       0.81 r
+  accel/accel/U298/ZN (NOR2_X1)                           0.03       0.85 f
+  accel/accel/U299/ZN (NOR2_X1)                           0.06       0.90 r
+  accel/accel/U300/ZN (INV_X1)                            0.03       0.94 f
+  accel/accel/U301/ZN (NOR2_X1)                           0.06       0.99 r
+  accel/accel/U303/ZN (OAI21_X1)                          0.04       1.03 f
+  accel/accel/U305/ZN (INV_X1)                            0.04       1.07 r
+  accel/accel/U306/ZN (NOR2_X1)                           0.03       1.10 f
+  accel/accel/U307/ZN (INV_X1)                            0.03       1.13 r
+  accel/accel/U308/ZN (OAI21_X1)                          0.03       1.16 f
+  accel/accel/U1348/CO (FA_X1)                            0.09       1.25 f
+  accel/accel/U309/ZN (XNOR2_X1)                          0.06       1.31 f
+  accel/accel/U310/ZN (OR2_X1)                            0.06       1.38 f
+  accel/accel/U315/ZN (NAND2_X1)                          0.05       1.43 r
+  accel/accel/U316/ZN (NOR2_X1)                           0.03       1.46 f
+  accel/accel/U318/ZN (OAI21_X1)                          0.07       1.53 r
+  accel/accel/U319/ZN (NOR2_X1)                           0.04       1.57 f
+  accel/accel/U321/ZN (OAI21_X1)                          0.05       1.62 r
+  accel/accel/U323/ZN (NOR2_X1)                           0.03       1.66 f
+  accel/accel/U324/ZN (AOI21_X1)                          0.08       1.73 r
+  accel/accel/U327/ZN (INV_X1)                            0.03       1.76 f
+  accel/accel/U328/ZN (NOR2_X1)                           0.05       1.81 r
+  accel/accel/U329/ZN (AOI21_X1)                          0.03       1.85 f
+  accel/accel/U330/ZN (INV_X1)                            0.04       1.89 r
+  accel/accel/U331/ZN (NOR2_X1)                           0.03       1.92 f
+  accel/accel/U333/ZN (OAI21_X1)                          0.06       1.98 r
+  accel/accel/U335/ZN (INV_X1)                            0.03       2.01 f
+  accel/accel/U336/ZN (NAND2_X1)                          0.04       2.05 r
+  accel/accel/U337/ZN (NAND2_X1)                          0.03       2.08 f
+  accel/accel/U338/ZN (NAND2_X1)                          0.04       2.11 r
+  accel/accel/U340/ZN (INV_X1)                            0.03       2.14 f
+  accel/accel/U341/ZN (NAND2_X1)                          0.03       2.18 r
+  accel/accel/U342/ZN (NAND2_X1)                          0.03       2.21 f
+  accel/accel/U343/ZN (NAND2_X1)                          0.04       2.24 r
+  accel/accel/U344/ZN (XNOR2_X1)                          0.07       2.31 r
+  accel/accel/U345/ZN (NOR2_X1)                           0.03       2.34 f
+  accel/accel/U346/ZN (INV_X1)                            0.03       2.37 r
+  accel/accel/U576/ZN (NAND2_X1)                          0.03       2.41 f
+  accel/accel/U578/ZN (XNOR2_X1)                          0.06       2.47 f
+  accel/accel/U579/ZN (NOR2_X1)                           0.07       2.54 r
+  accel/accel/U580/ZN (NOR2_X1)                           0.04       2.57 f
+  accel/accel/U581/ZN (XNOR2_X1)                          0.06       2.64 f
+  accel/accel/U582/ZN (NOR2_X1)                           0.07       2.70 r
+  accel/accel/U583/ZN (INV_X1)                            0.03       2.73 f
+  accel/accel/U584/ZN (OAI21_X1)                          0.04       2.76 r
+  accel/accel/U1382/CO (FA_X1)                            0.07       2.84 r
+  accel/accel/U586/ZN (XNOR2_X1)                          0.06       2.90 r
+  accel/accel/U587/ZN (NOR2_X1)                           0.03       2.94 f
+  accel/accel/U588/ZN (NOR2_X1)                           0.06       2.99 r
+  accel/accel/U589/ZN (INV_X1)                            0.03       3.02 f
+  accel/accel/U590/ZN (NOR2_X1)                           0.06       3.08 r
+  accel/accel/U592/ZN (OAI21_X1)                          0.05       3.13 f
+  accel/accel/U593/ZN (NOR2_X1)                           0.06       3.19 r
+  accel/accel/U595/ZN (OAI21_X1)                          0.04       3.23 f
+  accel/accel/U597/ZN (INV_X1)                            0.04       3.27 r
+  accel/accel/U598/ZN (NAND2_X1)                          0.03       3.30 f
+  accel/accel/U599/ZN (NAND2_X1)                          0.03       3.33 r
+  accel/accel/U600/ZN (NAND2_X1)                          0.04       3.37 f
+  accel/accel/U601/ZN (NOR2_X1)                           0.06       3.43 r
+  accel/accel/U603/ZN (OAI21_X1)                          0.05       3.48 f
+  accel/accel/U604/ZN (NOR2_X1)                           0.06       3.54 r
+  accel/accel/U606/ZN (OAI21_X1)                          0.04       3.58 f
+  accel/accel/U608/ZN (INV_X1)                            0.04       3.62 r
+  accel/accel/U609/ZN (NAND2_X1)                          0.03       3.65 f
+  accel/accel/U610/ZN (NAND2_X1)                          0.03       3.68 r
+  accel/accel/U611/ZN (NAND2_X1)                          0.03       3.71 f
+  accel/accel/U612/ZN (XNOR2_X1)                          0.06       3.77 f
+  accel/accel/U613/ZN (NOR2_X1)                           0.05       3.82 r
+  accel/accel/U614/ZN (INV_X1)                            0.03       3.85 f
+  accel/accel/U1410/ZN (NAND2_X1)                         0.04       3.89 r
+  accel/accel/U1411/Z (XOR2_X1)                           0.09       3.98 r
+  accel/accel/U1412/ZN (NAND2_X1)                         0.04       4.02 f
+  accel/accel/U1416/ZN (NAND2_X1)                         0.03       4.05 r
+  accel/accel/U1417/ZN (XNOR2_X1)                         0.06       4.11 r
+  accel/accel/U1419/ZN (AOI21_X1)                         0.04       4.15 f
+  accel/accel/U1420/ZN (INV_X1)                           0.03       4.18 r
+  accel/accel/U1421/ZN (OAI22_X1)                         0.03       4.21 f
+  accel/accel/hash_val_6_reg[31]/D (DFF_X1)               0.01       4.22 f
+  data arrival time                                                  4.22
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  accel/accel/hash_val_6_reg[31]/CK (DFF_X1)              0.00      10.00 r
+  library setup time                                     -0.04       9.96
+  data required time                                                 9.96
+  --------------------------------------------------------------------------
+  data required time                                                 9.96
+  data arrival time                                                 -4.22
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.74
+
+
+  Startpoint: accel/accel/i_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: accel/accel/e_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Sha256Wishbone     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  accel/accel/i_reg[1]/CK (DFF_X1)         0.00 #     0.00 r
+  accel/accel/i_reg[1]/Q (DFF_X1)          0.16       0.16 r
+  accel/accel/U14/ZN (NAND2_X1)            0.07       0.23 f
+  accel/accel/U27/ZN (NOR2_X1)             0.11       0.34 r
+  accel/accel/U16/ZN (NAND2_X1)            0.10       0.44 f
+  accel/accel/U723/ZN (INV_X1)             0.20       0.64 r
+  accel/accel/U1684/ZN (AOI21_X1)          0.06       0.70 f
+  accel/accel/intadd_8/U5/CO (FA_X1)       0.11       0.81 f
+  accel/accel/intadd_8/U4/S (FA_X1)        0.11       0.92 f
+  accel/accel/U1783/CO (FA_X1)             0.11       1.03 f
+  accel/accel/intadd_8/U3/CO (FA_X1)       0.10       1.13 f
+  accel/accel/intadd_8/U2/CO (FA_X1)       0.09       1.22 f
+  accel/accel/U667/ZN (INV_X1)             0.03       1.25 r
+  accel/accel/intadd_3/U28/S (FA_X1)       0.09       1.34 r
+  accel/accel/U624/ZN (INV_X1)             0.03       1.37 f
+  accel/accel/intadd_1/U28/CO (FA_X1)      0.10       1.47 f
+  accel/accel/intadd_1/U27/CO (FA_X1)      0.09       1.56 f
+  accel/accel/intadd_1/U26/CO (FA_X1)      0.09       1.65 f
+  accel/accel/intadd_1/U25/CO (FA_X1)      0.09       1.74 f
+  accel/accel/intadd_1/U24/S (FA_X1)       0.12       1.86 f
+  accel/accel/U623/ZN (INV_X1)             0.04       1.89 r
+  accel/accel/intadd_7/U2/CO (FA_X1)       0.08       1.98 r
+  accel/accel/U3048/ZN (INV_X1)            0.03       2.00 f
+  accel/accel/U3049/ZN (AOI21_X1)          0.05       2.05 r
+  accel/accel/U3051/ZN (OAI22_X1)          0.04       2.10 f
+  accel/accel/U3056/CO (FA_X1)             0.11       2.21 f
+  accel/accel/U3063/ZN (AOI21_X1)          0.06       2.27 r
+  accel/accel/U3064/ZN (AOI21_X1)          0.03       2.30 f
+  accel/accel/intadd_5/U9/CO (FA_X1)       0.10       2.40 f
+  accel/accel/intadd_5/U8/CO (FA_X1)       0.09       2.49 f
+  accel/accel/intadd_5/U7/CO (FA_X1)       0.09       2.59 f
+  accel/accel/intadd_5/U6/CO (FA_X1)       0.09       2.68 f
+  accel/accel/intadd_5/U5/CO (FA_X1)       0.09       2.77 f
+  accel/accel/intadd_5/U4/CO (FA_X1)       0.09       2.86 f
+  accel/accel/intadd_5/U3/CO (FA_X1)       0.09       2.95 f
+  accel/accel/intadd_5/U2/CO (FA_X1)       0.10       3.05 f
+  accel/accel/U3091/ZN (AOI21_X1)          0.06       3.11 r
+  accel/accel/U3093/ZN (OAI21_X1)          0.04       3.14 f
+  accel/accel/intadd_9/U4/CO (FA_X1)       0.10       3.25 f
+  accel/accel/intadd_9/U3/CO (FA_X1)       0.09       3.34 f
+  accel/accel/intadd_9/U2/CO (FA_X1)       0.10       3.44 f
+  accel/accel/U3111/ZN (AOI21_X1)          0.06       3.50 r
+  accel/accel/U3112/ZN (AOI21_X1)          0.03       3.53 f
+  accel/accel/intadd_6/U7/CO (FA_X1)       0.10       3.63 f
+  accel/accel/intadd_6/U6/CO (FA_X1)       0.09       3.73 f
+  accel/accel/intadd_6/U5/CO (FA_X1)       0.09       3.82 f
+  accel/accel/intadd_6/U4/CO (FA_X1)       0.09       3.91 f
+  accel/accel/intadd_6/U3/CO (FA_X1)       0.09       4.00 f
+  accel/accel/intadd_6/U2/S (FA_X1)        0.11       4.10 f
+  accel/accel/U3128/ZN (AOI22_X1)          0.05       4.15 r
+  accel/accel/U3129/ZN (OAI211_X1)         0.05       4.20 f
+  accel/accel/e_reg[30]/D (DFF_X1)         0.01       4.21 f
+  data arrival time                                   4.21
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  accel/accel/e_reg[30]/CK (DFF_X1)        0.00      10.00 r
+  library setup time                      -0.05       9.95
+  data required time                                  9.95
+  -----------------------------------------------------------
+  data required time                                  9.95
+  data arrival time                                  -4.21
+  -----------------------------------------------------------
+  slack (MET)                                         5.74
+
+
+1

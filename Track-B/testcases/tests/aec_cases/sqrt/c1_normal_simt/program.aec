@@ -1,0 +1,12 @@
+LOADI.none R10, 0x100
+CPY.u32 R1, %laneid
+LOADI.none R2, 4
+MUL.u32 R3, R1, R2
+ADD.u32 R10, R10, R3
+LOADI.none R5, 1
+ADD.u32 R4, R1, R5
+CVTIF.f32.u32 R4, R4
+SQRT.full.f32 R8, R4
+ST.gmem.u32 [R10], R8
+HALT
+

@@ -1,0 +1,1397 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : VexRiscv_small
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:02:29 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[31]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/CO (FA_X1)                                0.09       2.63 f
+  add_859/U1_27/CO (FA_X1)                                0.09       2.72 f
+  add_859/U1_28/CO (FA_X1)                                0.09       2.81 f
+  add_859/U1_29/CO (FA_X1)                                0.09       2.91 f
+  add_859/U1_30/CO (FA_X1)                                0.09       3.00 f
+  add_859/U1_31/S (FA_X1)                                 0.13       3.13 r
+  add_859/SUM[31] (VexRiscv_small_DW01_add_3)             0.00       3.13 r
+  add_858/A[31] (VexRiscv_small_DW01_add_2)               0.00       3.13 r
+  add_858/U1/Z (XOR2_X1)                                  0.06       3.19 r
+  add_858/SUM[31] (VexRiscv_small_DW01_add_2)             0.00       3.19 r
+  U3124/ZN (NAND2_X1)                                     0.03       3.22 f
+  U3123/ZN (OAI21_X1)                                     0.05       3.27 r
+  dBus_cmd_payload_address[31] (out)                      0.01       3.28 r
+  data arrival time                                                  3.28
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -3.28
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.72
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[30]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/CO (FA_X1)                                0.09       2.63 f
+  add_859/U1_27/CO (FA_X1)                                0.09       2.72 f
+  add_859/U1_28/CO (FA_X1)                                0.09       2.81 f
+  add_859/U1_29/CO (FA_X1)                                0.09       2.91 f
+  add_859/U1_30/S (FA_X1)                                 0.14       3.04 r
+  add_859/SUM[30] (VexRiscv_small_DW01_add_3)             0.00       3.04 r
+  add_858/A[30] (VexRiscv_small_DW01_add_2)               0.00       3.04 r
+  add_858/U4/Z (XOR2_X1)                                  0.07       3.11 r
+  add_858/SUM[30] (VexRiscv_small_DW01_add_2)             0.00       3.11 r
+  U3428/ZN (NAND2_X1)                                     0.03       3.14 f
+  U3427/ZN (OAI21_X1)                                     0.04       3.18 r
+  dBus_cmd_payload_address[30] (out)                      0.01       3.19 r
+  data arrival time                                                  3.19
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -3.19
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.81
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[29]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/CO (FA_X1)                                0.09       2.63 f
+  add_859/U1_27/CO (FA_X1)                                0.09       2.72 f
+  add_859/U1_28/CO (FA_X1)                                0.09       2.81 f
+  add_859/U1_29/S (FA_X1)                                 0.14       2.95 r
+  add_859/SUM[29] (VexRiscv_small_DW01_add_3)             0.00       2.95 r
+  add_858/A[29] (VexRiscv_small_DW01_add_2)               0.00       2.95 r
+  add_858/U3/Z (XOR2_X1)                                  0.07       3.02 r
+  add_858/SUM[29] (VexRiscv_small_DW01_add_2)             0.00       3.02 r
+  U3426/ZN (NAND2_X1)                                     0.03       3.05 f
+  U3425/ZN (OAI21_X1)                                     0.04       3.09 r
+  dBus_cmd_payload_address[29] (out)                      0.01       3.10 r
+  data arrival time                                                  3.10
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -3.10
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.90
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[28]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/CO (FA_X1)                                0.09       2.63 f
+  add_859/U1_27/CO (FA_X1)                                0.09       2.72 f
+  add_859/U1_28/S (FA_X1)                                 0.14       2.86 r
+  add_859/SUM[28] (VexRiscv_small_DW01_add_3)             0.00       2.86 r
+  add_858/A[28] (VexRiscv_small_DW01_add_2)               0.00       2.86 r
+  add_858/U2/Z (XOR2_X1)                                  0.07       2.93 r
+  add_858/SUM[28] (VexRiscv_small_DW01_add_2)             0.00       2.93 r
+  U3127/ZN (NAND2_X1)                                     0.03       2.96 f
+  U3126/ZN (OAI21_X1)                                     0.04       3.00 r
+  dBus_cmd_payload_address[28] (out)                      0.01       3.01 r
+  data arrival time                                                  3.01
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -3.01
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.99
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[27]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/CO (FA_X1)                                0.09       2.63 f
+  add_859/U1_27/S (FA_X1)                                 0.14       2.77 r
+  add_859/SUM[27] (VexRiscv_small_DW01_add_3)             0.00       2.77 r
+  add_858/A[27] (VexRiscv_small_DW01_add_2)               0.00       2.77 r
+  add_858/U9/Z (XOR2_X1)                                  0.07       2.84 r
+  add_858/SUM[27] (VexRiscv_small_DW01_add_2)             0.00       2.84 r
+  U3152/ZN (NAND2_X1)                                     0.03       2.87 f
+  U3151/ZN (OAI21_X1)                                     0.04       2.91 r
+  dBus_cmd_payload_address[27] (out)                      0.01       2.92 r
+  data arrival time                                                  2.92
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -2.92
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.08
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[26]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/S (FA_X1)                                 0.14       2.68 r
+  add_859/SUM[26] (VexRiscv_small_DW01_add_3)             0.00       2.68 r
+  add_858/A[26] (VexRiscv_small_DW01_add_2)               0.00       2.68 r
+  add_858/U8/Z (XOR2_X1)                                  0.07       2.75 r
+  add_858/SUM[26] (VexRiscv_small_DW01_add_2)             0.00       2.75 r
+  U3150/ZN (NAND2_X1)                                     0.03       2.77 f
+  U3149/ZN (OAI21_X1)                                     0.04       2.82 r
+  dBus_cmd_payload_address[26] (out)                      0.01       2.83 r
+  data arrival time                                                  2.83
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -2.83
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.17
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[25]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/S (FA_X1)                                 0.14       2.59 r
+  add_859/SUM[25] (VexRiscv_small_DW01_add_3)             0.00       2.59 r
+  add_858/A[25] (VexRiscv_small_DW01_add_2)               0.00       2.59 r
+  add_858/U15/Z (XOR2_X1)                                 0.07       2.66 r
+  add_858/SUM[25] (VexRiscv_small_DW01_add_2)             0.00       2.66 r
+  U3166/ZN (NAND2_X1)                                     0.03       2.68 f
+  U3165/ZN (OAI21_X1)                                     0.04       2.72 r
+  dBus_cmd_payload_address[25] (out)                      0.01       2.73 r
+  data arrival time                                                  2.73
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -2.73
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.27
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[24]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/S (FA_X1)                                 0.14       2.50 r
+  add_859/SUM[24] (VexRiscv_small_DW01_add_3)             0.00       2.50 r
+  add_858/A[24] (VexRiscv_small_DW01_add_2)               0.00       2.50 r
+  add_858/U14/Z (XOR2_X1)                                 0.07       2.57 r
+  add_858/SUM[24] (VexRiscv_small_DW01_add_2)             0.00       2.57 r
+  U3164/ZN (NAND2_X1)                                     0.03       2.59 f
+  U3163/ZN (OAI21_X1)                                     0.04       2.63 r
+  dBus_cmd_payload_address[24] (out)                      0.01       2.64 r
+  data arrival time                                                  2.64
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -2.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.36
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: execute_to_memory_BRANCH_DO_reg
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/CO (FA_X1)                                0.09       2.63 f
+  add_859/U1_27/CO (FA_X1)                                0.09       2.72 f
+  add_859/U1_28/CO (FA_X1)                                0.09       2.81 f
+  add_859/U1_29/CO (FA_X1)                                0.09       2.91 f
+  add_859/U1_30/CO (FA_X1)                                0.09       3.00 f
+  add_859/U1_31/S (FA_X1)                                 0.11       3.10 f
+  add_859/SUM[31] (VexRiscv_small_DW01_add_3)             0.00       3.10 f
+  add_858/A[31] (VexRiscv_small_DW01_add_2)               0.00       3.10 f
+  add_858/U1/Z (XOR2_X1)                                  0.07       3.17 f
+  add_858/SUM[31] (VexRiscv_small_DW01_add_2)             0.00       3.17 f
+  U3124/ZN (NAND2_X1)                                     0.03       3.20 r
+  U3123/ZN (OAI21_X1)                                     0.04       3.24 f
+  U2801/Z (MUX2_X1)                                       0.09       3.33 f
+  U3462/ZN (AOI22_X1)                                     0.07       3.40 r
+  U3468/ZN (AOI22_X1)                                     0.03       3.43 f
+  U3471/ZN (OAI22_X1)                                     0.06       3.49 r
+  U3470/ZN (AOI21_X1)                                     0.03       3.52 f
+  U3469/ZN (OAI22_X1)                                     0.05       3.58 r
+  execute_to_memory_BRANCH_DO_reg/D (DFF_X1)              0.01       3.59 r
+  data arrival time                                                  3.59
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  execute_to_memory_BRANCH_DO_reg/CK (DFF_X1)             0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.59
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.37
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: execute_to_memory_REGFILE_WRITE_DATA_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/CO (FA_X1)                                0.09       2.63 f
+  add_859/U1_27/CO (FA_X1)                                0.09       2.72 f
+  add_859/U1_28/CO (FA_X1)                                0.09       2.81 f
+  add_859/U1_29/CO (FA_X1)                                0.09       2.91 f
+  add_859/U1_30/CO (FA_X1)                                0.09       3.00 f
+  add_859/U1_31/S (FA_X1)                                 0.11       3.10 f
+  add_859/SUM[31] (VexRiscv_small_DW01_add_3)             0.00       3.10 f
+  add_858/A[31] (VexRiscv_small_DW01_add_2)               0.00       3.10 f
+  add_858/U1/Z (XOR2_X1)                                  0.07       3.17 f
+  add_858/SUM[31] (VexRiscv_small_DW01_add_2)             0.00       3.17 f
+  U3124/ZN (NAND2_X1)                                     0.03       3.20 r
+  U3123/ZN (OAI21_X1)                                     0.04       3.24 f
+  U2801/Z (MUX2_X1)                                       0.09       3.33 f
+  U739/ZN (NAND3_X1)                                      0.04       3.37 r
+  U737/ZN (OAI33_X1)                                      0.04       3.41 f
+  U3437/ZN (AOI221_X1)                                    0.09       3.50 r
+  U3435/ZN (NAND2_X1)                                     0.03       3.53 f
+  execute_to_memory_REGFILE_WRITE_DATA_reg[0]/D (DFF_X1)
+                                                          0.01       3.54 f
+  data arrival time                                                  3.54
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  execute_to_memory_REGFILE_WRITE_DATA_reg[0]/CK (DFF_X1)
+                                                          0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.54
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.42
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[23]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/S (FA_X1)                                 0.14       2.41 r
+  add_859/SUM[23] (VexRiscv_small_DW01_add_3)             0.00       2.41 r
+  add_858/A[23] (VexRiscv_small_DW01_add_2)               0.00       2.41 r
+  add_858/U13/Z (XOR2_X1)                                 0.07       2.47 r
+  add_858/SUM[23] (VexRiscv_small_DW01_add_2)             0.00       2.47 r
+  U3162/ZN (NAND2_X1)                                     0.03       2.50 f
+  U3161/ZN (OAI21_X1)                                     0.04       2.54 r
+  dBus_cmd_payload_address[23] (out)                      0.01       2.55 r
+  data arrival time                                                  2.55
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -2.55
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.45
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[22]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/S (FA_X1)                                 0.14       2.32 r
+  add_859/SUM[22] (VexRiscv_small_DW01_add_3)             0.00       2.32 r
+  add_858/A[22] (VexRiscv_small_DW01_add_2)               0.00       2.32 r
+  add_858/U7/Z (XOR2_X1)                                  0.07       2.38 r
+  add_858/SUM[22] (VexRiscv_small_DW01_add_2)             0.00       2.38 r
+  U3148/ZN (NAND2_X1)                                     0.03       2.41 f
+  U3147/ZN (OAI21_X1)                                     0.04       2.45 r
+  dBus_cmd_payload_address[22] (out)                      0.01       2.46 r
+  data arrival time                                                  2.46
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -2.46
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.54
+
+
+  Startpoint: decode_to_execute_BRANCH_CTRL_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: execute_to_memory_BRANCH_CALC_reg[31]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_BRANCH_CTRL_reg[1]/CK (DFF_X1)        0.00 #     0.00 r
+  decode_to_execute_BRANCH_CTRL_reg[1]/QN (DFF_X1)        0.08       0.08 f
+  U3473/ZN (NOR2_X1)                                      0.17       0.25 r
+  U3154/Z (BUF_X1)                                        0.17       0.43 r
+  U3128/ZN (OAI22_X1)                                     0.07       0.50 f
+  add_2601/A[1] (VexRiscv_small_DW01_add_0)               0.00       0.50 f
+  add_2601/U4/ZN (OAI211_X1)                              0.05       0.55 r
+  add_2601/U3/ZN (OAI21_X1)                               0.04       0.59 f
+  add_2601/U1_2/CO (FA_X1)                                0.09       0.68 f
+  add_2601/U1_3/CO (FA_X1)                                0.09       0.77 f
+  add_2601/U1_4/CO (FA_X1)                                0.09       0.86 f
+  add_2601/U1_5/CO (FA_X1)                                0.09       0.95 f
+  add_2601/U1_6/CO (FA_X1)                                0.09       1.04 f
+  add_2601/U1_7/CO (FA_X1)                                0.09       1.13 f
+  add_2601/U1_8/CO (FA_X1)                                0.09       1.22 f
+  add_2601/U1_9/CO (FA_X1)                                0.09       1.31 f
+  add_2601/U1_10/CO (FA_X1)                               0.09       1.40 f
+  add_2601/U1_11/CO (FA_X1)                               0.09       1.49 f
+  add_2601/U1_12/CO (FA_X1)                               0.09       1.58 f
+  add_2601/U1_13/CO (FA_X1)                               0.09       1.67 f
+  add_2601/U1_14/CO (FA_X1)                               0.09       1.76 f
+  add_2601/U1_15/CO (FA_X1)                               0.09       1.86 f
+  add_2601/U1_16/CO (FA_X1)                               0.09       1.95 f
+  add_2601/U1_17/CO (FA_X1)                               0.09       2.04 f
+  add_2601/U1_18/CO (FA_X1)                               0.09       2.13 f
+  add_2601/U1_19/CO (FA_X1)                               0.09       2.22 f
+  add_2601/U1_20/CO (FA_X1)                               0.09       2.31 f
+  add_2601/U1_21/CO (FA_X1)                               0.09       2.40 f
+  add_2601/U1_22/CO (FA_X1)                               0.09       2.49 f
+  add_2601/U1_23/CO (FA_X1)                               0.09       2.58 f
+  add_2601/U1_24/CO (FA_X1)                               0.09       2.67 f
+  add_2601/U1_25/CO (FA_X1)                               0.09       2.76 f
+  add_2601/U1_26/CO (FA_X1)                               0.09       2.85 f
+  add_2601/U1_27/CO (FA_X1)                               0.09       2.94 f
+  add_2601/U1_28/CO (FA_X1)                               0.09       3.03 f
+  add_2601/U1_29/CO (FA_X1)                               0.09       3.12 f
+  add_2601/U1_30/CO (FA_X1)                               0.09       3.21 f
+  add_2601/U1_31/S (FA_X1)                                0.13       3.35 r
+  add_2601/SUM[31] (VexRiscv_small_DW01_add_0)            0.00       3.35 r
+  U3518/ZN (NAND2_X1)                                     0.03       3.37 f
+  U3517/ZN (OAI21_X1)                                     0.04       3.41 r
+  execute_to_memory_BRANCH_CALC_reg[31]/D (DFF_X1)        0.01       3.42 r
+  data arrival time                                                  3.42
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  execute_to_memory_BRANCH_CALC_reg[31]/CK (DFF_X1)       0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.42
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.55
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: execute_to_memory_REGFILE_WRITE_DATA_reg[31]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/CO (FA_X1)                                0.09       2.63 f
+  add_859/U1_27/CO (FA_X1)                                0.09       2.72 f
+  add_859/U1_28/CO (FA_X1)                                0.09       2.81 f
+  add_859/U1_29/CO (FA_X1)                                0.09       2.91 f
+  add_859/U1_30/CO (FA_X1)                                0.09       3.00 f
+  add_859/U1_31/S (FA_X1)                                 0.11       3.10 f
+  add_859/SUM[31] (VexRiscv_small_DW01_add_3)             0.00       3.10 f
+  add_858/A[31] (VexRiscv_small_DW01_add_2)               0.00       3.10 f
+  add_858/U1/Z (XOR2_X1)                                  0.07       3.17 f
+  add_858/SUM[31] (VexRiscv_small_DW01_add_2)             0.00       3.17 f
+  U3124/ZN (NAND2_X1)                                     0.03       3.20 r
+  U3123/ZN (OAI21_X1)                                     0.04       3.24 f
+  U3516/ZN (AOI221_X1)                                    0.08       3.32 r
+  U470/ZN (NAND3_X1)                                      0.04       3.36 f
+  execute_to_memory_REGFILE_WRITE_DATA_reg[31]/D (DFF_X1)
+                                                          0.01       3.37 f
+  data arrival time                                                  3.37
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  execute_to_memory_REGFILE_WRITE_DATA_reg[31]/CK (DFF_X1)
+                                                          0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.37
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.59
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[21]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/S (FA_X1)                                 0.14       2.23 r
+  add_859/SUM[21] (VexRiscv_small_DW01_add_3)             0.00       2.23 r
+  add_858/A[21] (VexRiscv_small_DW01_add_2)               0.00       2.23 r
+  add_858/U12/Z (XOR2_X1)                                 0.07       2.29 r
+  add_858/SUM[21] (VexRiscv_small_DW01_add_2)             0.00       2.29 r
+  U3160/ZN (NAND2_X1)                                     0.03       2.32 f
+  U3159/ZN (OAI21_X1)                                     0.04       2.36 r
+  dBus_cmd_payload_address[21] (out)                      0.01       2.37 r
+  data arrival time                                                  2.37
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -2.37
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.63
+
+
+  Startpoint: decode_to_execute_BRANCH_CTRL_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: execute_to_memory_BRANCH_CALC_reg[30]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_BRANCH_CTRL_reg[1]/CK (DFF_X1)        0.00 #     0.00 r
+  decode_to_execute_BRANCH_CTRL_reg[1]/QN (DFF_X1)        0.08       0.08 f
+  U3473/ZN (NOR2_X1)                                      0.17       0.25 r
+  U3154/Z (BUF_X1)                                        0.17       0.43 r
+  U3128/ZN (OAI22_X1)                                     0.07       0.50 f
+  add_2601/A[1] (VexRiscv_small_DW01_add_0)               0.00       0.50 f
+  add_2601/U4/ZN (OAI211_X1)                              0.05       0.55 r
+  add_2601/U3/ZN (OAI21_X1)                               0.04       0.59 f
+  add_2601/U1_2/CO (FA_X1)                                0.09       0.68 f
+  add_2601/U1_3/CO (FA_X1)                                0.09       0.77 f
+  add_2601/U1_4/CO (FA_X1)                                0.09       0.86 f
+  add_2601/U1_5/CO (FA_X1)                                0.09       0.95 f
+  add_2601/U1_6/CO (FA_X1)                                0.09       1.04 f
+  add_2601/U1_7/CO (FA_X1)                                0.09       1.13 f
+  add_2601/U1_8/CO (FA_X1)                                0.09       1.22 f
+  add_2601/U1_9/CO (FA_X1)                                0.09       1.31 f
+  add_2601/U1_10/CO (FA_X1)                               0.09       1.40 f
+  add_2601/U1_11/CO (FA_X1)                               0.09       1.49 f
+  add_2601/U1_12/CO (FA_X1)                               0.09       1.58 f
+  add_2601/U1_13/CO (FA_X1)                               0.09       1.67 f
+  add_2601/U1_14/CO (FA_X1)                               0.09       1.76 f
+  add_2601/U1_15/CO (FA_X1)                               0.09       1.86 f
+  add_2601/U1_16/CO (FA_X1)                               0.09       1.95 f
+  add_2601/U1_17/CO (FA_X1)                               0.09       2.04 f
+  add_2601/U1_18/CO (FA_X1)                               0.09       2.13 f
+  add_2601/U1_19/CO (FA_X1)                               0.09       2.22 f
+  add_2601/U1_20/CO (FA_X1)                               0.09       2.31 f
+  add_2601/U1_21/CO (FA_X1)                               0.09       2.40 f
+  add_2601/U1_22/CO (FA_X1)                               0.09       2.49 f
+  add_2601/U1_23/CO (FA_X1)                               0.09       2.58 f
+  add_2601/U1_24/CO (FA_X1)                               0.09       2.67 f
+  add_2601/U1_25/CO (FA_X1)                               0.09       2.76 f
+  add_2601/U1_26/CO (FA_X1)                               0.09       2.85 f
+  add_2601/U1_27/CO (FA_X1)                               0.09       2.94 f
+  add_2601/U1_28/CO (FA_X1)                               0.09       3.03 f
+  add_2601/U1_29/CO (FA_X1)                               0.09       3.12 f
+  add_2601/U1_30/S (FA_X1)                                0.13       3.26 r
+  add_2601/SUM[30] (VexRiscv_small_DW01_add_0)            0.00       3.26 r
+  U3484/ZN (NAND2_X1)                                     0.03       3.28 f
+  U3483/ZN (OAI21_X1)                                     0.04       3.32 r
+  execute_to_memory_BRANCH_CALC_reg[30]/D (DFF_X1)        0.01       3.33 r
+  data arrival time                                                  3.33
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  execute_to_memory_BRANCH_CALC_reg[30]/CK (DFF_X1)       0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.33
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.64
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: execute_to_memory_REGFILE_WRITE_DATA_reg[30]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/CO (FA_X1)                                0.09       2.63 f
+  add_859/U1_27/CO (FA_X1)                                0.09       2.72 f
+  add_859/U1_28/CO (FA_X1)                                0.09       2.81 f
+  add_859/U1_29/CO (FA_X1)                                0.09       2.91 f
+  add_859/U1_30/S (FA_X1)                                 0.11       3.02 f
+  add_859/SUM[30] (VexRiscv_small_DW01_add_3)             0.00       3.02 f
+  add_858/A[30] (VexRiscv_small_DW01_add_2)               0.00       3.02 f
+  add_858/U4/Z (XOR2_X1)                                  0.07       3.09 f
+  add_858/SUM[30] (VexRiscv_small_DW01_add_2)             0.00       3.09 f
+  U3428/ZN (NAND2_X1)                                     0.03       3.12 r
+  U3427/ZN (OAI21_X1)                                     0.04       3.15 f
+  U3441/ZN (AOI221_X1)                                    0.10       3.26 r
+  U3439/ZN (NAND2_X1)                                     0.03       3.29 f
+  execute_to_memory_REGFILE_WRITE_DATA_reg[30]/D (DFF_X1)
+                                                          0.01       3.29 f
+  data arrival time                                                  3.29
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  execute_to_memory_REGFILE_WRITE_DATA_reg[30]/CK (DFF_X1)
+                                                          0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.29
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.66
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: execute_to_memory_REGFILE_WRITE_DATA_reg[29]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/CO (FA_X1)                                0.09       2.09 f
+  add_859/U1_21/CO (FA_X1)                                0.09       2.18 f
+  add_859/U1_22/CO (FA_X1)                                0.09       2.27 f
+  add_859/U1_23/CO (FA_X1)                                0.09       2.36 f
+  add_859/U1_24/CO (FA_X1)                                0.09       2.45 f
+  add_859/U1_25/CO (FA_X1)                                0.09       2.54 f
+  add_859/U1_26/CO (FA_X1)                                0.09       2.63 f
+  add_859/U1_27/CO (FA_X1)                                0.09       2.72 f
+  add_859/U1_28/CO (FA_X1)                                0.09       2.81 f
+  add_859/U1_29/S (FA_X1)                                 0.11       2.93 f
+  add_859/SUM[29] (VexRiscv_small_DW01_add_3)             0.00       2.93 f
+  add_858/A[29] (VexRiscv_small_DW01_add_2)               0.00       2.93 f
+  add_858/U3/Z (XOR2_X1)                                  0.07       3.00 f
+  add_858/SUM[29] (VexRiscv_small_DW01_add_2)             0.00       3.00 f
+  U3426/ZN (NAND2_X1)                                     0.03       3.03 r
+  U3425/ZN (OAI21_X1)                                     0.04       3.06 f
+  U3467/ZN (AOI22_X1)                                     0.07       3.13 r
+  U3466/ZN (OAI221_X1)                                    0.05       3.18 f
+  U3530/ZN (INV_X1)                                       0.03       3.21 r
+  U3528/ZN (NAND2_X1)                                     0.02       3.24 f
+  execute_to_memory_REGFILE_WRITE_DATA_reg[29]/D (DFF_X1)
+                                                          0.01       3.25 f
+  data arrival time                                                  3.25
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  execute_to_memory_REGFILE_WRITE_DATA_reg[29]/CK (DFF_X1)
+                                                          0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.71
+
+
+  Startpoint: decode_to_execute_SRC_USE_SUB_LESS_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dBus_cmd_payload_address[20]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_SRC_USE_SUB_LESS_reg/CK (DFF_X1)      0.00 #     0.00 r
+  decode_to_execute_SRC_USE_SUB_LESS_reg/QN (DFF_X1)      0.17       0.17 r
+  U3125/ZN (XNOR2_X1)                                     0.06       0.23 f
+  add_859/B[0] (VexRiscv_small_DW01_add_3)                0.00       0.23 f
+  add_859/U1/ZN (AND2_X1)                                 0.05       0.28 f
+  add_859/U1_1/CO (FA_X1)                                 0.09       0.37 f
+  add_859/U1_2/CO (FA_X1)                                 0.09       0.46 f
+  add_859/U1_3/CO (FA_X1)                                 0.09       0.55 f
+  add_859/U1_4/CO (FA_X1)                                 0.09       0.64 f
+  add_859/U1_5/CO (FA_X1)                                 0.09       0.73 f
+  add_859/U1_6/CO (FA_X1)                                 0.09       0.82 f
+  add_859/U1_7/CO (FA_X1)                                 0.09       0.91 f
+  add_859/U1_8/CO (FA_X1)                                 0.09       1.00 f
+  add_859/U1_9/CO (FA_X1)                                 0.09       1.09 f
+  add_859/U1_10/CO (FA_X1)                                0.09       1.18 f
+  add_859/U1_11/CO (FA_X1)                                0.09       1.27 f
+  add_859/U1_12/CO (FA_X1)                                0.09       1.36 f
+  add_859/U1_13/CO (FA_X1)                                0.09       1.46 f
+  add_859/U1_14/CO (FA_X1)                                0.09       1.55 f
+  add_859/U1_15/CO (FA_X1)                                0.09       1.64 f
+  add_859/U1_16/CO (FA_X1)                                0.09       1.73 f
+  add_859/U1_17/CO (FA_X1)                                0.09       1.82 f
+  add_859/U1_18/CO (FA_X1)                                0.09       1.91 f
+  add_859/U1_19/CO (FA_X1)                                0.09       2.00 f
+  add_859/U1_20/S (FA_X1)                                 0.14       2.14 r
+  add_859/SUM[20] (VexRiscv_small_DW01_add_3)             0.00       2.14 r
+  add_858/A[20] (VexRiscv_small_DW01_add_2)               0.00       2.14 r
+  add_858/U11/Z (XOR2_X1)                                 0.07       2.20 r
+  add_858/SUM[20] (VexRiscv_small_DW01_add_2)             0.00       2.20 r
+  U3158/ZN (NAND2_X1)                                     0.03       2.23 f
+  U3157/ZN (OAI21_X1)                                     0.04       2.27 r
+  dBus_cmd_payload_address[20] (out)                      0.01       2.28 r
+  data arrival time                                                  2.28
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                  -1.00      99.00
+  data required time                                                99.00
+  --------------------------------------------------------------------------
+  data required time                                                99.00
+  data arrival time                                                 -2.28
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.72
+
+
+  Startpoint: decode_to_execute_BRANCH_CTRL_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: execute_to_memory_BRANCH_CALC_reg[29]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  VexRiscv_small     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  decode_to_execute_BRANCH_CTRL_reg[1]/CK (DFF_X1)        0.00 #     0.00 r
+  decode_to_execute_BRANCH_CTRL_reg[1]/QN (DFF_X1)        0.08       0.08 f
+  U3473/ZN (NOR2_X1)                                      0.17       0.25 r
+  U3154/Z (BUF_X1)                                        0.17       0.43 r
+  U3128/ZN (OAI22_X1)                                     0.07       0.50 f
+  add_2601/A[1] (VexRiscv_small_DW01_add_0)               0.00       0.50 f
+  add_2601/U4/ZN (OAI211_X1)                              0.05       0.55 r
+  add_2601/U3/ZN (OAI21_X1)                               0.04       0.59 f
+  add_2601/U1_2/CO (FA_X1)                                0.09       0.68 f
+  add_2601/U1_3/CO (FA_X1)                                0.09       0.77 f
+  add_2601/U1_4/CO (FA_X1)                                0.09       0.86 f
+  add_2601/U1_5/CO (FA_X1)                                0.09       0.95 f
+  add_2601/U1_6/CO (FA_X1)                                0.09       1.04 f
+  add_2601/U1_7/CO (FA_X1)                                0.09       1.13 f
+  add_2601/U1_8/CO (FA_X1)                                0.09       1.22 f
+  add_2601/U1_9/CO (FA_X1)                                0.09       1.31 f
+  add_2601/U1_10/CO (FA_X1)                               0.09       1.40 f
+  add_2601/U1_11/CO (FA_X1)                               0.09       1.49 f
+  add_2601/U1_12/CO (FA_X1)                               0.09       1.58 f
+  add_2601/U1_13/CO (FA_X1)                               0.09       1.67 f
+  add_2601/U1_14/CO (FA_X1)                               0.09       1.76 f
+  add_2601/U1_15/CO (FA_X1)                               0.09       1.86 f
+  add_2601/U1_16/CO (FA_X1)                               0.09       1.95 f
+  add_2601/U1_17/CO (FA_X1)                               0.09       2.04 f
+  add_2601/U1_18/CO (FA_X1)                               0.09       2.13 f
+  add_2601/U1_19/CO (FA_X1)                               0.09       2.22 f
+  add_2601/U1_20/CO (FA_X1)                               0.09       2.31 f
+  add_2601/U1_21/CO (FA_X1)                               0.09       2.40 f
+  add_2601/U1_22/CO (FA_X1)                               0.09       2.49 f
+  add_2601/U1_23/CO (FA_X1)                               0.09       2.58 f
+  add_2601/U1_24/CO (FA_X1)                               0.09       2.67 f
+  add_2601/U1_25/CO (FA_X1)                               0.09       2.76 f
+  add_2601/U1_26/CO (FA_X1)                               0.09       2.85 f
+  add_2601/U1_27/CO (FA_X1)                               0.09       2.94 f
+  add_2601/U1_28/CO (FA_X1)                               0.09       3.03 f
+  add_2601/U1_29/S (FA_X1)                                0.13       3.16 r
+  add_2601/SUM[29] (VexRiscv_small_DW01_add_0)            0.00       3.16 r
+  U3478/ZN (NAND2_X1)                                     0.03       3.19 f
+  U3477/ZN (OAI21_X1)                                     0.04       3.23 r
+  execute_to_memory_BRANCH_CALC_reg[29]/D (DFF_X1)        0.01       3.24 r
+  data arrival time                                                  3.24
+
+  clock clk (rise edge)                                 100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  execute_to_memory_BRANCH_CALC_reg[29]/CK (DFF_X1)       0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.24
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.73
+
+
+1

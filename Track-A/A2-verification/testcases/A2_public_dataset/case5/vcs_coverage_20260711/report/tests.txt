@@ -1,0 +1,12 @@
+Tests
+
+Total Coverage Summary 
+SCORE  LINE   BRANCH 
+ 88.03  87.68  88.37 
+
+
+Total tests in report: 1
+-------------------------------------------------------------------------------
+Data from the following tests was used to generate this report
+/workspace/public_dataset/case5/vcs_coverage_20260711/sim_build/coverage/test 
+

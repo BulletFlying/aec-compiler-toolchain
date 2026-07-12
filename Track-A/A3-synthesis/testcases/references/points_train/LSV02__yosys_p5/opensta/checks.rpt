@@ -1,0 +1,395 @@
+Startpoint: totalcoeffs[2] (input port clocked by virtual_clk)
+Endpoint: ctoken_len[1] (output port)
+Path Group: **default**
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                           0.000    0.000 v input external delay
+                  0.009    0.009    0.009 v totalcoeffs[2] (in)
+   40   88.385                              totalcoeffs[2] (net)
+                  0.009    0.000    0.009 v _375_/A (INV_X1)
+                  0.142    0.156    0.165 ^ _375_/ZN (INV_X1)
+   26   61.223                              _160_ (net)
+                  0.142    0.000    0.165 ^ _537_/A1 (NAND2_X1)
+                  0.046    0.057    0.222 v _537_/ZN (NAND2_X1)
+    5    9.659                              _086_ (net)
+                  0.046    0.000    0.222 v _686_/A3 (NOR4_X1)
+                  0.045    0.089    0.311 ^ _686_/ZN (NOR4_X1)
+    1    1.946                              _240_ (net)
+                  0.045    0.000    0.311 ^ _688_/A3 (NOR4_X1)
+                  0.019    0.019    0.330 v _688_/ZN (NOR4_X1)
+    1    1.800                              _242_ (net)
+                  0.019    0.000    0.330 v _699_/A3 (NOR4_X1)
+                  0.045    0.080    0.410 ^ _699_/ZN (NOR4_X1)
+    1    1.930                              _254_ (net)
+                  0.045    0.000    0.410 ^ _706_/A (AOI211_X1)
+                  0.018    0.021    0.431 v _706_/ZN (AOI211_X1)
+    1    1.000                              ctoken_len[1] (net)
+                  0.018    0.000    0.431 v ctoken_len[1] (out)
+                                    0.431   data arrival time
+
+                           0.000    0.000   max_delay
+                           0.000    0.000   output external delay
+                                    0.000   data required time
+--------------------------------------------------------------------------------
+                                    0.000   data required time
+                                   -0.431   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.431   slack (VIOLATED)
+
+
+Startpoint: totalcoeffs[2] (input port clocked by virtual_clk)
+Endpoint: coeff_token[1] (output port)
+Path Group: **default**
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                           0.000    0.000 v input external delay
+                  0.009    0.009    0.009 v totalcoeffs[2] (in)
+   40   88.385                              totalcoeffs[2] (net)
+                  0.009    0.000    0.009 v _375_/A (INV_X1)
+                  0.142    0.156    0.165 ^ _375_/ZN (INV_X1)
+   26   61.223                              _160_ (net)
+                  0.142    0.000    0.165 ^ _537_/A1 (NAND2_X1)
+                  0.046    0.057    0.222 v _537_/ZN (NAND2_X1)
+    5    9.659                              _086_ (net)
+                  0.046    0.000    0.222 v _538_/B2 (OAI21_X1)
+                  0.020    0.042    0.264 ^ _538_/ZN (OAI21_X1)
+    1    1.275                              _087_ (net)
+                  0.020    0.000    0.264 ^ _539_/A3 (AND3_X1)
+                  0.011    0.046    0.311 ^ _539_/ZN (AND3_X1)
+    1    1.972                              _088_ (net)
+                  0.011    0.000    0.311 ^ _542_/B1 (OAI21_X1)
+                  0.011    0.014    0.325 v _542_/ZN (OAI21_X1)
+    1    1.820                              _091_ (net)
+                  0.011    0.000    0.325 v _543_/C2 (OAI222_X1)
+                  0.044    0.055    0.380 ^ _543_/ZN (OAI222_X1)
+    1    1.000                              coeff_token[1] (net)
+                  0.044    0.000    0.380 ^ coeff_token[1] (out)
+                                    0.380   data arrival time
+
+                           0.000    0.000   max_delay
+                           0.000    0.000   output external delay
+                                    0.000   data required time
+--------------------------------------------------------------------------------
+                                    0.000   data required time
+                                   -0.380   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.380   slack (VIOLATED)
+
+
+Startpoint: totalcoeffs[2] (input port clocked by virtual_clk)
+Endpoint: ctoken_len[0] (output port)
+Path Group: **default**
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                           0.000    0.000 v input external delay
+                  0.009    0.009    0.009 v totalcoeffs[2] (in)
+   40   88.385                              totalcoeffs[2] (net)
+                  0.009    0.000    0.009 v _375_/A (INV_X1)
+                  0.142    0.156    0.165 ^ _375_/ZN (INV_X1)
+   26   61.223                              _160_ (net)
+                  0.142    0.000    0.165 ^ _383_/A2 (NOR2_X1)
+                  0.039    0.040    0.204 v _383_/ZN (NOR2_X1)
+    5    9.577                              _244_ (net)
+                  0.039    0.000    0.204 v _632_/B1 (AOI221_X1)
+                  0.043    0.082    0.286 ^ _632_/ZN (AOI221_X1)
+    1    1.886                              _182_ (net)
+                  0.043    0.000    0.286 ^ _648_/A1 (OAI222_X1)
+                  0.020    0.038    0.324 v _648_/ZN (OAI222_X1)
+    1    1.712                              _199_ (net)
+                  0.020    0.000    0.324 v _665_/C2 (AOI221_X1)
+                  0.039    0.055    0.379 ^ _665_/ZN (AOI221_X1)
+    1    1.000                              ctoken_len[0] (net)
+                  0.039    0.000    0.379 ^ ctoken_len[0] (out)
+                                    0.379   data arrival time
+
+                           0.000    0.000   max_delay
+                           0.000    0.000   output external delay
+                                    0.000   data required time
+--------------------------------------------------------------------------------
+                                    0.000   data required time
+                                   -0.379   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.379   slack (VIOLATED)
+
+
+Startpoint: totalcoeffs[2] (input port clocked by virtual_clk)
+Endpoint: coeff_token[0] (output port)
+Path Group: **default**
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                           0.000    0.000 v input external delay
+                  0.009    0.009    0.009 v totalcoeffs[2] (in)
+   40   88.385                              totalcoeffs[2] (net)
+                  0.009    0.000    0.009 v _375_/A (INV_X1)
+                  0.142    0.156    0.165 ^ _375_/ZN (INV_X1)
+   26   61.223                              _160_ (net)
+                  0.142    0.000    0.165 ^ _383_/A2 (NOR2_X1)
+                  0.039    0.040    0.204 v _383_/ZN (NOR2_X1)
+    5    9.577                              _244_ (net)
+                  0.039    0.000    0.204 v _389_/A (AOI21_X1)
+                  0.023    0.052    0.257 ^ _389_/ZN (AOI21_X1)
+    1    1.834                              _307_ (net)
+                  0.023    0.000    0.257 ^ _406_/C2 (OAI211_X1)
+                  0.015    0.027    0.284 v _406_/ZN (OAI211_X1)
+    1    1.872                              _328_ (net)
+                  0.015    0.000    0.284 v _436_/A (AOI211_X1)
+                  0.038    0.071    0.355 ^ _436_/ZN (AOI211_X1)
+    1    1.882                              _358_ (net)
+                  0.038    0.000    0.355 ^ _481_/B2 (OAI21_X1)
+                  0.015    0.022    0.377 v _481_/ZN (OAI21_X1)
+    1    1.000                              coeff_token[0] (net)
+                  0.015    0.000    0.377 v coeff_token[0] (out)
+                                    0.377   data arrival time
+
+                           0.000    0.000   max_delay
+                           0.000    0.000   output external delay
+                                    0.000   data required time
+--------------------------------------------------------------------------------
+                                    0.000   data required time
+                                   -0.377   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.377   slack (VIOLATED)
+
+
+Startpoint: totalcoeffs[2] (input port clocked by virtual_clk)
+Endpoint: ctoken_len[2] (output port)
+Path Group: **default**
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                           0.000    0.000 v input external delay
+                  0.009    0.009    0.009 v totalcoeffs[2] (in)
+   40   88.385                              totalcoeffs[2] (net)
+                  0.009    0.000    0.009 v _375_/A (INV_X1)
+                  0.142    0.156    0.165 ^ _375_/ZN (INV_X1)
+   26   61.223                              _160_ (net)
+                  0.142    0.000    0.165 ^ _455_/A1 (NOR2_X1)
+                  0.030    0.013    0.178 v _455_/ZN (NOR2_X1)
+    2    3.638                              _005_ (net)
+                  0.030    0.000    0.178 v _700_/A1 (NAND2_X1)
+                  0.013    0.024    0.201 ^ _700_/ZN (NAND2_X1)
+    1    1.965                              _256_ (net)
+                  0.013    0.000    0.201 ^ _728_/C1 (AOI211_X1)
+                  0.013    0.015    0.216 v _728_/ZN (AOI211_X1)
+    1    1.160                              _285_ (net)
+                  0.013    0.000    0.216 v _730_/A2 (OR3_X1)
+                  0.013    0.078    0.294 v _730_/ZN (OR3_X1)
+    1    1.807                              _288_ (net)
+                  0.013    0.000    0.294 v _731_/A (AOI221_X1)
+                  0.039    0.069    0.363 ^ _731_/ZN (AOI221_X1)
+    1    1.000                              ctoken_len[2] (net)
+                  0.039    0.000    0.363 ^ ctoken_len[2] (out)
+                                    0.363   data arrival time
+
+                           0.000    0.000   max_delay
+                           0.000    0.000   output external delay
+                                    0.000   data required time
+--------------------------------------------------------------------------------
+                                    0.000   data required time
+                                   -0.363   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.363   slack (VIOLATED)
+
+
+Startpoint: totalcoeffs[2] (input port clocked by virtual_clk)
+Endpoint: coeff_token[2] (output port)
+Path Group: **default**
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                           0.000    0.000 v input external delay
+                  0.009    0.009    0.009 v totalcoeffs[2] (in)
+   40   88.385                              totalcoeffs[2] (net)
+                  0.009    0.000    0.009 v _375_/A (INV_X1)
+                  0.142    0.156    0.165 ^ _375_/ZN (INV_X1)
+   26   61.223                              _160_ (net)
+                  0.142    0.000    0.165 ^ _580_/A1 (OAI22_X1)
+                  0.032    0.028    0.192 v _580_/ZN (OAI22_X1)
+    1    1.780                              _129_ (net)
+                  0.032    0.000    0.193 v _581_/B (AOI211_X1)
+                  0.038    0.073    0.266 ^ _581_/ZN (AOI211_X1)
+    1    1.894                              _130_ (net)
+                  0.038    0.000    0.266 ^ _584_/A2 (OAI22_X1)
+                  0.022    0.028    0.294 v _584_/ZN (OAI22_X1)
+    1    1.814                              _133_ (net)
+                  0.022    0.000    0.294 v _590_/A1 (AOI22_X1)
+                  0.025    0.038    0.332 ^ _590_/ZN (AOI22_X1)
+    1    1.967                              _140_ (net)
+                  0.025    0.000    0.332 ^ _591_/B (OAI211_X1)
+                  0.018    0.029    0.360 v _591_/ZN (OAI211_X1)
+    1    1.000                              coeff_token[2] (net)
+                  0.018    0.000    0.360 v coeff_token[2] (out)
+                                    0.360   data arrival time
+
+                           0.000    0.000   max_delay
+                           0.000    0.000   output external delay
+                                    0.000   data required time
+--------------------------------------------------------------------------------
+                                    0.000   data required time
+                                   -0.360   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.360   slack (VIOLATED)
+
+
+Startpoint: totalcoeffs[2] (input port clocked by virtual_clk)
+Endpoint: coeff_token[3] (output port)
+Path Group: **default**
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                           0.000    0.000 v input external delay
+                  0.009    0.009    0.009 v totalcoeffs[2] (in)
+   40   88.385                              totalcoeffs[2] (net)
+                  0.009    0.000    0.009 v _375_/A (INV_X1)
+                  0.142    0.156    0.165 ^ _375_/ZN (INV_X1)
+   26   61.223                              _160_ (net)
+                  0.142    0.000    0.165 ^ _537_/A1 (NAND2_X1)
+                  0.046    0.057    0.222 v _537_/ZN (NAND2_X1)
+    5    9.659                              _086_ (net)
+                  0.046    0.000    0.222 v _610_/B2 (OAI22_X1)
+                  0.032    0.058    0.280 ^ _610_/ZN (OAI22_X1)
+    1    1.930                              _161_ (net)
+                  0.032    0.000    0.280 ^ _618_/A (AOI211_X1)
+                  0.014    0.020    0.301 v _618_/ZN (AOI211_X1)
+    1    1.893                              _169_ (net)
+                  0.014    0.000    0.301 v _622_/C2 (OAI221_X1)
+                  0.033    0.035    0.335 ^ _622_/ZN (OAI221_X1)
+    1    1.000                              coeff_token[3] (net)
+                  0.033    0.000    0.336 ^ coeff_token[3] (out)
+                                    0.336   data arrival time
+
+                           0.000    0.000   max_delay
+                           0.000    0.000   output external delay
+                                    0.000   data required time
+--------------------------------------------------------------------------------
+                                    0.000   data required time
+                                   -0.336   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.336   slack (VIOLATED)
+
+
+Startpoint: totalcoeffs[2] (input port clocked by virtual_clk)
+Endpoint: ctoken_len[3] (output port)
+Path Group: **default**
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                           0.000    0.000 v input external delay
+                  0.009    0.009    0.009 v totalcoeffs[2] (in)
+   40   88.385                              totalcoeffs[2] (net)
+                  0.009    0.000    0.009 v _375_/A (INV_X1)
+                  0.142    0.156    0.165 ^ _375_/ZN (INV_X1)
+   26   61.223                              _160_ (net)
+                  0.142    0.000    0.165 ^ _395_/A1 (NOR2_X1)
+                  0.033    0.021    0.186 v _395_/ZN (NOR2_X1)
+    3    5.660                              _317_ (net)
+                  0.033    0.000    0.186 v _739_/B1 (OAI21_X1)
+                  0.022    0.039    0.225 ^ _739_/ZN (OAI21_X1)
+    1    1.948                              _296_ (net)
+                  0.022    0.000    0.225 ^ _742_/A3 (NAND4_X1)
+                  0.017    0.033    0.258 v _742_/ZN (NAND4_X1)
+    1    1.872                              _300_ (net)
+                  0.017    0.000    0.258 v _749_/A (AOI211_X1)
+                  0.034    0.067    0.325 ^ _749_/ZN (AOI211_X1)
+    1    1.000                              ctoken_len[3] (net)
+                  0.034    0.000    0.325 ^ ctoken_len[3] (out)
+                                    0.325   data arrival time
+
+                           0.000    0.000   max_delay
+                           0.000    0.000   output external delay
+                                    0.000   data required time
+--------------------------------------------------------------------------------
+                                    0.000   data required time
+                                   -0.325   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.325   slack (VIOLATED)
+
+
+Startpoint: totalcoeffs[1] (input port clocked by virtual_clk)
+Endpoint: coeff_token[5] (output port)
+Path Group: **default**
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                           0.000    0.000 v input external delay
+                  0.011    0.011    0.011 v totalcoeffs[1] (in)
+   49  107.408                              totalcoeffs[1] (net)
+                  0.011    0.000    0.011 v _377_/A (INV_X1)
+                  0.078    0.090    0.100 ^ _377_/ZN (INV_X1)
+   15   33.199                              _180_ (net)
+                  0.078    0.000    0.100 ^ _623_/A1 (NAND2_X1)
+                  0.033    0.049    0.150 v _623_/ZN (NAND2_X1)
+    5    9.403                              _174_ (net)
+                  0.033    0.000    0.150 v _628_/A3 (NOR3_X1)
+                  0.058    0.092    0.242 ^ _628_/ZN (NOR3_X1)
+    3    6.114                              _178_ (net)
+                  0.058    0.000    0.242 ^ _629_/A (AOI21_X1)
+                  0.018    0.021    0.262 v _629_/ZN (AOI21_X1)
+    1    1.862                              _179_ (net)
+                  0.018    0.000    0.262 v _630_/A3 (NOR3_X1)
+                  0.025    0.049    0.312 ^ _630_/ZN (NOR3_X1)
+    1    1.000                              coeff_token[5] (net)
+                  0.025    0.000    0.312 ^ coeff_token[5] (out)
+                                    0.312   data arrival time
+
+                           0.000    0.000   max_delay
+                           0.000    0.000   output external delay
+                                    0.000   data required time
+--------------------------------------------------------------------------------
+                                    0.000   data required time
+                                   -0.312   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.312   slack (VIOLATED)
+
+
+Startpoint: totalcoeffs[1] (input port clocked by virtual_clk)
+Endpoint: ctoken_len[4] (output port)
+Path Group: **default**
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                           0.000    0.000 v input external delay
+                  0.011    0.011    0.011 v totalcoeffs[1] (in)
+   49  107.408                              totalcoeffs[1] (net)
+                  0.011    0.000    0.011 v _377_/A (INV_X1)
+                  0.078    0.090    0.100 ^ _377_/ZN (INV_X1)
+   15   33.199                              _180_ (net)
+                  0.078    0.000    0.100 ^ _623_/A1 (NAND2_X1)
+                  0.033    0.049    0.150 v _623_/ZN (NAND2_X1)
+    5    9.403                              _174_ (net)
+                  0.033    0.000    0.150 v _628_/A3 (NOR3_X1)
+                  0.058    0.092    0.242 ^ _628_/ZN (NOR3_X1)
+    3    6.114                              _178_ (net)
+                  0.058    0.000    0.242 ^ _753_/A1 (NOR2_X1)
+                  0.014    0.011    0.253 v _753_/ZN (NOR2_X1)
+    1    1.862                              _311_ (net)
+                  0.014    0.000    0.253 v _754_/A3 (NOR3_X1)
+                  0.024    0.048    0.300 ^ _754_/ZN (NOR3_X1)
+    1    1.000                              ctoken_len[4] (net)
+                  0.024    0.000    0.300 ^ ctoken_len[4] (out)
+                                    0.300   data arrival time
+
+                           0.000    0.000   max_delay
+                           0.000    0.000   output external delay
+                                    0.000   data required time
+--------------------------------------------------------------------------------
+                                    0.000   data required time
+                                   -0.300   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.300   slack (VIOLATED)
+
+

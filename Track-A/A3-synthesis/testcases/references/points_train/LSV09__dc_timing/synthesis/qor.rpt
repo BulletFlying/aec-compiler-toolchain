@@ -1,0 +1,85 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'Sha256Wishbone' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : qor
+Design : Sha256Wishbone
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:12:56 2026
+****************************************
+
+
+  Timing Path Group 'clock'
+  -----------------------------------
+  Levels of Logic:              77.00
+  Critical Path Length:          4.46
+  Critical Path Slack:           5.49
+  Critical Path Clk Period:     10.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          4
+  Hierarchical Port Count:        818
+  Leaf Cell Count:               6795
+  Buf/Inv Cell Count:            1297
+  Buf Cell Count:                  90
+  Inv Cell Count:                1207
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      5679
+  Sequential Cell Count:         1116
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:     7097.146046
+  Noncombinational Area:  5046.551817
+  Buf/Inv Area:            716.604005
+  Total Buffer Area:            73.95
+  Total Inverter Area:         642.66
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  -----------------------------------
+  Cell Area:             12143.697863
+  Design Area:           12143.697863
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          7653
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: eb2704f1b995
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    1.63
+  Logic Optimization:                  0.84
+  Mapping Optimization:                5.46
+  -----------------------------------------
+  Overall Compile Time:               20.00
+  Overall Compile Wall Clock Time:    21.04
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1

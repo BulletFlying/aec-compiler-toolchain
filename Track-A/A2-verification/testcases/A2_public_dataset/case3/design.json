@@ -1,0 +1,46 @@
+{
+  "design": {
+    "name": "case3",
+    "rtl": "rtl/case3.v",
+    "dependent_rtl": [
+      "rtl/axi_vfifo_raw_wr.v",
+      "rtl/axi_vfifo_raw_rd.v"
+    ],
+    "top_module": "case3",
+    "generated_cocotb_top": "public_dataset/case3/case3_cocotb_top.v",
+    "function": "AXI-backed raw virtual FIFO with segmented stream input and output",
+    "configuration_under_test": {
+      "SEG_WIDTH": 16,
+      "SEG_CNT": 2,
+      "AXI_DATA_WIDTH": 32,
+      "AXI_ADDR_WIDTH": 16,
+      "AXI_STRB_WIDTH": 4,
+      "AXI_ID_WIDTH": 8,
+      "AXI_MAX_BURST_LEN": 16,
+      "LEN_WIDTH": 16,
+      "WRITE_FIFO_DEPTH": 64,
+      "WRITE_MAX_BURST_LEN": 16,
+      "READ_FIFO_DEPTH": 128,
+      "READ_MAX_BURST_LEN": 16,
+      "WATERMARK_LEVEL": 32,
+      "CTRL_OUT_EN": 0
+    },
+    "clock_reset": {
+      "core_clock": "clk",
+      "input_clock": "input_clk",
+      "output_clock": "output_clk",
+      "reset_active": "high"
+    },
+    "interfaces": {
+      "input": "segmented input stream: input_data/input_valid/input_ready",
+      "output": "segmented output stream: output_data/output_valid/output_ready",
+      "m_axi": "AXI4 master read/write interface connected to a cocotb AxiRam",
+      "configuration": "cfg_fifo_base_addr, cfg_fifo_size_mask, cfg_enable, cfg_reset",
+      "status": "sts_fifo_occupancy, empty/full/reset/active/write_active/read_active"
+    },
+    "related_testbench_note": {
+      "found_path": "tb/case3_tb.py",
+      "finding": "The upstream cocotb directly targets case3. This package uses a reduced fixed-parameter test to keep the run simple."
+    }
+  }
+}

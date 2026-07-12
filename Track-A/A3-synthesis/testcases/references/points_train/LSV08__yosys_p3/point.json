@@ -1,0 +1,17 @@
+{
+  "id": "LSV08",
+  "split": "public",
+  "name": "sog_stage_mult",
+  "top": "stage_mult",
+  "flow": "yosys_p3",
+  "flow_label": "Yosys ABC p3: resyn2rs + dch + Nangate SCL map",
+  "tool": "yosys",
+  "status": "ok",
+  "runtime_s": 1.61,
+  "area": 1946.854,
+  "arrival_ns": 1.12,
+  "wns_ns": -1.12,
+  "tns_ns": -34.11,
+  "source_path": "small_design_sog/rtl/3699.stage_mult.clk.v",
+  "clock_period_ns": 10.0
+}

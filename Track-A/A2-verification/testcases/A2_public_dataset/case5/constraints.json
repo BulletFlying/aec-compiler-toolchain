@@ -1,0 +1,86 @@
+{
+  "constraint_random_test": {
+    "name": "case5_z3_constraints",
+    "solver_target": "Z3-compatible integer, enum, and bit-vector constraints",
+    "seed": 20260630,
+    "sequence_count": 5000,
+    "transaction_variables": {
+      "aid": {
+        "type": "bitvec",
+        "width": 4
+      },
+      "address": {
+        "type": "bitvec",
+        "width": 32
+      },
+      "aprot": {
+        "type": "bitvec",
+        "width": 3
+      },
+      "aqos": {
+        "type": "bitvec",
+        "width": 4
+      },
+      "ready_order": {
+        "type": "enum",
+        "values": [
+          "all_ready",
+          "address_first",
+          "metadata_first"
+        ]
+      },
+      "output_hold_cycles": {
+        "type": "int",
+        "min": 0,
+        "max": 2
+      },
+      "completion_timing": {
+        "type": "enum",
+        "values": [
+          "after_handshake",
+          "release_same_id_destination_block",
+          "release_accept_limit_block"
+        ]
+      }
+    },
+    "hard_constraints": [
+      "aid in [0, 15]",
+      "aprot in [0, 7]",
+      "aqos in [0, 15]",
+      "valid-hit addresses must lie in one of the eight configured 16 MiB master regions",
+      "M2 valid-hit transactions require APROT[1] == 0 because M2 is configured secure",
+      "secure-deny transactions target M2 and require APROT[1] == 1",
+      "decode-error transactions use addresses outside every configured region",
+      "a completion pulse is generated once for each successful decoded transaction unless the transaction is intentionally left outstanding for a directed blocking scenario"
+    ],
+    "coverage_guidance_constraints": [
+      "include hits for every master and every region",
+      "include decode errors from unmapped addresses",
+      "include secure access denials for both M2 regions",
+      "include staggered output ready orders for m_axi/m_wc and m_wc/m_rc",
+      "hold output ready low for 0, 1, and 2 cycles",
+      "include same-ID same-destination transactions",
+      "include same-ID different-destination blocking",
+      "include a directed phase with all generated thread slots active",
+      "include S_ACCEPT-limit blocking and completion release"
+    ],
+    "objective": {
+      "primary": "maximize line, branch, and functional coverage in case5",
+      "secondary": "exercise decode hit/error paths, secure master filtering, command backpressure, thread matching, accept-limit blocking, and completion accounting",
+      "reported_metric": [
+        "line_coverage_percent",
+        "branch_coverage_percent",
+        "functional_coverage_percent"
+      ]
+    },
+    "vcs_execution_model": {
+      "json_supported": true,
+      "method": "cocotb reads this JSON, generates 5000 address-command transactions, samples functional bins, and drives case5 through VPI; VCS reports line and branch coverage via URG.",
+      "implementation": "public_dataset/case5/test_case5_json_sequences.py",
+      "vcs_options": [
+        "-cm line+branch",
+        "-cm_dir sim_build/coverage.vdb"
+      ]
+    }
+  }
+}

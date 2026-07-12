@@ -1,0 +1,42 @@
+{
+  "testbench": {
+    "name": "test_case4",
+    "path": "tb/case4_tb.py",
+    "framework": "cocotb",
+    "driver_library": "cocotbext-axi AxiMaster",
+    "supported_simulators": [
+      "icarus",
+      "verilator",
+      "vcs"
+    ],
+    "vcs_json_input_support": {
+      "supported": true,
+      "mechanism": "cocotb Python code reads JSON constraints/bins and drives RTL through VPI; VCS collects RTL coverage independently with -cm line+branch.",
+      "important_detail": "The JSON is consumed by the testbench process, not by VCS directly."
+    },
+    "generated_tests_in_original_file": [
+      "run_test_write_*",
+      "run_test_read_*",
+      "run_stress_test_001"
+    ],
+    "public_dataset_run": {
+      "simulator": "vcs",
+      "module": "test_case4_json_sequences",
+      "testcase": "run_json_sequences",
+      "json_testbench": "public_dataset/case4/test_case4_json_sequences.py",
+      "constraints": "public_dataset/case4/constraints.json",
+      "seed": 20260630,
+      "sequence_count": 5000,
+      "results_xml": "public_dataset/case4/vcs_coverage_20260711/results.xml",
+      "coverage_report": "public_dataset/case4/vcs_coverage_20260711/report",
+      "functional_coverage": "public_dataset/case4/functional_coverage.json",
+      "command_shape": "CASE4_CONSTRAINT_JSON=constraints.json make SIM=vcs MODULE=test_case4_json_sequences TESTCASE=run_json_sequences VERILOG_SOURCES=rtl/case4.v EXTRA_ARGS=\"-cm line+branch\" COMPILE_ARGS=\"-cm_dir coverage.vdb\" SIM_ARGS=\"-cm_dir sim_build/coverage.vdb\""
+    },
+    "scoreboard": {
+      "reference_model": "byte-addressed memory model",
+      "write_update_rule": "for each accepted write beat, update byte lanes whose WSTRB bit is 1",
+      "read_compare_rule": "returned bytes must match the reference memory at the requested address and length",
+      "response_rule": "BRESP and RRESP must be OKAY"
+    }
+  }
+}

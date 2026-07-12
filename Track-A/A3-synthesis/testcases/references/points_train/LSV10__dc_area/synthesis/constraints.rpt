@@ -1,0 +1,19 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : VexRiscv_small
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:02:29 2026
+****************************************
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   VexRiscv_small               0.00       13429.01       -13429.01 (VIOLATED)
+
+
+1

@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : axi_dwidth_converter_v2_1_b_downsizer
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:08:44 2026
+****************************************
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   axi_dwidth_converter_v2_1_b_downsizer
+                                0.00        2894.48       -2894.48  (VIOLATED)
+
+
+1

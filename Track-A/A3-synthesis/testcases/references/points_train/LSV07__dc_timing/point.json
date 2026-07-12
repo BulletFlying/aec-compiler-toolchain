@@ -1,0 +1,17 @@
+{
+  "id": "LSV07",
+  "split": "public",
+  "name": "sog_qdiv",
+  "top": "qdiv",
+  "flow": "dc_timing",
+  "flow_label": "Design Compiler timing-biased compile_ultra",
+  "tool": "dc",
+  "status": "ok",
+  "runtime_s": 51.48,
+  "area": 2207.267965,
+  "arrival_ns": 3.26,
+  "wns_ns": -3.26,
+  "tns_ns": -350.17,
+  "source_path": "small_design_sog/rtl/6374.qdiv.i_clk.v",
+  "clock_period_ns": 10.0
+}

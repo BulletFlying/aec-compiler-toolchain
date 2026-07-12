@@ -1,0 +1,17 @@
+{
+  "id": "LSV05",
+  "split": "public",
+  "name": "sog_axi_downsizer",
+  "top": "axi_dwidth_converter_v2_1_b_downsizer",
+  "flow": "yosys_p2",
+  "flow_label": "Yosys ABC p2: if -K 6 -g -C 8 + dch + Nangate SCL map",
+  "tool": "yosys",
+  "status": "ok",
+  "runtime_s": 0.56,
+  "area": 144.97,
+  "arrival_ns": 0.51,
+  "wns_ns": -0.51,
+  "tns_ns": -6.52,
+  "source_path": "small_design_sog/rtl/5155.axi_dwidth_converter_v2_1_b_downsizer.ACLK.v",
+  "clock_period_ns": 10.0
+}

@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : Sha256Wishbone
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:12:56 2026
+****************************************
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   Sha256Wishbone               0.00       262502.25      -262502.25
+                                                                    (VIOLATED)
+
+
+1

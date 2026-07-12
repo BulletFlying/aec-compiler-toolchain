@@ -1,0 +1,3 @@
+rtl/def.v
+rtl/dut.v
+tb/tb.v

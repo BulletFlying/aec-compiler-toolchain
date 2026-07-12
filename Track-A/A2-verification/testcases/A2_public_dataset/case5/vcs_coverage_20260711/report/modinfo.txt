@@ -1,0 +1,831 @@
+===============================================================================
+Module : axi_crossbar_addr
+===============================================================================
+SCORE  LINE   BRANCH 
+ 88.03  87.68  88.37 
+
+Source File(s) : 
+
+/workspace/public_dataset/case5/rtl/case5.v
+
+Module self-instances :
+
+SCORE  LINE   BRANCH NAME                 
+ 88.03  87.68  88.37 case5_cocotb_top.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : axi_crossbar_addr
+
+             Line No.   Total   Covered  Percent
+TOTAL                      138      121    87.68
+INITIAL           150       34       17    50.00
+INITIAL           285        1        1   100.00
+INITIAL           285        1        1   100.00
+INITIAL           285        1        1   100.00
+INITIAL           285        1        1   100.00
+ALWAYS            296       10       10   100.00
+ALWAYS            296       10       10   100.00
+ALWAYS            296       10       10   100.00
+ALWAYS            296       10       10   100.00
+ALWAYS            316       41       41   100.00
+ALWAYS            389       19       19   100.00
+
+149                     initial begin
+150        1/1              if (S_ACCEPT < 1) begin
+151        0/1     ==>          $error("Error: need at least 1 accept (instance %m)");
+152        0/1     ==>          $finish;
+153                         end
+                        MISSING_ELSE
+154                     
+155        1/1              if (S_THREADS < 1) begin
+156        0/1     ==>          $error("Error: need at least 1 thread (instance %m)");
+157        0/1     ==>          $finish;
+158                         end
+                        MISSING_ELSE
+159                     
+160        1/1              if (S_THREADS > S_ACCEPT) begin
+161        1/1                  $warning("Warning: requested thread count larger than accept count; limiting thread count to accept count (instance %m)");
+162                         end
+                   ==>  MISSING_ELSE
+163                     
+164        1/1              if (M_REGIONS < 1) begin
+165        0/1     ==>          $error("Error: need at least 1 region (instance %m)");
+166        0/1     ==>          $finish;
+167                         end
+                        MISSING_ELSE
+168                     
+169        1/1              for (i = 0; i < M_COUNT*M_REGIONS; i = i + 1) begin
+170        1/1                  if (M_ADDR_WIDTH[i*32 +: 32] && (M_ADDR_WIDTH[i*32 +: 32] < 12 || M_ADDR_WIDTH[i*32 +: 32] > ADDR_WIDTH)) begin
+171        0/1     ==>              $error("Error: address width out of range (instance %m)");
+172        0/1     ==>              $finish;
+173                             end
+                        MISSING_ELSE
+174                         end
+175                     
+176        1/1              $display("Addressing configuration for axi_crossbar_addr instance %m");
+177        1/1              for (i = 0; i < M_COUNT*M_REGIONS; i = i + 1) begin
+178        1/1                  if (M_ADDR_WIDTH[i*32 +: 32]) begin
+179        1/1                      $display("%2d (%2d): %x / %02d -- %x-%x",
+180                                     i/M_REGIONS, i%M_REGIONS,
+181                                     M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH],
+182                                     M_ADDR_WIDTH[i*32 +: 32],
+183                                     M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH] & ({ADDR_WIDTH{1'b1}} << M_ADDR_WIDTH[i*32 +: 32]),
+184                                     M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH] | ({ADDR_WIDTH{1'b1}} >> (ADDR_WIDTH - M_ADDR_WIDTH[i*32 +: 32]))
+185                                 );
+186                             end
+                   ==>  MISSING_ELSE
+187                         end
+188                     
+189        1/1              for (i = 0; i < M_COUNT*M_REGIONS; i = i + 1) begin
+190        1/1                  if ((M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH] & (2**M_ADDR_WIDTH[i*32 +: 32]-1)) != 0) begin
+191        0/1     ==>              $display("Region not aligned:");
+192        0/1     ==>              $display("%2d (%2d): %x / %2d -- %x-%x",
+193                                     i/M_REGIONS, i%M_REGIONS,
+194                                     M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH],
+195                                     M_ADDR_WIDTH[i*32 +: 32],
+196                                     M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH] & ({ADDR_WIDTH{1'b1}} << M_ADDR_WIDTH[i*32 +: 32]),
+197                                     M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH] | ({ADDR_WIDTH{1'b1}} >> (ADDR_WIDTH - M_ADDR_WIDTH[i*32 +: 32]))
+198                                 );
+199        0/1     ==>              $error("Error: address range not aligned (instance %m)");
+200        0/1     ==>              $finish;
+201                             end
+                        MISSING_ELSE
+202                         end
+203                     
+204        1/1              for (i = 0; i < M_COUNT*M_REGIONS; i = i + 1) begin
+205        1/1                  for (j = i+1; j < M_COUNT*M_REGIONS; j = j + 1) begin
+206        1/1                      if (M_ADDR_WIDTH[i*32 +: 32] && M_ADDR_WIDTH[j*32 +: 32]) begin
+207        1/1                          if (((M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH] & ({ADDR_WIDTH{1'b1}} << M_ADDR_WIDTH[i*32 +: 32])) <= (M_BASE_ADDR_INT[j*ADDR_WIDTH +: ADDR_WIDTH] | ({ADDR_WIDTH{1'b1}} >> (ADDR_WIDTH - M_ADDR_WIDTH[j*32 +: 32]))))
+208                                             && ((M_BASE_ADDR_INT[j*ADDR_WIDTH +: ADDR_WIDTH] & ({ADDR_WIDTH{1'b1}} << M_ADDR_WIDTH[j*32 +: 32])) <= (M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH] | ({ADDR_WIDTH{1'b1}} >> (ADDR_WIDTH - M_ADDR_WIDTH[i*32 +: 32]))))) begin
+209        0/1     ==>                      $display("Overlapping regions:");
+210        0/1     ==>                      $display("%2d (%2d): %x / %2d -- %x-%x",
+211                                             i/M_REGIONS, i%M_REGIONS,
+212                                             M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH],
+213                                             M_ADDR_WIDTH[i*32 +: 32],
+214                                             M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH] & ({ADDR_WIDTH{1'b1}} << M_ADDR_WIDTH[i*32 +: 32]),
+215                                             M_BASE_ADDR_INT[i*ADDR_WIDTH +: ADDR_WIDTH] | ({ADDR_WIDTH{1'b1}} >> (ADDR_WIDTH - M_ADDR_WIDTH[i*32 +: 32]))
+216                                         );
+217        0/1     ==>                      $display("%2d (%2d): %x / %2d -- %x-%x",
+218                                             j/M_REGIONS, j%M_REGIONS,
+219                                             M_BASE_ADDR_INT[j*ADDR_WIDTH +: ADDR_WIDTH],
+220                                             M_ADDR_WIDTH[j*32 +: 32],
+221                                             M_BASE_ADDR_INT[j*ADDR_WIDTH +: ADDR_WIDTH] & ({ADDR_WIDTH{1'b1}} << M_ADDR_WIDTH[j*32 +: 32]),
+222                                             M_BASE_ADDR_INT[j*ADDR_WIDTH +: ADDR_WIDTH] | ({ADDR_WIDTH{1'b1}} >> (ADDR_WIDTH - M_ADDR_WIDTH[j*32 +: 32]))
+223                                         );
+224        0/1     ==>                      $error("Error: address ranges overlap (instance %m)");
+225        0/1     ==>                      $finish;
+226                                     end
+                        MISSING_ELSE
+227                                 end
+                   ==>  MISSING_ELSE
+228                             end
+229                         end
+230                     end
+231                     
+232                     localparam [2:0]
+233                         STATE_IDLE = 3'd0,
+234                         STATE_DECODE = 3'd1;
+235                     
+236                     reg [2:0] state_reg = STATE_IDLE, state_next;
+237                     
+238                     reg s_axi_aready_reg = 0, s_axi_aready_next;
+239                     
+240                     reg [3:0] m_axi_aregion_reg = 4'd0, m_axi_aregion_next;
+241                     reg [CL_M_COUNT-1:0] m_select_reg = 0, m_select_next;
+242                     reg m_axi_avalid_reg = 1'b0, m_axi_avalid_next;
+243                     reg m_decerr_reg = 1'b0, m_decerr_next;
+244                     reg m_wc_valid_reg = 1'b0, m_wc_valid_next;
+245                     reg m_rc_valid_reg = 1'b0, m_rc_valid_next;
+246                     
+247                     assign s_axi_aready = s_axi_aready_reg;
+248                     
+249                     assign m_axi_aregion = m_axi_aregion_reg;
+250                     assign m_select = m_select_reg;
+251                     assign m_axi_avalid = m_axi_avalid_reg;
+252                     
+253                     assign m_wc_select = m_select_reg;
+254                     assign m_wc_decerr = m_decerr_reg;
+255                     assign m_wc_valid = m_wc_valid_reg;
+256                     
+257                     assign m_rc_decerr = m_decerr_reg;
+258                     assign m_rc_valid = m_rc_valid_reg;
+259                     
+260                     reg match;
+261                     reg trans_start;
+262                     reg trans_complete;
+263                     
+264                     reg [$clog2(S_ACCEPT+1)-1:0] trans_count_reg = 0;
+265                     wire trans_limit = trans_count_reg >= S_ACCEPT && !trans_complete;
+266                     
+267                     // transfer ID thread tracking
+268                     reg [ID_WIDTH-1:0] thread_id_reg[S_INT_THREADS-1:0];
+269                     reg [CL_M_COUNT-1:0] thread_m_reg[S_INT_THREADS-1:0];
+270                     reg [3:0] thread_region_reg[S_INT_THREADS-1:0];
+271                     reg [$clog2(S_ACCEPT+1)-1:0] thread_count_reg[S_INT_THREADS-1:0];
+272                     
+273                     wire [S_INT_THREADS-1:0] thread_active;
+274                     wire [S_INT_THREADS-1:0] thread_match;
+275                     wire [S_INT_THREADS-1:0] thread_match_dest;
+276                     wire [S_INT_THREADS-1:0] thread_cpl_match;
+277                     wire [S_INT_THREADS-1:0] thread_trans_start;
+278                     wire [S_INT_THREADS-1:0] thread_trans_complete;
+279                     
+280                     generate
+281                         genvar n;
+282                     
+283                         for (n = 0; n < S_INT_THREADS; n = n + 1) begin
+284                             initial begin
+285        4/4                      thread_count_reg[n] <= 0;
+286                             end
+287                     
+288                             assign thread_active[n] = thread_count_reg[n] != 0;
+289                             assign thread_match[n] = thread_active[n] && thread_id_reg[n] == s_axi_aid;
+290                             assign thread_match_dest[n] = thread_match[n] && thread_m_reg[n] == m_select_next && (M_REGIONS < 2 || thread_region_reg[n] == m_axi_aregion_next);
+291                             assign thread_cpl_match[n] = thread_active[n] && thread_id_reg[n] == s_cpl_id;
+292                             assign thread_trans_start[n] = (thread_match[n] || (!thread_active[n] && !thread_match && !(thread_trans_start & ({S_INT_THREADS{1'b1}} >> (S_INT_THREADS-n))))) && trans_start;
+293                             assign thread_trans_complete[n] = thread_cpl_match[n] && trans_complete;
+294                     
+295                             always @(posedge clk) begin
+296        1/1                      if (rst) begin
+297        1/1                          thread_count_reg[n] <= 0;
+298                                 end else begin
+299        1/1                          if (thread_trans_start[n] && !thread_trans_complete[n]) begin
+300        1/1                              thread_count_reg[n] <= thread_count_reg[n] + 1;
+301        1/1                          end else if (!thread_trans_start[n] && thread_trans_complete[n]) begin
+302        1/1                              thread_count_reg[n] <= thread_count_reg[n] - 1;
+303                                     end
+                        MISSING_ELSE
+304                                 end
+305                     
+306        1/1                      if (thread_trans_start[n]) begin
+307        1/1                          thread_id_reg[n] <= s_axi_aid;
+308        1/1                          thread_m_reg[n] <= m_select_next;
+309        1/1                          thread_region_reg[n] <= m_axi_aregion_next;
+310                                 end
+                        MISSING_ELSE
+***repeat 1
+296        1/1                      if (rst) begin
+297        1/1                          thread_count_reg[n] <= 0;
+298                                 end else begin
+299        1/1                          if (thread_trans_start[n] && !thread_trans_complete[n]) begin
+300        1/1                              thread_count_reg[n] <= thread_count_reg[n] + 1;
+301        1/1                          end else if (!thread_trans_start[n] && thread_trans_complete[n]) begin
+302        1/1                              thread_count_reg[n] <= thread_count_reg[n] - 1;
+303                                     end
+                        MISSING_ELSE
+304                                 end
+305                     
+306        1/1                      if (thread_trans_start[n]) begin
+307        1/1                          thread_id_reg[n] <= s_axi_aid;
+308        1/1                          thread_m_reg[n] <= m_select_next;
+309        1/1                          thread_region_reg[n] <= m_axi_aregion_next;
+310                                 end
+                        MISSING_ELSE
+***repeat 2
+296        1/1                      if (rst) begin
+297        1/1                          thread_count_reg[n] <= 0;
+298                                 end else begin
+299        1/1                          if (thread_trans_start[n] && !thread_trans_complete[n]) begin
+300        1/1                              thread_count_reg[n] <= thread_count_reg[n] + 1;
+301        1/1                          end else if (!thread_trans_start[n] && thread_trans_complete[n]) begin
+302        1/1                              thread_count_reg[n] <= thread_count_reg[n] - 1;
+303                                     end
+                        MISSING_ELSE
+304                                 end
+305                     
+306        1/1                      if (thread_trans_start[n]) begin
+307        1/1                          thread_id_reg[n] <= s_axi_aid;
+308        1/1                          thread_m_reg[n] <= m_select_next;
+309        1/1                          thread_region_reg[n] <= m_axi_aregion_next;
+310                                 end
+                        MISSING_ELSE
+***repeat 3
+296        1/1                      if (rst) begin
+297        1/1                          thread_count_reg[n] <= 0;
+298                                 end else begin
+299        1/1                          if (thread_trans_start[n] && !thread_trans_complete[n]) begin
+300        1/1                              thread_count_reg[n] <= thread_count_reg[n] + 1;
+301        1/1                          end else if (!thread_trans_start[n] && thread_trans_complete[n]) begin
+302        1/1                              thread_count_reg[n] <= thread_count_reg[n] - 1;
+303                                     end
+                        MISSING_ELSE
+304                                 end
+305                     
+306        1/1                      if (thread_trans_start[n]) begin
+307        1/1                          thread_id_reg[n] <= s_axi_aid;
+308        1/1                          thread_m_reg[n] <= m_select_next;
+309        1/1                          thread_region_reg[n] <= m_axi_aregion_next;
+310                                 end
+                        MISSING_ELSE
+311                             end
+312                         end
+313                     endgenerate
+314                     
+315                     always @* begin
+316        1/1              state_next = STATE_IDLE;
+317                     
+318        1/1              match = 1'b0;
+319        1/1              trans_start = 1'b0;
+320        1/1              trans_complete = 1'b0;
+321                     
+322        1/1              s_axi_aready_next = 1'b0;
+323                     
+324        1/1              m_axi_aregion_next = m_axi_aregion_reg;
+325        1/1              m_select_next = m_select_reg;
+326        1/1              m_axi_avalid_next = m_axi_avalid_reg && !m_axi_aready;
+327        1/1              m_decerr_next = m_decerr_reg;
+328        1/1              m_wc_valid_next = m_wc_valid_reg && !m_wc_ready;
+329        1/1              m_rc_valid_next = m_rc_valid_reg && !m_rc_ready;
+330                     
+331        1/1              case (state_reg)
+332                             STATE_IDLE: begin
+333                                 // idle state, store values
+334        1/1                      s_axi_aready_next = 1'b0;
+335                     
+336        1/1                      if (s_axi_avalid && !s_axi_aready) begin
+337        1/1                          match = 1'b0;
+338        1/1                          for (i = 0; i < M_COUNT; i = i + 1) begin
+339        1/1                              for (j = 0; j < M_REGIONS; j = j + 1) begin
+340        1/1                                  if (M_ADDR_WIDTH[(i*M_REGIONS+j)*32 +: 32] && (!M_SECURE[i] || !s_axi_aprot[1]) && (M_CONNECT & (1 << (S+i*S_COUNT))) && (s_axi_aaddr >> M_ADDR_WIDTH[(i*M_REGIONS+j)*32 +: 32]) == (M_BASE_ADDR_INT[(i*M_REGIONS+j)*ADDR_WIDTH +: ADDR_WIDTH] >> M_ADDR_WIDTH[(i*M_REGIONS+j)*32 +: 32])) begin
+341        1/1                                      m_select_next = i;
+342        1/1                                      m_axi_aregion_next = j;
+343        1/1                                      match = 1'b1;
+344                                             end
+                        MISSING_ELSE
+345                                         end
+346                                     end
+347                     
+348        1/1                          if (match) begin
+349                                         // address decode successful
+350        1/1                              if (!trans_limit && (thread_match_dest || (!(&thread_active) && !thread_match))) begin
+351                                             // transaction limit not reached
+352        1/1                                  m_axi_avalid_next = 1'b1;
+353        1/1                                  m_decerr_next = 1'b0;
+354        1/1                                  m_wc_valid_next = WC_OUTPUT;
+355        1/1                                  m_rc_valid_next = 1'b0;
+356        1/1                                  trans_start = 1'b1;
+357        1/1                                  state_next = STATE_DECODE;
+358                                         end else begin
+359                                             // transaction limit reached; block in idle
+360        1/1                                  state_next = STATE_IDLE;
+361                                         end
+362                                     end else begin
+363                                         // decode error
+364        1/1                              m_axi_avalid_next = 1'b0;
+365        1/1                              m_decerr_next = 1'b1;
+366        1/1                              m_wc_valid_next = WC_OUTPUT;
+367        1/1                              m_rc_valid_next = 1'b1;
+368        1/1                              state_next = STATE_DECODE;
+369                                     end
+370                                 end else begin
+371        1/1                          state_next = STATE_IDLE;
+372                                 end
+373                             end
+374                             STATE_DECODE: begin
+375        1/1                      if (!m_axi_avalid_next && (!m_wc_valid_next || !WC_OUTPUT) && !m_rc_valid_next) begin
+376        1/1                          s_axi_aready_next = 1'b1;
+377        1/1                          state_next = STATE_IDLE;
+378                                 end else begin
+379        1/1                          state_next = STATE_DECODE;
+380                                 end
+381                             end
+                   ==>  MISSING_DEFAULT
+382                         endcase
+383                     
+384                         // manage completions
+385        1/1              trans_complete = s_cpl_valid;
+386                     end
+387                     
+388                     always @(posedge clk) begin
+389        1/1              if (rst) begin
+390        1/1                  state_reg <= STATE_IDLE;
+391        1/1                  s_axi_aready_reg <= 1'b0;
+392        1/1                  m_axi_avalid_reg <= 1'b0;
+393        1/1                  m_wc_valid_reg <= 1'b0;
+394        1/1                  m_rc_valid_reg <= 1'b0;
+395                     
+396        1/1                  trans_count_reg <= 0;
+397                         end else begin
+398        1/1                  state_reg <= state_next;
+399        1/1                  s_axi_aready_reg <= s_axi_aready_next;
+400        1/1                  m_axi_avalid_reg <= m_axi_avalid_next;
+401        1/1                  m_wc_valid_reg <= m_wc_valid_next;
+402        1/1                  m_rc_valid_reg <= m_rc_valid_next;
+403                     
+404        1/1                  if (trans_start && !trans_complete) begin
+405        1/1                      trans_count_reg <= trans_count_reg + 1;
+406        1/1                  end else if (!trans_start && trans_complete) begin
+407        1/1                      trans_count_reg <= trans_count_reg - 1;
+408                             end
+                        MISSING_ELSE
+409                         end
+410                     
+411        1/1              m_axi_aregion_reg <= m_axi_aregion_next;
+412        1/1              m_select_reg <= m_select_next;
+413        1/1              m_decerr_reg <= m_decerr_next;
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : axi_crossbar_addr
+         Line No. Total Covered Percent 
+Branches          43    38      88.37   
+IF       150      2     1       50.00   
+IF       155      2     1       50.00   
+IF       160      2     1       50.00   
+IF       164      2     1       50.00   
+CASE     331      7     6       85.71   
+IF       389      4     4       100.00  
+IF       296      4     4       100.00  
+IF       306      2     2       100.00  
+IF       296      4     4       100.00  
+IF       306      2     2       100.00  
+IF       296      4     4       100.00  
+IF       306      2     2       100.00  
+IF       296      4     4       100.00  
+IF       306      2     2       100.00  
+
+
+150            if (S_ACCEPT < 1) begin
+               -1-  
+151                $error("Error: need at least 1 accept (instance %m)");
+                   ==>
+152                $finish;
+153            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+155            if (S_THREADS < 1) begin
+               -1-  
+156                $error("Error: need at least 1 thread (instance %m)");
+                   ==>
+157                $finish;
+158            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+160            if (S_THREADS > S_ACCEPT) begin
+               -1-  
+161                $warning("Warning: requested thread count larger than accept count; limiting thread count to accept count (instance %m)");
+                   ==>
+162            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Covered     
+0   Not Covered 
+
+
+164            if (M_REGIONS < 1) begin
+               -1-  
+165                $error("Error: need at least 1 region (instance %m)");
+                   ==>
+166                $finish;
+167            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+331            case (state_reg)
+               -1-  
+332                STATE_IDLE: begin
+333                    // idle state, store values
+334                    s_axi_aready_next = 1'b0;
+335        
+336                    if (s_axi_avalid && !s_axi_aready) begin
+                       -2-  
+337                        match = 1'b0;
+338                        for (i = 0; i < M_COUNT; i = i + 1) begin
+339                            for (j = 0; j < M_REGIONS; j = j + 1) begin
+340                                if (M_ADDR_WIDTH[(i*M_REGIONS+j)*32 +: 32] && (!M_SECURE[i] || !s_axi_aprot[1]) && (M_CONNECT & (1 << (S+i*S_COUNT))) && (s_axi_aaddr >> M_ADDR_WIDTH[(i*M_REGIONS+j)*32 +: 32]) == (M_BASE_ADDR_INT[(i*M_REGIONS+j)*ADDR_WIDTH +: ADDR_WIDTH] >> M_ADDR_WIDTH[(i*M_REGIONS+j)*32 +: 32])) begin
+341                                    m_select_next = i;
+342                                    m_axi_aregion_next = j;
+343                                    match = 1'b1;
+344                                end
+345                            end
+346                        end
+347        
+348                        if (match) begin
+                           -3-  
+349                            // address decode successful
+350                            if (!trans_limit && (thread_match_dest || (!(&thread_active) && !thread_match))) begin
+                               -4-  
+351                                // transaction limit not reached
+352                                m_axi_avalid_next = 1'b1;
+                                   ==>
+353                                m_decerr_next = 1'b0;
+354                                m_wc_valid_next = WC_OUTPUT;
+355                                m_rc_valid_next = 1'b0;
+356                                trans_start = 1'b1;
+357                                state_next = STATE_DECODE;
+358                            end else begin
+359                                // transaction limit reached; block in idle
+360                                state_next = STATE_IDLE;
+                                   ==>
+361                            end
+362                        end else begin
+363                            // decode error
+364                            m_axi_avalid_next = 1'b0;
+                               ==>
+365                            m_decerr_next = 1'b1;
+366                            m_wc_valid_next = WC_OUTPUT;
+367                            m_rc_valid_next = 1'b1;
+368                            state_next = STATE_DECODE;
+369                        end
+370                    end else begin
+371                        state_next = STATE_IDLE;
+                           ==>
+372                    end
+373                end
+374                STATE_DECODE: begin
+375                    if (!m_axi_avalid_next && (!m_wc_valid_next || !WC_OUTPUT) && !m_rc_valid_next) begin
+                       -5-  
+376                        s_axi_aready_next = 1'b1;
+                           ==>
+377                        state_next = STATE_IDLE;
+378                    end else begin
+379                        state_next = STATE_DECODE;
+                           ==>
+380                    end
+381                end
+                   MISSING_DEFAULT
+                   ==>
+
+Branches:
+
+-1-             -2- -3- -4- -5- Status      
+STATE_IDLE      1   1   1   -   Covered     
+STATE_IDLE      1   1   0   -   Covered     
+STATE_IDLE      1   0   -   -   Covered     
+STATE_IDLE      0   -   -   -   Covered     
+STATE_DECODE    -   -   -   1   Covered     
+STATE_DECODE    -   -   -   0   Covered     
+MISSING_DEFAULT -   -   -   -   Not Covered 
+
+
+389            if (rst) begin
+               -1-  
+390                state_reg <= STATE_IDLE;
+                   ==>
+391                s_axi_aready_reg <= 1'b0;
+392                m_axi_avalid_reg <= 1'b0;
+393                m_wc_valid_reg <= 1'b0;
+394                m_rc_valid_reg <= 1'b0;
+395        
+396                trans_count_reg <= 0;
+397            end else begin
+398                state_reg <= state_next;
+399                s_axi_aready_reg <= s_axi_aready_next;
+400                m_axi_avalid_reg <= m_axi_avalid_next;
+401                m_wc_valid_reg <= m_wc_valid_next;
+402                m_rc_valid_reg <= m_rc_valid_next;
+403        
+404                if (trans_start && !trans_complete) begin
+                   -2-  
+405                    trans_count_reg <= trans_count_reg + 1;
+                       ==>
+406                end else if (!trans_start && trans_complete) begin
+                            -3-  
+407                    trans_count_reg <= trans_count_reg - 1;
+                       ==>
+408                end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+296                    if (rst) begin
+                       -1-  
+297                        thread_count_reg[n] <= 0;
+                           ==>
+298                    end else begin
+299                        if (thread_trans_start[n] && !thread_trans_complete[n]) begin
+                           -2-  
+300                            thread_count_reg[n] <= thread_count_reg[n] + 1;
+                               ==>
+301                        end else if (!thread_trans_start[n] && thread_trans_complete[n]) begin
+                                    -3-  
+302                            thread_count_reg[n] <= thread_count_reg[n] - 1;
+                               ==>
+303                        end
+                           MISSING_ELSE
+                           ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+306                    if (thread_trans_start[n]) begin
+                       -1-  
+307                        thread_id_reg[n] <= s_axi_aid;
+                           ==>
+308                        thread_m_reg[n] <= m_select_next;
+309                        thread_region_reg[n] <= m_axi_aregion_next;
+310                    end
+                       MISSING_ELSE
+                       ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+296                    if (rst) begin
+                       -1-  
+297                        thread_count_reg[n] <= 0;
+                           ==>
+298                    end else begin
+299                        if (thread_trans_start[n] && !thread_trans_complete[n]) begin
+                           -2-  
+300                            thread_count_reg[n] <= thread_count_reg[n] + 1;
+                               ==>
+301                        end else if (!thread_trans_start[n] && thread_trans_complete[n]) begin
+                                    -3-  
+302                            thread_count_reg[n] <= thread_count_reg[n] - 1;
+                               ==>
+303                        end
+                           MISSING_ELSE
+                           ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+306                    if (thread_trans_start[n]) begin
+                       -1-  
+307                        thread_id_reg[n] <= s_axi_aid;
+                           ==>
+308                        thread_m_reg[n] <= m_select_next;
+309                        thread_region_reg[n] <= m_axi_aregion_next;
+310                    end
+                       MISSING_ELSE
+                       ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+296                    if (rst) begin
+                       -1-  
+297                        thread_count_reg[n] <= 0;
+                           ==>
+298                    end else begin
+299                        if (thread_trans_start[n] && !thread_trans_complete[n]) begin
+                           -2-  
+300                            thread_count_reg[n] <= thread_count_reg[n] + 1;
+                               ==>
+301                        end else if (!thread_trans_start[n] && thread_trans_complete[n]) begin
+                                    -3-  
+302                            thread_count_reg[n] <= thread_count_reg[n] - 1;
+                               ==>
+303                        end
+                           MISSING_ELSE
+                           ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+306                    if (thread_trans_start[n]) begin
+                       -1-  
+307                        thread_id_reg[n] <= s_axi_aid;
+                           ==>
+308                        thread_m_reg[n] <= m_select_next;
+309                        thread_region_reg[n] <= m_axi_aregion_next;
+310                    end
+                       MISSING_ELSE
+                       ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+296                    if (rst) begin
+                       -1-  
+297                        thread_count_reg[n] <= 0;
+                           ==>
+298                    end else begin
+299                        if (thread_trans_start[n] && !thread_trans_complete[n]) begin
+                           -2-  
+300                            thread_count_reg[n] <= thread_count_reg[n] + 1;
+                               ==>
+301                        end else if (!thread_trans_start[n] && thread_trans_complete[n]) begin
+                                    -3-  
+302                            thread_count_reg[n] <= thread_count_reg[n] - 1;
+                               ==>
+303                        end
+                           MISSING_ELSE
+                           ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+306                    if (thread_trans_start[n]) begin
+                       -1-  
+307                        thread_id_reg[n] <= s_axi_aid;
+                           ==>
+308                        thread_m_reg[n] <= m_select_next;
+309                        thread_region_reg[n] <= m_axi_aregion_next;
+310                    end
+                       MISSING_ELSE
+                       ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : case5_cocotb_top.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   BRANCH 
+ 88.03  87.68  88.37 
+
+
+Instance's subtree :
+
+SCORE  LINE   BRANCH 
+ 88.03  87.68  88.37 
+
+
+Module : 
+
+SCORE  LINE   BRANCH NAME              
+ 88.03  87.68  88.37 axi_crossbar_addr 
+
+
+Parent : 
+
+SCORE  LINE   BRANCH NAME             
+--     --     --     case5_cocotb_top 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : case5_cocotb_top
+===============================================================================
+SCORE  LINE   BRANCH 
+--     --     --     
+
+Source File(s) : 
+
+/workspace/public_dataset/case5/case5_cocotb_top.v
+
+Module self-instances :
+
+SCORE  LINE   BRANCH NAME             
+--     --     --     case5_cocotb_top 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : case5_cocotb_top
+===============================================================================
+
+Instance :
+
+SCORE  LINE   BRANCH 
+--     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   BRANCH 
+ 88.03  87.68  88.37 
+
+
+Module : 
+
+SCORE  LINE   BRANCH NAME             
+--     --     --     case5_cocotb_top 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   BRANCH NAME 
+ 88.03  87.68  88.37 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

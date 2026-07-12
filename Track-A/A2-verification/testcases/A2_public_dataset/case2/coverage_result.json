@@ -1,0 +1,35 @@
+{
+  "coverage_result": {
+    "design": "case2",
+    "status": "passed",
+    "simulator": {"name": "VCS", "version": "O-2018.09-SP2"},
+    "run": {
+      "type": "plain_verilog_vector_testbench",
+      "testbench": "tb/case2_tb.v",
+      "result": "PASS cycles=7403",
+      "seed": 20260630,
+      "configured_sequence_count": 5000,
+      "vector_cycle_count": 7403
+    },
+    "coverage": {
+      "scope": "RTL only, tb.UUT subtree",
+      "line": {"covered": 92, "total": 154, "percent": 59.74},
+      "branch": {"covered": 46, "total": 73, "percent": 63.01},
+      "functional": {"covered": 13, "total": 14, "percent": 92.86},
+      "composite": {
+        "formula": "0.42 * line + 0.28 * branch + 0.30 * functional",
+        "percent": 70.59
+      }
+    },
+    "all_modules_vcs_coverage": {
+      "line": {"covered": 119, "total": 195, "percent": 61.03},
+      "branch": {"covered": 49, "total": 79, "percent": 62.03}
+    },
+    "artifacts": {
+      "urg_report": "vcs_coverage_20260711/report",
+      "compile_log": "vcs_coverage_20260711/comp.log",
+      "simulation_log": "vcs_coverage_20260711/sim.log",
+      "functional_coverage": "functional_coverage.json"
+    }
+  }
+}

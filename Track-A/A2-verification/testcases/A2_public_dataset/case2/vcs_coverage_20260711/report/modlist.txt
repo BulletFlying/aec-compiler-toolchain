@@ -1,0 +1,15 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   BRANCH 
+ 61.53  61.03  62.03 
+
+
+Total modules in report: 4
+-------------------------------------------------------------------------------
+SCORE  LINE   BRANCH NAME              
+ 41.67  33.33  50.00 axis_fifo_adapter 
+ 49.49  48.98  50.00 axis_fifo         
+ 57.93  65.85  50.00 tb                
+ 87.62  87.23  88.00 axis_adapter      
+

@@ -1,0 +1,19 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : top
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:10:53 2026
+****************************************
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   top                          0.00       25734.66       -25734.66 (VIOLATED)
+
+
+1

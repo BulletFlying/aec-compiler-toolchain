@@ -1,0 +1,46 @@
+ 
+****************************************
+Report : area
+Design : stage_mult
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:48 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                          491
+Number of nets:                          1547
+Number of cells:                          984
+Number of combinational cells:            879
+Number of sequential cells:               102
+Number of macros/black boxes:               0
+Number of buf/inv:                        149
+Number of references:                       6
+
+Combinational area:               1534.553998
+Buf/Inv area:                      100.813999
+Noncombinational area:             366.281987
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  1900.835985
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  ---------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-     Noncombi-  Black-
+                                  Total      Total    national   national   boxes   Design
+--------------------------------  ---------  -------  ---------  ---------  ------  ----------------------
+stage_mult                        1900.8360    100.0    59.5840   366.2820  0.0000  stage_mult
+add_28                             134.5960      7.1   134.5960     0.0000  0.0000  stage_mult_DW01_add_0
+mult_18                           1340.3740     70.5  1188.4880     0.0000  0.0000  stage_mult_DW02_mult_0
+mult_18/FS_1                       151.8860      8.0   151.8860     0.0000  0.0000  stage_mult_DW01_add_1
+--------------------------------  ---------  -------  ---------  ---------  ------  ----------------------
+Total                                                 1534.5540   366.2820  0.0000
+
+1

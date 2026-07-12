@@ -1,0 +1,15 @@
+{
+  "public_dataset_result": {
+    "name": "case4",
+    "status": "complete",
+    "simulation": {"type": "cocotb", "status": "passed", "seed": 20260630, "sequence_count": 5000},
+    "coverage": {
+      "line_percent": 96.9,
+      "branch_percent": 80.65,
+      "functional_percent": 100.0,
+      "composite_percent": 93.28,
+      "artifact": "coverage_result.json"
+    },
+    "artifacts": ["design.json", "testbench.json", "verification_skeleton.json", "constraints.json", "coverage_bins.json", "functional_coverage.json", "coverage_result.json", "rtl/case4.v", "tb/case4_tb.py", "test_case4_json_sequences.py", "Makefile"]
+  }
+}

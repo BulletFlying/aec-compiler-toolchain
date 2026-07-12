@@ -1,0 +1,52 @@
+ 
+****************************************
+Report : area
+Design : VexRiscv_small
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:02:28 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                          793
+Number of nets:                          8231
+Number of cells:                         6293
+Number of combinational cells:           4621
+Number of sequential cells:              1665
+Number of macros/black boxes:               0
+Number of buf/inv:                        511
+Number of references:                      39
+
+Combinational area:               5897.220098
+Buf/Inv area:                      329.839997
+Noncombinational area:            7531.789748
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 13429.009847
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area           Local cell area
+                                  -------------------  ---------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-     Noncombi-  Black-
+                                  Total       Total    national   national   boxes   Design
+--------------------------------  ----------  -------  ---------  ---------  ------  --------------------------
+VexRiscv_small                    13429.0098    100.0  5286.2181  7377.2438  0.0000  VexRiscv_small
+IBusSimplePlugin_rspJoin_rspBuffer_c
+                                    268.9260      2.0     0.0000     0.0000  0.0000  StreamFifoLowLatency
+IBusSimplePlugin_rspJoin_rspBuffer_c/fifo
+                                    268.9260      2.0   114.3800   154.5460  0.0000  StreamFifo
+add_1823                             78.7360      0.6    78.7360     0.0000  0.0000  VexRiscv_small_DW01_add_1
+add_2601                            131.1380      1.0   131.1380     0.0000  0.0000  VexRiscv_small_DW01_add_0
+add_858                              84.0560      0.6    84.0560     0.0000  0.0000  VexRiscv_small_DW01_add_2
+add_859                             134.5960      1.0   134.5960     0.0000  0.0000  VexRiscv_small_DW01_add_3
+eq_2484                              68.0960      0.5    68.0960     0.0000  0.0000  VexRiscv_small_DW01_cmp6_0
+--------------------------------  ----------  -------  ---------  ---------  ------  --------------------------
+Total                                                  5897.2201  7531.7897  0.0000
+
+1

@@ -1,0 +1,20 @@
+id: LSV01
+split: public
+name: epfl_priority
+top: top
+rtl: rtl/design.v
+source_path: EPFL/priority.v
+source_sha256: 2b29f270d3f6db4cbf6307cb29d1a1192c82dd9ea08d9a8c7f8d02ef469b32f5
+clock: null
+reset: null
+reset_active: null
+clock_period_ns: 10.000
+category: comb_priority
+difficulty: easy
+line_count: 1102
+baseline:
+  flow: yosys_abc_nangate45_typical
+  elapsed_s: 2.43
+  cells: 331
+  area: 435.176000
+notes: EPFL priority/selection logic with escaped scalar ports.

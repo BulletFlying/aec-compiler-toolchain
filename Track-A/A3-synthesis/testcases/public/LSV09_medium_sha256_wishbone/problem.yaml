@@ -1,0 +1,20 @@
+id: LSV09
+split: public
+name: medium_sha256_wishbone
+top: Sha256Wishbone
+rtl: rtl/design.v
+source_path: medium_design/4.Sha256Wishbone.clock.v
+source_sha256: 022ecd8055b8374e919d9e1c110547d8c3b9d62f9cf02da46e971b1cd14cbbad
+clock: clock
+reset: reset
+reset_active: high
+clock_period_ns: 10.000
+category: seq_crypto_bus
+difficulty: hard
+line_count: 1085
+baseline:
+  flow: yosys_abc_nangate45_typical
+  elapsed_s: 5.57
+  cells: 8029
+  area: 13120.982000
+notes: Hierarchical Chisel-generated SHA-256 Wishbone accelerator.

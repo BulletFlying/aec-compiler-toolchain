@@ -1,0 +1,54 @@
+{
+  "assembler": {
+    "path": "tools/assemble.py",
+    "sha256": "b72fcd498c51a1517ba1f7cd53e9bb6d0f1ba03d33c4183c7cca694332c710f4"
+  },
+  "assembler_meta": {
+    "code_size_bytes": 224,
+    "entry_pc": 0,
+    "format": "aecbin-raw",
+    "hex_order": "w3,w2,w1,w0 msb-first",
+    "instruction_count": 14,
+    "instruction_width_bits": 128,
+    "labels": {},
+    "version": 1,
+    "word_order": "w0,w1,w2,w3 little-endian u32"
+  },
+  "binary": {
+    "path": "program.bin",
+    "sha256": "f777241d354a5e83e1780e9b1c7a10ab387945d4f940a6fc19ba2e4e59716b58",
+    "size_bytes": 224
+  },
+  "case_dir": "tests/aec_cases/kernels/vadd",
+  "case_id": "K-VADD",
+  "checker": {
+    "path": "tools/check_aec_asm.py",
+    "sha256": "161a6cdadf81cc6777a031f674e36aaf77b7c18495ab202f0af1bd12bb0b831b"
+  },
+  "generated_artifacts": {
+    "expected/gmem_00000100.bin": {
+      "sha256": "afbc67011b6f94a508935ad8edcbdd3c9b56c4db336f8d3847a8a1815183828f",
+      "size_bytes": 128
+    },
+    "expected/gmem_00000300.bin": {
+      "sha256": "66ed93d6149cd3e466dc11cc369d1024202f3c58851ffe77671824cc0bd437bf",
+      "size_bytes": 128
+    },
+    "input/gmem_00000100.bin": {
+      "sha256": "b694833d86ae722f7d44251f6b57a1011ea2c7fd3b68c37ce217f99f7817b5d8",
+      "size_bytes": 128
+    },
+    "input/gmem_00000200.bin": {
+      "sha256": "85be59d66995ee28e6683ea5d46345008302c3203d9efe879ce6727d68fd3aed",
+      "size_bytes": 128
+    }
+  },
+  "hex": {
+    "path": "program.hex",
+    "sha256": "f11f86a1035760a9a1b6c8c223a0323d52844ef45bb6c795137f843a5d5e3c19"
+  },
+  "source": {
+    "path": "program.aec",
+    "sha256": "8288acb1fa5deb9fe91829cc2f486722b8be64de55f50bdb34a35574f1c469f1"
+  }
+}

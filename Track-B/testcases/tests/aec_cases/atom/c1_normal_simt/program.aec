@@ -1,0 +1,10 @@
+# Per-lane addresses avoid contention while exercising ADD and old-value return.
+CPY.u32 R1, %laneid
+LOADI R2, 2
+SHL.u32 R3, R1, R2
+LOADI R4, 3
+ATOM.gmem.add.u32 R5, [R3], R4
+LOADI R6, 0x100
+ADD.u32 R7, R6, R3
+ST.gmem.u32 [R7], R5
+HALT

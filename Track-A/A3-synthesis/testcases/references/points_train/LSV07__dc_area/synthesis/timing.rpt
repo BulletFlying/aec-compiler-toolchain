@@ -1,0 +1,1694 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : qdiv
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 15:01:41 2026
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: reg_working_dividend_reg[0]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[45]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[0]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[0]/Q (DFF_X1)                  0.09       0.09 f
+  sub_68/A[0] (qdiv_DW01_sub_0)                           0.00       0.09 f
+  sub_68/U4/ZN (INV_X1)                                   0.03       0.12 r
+  sub_68/U3/ZN (NAND2_X1)                                 0.03       0.15 f
+  sub_68/U2_1/CO (FA_X1)                                  0.09       0.24 f
+  sub_68/U2_2/CO (FA_X1)                                  0.09       0.33 f
+  sub_68/U2_3/CO (FA_X1)                                  0.09       0.42 f
+  sub_68/U2_4/CO (FA_X1)                                  0.09       0.51 f
+  sub_68/U2_5/CO (FA_X1)                                  0.09       0.60 f
+  sub_68/U2_6/CO (FA_X1)                                  0.09       0.69 f
+  sub_68/U2_7/CO (FA_X1)                                  0.09       0.78 f
+  sub_68/U2_8/CO (FA_X1)                                  0.09       0.87 f
+  sub_68/U2_9/CO (FA_X1)                                  0.09       0.96 f
+  sub_68/U2_10/CO (FA_X1)                                 0.09       1.05 f
+  sub_68/U2_11/CO (FA_X1)                                 0.09       1.14 f
+  sub_68/U2_12/CO (FA_X1)                                 0.09       1.24 f
+  sub_68/U2_13/CO (FA_X1)                                 0.09       1.33 f
+  sub_68/U2_14/CO (FA_X1)                                 0.09       1.42 f
+  sub_68/U2_15/CO (FA_X1)                                 0.09       1.51 f
+  sub_68/U2_16/CO (FA_X1)                                 0.09       1.60 f
+  sub_68/U2_17/CO (FA_X1)                                 0.09       1.69 f
+  sub_68/U2_18/CO (FA_X1)                                 0.09       1.78 f
+  sub_68/U2_19/CO (FA_X1)                                 0.09       1.87 f
+  sub_68/U2_20/CO (FA_X1)                                 0.09       1.96 f
+  sub_68/U2_21/CO (FA_X1)                                 0.09       2.05 f
+  sub_68/U2_22/CO (FA_X1)                                 0.09       2.14 f
+  sub_68/U2_23/CO (FA_X1)                                 0.09       2.23 f
+  sub_68/U2_24/CO (FA_X1)                                 0.09       2.32 f
+  sub_68/U2_25/CO (FA_X1)                                 0.09       2.41 f
+  sub_68/U2_26/CO (FA_X1)                                 0.09       2.50 f
+  sub_68/U2_27/CO (FA_X1)                                 0.09       2.59 f
+  sub_68/U2_28/CO (FA_X1)                                 0.09       2.69 f
+  sub_68/U2_29/CO (FA_X1)                                 0.09       2.78 f
+  sub_68/U2_30/CO (FA_X1)                                 0.09       2.87 f
+  sub_68/U2_31/CO (FA_X1)                                 0.09       2.96 f
+  sub_68/U2_32/CO (FA_X1)                                 0.09       3.05 f
+  sub_68/U2_33/CO (FA_X1)                                 0.09       3.14 f
+  sub_68/U2_34/CO (FA_X1)                                 0.09       3.23 f
+  sub_68/U2_35/CO (FA_X1)                                 0.09       3.32 f
+  sub_68/U2_36/CO (FA_X1)                                 0.09       3.41 f
+  sub_68/U2_37/CO (FA_X1)                                 0.09       3.50 f
+  sub_68/U2_38/CO (FA_X1)                                 0.09       3.59 f
+  sub_68/U2_39/CO (FA_X1)                                 0.09       3.68 f
+  sub_68/U2_40/CO (FA_X1)                                 0.09       3.77 f
+  sub_68/U2_41/CO (FA_X1)                                 0.09       3.86 f
+  sub_68/U2_42/CO (FA_X1)                                 0.09       3.95 f
+  sub_68/U2_43/CO (FA_X1)                                 0.09       4.05 f
+  sub_68/U2_44/CO (FA_X1)                                 0.09       4.14 f
+  sub_68/U2_45/S (FA_X1)                                  0.11       4.24 f
+  sub_68/DIFF[45] (qdiv_DW01_sub_0)                       0.00       4.24 f
+  U703/ZN (AOI222_X1)                                     0.10       4.34 r
+  U702/ZN (INV_X1)                                        0.02       4.36 f
+  reg_working_dividend_reg[45]/D (DFF_X1)                 0.01       4.37 f
+  data arrival time                                                  4.37
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[45]/CK (DFF_X1)                0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -4.37
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.59
+
+
+  Startpoint: reg_working_dividend_reg[0]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[44]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[0]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[0]/Q (DFF_X1)                  0.09       0.09 f
+  sub_68/A[0] (qdiv_DW01_sub_0)                           0.00       0.09 f
+  sub_68/U4/ZN (INV_X1)                                   0.03       0.12 r
+  sub_68/U3/ZN (NAND2_X1)                                 0.03       0.15 f
+  sub_68/U2_1/CO (FA_X1)                                  0.09       0.24 f
+  sub_68/U2_2/CO (FA_X1)                                  0.09       0.33 f
+  sub_68/U2_3/CO (FA_X1)                                  0.09       0.42 f
+  sub_68/U2_4/CO (FA_X1)                                  0.09       0.51 f
+  sub_68/U2_5/CO (FA_X1)                                  0.09       0.60 f
+  sub_68/U2_6/CO (FA_X1)                                  0.09       0.69 f
+  sub_68/U2_7/CO (FA_X1)                                  0.09       0.78 f
+  sub_68/U2_8/CO (FA_X1)                                  0.09       0.87 f
+  sub_68/U2_9/CO (FA_X1)                                  0.09       0.96 f
+  sub_68/U2_10/CO (FA_X1)                                 0.09       1.05 f
+  sub_68/U2_11/CO (FA_X1)                                 0.09       1.14 f
+  sub_68/U2_12/CO (FA_X1)                                 0.09       1.24 f
+  sub_68/U2_13/CO (FA_X1)                                 0.09       1.33 f
+  sub_68/U2_14/CO (FA_X1)                                 0.09       1.42 f
+  sub_68/U2_15/CO (FA_X1)                                 0.09       1.51 f
+  sub_68/U2_16/CO (FA_X1)                                 0.09       1.60 f
+  sub_68/U2_17/CO (FA_X1)                                 0.09       1.69 f
+  sub_68/U2_18/CO (FA_X1)                                 0.09       1.78 f
+  sub_68/U2_19/CO (FA_X1)                                 0.09       1.87 f
+  sub_68/U2_20/CO (FA_X1)                                 0.09       1.96 f
+  sub_68/U2_21/CO (FA_X1)                                 0.09       2.05 f
+  sub_68/U2_22/CO (FA_X1)                                 0.09       2.14 f
+  sub_68/U2_23/CO (FA_X1)                                 0.09       2.23 f
+  sub_68/U2_24/CO (FA_X1)                                 0.09       2.32 f
+  sub_68/U2_25/CO (FA_X1)                                 0.09       2.41 f
+  sub_68/U2_26/CO (FA_X1)                                 0.09       2.50 f
+  sub_68/U2_27/CO (FA_X1)                                 0.09       2.59 f
+  sub_68/U2_28/CO (FA_X1)                                 0.09       2.69 f
+  sub_68/U2_29/CO (FA_X1)                                 0.09       2.78 f
+  sub_68/U2_30/CO (FA_X1)                                 0.09       2.87 f
+  sub_68/U2_31/CO (FA_X1)                                 0.09       2.96 f
+  sub_68/U2_32/CO (FA_X1)                                 0.09       3.05 f
+  sub_68/U2_33/CO (FA_X1)                                 0.09       3.14 f
+  sub_68/U2_34/CO (FA_X1)                                 0.09       3.23 f
+  sub_68/U2_35/CO (FA_X1)                                 0.09       3.32 f
+  sub_68/U2_36/CO (FA_X1)                                 0.09       3.41 f
+  sub_68/U2_37/CO (FA_X1)                                 0.09       3.50 f
+  sub_68/U2_38/CO (FA_X1)                                 0.09       3.59 f
+  sub_68/U2_39/CO (FA_X1)                                 0.09       3.68 f
+  sub_68/U2_40/CO (FA_X1)                                 0.09       3.77 f
+  sub_68/U2_41/CO (FA_X1)                                 0.09       3.86 f
+  sub_68/U2_42/CO (FA_X1)                                 0.09       3.95 f
+  sub_68/U2_43/CO (FA_X1)                                 0.09       4.05 f
+  sub_68/U2_44/S (FA_X1)                                  0.11       4.15 f
+  sub_68/DIFF[44] (qdiv_DW01_sub_0)                       0.00       4.15 f
+  U701/ZN (AOI222_X1)                                     0.10       4.25 r
+  U700/ZN (INV_X1)                                        0.02       4.27 f
+  reg_working_dividend_reg[44]/D (DFF_X1)                 0.01       4.28 f
+  data arrival time                                                  4.28
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[44]/CK (DFF_X1)                0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -4.28
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.68
+
+
+  Startpoint: reg_working_dividend_reg[0]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[43]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[0]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[0]/Q (DFF_X1)                  0.09       0.09 f
+  sub_68/A[0] (qdiv_DW01_sub_0)                           0.00       0.09 f
+  sub_68/U4/ZN (INV_X1)                                   0.03       0.12 r
+  sub_68/U3/ZN (NAND2_X1)                                 0.03       0.15 f
+  sub_68/U2_1/CO (FA_X1)                                  0.09       0.24 f
+  sub_68/U2_2/CO (FA_X1)                                  0.09       0.33 f
+  sub_68/U2_3/CO (FA_X1)                                  0.09       0.42 f
+  sub_68/U2_4/CO (FA_X1)                                  0.09       0.51 f
+  sub_68/U2_5/CO (FA_X1)                                  0.09       0.60 f
+  sub_68/U2_6/CO (FA_X1)                                  0.09       0.69 f
+  sub_68/U2_7/CO (FA_X1)                                  0.09       0.78 f
+  sub_68/U2_8/CO (FA_X1)                                  0.09       0.87 f
+  sub_68/U2_9/CO (FA_X1)                                  0.09       0.96 f
+  sub_68/U2_10/CO (FA_X1)                                 0.09       1.05 f
+  sub_68/U2_11/CO (FA_X1)                                 0.09       1.14 f
+  sub_68/U2_12/CO (FA_X1)                                 0.09       1.24 f
+  sub_68/U2_13/CO (FA_X1)                                 0.09       1.33 f
+  sub_68/U2_14/CO (FA_X1)                                 0.09       1.42 f
+  sub_68/U2_15/CO (FA_X1)                                 0.09       1.51 f
+  sub_68/U2_16/CO (FA_X1)                                 0.09       1.60 f
+  sub_68/U2_17/CO (FA_X1)                                 0.09       1.69 f
+  sub_68/U2_18/CO (FA_X1)                                 0.09       1.78 f
+  sub_68/U2_19/CO (FA_X1)                                 0.09       1.87 f
+  sub_68/U2_20/CO (FA_X1)                                 0.09       1.96 f
+  sub_68/U2_21/CO (FA_X1)                                 0.09       2.05 f
+  sub_68/U2_22/CO (FA_X1)                                 0.09       2.14 f
+  sub_68/U2_23/CO (FA_X1)                                 0.09       2.23 f
+  sub_68/U2_24/CO (FA_X1)                                 0.09       2.32 f
+  sub_68/U2_25/CO (FA_X1)                                 0.09       2.41 f
+  sub_68/U2_26/CO (FA_X1)                                 0.09       2.50 f
+  sub_68/U2_27/CO (FA_X1)                                 0.09       2.59 f
+  sub_68/U2_28/CO (FA_X1)                                 0.09       2.69 f
+  sub_68/U2_29/CO (FA_X1)                                 0.09       2.78 f
+  sub_68/U2_30/CO (FA_X1)                                 0.09       2.87 f
+  sub_68/U2_31/CO (FA_X1)                                 0.09       2.96 f
+  sub_68/U2_32/CO (FA_X1)                                 0.09       3.05 f
+  sub_68/U2_33/CO (FA_X1)                                 0.09       3.14 f
+  sub_68/U2_34/CO (FA_X1)                                 0.09       3.23 f
+  sub_68/U2_35/CO (FA_X1)                                 0.09       3.32 f
+  sub_68/U2_36/CO (FA_X1)                                 0.09       3.41 f
+  sub_68/U2_37/CO (FA_X1)                                 0.09       3.50 f
+  sub_68/U2_38/CO (FA_X1)                                 0.09       3.59 f
+  sub_68/U2_39/CO (FA_X1)                                 0.09       3.68 f
+  sub_68/U2_40/CO (FA_X1)                                 0.09       3.77 f
+  sub_68/U2_41/CO (FA_X1)                                 0.09       3.86 f
+  sub_68/U2_42/CO (FA_X1)                                 0.09       3.95 f
+  sub_68/U2_43/S (FA_X1)                                  0.11       4.06 f
+  sub_68/DIFF[43] (qdiv_DW01_sub_0)                       0.00       4.06 f
+  U699/ZN (AOI222_X1)                                     0.10       4.16 r
+  U698/ZN (INV_X1)                                        0.02       4.18 f
+  reg_working_dividend_reg[43]/D (DFF_X1)                 0.01       4.19 f
+  data arrival time                                                  4.19
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[43]/CK (DFF_X1)                0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -4.19
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.77
+
+
+  Startpoint: reg_working_dividend_reg[0]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[42]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[0]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[0]/Q (DFF_X1)                  0.09       0.09 f
+  sub_68/A[0] (qdiv_DW01_sub_0)                           0.00       0.09 f
+  sub_68/U4/ZN (INV_X1)                                   0.03       0.12 r
+  sub_68/U3/ZN (NAND2_X1)                                 0.03       0.15 f
+  sub_68/U2_1/CO (FA_X1)                                  0.09       0.24 f
+  sub_68/U2_2/CO (FA_X1)                                  0.09       0.33 f
+  sub_68/U2_3/CO (FA_X1)                                  0.09       0.42 f
+  sub_68/U2_4/CO (FA_X1)                                  0.09       0.51 f
+  sub_68/U2_5/CO (FA_X1)                                  0.09       0.60 f
+  sub_68/U2_6/CO (FA_X1)                                  0.09       0.69 f
+  sub_68/U2_7/CO (FA_X1)                                  0.09       0.78 f
+  sub_68/U2_8/CO (FA_X1)                                  0.09       0.87 f
+  sub_68/U2_9/CO (FA_X1)                                  0.09       0.96 f
+  sub_68/U2_10/CO (FA_X1)                                 0.09       1.05 f
+  sub_68/U2_11/CO (FA_X1)                                 0.09       1.14 f
+  sub_68/U2_12/CO (FA_X1)                                 0.09       1.24 f
+  sub_68/U2_13/CO (FA_X1)                                 0.09       1.33 f
+  sub_68/U2_14/CO (FA_X1)                                 0.09       1.42 f
+  sub_68/U2_15/CO (FA_X1)                                 0.09       1.51 f
+  sub_68/U2_16/CO (FA_X1)                                 0.09       1.60 f
+  sub_68/U2_17/CO (FA_X1)                                 0.09       1.69 f
+  sub_68/U2_18/CO (FA_X1)                                 0.09       1.78 f
+  sub_68/U2_19/CO (FA_X1)                                 0.09       1.87 f
+  sub_68/U2_20/CO (FA_X1)                                 0.09       1.96 f
+  sub_68/U2_21/CO (FA_X1)                                 0.09       2.05 f
+  sub_68/U2_22/CO (FA_X1)                                 0.09       2.14 f
+  sub_68/U2_23/CO (FA_X1)                                 0.09       2.23 f
+  sub_68/U2_24/CO (FA_X1)                                 0.09       2.32 f
+  sub_68/U2_25/CO (FA_X1)                                 0.09       2.41 f
+  sub_68/U2_26/CO (FA_X1)                                 0.09       2.50 f
+  sub_68/U2_27/CO (FA_X1)                                 0.09       2.59 f
+  sub_68/U2_28/CO (FA_X1)                                 0.09       2.69 f
+  sub_68/U2_29/CO (FA_X1)                                 0.09       2.78 f
+  sub_68/U2_30/CO (FA_X1)                                 0.09       2.87 f
+  sub_68/U2_31/CO (FA_X1)                                 0.09       2.96 f
+  sub_68/U2_32/CO (FA_X1)                                 0.09       3.05 f
+  sub_68/U2_33/CO (FA_X1)                                 0.09       3.14 f
+  sub_68/U2_34/CO (FA_X1)                                 0.09       3.23 f
+  sub_68/U2_35/CO (FA_X1)                                 0.09       3.32 f
+  sub_68/U2_36/CO (FA_X1)                                 0.09       3.41 f
+  sub_68/U2_37/CO (FA_X1)                                 0.09       3.50 f
+  sub_68/U2_38/CO (FA_X1)                                 0.09       3.59 f
+  sub_68/U2_39/CO (FA_X1)                                 0.09       3.68 f
+  sub_68/U2_40/CO (FA_X1)                                 0.09       3.77 f
+  sub_68/U2_41/CO (FA_X1)                                 0.09       3.86 f
+  sub_68/U2_42/S (FA_X1)                                  0.11       3.97 f
+  sub_68/DIFF[42] (qdiv_DW01_sub_0)                       0.00       3.97 f
+  U697/ZN (AOI222_X1)                                     0.10       4.07 r
+  U696/ZN (INV_X1)                                        0.02       4.09 f
+  reg_working_dividend_reg[42]/D (DFF_X1)                 0.01       4.10 f
+  data arrival time                                                  4.10
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[42]/CK (DFF_X1)                0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -4.10
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.86
+
+
+  Startpoint: reg_working_dividend_reg[0]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[41]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[0]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[0]/Q (DFF_X1)                  0.09       0.09 f
+  sub_68/A[0] (qdiv_DW01_sub_0)                           0.00       0.09 f
+  sub_68/U4/ZN (INV_X1)                                   0.03       0.12 r
+  sub_68/U3/ZN (NAND2_X1)                                 0.03       0.15 f
+  sub_68/U2_1/CO (FA_X1)                                  0.09       0.24 f
+  sub_68/U2_2/CO (FA_X1)                                  0.09       0.33 f
+  sub_68/U2_3/CO (FA_X1)                                  0.09       0.42 f
+  sub_68/U2_4/CO (FA_X1)                                  0.09       0.51 f
+  sub_68/U2_5/CO (FA_X1)                                  0.09       0.60 f
+  sub_68/U2_6/CO (FA_X1)                                  0.09       0.69 f
+  sub_68/U2_7/CO (FA_X1)                                  0.09       0.78 f
+  sub_68/U2_8/CO (FA_X1)                                  0.09       0.87 f
+  sub_68/U2_9/CO (FA_X1)                                  0.09       0.96 f
+  sub_68/U2_10/CO (FA_X1)                                 0.09       1.05 f
+  sub_68/U2_11/CO (FA_X1)                                 0.09       1.14 f
+  sub_68/U2_12/CO (FA_X1)                                 0.09       1.24 f
+  sub_68/U2_13/CO (FA_X1)                                 0.09       1.33 f
+  sub_68/U2_14/CO (FA_X1)                                 0.09       1.42 f
+  sub_68/U2_15/CO (FA_X1)                                 0.09       1.51 f
+  sub_68/U2_16/CO (FA_X1)                                 0.09       1.60 f
+  sub_68/U2_17/CO (FA_X1)                                 0.09       1.69 f
+  sub_68/U2_18/CO (FA_X1)                                 0.09       1.78 f
+  sub_68/U2_19/CO (FA_X1)                                 0.09       1.87 f
+  sub_68/U2_20/CO (FA_X1)                                 0.09       1.96 f
+  sub_68/U2_21/CO (FA_X1)                                 0.09       2.05 f
+  sub_68/U2_22/CO (FA_X1)                                 0.09       2.14 f
+  sub_68/U2_23/CO (FA_X1)                                 0.09       2.23 f
+  sub_68/U2_24/CO (FA_X1)                                 0.09       2.32 f
+  sub_68/U2_25/CO (FA_X1)                                 0.09       2.41 f
+  sub_68/U2_26/CO (FA_X1)                                 0.09       2.50 f
+  sub_68/U2_27/CO (FA_X1)                                 0.09       2.59 f
+  sub_68/U2_28/CO (FA_X1)                                 0.09       2.69 f
+  sub_68/U2_29/CO (FA_X1)                                 0.09       2.78 f
+  sub_68/U2_30/CO (FA_X1)                                 0.09       2.87 f
+  sub_68/U2_31/CO (FA_X1)                                 0.09       2.96 f
+  sub_68/U2_32/CO (FA_X1)                                 0.09       3.05 f
+  sub_68/U2_33/CO (FA_X1)                                 0.09       3.14 f
+  sub_68/U2_34/CO (FA_X1)                                 0.09       3.23 f
+  sub_68/U2_35/CO (FA_X1)                                 0.09       3.32 f
+  sub_68/U2_36/CO (FA_X1)                                 0.09       3.41 f
+  sub_68/U2_37/CO (FA_X1)                                 0.09       3.50 f
+  sub_68/U2_38/CO (FA_X1)                                 0.09       3.59 f
+  sub_68/U2_39/CO (FA_X1)                                 0.09       3.68 f
+  sub_68/U2_40/CO (FA_X1)                                 0.09       3.77 f
+  sub_68/U2_41/S (FA_X1)                                  0.11       3.88 f
+  sub_68/DIFF[41] (qdiv_DW01_sub_0)                       0.00       3.88 f
+  U695/ZN (AOI222_X1)                                     0.10       3.98 r
+  U694/ZN (INV_X1)                                        0.02       4.00 f
+  reg_working_dividend_reg[41]/D (DFF_X1)                 0.01       4.01 f
+  data arrival time                                                  4.01
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[41]/CK (DFF_X1)                0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -4.01
+  --------------------------------------------------------------------------
+  slack (MET)                                                       95.95
+
+
+  Startpoint: reg_working_dividend_reg[0]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[40]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[0]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[0]/Q (DFF_X1)                  0.09       0.09 f
+  sub_68/A[0] (qdiv_DW01_sub_0)                           0.00       0.09 f
+  sub_68/U4/ZN (INV_X1)                                   0.03       0.12 r
+  sub_68/U3/ZN (NAND2_X1)                                 0.03       0.15 f
+  sub_68/U2_1/CO (FA_X1)                                  0.09       0.24 f
+  sub_68/U2_2/CO (FA_X1)                                  0.09       0.33 f
+  sub_68/U2_3/CO (FA_X1)                                  0.09       0.42 f
+  sub_68/U2_4/CO (FA_X1)                                  0.09       0.51 f
+  sub_68/U2_5/CO (FA_X1)                                  0.09       0.60 f
+  sub_68/U2_6/CO (FA_X1)                                  0.09       0.69 f
+  sub_68/U2_7/CO (FA_X1)                                  0.09       0.78 f
+  sub_68/U2_8/CO (FA_X1)                                  0.09       0.87 f
+  sub_68/U2_9/CO (FA_X1)                                  0.09       0.96 f
+  sub_68/U2_10/CO (FA_X1)                                 0.09       1.05 f
+  sub_68/U2_11/CO (FA_X1)                                 0.09       1.14 f
+  sub_68/U2_12/CO (FA_X1)                                 0.09       1.24 f
+  sub_68/U2_13/CO (FA_X1)                                 0.09       1.33 f
+  sub_68/U2_14/CO (FA_X1)                                 0.09       1.42 f
+  sub_68/U2_15/CO (FA_X1)                                 0.09       1.51 f
+  sub_68/U2_16/CO (FA_X1)                                 0.09       1.60 f
+  sub_68/U2_17/CO (FA_X1)                                 0.09       1.69 f
+  sub_68/U2_18/CO (FA_X1)                                 0.09       1.78 f
+  sub_68/U2_19/CO (FA_X1)                                 0.09       1.87 f
+  sub_68/U2_20/CO (FA_X1)                                 0.09       1.96 f
+  sub_68/U2_21/CO (FA_X1)                                 0.09       2.05 f
+  sub_68/U2_22/CO (FA_X1)                                 0.09       2.14 f
+  sub_68/U2_23/CO (FA_X1)                                 0.09       2.23 f
+  sub_68/U2_24/CO (FA_X1)                                 0.09       2.32 f
+  sub_68/U2_25/CO (FA_X1)                                 0.09       2.41 f
+  sub_68/U2_26/CO (FA_X1)                                 0.09       2.50 f
+  sub_68/U2_27/CO (FA_X1)                                 0.09       2.59 f
+  sub_68/U2_28/CO (FA_X1)                                 0.09       2.69 f
+  sub_68/U2_29/CO (FA_X1)                                 0.09       2.78 f
+  sub_68/U2_30/CO (FA_X1)                                 0.09       2.87 f
+  sub_68/U2_31/CO (FA_X1)                                 0.09       2.96 f
+  sub_68/U2_32/CO (FA_X1)                                 0.09       3.05 f
+  sub_68/U2_33/CO (FA_X1)                                 0.09       3.14 f
+  sub_68/U2_34/CO (FA_X1)                                 0.09       3.23 f
+  sub_68/U2_35/CO (FA_X1)                                 0.09       3.32 f
+  sub_68/U2_36/CO (FA_X1)                                 0.09       3.41 f
+  sub_68/U2_37/CO (FA_X1)                                 0.09       3.50 f
+  sub_68/U2_38/CO (FA_X1)                                 0.09       3.59 f
+  sub_68/U2_39/CO (FA_X1)                                 0.09       3.68 f
+  sub_68/U2_40/S (FA_X1)                                  0.11       3.79 f
+  sub_68/DIFF[40] (qdiv_DW01_sub_0)                       0.00       3.79 f
+  U693/ZN (AOI222_X1)                                     0.10       3.89 r
+  U692/ZN (INV_X1)                                        0.02       3.91 f
+  reg_working_dividend_reg[40]/D (DFF_X1)                 0.01       3.92 f
+  data arrival time                                                  3.92
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[40]/CK (DFF_X1)                0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.92
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.04
+
+
+  Startpoint: reg_working_dividend_reg[0]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[39]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[0]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[0]/Q (DFF_X1)                  0.09       0.09 f
+  sub_68/A[0] (qdiv_DW01_sub_0)                           0.00       0.09 f
+  sub_68/U4/ZN (INV_X1)                                   0.03       0.12 r
+  sub_68/U3/ZN (NAND2_X1)                                 0.03       0.15 f
+  sub_68/U2_1/CO (FA_X1)                                  0.09       0.24 f
+  sub_68/U2_2/CO (FA_X1)                                  0.09       0.33 f
+  sub_68/U2_3/CO (FA_X1)                                  0.09       0.42 f
+  sub_68/U2_4/CO (FA_X1)                                  0.09       0.51 f
+  sub_68/U2_5/CO (FA_X1)                                  0.09       0.60 f
+  sub_68/U2_6/CO (FA_X1)                                  0.09       0.69 f
+  sub_68/U2_7/CO (FA_X1)                                  0.09       0.78 f
+  sub_68/U2_8/CO (FA_X1)                                  0.09       0.87 f
+  sub_68/U2_9/CO (FA_X1)                                  0.09       0.96 f
+  sub_68/U2_10/CO (FA_X1)                                 0.09       1.05 f
+  sub_68/U2_11/CO (FA_X1)                                 0.09       1.14 f
+  sub_68/U2_12/CO (FA_X1)                                 0.09       1.24 f
+  sub_68/U2_13/CO (FA_X1)                                 0.09       1.33 f
+  sub_68/U2_14/CO (FA_X1)                                 0.09       1.42 f
+  sub_68/U2_15/CO (FA_X1)                                 0.09       1.51 f
+  sub_68/U2_16/CO (FA_X1)                                 0.09       1.60 f
+  sub_68/U2_17/CO (FA_X1)                                 0.09       1.69 f
+  sub_68/U2_18/CO (FA_X1)                                 0.09       1.78 f
+  sub_68/U2_19/CO (FA_X1)                                 0.09       1.87 f
+  sub_68/U2_20/CO (FA_X1)                                 0.09       1.96 f
+  sub_68/U2_21/CO (FA_X1)                                 0.09       2.05 f
+  sub_68/U2_22/CO (FA_X1)                                 0.09       2.14 f
+  sub_68/U2_23/CO (FA_X1)                                 0.09       2.23 f
+  sub_68/U2_24/CO (FA_X1)                                 0.09       2.32 f
+  sub_68/U2_25/CO (FA_X1)                                 0.09       2.41 f
+  sub_68/U2_26/CO (FA_X1)                                 0.09       2.50 f
+  sub_68/U2_27/CO (FA_X1)                                 0.09       2.59 f
+  sub_68/U2_28/CO (FA_X1)                                 0.09       2.69 f
+  sub_68/U2_29/CO (FA_X1)                                 0.09       2.78 f
+  sub_68/U2_30/CO (FA_X1)                                 0.09       2.87 f
+  sub_68/U2_31/CO (FA_X1)                                 0.09       2.96 f
+  sub_68/U2_32/CO (FA_X1)                                 0.09       3.05 f
+  sub_68/U2_33/CO (FA_X1)                                 0.09       3.14 f
+  sub_68/U2_34/CO (FA_X1)                                 0.09       3.23 f
+  sub_68/U2_35/CO (FA_X1)                                 0.09       3.32 f
+  sub_68/U2_36/CO (FA_X1)                                 0.09       3.41 f
+  sub_68/U2_37/CO (FA_X1)                                 0.09       3.50 f
+  sub_68/U2_38/CO (FA_X1)                                 0.09       3.59 f
+  sub_68/U2_39/S (FA_X1)                                  0.11       3.70 f
+  sub_68/DIFF[39] (qdiv_DW01_sub_0)                       0.00       3.70 f
+  U896/ZN (AOI222_X1)                                     0.10       3.80 r
+  U895/ZN (INV_X1)                                        0.02       3.82 f
+  reg_working_dividend_reg[39]/D (DFF_X1)                 0.01       3.83 f
+  data arrival time                                                  3.83
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[39]/CK (DFF_X1)                0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.83
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.13
+
+
+  Startpoint: reg_working_dividend_reg[0]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[38]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[0]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[0]/Q (DFF_X1)                  0.09       0.09 f
+  sub_68/A[0] (qdiv_DW01_sub_0)                           0.00       0.09 f
+  sub_68/U4/ZN (INV_X1)                                   0.03       0.12 r
+  sub_68/U3/ZN (NAND2_X1)                                 0.03       0.15 f
+  sub_68/U2_1/CO (FA_X1)                                  0.09       0.24 f
+  sub_68/U2_2/CO (FA_X1)                                  0.09       0.33 f
+  sub_68/U2_3/CO (FA_X1)                                  0.09       0.42 f
+  sub_68/U2_4/CO (FA_X1)                                  0.09       0.51 f
+  sub_68/U2_5/CO (FA_X1)                                  0.09       0.60 f
+  sub_68/U2_6/CO (FA_X1)                                  0.09       0.69 f
+  sub_68/U2_7/CO (FA_X1)                                  0.09       0.78 f
+  sub_68/U2_8/CO (FA_X1)                                  0.09       0.87 f
+  sub_68/U2_9/CO (FA_X1)                                  0.09       0.96 f
+  sub_68/U2_10/CO (FA_X1)                                 0.09       1.05 f
+  sub_68/U2_11/CO (FA_X1)                                 0.09       1.14 f
+  sub_68/U2_12/CO (FA_X1)                                 0.09       1.24 f
+  sub_68/U2_13/CO (FA_X1)                                 0.09       1.33 f
+  sub_68/U2_14/CO (FA_X1)                                 0.09       1.42 f
+  sub_68/U2_15/CO (FA_X1)                                 0.09       1.51 f
+  sub_68/U2_16/CO (FA_X1)                                 0.09       1.60 f
+  sub_68/U2_17/CO (FA_X1)                                 0.09       1.69 f
+  sub_68/U2_18/CO (FA_X1)                                 0.09       1.78 f
+  sub_68/U2_19/CO (FA_X1)                                 0.09       1.87 f
+  sub_68/U2_20/CO (FA_X1)                                 0.09       1.96 f
+  sub_68/U2_21/CO (FA_X1)                                 0.09       2.05 f
+  sub_68/U2_22/CO (FA_X1)                                 0.09       2.14 f
+  sub_68/U2_23/CO (FA_X1)                                 0.09       2.23 f
+  sub_68/U2_24/CO (FA_X1)                                 0.09       2.32 f
+  sub_68/U2_25/CO (FA_X1)                                 0.09       2.41 f
+  sub_68/U2_26/CO (FA_X1)                                 0.09       2.50 f
+  sub_68/U2_27/CO (FA_X1)                                 0.09       2.59 f
+  sub_68/U2_28/CO (FA_X1)                                 0.09       2.69 f
+  sub_68/U2_29/CO (FA_X1)                                 0.09       2.78 f
+  sub_68/U2_30/CO (FA_X1)                                 0.09       2.87 f
+  sub_68/U2_31/CO (FA_X1)                                 0.09       2.96 f
+  sub_68/U2_32/CO (FA_X1)                                 0.09       3.05 f
+  sub_68/U2_33/CO (FA_X1)                                 0.09       3.14 f
+  sub_68/U2_34/CO (FA_X1)                                 0.09       3.23 f
+  sub_68/U2_35/CO (FA_X1)                                 0.09       3.32 f
+  sub_68/U2_36/CO (FA_X1)                                 0.09       3.41 f
+  sub_68/U2_37/CO (FA_X1)                                 0.09       3.50 f
+  sub_68/U2_38/S (FA_X1)                                  0.11       3.61 f
+  sub_68/DIFF[38] (qdiv_DW01_sub_0)                       0.00       3.61 f
+  U894/ZN (AOI222_X1)                                     0.10       3.71 r
+  U893/ZN (INV_X1)                                        0.02       3.73 f
+  reg_working_dividend_reg[38]/D (DFF_X1)                 0.01       3.74 f
+  data arrival time                                                  3.74
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[38]/CK (DFF_X1)                0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.74
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.22
+
+
+  Startpoint: reg_working_dividend_reg[0]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[37]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[0]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[0]/Q (DFF_X1)                  0.09       0.09 f
+  sub_68/A[0] (qdiv_DW01_sub_0)                           0.00       0.09 f
+  sub_68/U4/ZN (INV_X1)                                   0.03       0.12 r
+  sub_68/U3/ZN (NAND2_X1)                                 0.03       0.15 f
+  sub_68/U2_1/CO (FA_X1)                                  0.09       0.24 f
+  sub_68/U2_2/CO (FA_X1)                                  0.09       0.33 f
+  sub_68/U2_3/CO (FA_X1)                                  0.09       0.42 f
+  sub_68/U2_4/CO (FA_X1)                                  0.09       0.51 f
+  sub_68/U2_5/CO (FA_X1)                                  0.09       0.60 f
+  sub_68/U2_6/CO (FA_X1)                                  0.09       0.69 f
+  sub_68/U2_7/CO (FA_X1)                                  0.09       0.78 f
+  sub_68/U2_8/CO (FA_X1)                                  0.09       0.87 f
+  sub_68/U2_9/CO (FA_X1)                                  0.09       0.96 f
+  sub_68/U2_10/CO (FA_X1)                                 0.09       1.05 f
+  sub_68/U2_11/CO (FA_X1)                                 0.09       1.14 f
+  sub_68/U2_12/CO (FA_X1)                                 0.09       1.24 f
+  sub_68/U2_13/CO (FA_X1)                                 0.09       1.33 f
+  sub_68/U2_14/CO (FA_X1)                                 0.09       1.42 f
+  sub_68/U2_15/CO (FA_X1)                                 0.09       1.51 f
+  sub_68/U2_16/CO (FA_X1)                                 0.09       1.60 f
+  sub_68/U2_17/CO (FA_X1)                                 0.09       1.69 f
+  sub_68/U2_18/CO (FA_X1)                                 0.09       1.78 f
+  sub_68/U2_19/CO (FA_X1)                                 0.09       1.87 f
+  sub_68/U2_20/CO (FA_X1)                                 0.09       1.96 f
+  sub_68/U2_21/CO (FA_X1)                                 0.09       2.05 f
+  sub_68/U2_22/CO (FA_X1)                                 0.09       2.14 f
+  sub_68/U2_23/CO (FA_X1)                                 0.09       2.23 f
+  sub_68/U2_24/CO (FA_X1)                                 0.09       2.32 f
+  sub_68/U2_25/CO (FA_X1)                                 0.09       2.41 f
+  sub_68/U2_26/CO (FA_X1)                                 0.09       2.50 f
+  sub_68/U2_27/CO (FA_X1)                                 0.09       2.59 f
+  sub_68/U2_28/CO (FA_X1)                                 0.09       2.69 f
+  sub_68/U2_29/CO (FA_X1)                                 0.09       2.78 f
+  sub_68/U2_30/CO (FA_X1)                                 0.09       2.87 f
+  sub_68/U2_31/CO (FA_X1)                                 0.09       2.96 f
+  sub_68/U2_32/CO (FA_X1)                                 0.09       3.05 f
+  sub_68/U2_33/CO (FA_X1)                                 0.09       3.14 f
+  sub_68/U2_34/CO (FA_X1)                                 0.09       3.23 f
+  sub_68/U2_35/CO (FA_X1)                                 0.09       3.32 f
+  sub_68/U2_36/CO (FA_X1)                                 0.09       3.41 f
+  sub_68/U2_37/S (FA_X1)                                  0.11       3.52 f
+  sub_68/DIFF[37] (qdiv_DW01_sub_0)                       0.00       3.52 f
+  U892/ZN (AOI222_X1)                                     0.10       3.62 r
+  U891/ZN (INV_X1)                                        0.02       3.64 f
+  reg_working_dividend_reg[37]/D (DFF_X1)                 0.01       3.65 f
+  data arrival time                                                  3.65
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[37]/CK (DFF_X1)                0.00     100.00 r
+  library setup time                                     -0.04      99.96
+  data required time                                                99.96
+  --------------------------------------------------------------------------
+  data required time                                                99.96
+  data arrival time                                                 -3.65
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.31
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[11]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U1013/ZN (AOI22_X1)                                     0.04       3.60 f
+  U1012/ZN (INV_X1)                                       0.03       3.63 r
+  reg_working_dividend_reg[11]/D (DFF_X1)                 0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[11]/CK (DFF_X1)                0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[6]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U835/ZN (AOI22_X1)                                      0.04       3.60 f
+  U834/ZN (INV_X1)                                        0.03       3.63 r
+  reg_working_dividend_reg[6]/D (DFF_X1)                  0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[6]/CK (DFF_X1)                 0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[4]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U833/ZN (AOI22_X1)                                      0.04       3.60 f
+  U832/ZN (INV_X1)                                        0.03       3.63 r
+  reg_working_dividend_reg[4]/D (DFF_X1)                  0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[4]/CK (DFF_X1)                 0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[2]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U831/ZN (AOI22_X1)                                      0.04       3.60 f
+  U830/ZN (INV_X1)                                        0.03       3.63 r
+  reg_working_dividend_reg[2]/D (DFF_X1)                  0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[2]/CK (DFF_X1)                 0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[1]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U829/ZN (AOI22_X1)                                      0.04       3.60 f
+  U828/ZN (INV_X1)                                        0.03       3.63 r
+  reg_working_dividend_reg[1]/D (DFF_X1)                  0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[9]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U1011/ZN (AOI22_X1)                                     0.04       3.60 f
+  U1010/ZN (INV_X1)                                       0.03       3.63 r
+  reg_working_dividend_reg[9]/D (DFF_X1)                  0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[9]/CK (DFF_X1)                 0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[8]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U837/ZN (AOI22_X1)                                      0.04       3.60 f
+  U836/ZN (INV_X1)                                        0.03       3.63 r
+  reg_working_dividend_reg[8]/D (DFF_X1)                  0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[8]/CK (DFF_X1)                 0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[7]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U1009/ZN (AOI22_X1)                                     0.04       3.60 f
+  U1008/ZN (INV_X1)                                       0.03       3.63 r
+  reg_working_dividend_reg[7]/D (DFF_X1)                  0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[7]/CK (DFF_X1)                 0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[5]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U1007/ZN (AOI22_X1)                                     0.04       3.60 f
+  U1006/ZN (INV_X1)                                       0.03       3.63 r
+  reg_working_dividend_reg[5]/D (DFF_X1)                  0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[5]/CK (DFF_X1)                 0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[3]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U1005/ZN (AOI22_X1)                                     0.04       3.60 f
+  U1004/ZN (INV_X1)                                       0.03       3.63 r
+  reg_working_dividend_reg[3]/D (DFF_X1)                  0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[3]/CK (DFF_X1)                 0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+  Startpoint: reg_working_dividend_reg[1]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: reg_working_dividend_reg[0]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  qdiv               5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  reg_working_dividend_reg[1]/CK (DFF_X1)                 0.00       0.00 r
+  reg_working_dividend_reg[1]/Q (DFF_X1)                  0.10       0.10 r
+  gte_66/B[1] (qdiv_DW01_cmp2_1)                          0.00       0.10 r
+  gte_66/U2/ZN (INV_X1)                                   0.03       0.13 f
+  gte_66/U140/ZN (AOI222_X1)                              0.10       0.24 r
+  gte_66/U139/ZN (AOI221_X1)                              0.03       0.27 f
+  gte_66/U138/ZN (AOI221_X1)                              0.09       0.36 r
+  gte_66/U137/ZN (AOI221_X1)                              0.03       0.39 f
+  gte_66/U136/ZN (AOI221_X1)                              0.09       0.48 r
+  gte_66/U135/ZN (AOI221_X1)                              0.03       0.51 f
+  gte_66/U134/ZN (AOI221_X1)                              0.09       0.60 r
+  gte_66/U133/ZN (AOI221_X1)                              0.03       0.63 f
+  gte_66/U132/ZN (AOI221_X1)                              0.09       0.72 r
+  gte_66/U131/ZN (AOI221_X1)                              0.03       0.75 f
+  gte_66/U130/ZN (AOI221_X1)                              0.09       0.84 r
+  gte_66/U129/ZN (AOI221_X1)                              0.03       0.87 f
+  gte_66/U128/ZN (AOI221_X1)                              0.09       0.96 r
+  gte_66/U127/ZN (AOI221_X1)                              0.03       0.99 f
+  gte_66/U126/ZN (AOI221_X1)                              0.09       1.08 r
+  gte_66/U125/ZN (AOI221_X1)                              0.03       1.11 f
+  gte_66/U124/ZN (AOI221_X1)                              0.09       1.20 r
+  gte_66/U123/ZN (AOI221_X1)                              0.03       1.23 f
+  gte_66/U122/ZN (AOI221_X1)                              0.09       1.32 r
+  gte_66/U121/ZN (AOI221_X1)                              0.03       1.35 f
+  gte_66/U120/ZN (AOI221_X1)                              0.09       1.44 r
+  gte_66/U119/ZN (AOI221_X1)                              0.03       1.47 f
+  gte_66/U118/ZN (AOI221_X1)                              0.09       1.56 r
+  gte_66/U117/ZN (AOI221_X1)                              0.03       1.59 f
+  gte_66/U116/ZN (AOI221_X1)                              0.09       1.68 r
+  gte_66/U115/ZN (AOI221_X1)                              0.03       1.71 f
+  gte_66/U114/ZN (AOI221_X1)                              0.09       1.80 r
+  gte_66/U113/ZN (AOI221_X1)                              0.03       1.83 f
+  gte_66/U112/ZN (AOI221_X1)                              0.09       1.92 r
+  gte_66/U111/ZN (AOI221_X1)                              0.03       1.96 f
+  gte_66/U110/ZN (AOI221_X1)                              0.09       2.04 r
+  gte_66/U109/ZN (AOI221_X1)                              0.03       2.08 f
+  gte_66/U108/ZN (AOI221_X1)                              0.09       2.16 r
+  gte_66/U107/ZN (AOI221_X1)                              0.03       2.20 f
+  gte_66/U106/ZN (AOI221_X1)                              0.09       2.28 r
+  gte_66/U105/ZN (AOI221_X1)                              0.03       2.32 f
+  gte_66/U104/ZN (AOI221_X1)                              0.09       2.40 r
+  gte_66/U103/ZN (AOI221_X1)                              0.03       2.44 f
+  gte_66/U102/ZN (AOI221_X1)                              0.09       2.52 r
+  gte_66/U101/ZN (AOI221_X1)                              0.03       2.56 f
+  gte_66/U100/ZN (AOI221_X1)                              0.09       2.64 r
+  gte_66/U99/ZN (AOI221_X1)                               0.03       2.68 f
+  gte_66/U98/ZN (AOI221_X1)                               0.09       2.76 r
+  gte_66/U97/ZN (AOI221_X1)                               0.03       2.80 f
+  gte_66/U95/ZN (NOR4_X1)                                 0.09       2.89 r
+  gte_66/U91/ZN (NAND4_X1)                                0.05       2.93 f
+  gte_66/U90/ZN (NOR2_X1)                                 0.06       3.00 r
+  gte_66/LT_LE (qdiv_DW01_cmp2_1)                         0.00       3.00 r
+  U667/ZN (AOI21_X1)                                      0.08       3.08 f
+  U660/ZN (NOR2_X1)                                       0.19       3.27 r
+  U655/Z (BUF_X1)                                         0.17       3.45 r
+  U649/Z (BUF_X1)                                         0.12       3.56 r
+  U1003/ZN (AOI22_X1)                                     0.04       3.60 f
+  U1002/ZN (INV_X1)                                       0.03       3.63 r
+  reg_working_dividend_reg[0]/D (DFF_X1)                  0.01       3.64 r
+  data arrival time                                                  3.64
+
+  clock i_clk (rise edge)                               100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  reg_working_dividend_reg[0]/CK (DFF_X1)                 0.00     100.00 r
+  library setup time                                     -0.03      99.97
+  data required time                                                99.97
+  --------------------------------------------------------------------------
+  data required time                                                99.97
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                       96.32
+
+
+1

@@ -1,0 +1,47 @@
+ 
+****************************************
+Report : area
+Design : VexRiscv_small
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:13:48 2026
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                          330
+Number of nets:                          7826
+Number of cells:                         6323
+Number of combinational cells:           4671
+Number of sequential cells:              1650
+Number of macros/black boxes:               0
+Number of buf/inv:                        537
+Number of references:                      41
+
+Combinational area:               5707.030117
+Buf/Inv area:                      329.573999
+Noncombinational area:            7479.653749
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 13186.683867
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area           Local cell area
+                                  -------------------  ---------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-     Noncombi-  Black-
+                                  Total       Total    national   national   boxes   Design
+--------------------------------  ----------  -------  ---------  ---------  ------  --------------------
+VexRiscv_small                    13186.6839    100.0  5589.9901  7338.6738  0.0000  VexRiscv_small
+IBusSimplePlugin_rspJoin_rspBuffer_c
+                                    258.0200      2.0     0.0000     0.0000  0.0000  StreamFifoLowLatency
+IBusSimplePlugin_rspJoin_rspBuffer_c/fifo
+                                    258.0200      2.0   117.0400   140.9800  0.0000  StreamFifo
+--------------------------------  ----------  -------  ---------  ---------  ------  --------------------
+Total                                                  5707.0301  7479.6537  0.0000
+
+1

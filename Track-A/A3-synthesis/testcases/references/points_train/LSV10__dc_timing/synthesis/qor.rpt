@@ -1,0 +1,85 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'VexRiscv_small' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : qor
+Design : VexRiscv_small
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:13:48 2026
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:              67.00
+  Critical Path Length:          3.42
+  Critical Path Slack:           5.58
+  Critical Path Clk Period:     10.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          2
+  Hierarchical Port Count:        150
+  Leaf Cell Count:               6315
+  Buf/Inv Cell Count:             537
+  Buf Cell Count:                 159
+  Inv Cell Count:                 378
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      4671
+  Sequential Cell Count:         1644
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:     5707.030117
+  Noncombinational Area:  7479.653749
+  Buf/Inv Area:            329.573999
+  Total Buffer Area:           127.41
+  Total Inverter Area:         202.16
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  -----------------------------------
+  Cell Area:             13186.683867
+  Design Area:           13186.683867
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          7696
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: eb2704f1b995
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    1.26
+  Logic Optimization:                  0.99
+  Mapping Optimization:                4.95
+  -----------------------------------------
+  Overall Compile Time:               20.28
+  Overall Compile Wall Clock Time:    21.23
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1

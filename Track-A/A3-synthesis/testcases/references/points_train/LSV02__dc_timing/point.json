@@ -1,0 +1,17 @@
+{
+  "id": "LSV02",
+  "split": "public",
+  "name": "epfl_cavlc",
+  "top": "top",
+  "flow": "dc_timing",
+  "flow_label": "Design Compiler timing-biased compile_ultra",
+  "tool": "dc",
+  "status": "ok",
+  "runtime_s": 50.33,
+  "area": 386.498003,
+  "arrival_ns": 0.79,
+  "wns_ns": -0.79,
+  "tns_ns": -7.34,
+  "source_path": "EPFL/cavlc.v",
+  "clock_period_ns": 10.0
+}

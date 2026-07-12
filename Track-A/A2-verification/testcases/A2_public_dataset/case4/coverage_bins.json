@@ -1,0 +1,15 @@
+{
+  "coverage_bins": {
+    "name": "case4_functional_bins",
+    "measurement": "Bin hits are sampled by test_case4_json_sequences.py and reported in functional_coverage.json.",
+    "bins": [
+      {"name": "operation_type", "values": ["write", "read", "write_then_read"]},
+      {"name": "burst_length_bytes", "values": ["1", "2_to_3", "4_to_7", "8_to_15", "16_to_255", "256_to_1023", "1024"]},
+      {"name": "address_region", "values": ["low_0x0000_to_0x000f", "normal", "near_4k_boundary", "near_memory_end"]},
+      {"name": "alignment", "values": ["aligned_to_beat", "unaligned_to_beat", "crosses_word_boundary", "crosses_4k_boundary"]},
+      {"name": "transfer_size", "values": ["size_1_byte", "size_2_byte", "size_4_byte"]},
+      {"name": "ready_valid_backpressure", "values": ["write_response_pause", "read_data_pause", "combined_pause"]},
+      {"name": "state_transitions", "values": ["write_idle_to_burst", "write_burst_to_resp", "write_resp_to_idle", "read_idle_to_burst", "read_burst_to_idle"]}
+    ]
+  }
+}

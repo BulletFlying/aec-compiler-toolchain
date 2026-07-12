@@ -1,0 +1,15 @@
+# ADD.C1 normal SIMT:
+# lane i computes (i + 10) + (i * 3) = 4*i + 10 and stores it at 0x100 + 4*i.
+CPY.u32 R1, %laneid
+LOADI R2, 10
+ADD.u32 R3, R1, R2
+LOADI R4, 3
+MUL.u32 R5, R1, R4
+ADD.u32 R6, R3, R5
+LOADI R7, 2
+SHL.u32 R8, R1, R7
+LOADI R9, 0x100
+ADD.u32 R10, R9, R8
+ST.gmem.u32 [R10], R6
+HALT
+

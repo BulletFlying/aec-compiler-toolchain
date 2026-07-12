@@ -1,0 +1,129 @@
+{
+  "verification_skeleton": {
+    "design": "case4",
+    "clock_reset_generation": {
+      "clock": {
+        "signal": "clk",
+        "period_ns": 10,
+        "initial_value": 0,
+        "generator": "Clock(dut.clk, 10, units='ns').start()"
+      },
+      "reset": {
+        "signal": "rst",
+        "active_level": 1,
+        "sequence": [
+          {
+            "cycle": 0,
+            "value": 0,
+            "action": "initialize"
+          },
+          {
+            "cycle": 2,
+            "value": 1,
+            "action": "assert reset"
+          },
+          {
+            "cycle": 4,
+            "value": 0,
+            "action": "deassert reset"
+          }
+        ]
+      }
+    },
+    "input_drivers": [
+      {
+        "name": "axi_write_driver",
+        "channels": [
+          "AW",
+          "W",
+          "B"
+        ],
+        "transaction_fields": [
+          "id",
+          "address",
+          "length_bytes",
+          "burst",
+          "size",
+          "data",
+          "wstrb",
+          "idle_pattern",
+          "backpressure_pattern"
+        ],
+        "driver_api": [
+          "await axi_master.write(address, data, size=size)",
+          "axi_master.write_if.aw_channel.set_pause_generator(generator)",
+          "axi_master.write_if.w_channel.set_pause_generator(generator)"
+        ]
+      },
+      {
+        "name": "axi_read_driver",
+        "channels": [
+          "AR",
+          "R"
+        ],
+        "transaction_fields": [
+          "id",
+          "address",
+          "length_bytes",
+          "burst",
+          "size",
+          "expected_data",
+          "idle_pattern",
+          "backpressure_pattern"
+        ],
+        "driver_api": [
+          "data = await axi_master.read(address, length_bytes, size=size)",
+          "axi_master.read_if.ar_channel.set_pause_generator(generator)"
+        ]
+      }
+    ],
+    "output_monitors": [
+      {
+        "name": "write_response_monitor",
+        "channels": [
+          "B"
+        ],
+        "sample_condition": "s_axi_bvalid && s_axi_bready",
+        "observed_fields": [
+          "s_axi_bid",
+          "s_axi_bresp"
+        ],
+        "checks": [
+          "bid matches the accepted awid",
+          "bresp == 2'b00"
+        ]
+      },
+      {
+        "name": "read_data_monitor",
+        "channels": [
+          "R"
+        ],
+        "sample_condition": "s_axi_rvalid && s_axi_rready",
+        "observed_fields": [
+          "s_axi_rid",
+          "s_axi_rdata",
+          "s_axi_rresp",
+          "s_axi_rlast"
+        ],
+        "checks": [
+          "rid matches the accepted arid",
+          "rdata matches reference memory",
+          "rresp == 2'b00",
+          "rlast is asserted on the final beat"
+        ]
+      }
+    ],
+    "auto_compare_framework": {
+      "reference_model": "byte-addressed RAM initialized to zero",
+      "compare_granularity": "transaction and beat",
+      "failure_record": [
+        "seed",
+        "transaction_index",
+        "channel",
+        "expected",
+        "actual",
+        "cycle"
+      ]
+    }
+  }
+}

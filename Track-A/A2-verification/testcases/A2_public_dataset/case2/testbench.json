@@ -1,0 +1,38 @@
+{
+  "testbench": {
+    "name": "tb",
+    "path": "tb/case2_tb.v",
+    "framework": "plain Verilog",
+    "input_model": "cycle-accurate vector replay",
+    "vector_files": [
+      "tb/input.mem",
+      "tb/output.mem"
+    ],
+    "vector_io_schema": "public_dataset/case2/vector_io_schema.json",
+    "vcs_json_input_support": {
+      "supported_by_existing_tb": false,
+      "supported_with_pre_generation": true,
+      "mechanism": "The existing Verilog case2_tb.v reads tb/input.mem and tb/output.mem with $fscanf. A JSON/Z3 generator must first emit those two .mem files; then VCS runs the Verilog testbench normally and collects coverage.",
+      "important_detail": "VCS does not directly parse JSON for this testbench."
+    },
+    "public_dataset_run": {
+      "simulator": "vcs",
+      "testbench_top": "tb",
+      "constraints": "public_dataset/case2/constraints.json",
+      "seed": 20260630,
+      "sequence_count_for_new_generated_vectors": 5000,
+      "measured_vector_cycle_count": 7403,
+      "result": "pass",
+      "results": "PASS cycles=7403",
+      "coverage_report": "public_dataset/case2/vcs_coverage_20260711/report",
+      "functional_coverage": "public_dataset/case2/functional_coverage.json",
+      "command_shape": "vcs -full64 -sverilog +v2k -timescale=1ns/1ps +vcs+initreg+random -cm line+branch -cm_dir coverage.vdb -f filelist.txt -o simv -l comp.log; ./simv +vcs+initreg+0 -cm line+branch -cm_dir coverage.vdb -l sim.log; urg1 -dir coverage.vdb -format text -report report"
+    },
+    "scoreboard": {
+      "reference_model": "precomputed cycle-accurate expected output file",
+      "write_update_rule": "each cycle loads rst, s_axis fields, and m_axis_tready from input.mem",
+      "read_compare_rule": "after the clock edge, s_axis_tready and all m_axis fields are compared against output.mem",
+      "pass_rule": "all 7403 vector cycles match and both vector files end exactly at CYCLE_COUNT"
+    }
+  }
+}

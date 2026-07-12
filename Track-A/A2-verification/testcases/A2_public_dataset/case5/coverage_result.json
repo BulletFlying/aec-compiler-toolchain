@@ -1,0 +1,29 @@
+{
+  "coverage_result": {
+    "design": "case5",
+    "status": "passed",
+    "simulator": {"name": "VCS", "version": "O-2018.09-SP2"},
+    "run": {
+      "type": "cocotb",
+      "test": "test_case5_json_sequences.run_json_sequences",
+      "seed": 20260630,
+      "sequence_count": 5000,
+      "sim_time_ns": 363930.001,
+      "wall_time_s": 6.584033012390137
+    },
+    "coverage": {
+      "line": {"covered": 121, "total": 138, "percent": 87.68},
+      "branch": {"covered": 38, "total": 43, "percent": 88.37},
+      "functional": {"covered": 26, "total": 26, "percent": 100.0},
+      "composite": {
+        "formula": "0.42 * line + 0.28 * branch + 0.30 * functional",
+        "percent": 91.57
+      }
+    },
+    "artifacts": {
+      "urg_report": "vcs_coverage_20260711/report",
+      "results_xml": "vcs_coverage_20260711/results.xml",
+      "functional_coverage": "functional_coverage.json"
+    }
+  }
+}

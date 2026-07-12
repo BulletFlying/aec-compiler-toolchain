@@ -1,0 +1,4 @@
+LOADI R1, 0xFFFFFFFC
+LD.gmem.u32 R2, [R1]
+HALT
+

@@ -1,0 +1,620 @@
+Startpoint: first_mi_word_reg (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: repeat_cnt_reg[7] (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ first_mi_word_reg/CK (DFF_X1)
+                  0.069    0.148    0.148 ^ first_mi_word_reg/Q (DFF_X1)
+   13   29.218                              first_mi_word (net)
+                  0.069    0.000    0.148 ^ U64/S (MUX2_X1)
+                  0.015    0.074    0.223 v U64/Z (MUX2_X1)
+    3    6.401                              repeat_cnt_pre[0] (net)
+                  0.015    0.000    0.223 v U133/A2 (NOR2_X1)
+                  0.026    0.043    0.265 ^ U133/ZN (NOR2_X1)
+    2    4.061                              n75 (net)
+                  0.026    0.000    0.265 ^ U78/A (INV_X1)
+                  0.007    0.010    0.275 v U78/ZN (INV_X1)
+    1    1.723                              n81 (net)
+                  0.007    0.000    0.275 v U134/A1 (NOR2_X1)
+                  0.026    0.035    0.310 ^ U134/ZN (NOR2_X1)
+    2    4.061                              n76 (net)
+                  0.026    0.000    0.310 ^ U81/A (INV_X1)
+                  0.009    0.014    0.324 v U81/ZN (INV_X1)
+    2    3.631                              n83 (net)
+                  0.009    0.000    0.324 v U136/A1 (NOR2_X1)
+                  0.027    0.036    0.359 ^ U136/ZN (NOR2_X1)
+    2    4.061                              n77 (net)
+                  0.027    0.000    0.359 ^ U80/A (INV_X1)
+                  0.010    0.014    0.374 v U80/ZN (INV_X1)
+    2    3.631                              n85 (net)
+                  0.010    0.000    0.374 v U138/A1 (NOR2_X1)
+                  0.027    0.036    0.409 ^ U138/ZN (NOR2_X1)
+    2    4.061                              n78 (net)
+                  0.027    0.000    0.409 ^ U79/A (INV_X1)
+                  0.010    0.014    0.423 v U79/ZN (INV_X1)
+    2    3.631                              n87 (net)
+                  0.010    0.000    0.423 v U140/A1 (NOR2_X1)
+                  0.030    0.039    0.462 ^ U140/ZN (NOR2_X1)
+    2    4.763                              n79 (net)
+                  0.030    0.000    0.462 ^ U77/A (INV_X1)
+                  0.010    0.015    0.477 v U77/ZN (INV_X1)
+    2    3.781                              n89 (net)
+                  0.010    0.000    0.477 v U143/A2 (NOR2_X1)
+                  0.020    0.034    0.511 ^ U143/ZN (NOR2_X1)
+    1    2.673                              n80 (net)
+                  0.020    0.000    0.511 ^ U144/B (XOR2_X1)
+                  0.022    0.049    0.560 ^ U144/Z (XOR2_X1)
+    1    1.909                              next_repeat_cnt[7] (net)
+                  0.022    0.000    0.560 ^ U125/A1 (NAND2_X1)
+                  0.016    0.016    0.576 v U125/ZN (NAND2_X1)
+    1    1.828                              n43 (net)
+                  0.016    0.000    0.576 v U124/A (OAI21_X1)
+                  0.019    0.023    0.599 ^ U124/ZN (OAI21_X1)
+    1    1.450                              n61 (net)
+                  0.019    0.000    0.599 ^ repeat_cnt_reg[7]/D (DFF_X1)
+                                    0.599   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ repeat_cnt_reg[7]/CK (DFF_X1)
+                          -0.034   -0.034   library setup time
+                                   -0.034   data required time
+--------------------------------------------------------------------------------
+                                   -0.034   data required time
+                                   -0.599   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.634   slack (VIOLATED)
+
+
+Startpoint: first_mi_word_reg (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: repeat_cnt_reg[6] (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ first_mi_word_reg/CK (DFF_X1)
+                  0.069    0.148    0.148 ^ first_mi_word_reg/Q (DFF_X1)
+   13   29.218                              first_mi_word (net)
+                  0.069    0.000    0.148 ^ U64/S (MUX2_X1)
+                  0.015    0.074    0.223 v U64/Z (MUX2_X1)
+    3    6.401                              repeat_cnt_pre[0] (net)
+                  0.015    0.000    0.223 v U133/A2 (NOR2_X1)
+                  0.026    0.043    0.265 ^ U133/ZN (NOR2_X1)
+    2    4.061                              n75 (net)
+                  0.026    0.000    0.265 ^ U78/A (INV_X1)
+                  0.007    0.010    0.275 v U78/ZN (INV_X1)
+    1    1.723                              n81 (net)
+                  0.007    0.000    0.275 v U134/A1 (NOR2_X1)
+                  0.026    0.035    0.310 ^ U134/ZN (NOR2_X1)
+    2    4.061                              n76 (net)
+                  0.026    0.000    0.310 ^ U81/A (INV_X1)
+                  0.009    0.014    0.324 v U81/ZN (INV_X1)
+    2    3.631                              n83 (net)
+                  0.009    0.000    0.324 v U136/A1 (NOR2_X1)
+                  0.027    0.036    0.359 ^ U136/ZN (NOR2_X1)
+    2    4.061                              n77 (net)
+                  0.027    0.000    0.359 ^ U80/A (INV_X1)
+                  0.010    0.014    0.374 v U80/ZN (INV_X1)
+    2    3.631                              n85 (net)
+                  0.010    0.000    0.374 v U138/A1 (NOR2_X1)
+                  0.027    0.036    0.409 ^ U138/ZN (NOR2_X1)
+    2    4.061                              n78 (net)
+                  0.027    0.000    0.409 ^ U79/A (INV_X1)
+                  0.010    0.014    0.423 v U79/ZN (INV_X1)
+    2    3.631                              n87 (net)
+                  0.010    0.000    0.423 v U140/A1 (NOR2_X1)
+                  0.030    0.039    0.462 ^ U140/ZN (NOR2_X1)
+    2    4.763                              n79 (net)
+                  0.030    0.000    0.462 ^ U142/B (XOR2_X1)
+                  0.022    0.051    0.513 ^ U142/Z (XOR2_X1)
+    1    1.909                              next_repeat_cnt[6] (net)
+                  0.022    0.000    0.513 ^ U109/A1 (NAND2_X1)
+                  0.016    0.016    0.530 v U109/ZN (NAND2_X1)
+    1    1.828                              n42 (net)
+                  0.016    0.000    0.530 v U108/A (OAI21_X1)
+                  0.019    0.023    0.553 ^ U108/ZN (OAI21_X1)
+    1    1.450                              n60 (net)
+                  0.019    0.000    0.553 ^ repeat_cnt_reg[6]/D (DFF_X1)
+                                    0.553   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ repeat_cnt_reg[6]/CK (DFF_X1)
+                          -0.034   -0.034   library setup time
+                                   -0.034   data required time
+--------------------------------------------------------------------------------
+                                   -0.034   data required time
+                                   -0.553   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.587   slack (VIOLATED)
+
+
+Startpoint: first_mi_word_reg (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: repeat_cnt_reg[5] (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ first_mi_word_reg/CK (DFF_X1)
+                  0.069    0.148    0.148 ^ first_mi_word_reg/Q (DFF_X1)
+   13   29.218                              first_mi_word (net)
+                  0.069    0.000    0.148 ^ U64/S (MUX2_X1)
+                  0.015    0.074    0.223 v U64/Z (MUX2_X1)
+    3    6.401                              repeat_cnt_pre[0] (net)
+                  0.015    0.000    0.223 v U133/A2 (NOR2_X1)
+                  0.026    0.043    0.265 ^ U133/ZN (NOR2_X1)
+    2    4.061                              n75 (net)
+                  0.026    0.000    0.265 ^ U78/A (INV_X1)
+                  0.007    0.010    0.275 v U78/ZN (INV_X1)
+    1    1.723                              n81 (net)
+                  0.007    0.000    0.275 v U134/A1 (NOR2_X1)
+                  0.026    0.035    0.310 ^ U134/ZN (NOR2_X1)
+    2    4.061                              n76 (net)
+                  0.026    0.000    0.310 ^ U81/A (INV_X1)
+                  0.009    0.014    0.324 v U81/ZN (INV_X1)
+    2    3.631                              n83 (net)
+                  0.009    0.000    0.324 v U136/A1 (NOR2_X1)
+                  0.027    0.036    0.359 ^ U136/ZN (NOR2_X1)
+    2    4.061                              n77 (net)
+                  0.027    0.000    0.359 ^ U80/A (INV_X1)
+                  0.010    0.014    0.374 v U80/ZN (INV_X1)
+    2    3.631                              n85 (net)
+                  0.010    0.000    0.374 v U138/A1 (NOR2_X1)
+                  0.027    0.036    0.409 ^ U138/ZN (NOR2_X1)
+    2    4.061                              n78 (net)
+                  0.027    0.000    0.409 ^ U79/A (INV_X1)
+                  0.010    0.014    0.423 v U79/ZN (INV_X1)
+    2    3.631                              n87 (net)
+                  0.010    0.000    0.423 v U140/A1 (NOR2_X1)
+                  0.030    0.039    0.462 ^ U140/ZN (NOR2_X1)
+    2    4.763                              n79 (net)
+                  0.030    0.000    0.462 ^ U77/A (INV_X1)
+                  0.010    0.015    0.477 v U77/ZN (INV_X1)
+    2    3.781                              n89 (net)
+                  0.010    0.000    0.477 v U141/A (OAI21_X1)
+                  0.019    0.021    0.499 ^ U141/ZN (OAI21_X1)
+    1    1.909                              next_repeat_cnt[5] (net)
+                  0.019    0.000    0.499 ^ U111/A1 (NAND2_X1)
+                  0.016    0.016    0.514 v U111/ZN (NAND2_X1)
+    1    1.828                              n41 (net)
+                  0.016    0.000    0.514 v U110/A (OAI21_X1)
+                  0.019    0.023    0.538 ^ U110/ZN (OAI21_X1)
+    1    1.450                              n59 (net)
+                  0.019    0.000    0.538 ^ repeat_cnt_reg[5]/D (DFF_X1)
+                                    0.538   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ repeat_cnt_reg[5]/CK (DFF_X1)
+                          -0.034   -0.034   library setup time
+                                   -0.034   data required time
+--------------------------------------------------------------------------------
+                                   -0.034   data required time
+                                   -0.538   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.572   slack (VIOLATED)
+
+
+Startpoint: first_mi_word_reg (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: repeat_cnt_reg[4] (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ first_mi_word_reg/CK (DFF_X1)
+                  0.069    0.148    0.148 ^ first_mi_word_reg/Q (DFF_X1)
+   13   29.218                              first_mi_word (net)
+                  0.069    0.000    0.148 ^ U64/S (MUX2_X1)
+                  0.015    0.074    0.223 v U64/Z (MUX2_X1)
+    3    6.401                              repeat_cnt_pre[0] (net)
+                  0.015    0.000    0.223 v U133/A2 (NOR2_X1)
+                  0.026    0.043    0.265 ^ U133/ZN (NOR2_X1)
+    2    4.061                              n75 (net)
+                  0.026    0.000    0.265 ^ U78/A (INV_X1)
+                  0.007    0.010    0.275 v U78/ZN (INV_X1)
+    1    1.723                              n81 (net)
+                  0.007    0.000    0.275 v U134/A1 (NOR2_X1)
+                  0.026    0.035    0.310 ^ U134/ZN (NOR2_X1)
+    2    4.061                              n76 (net)
+                  0.026    0.000    0.310 ^ U81/A (INV_X1)
+                  0.009    0.014    0.324 v U81/ZN (INV_X1)
+    2    3.631                              n83 (net)
+                  0.009    0.000    0.324 v U136/A1 (NOR2_X1)
+                  0.027    0.036    0.359 ^ U136/ZN (NOR2_X1)
+    2    4.061                              n77 (net)
+                  0.027    0.000    0.359 ^ U80/A (INV_X1)
+                  0.010    0.014    0.374 v U80/ZN (INV_X1)
+    2    3.631                              n85 (net)
+                  0.010    0.000    0.374 v U138/A1 (NOR2_X1)
+                  0.027    0.036    0.409 ^ U138/ZN (NOR2_X1)
+    2    4.061                              n78 (net)
+                  0.027    0.000    0.409 ^ U79/A (INV_X1)
+                  0.010    0.014    0.423 v U79/ZN (INV_X1)
+    2    3.631                              n87 (net)
+                  0.010    0.000    0.423 v U139/A (OAI21_X1)
+                  0.019    0.021    0.444 ^ U139/ZN (OAI21_X1)
+    1    1.909                              next_repeat_cnt[4] (net)
+                  0.019    0.000    0.444 ^ U114/A1 (NAND2_X1)
+                  0.016    0.016    0.460 v U114/ZN (NAND2_X1)
+    1    1.828                              n40 (net)
+                  0.016    0.000    0.460 v U113/A (OAI21_X1)
+                  0.019    0.023    0.483 ^ U113/ZN (OAI21_X1)
+    1    1.450                              n58 (net)
+                  0.019    0.000    0.483 ^ repeat_cnt_reg[4]/D (DFF_X1)
+                                    0.483   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ repeat_cnt_reg[4]/CK (DFF_X1)
+                          -0.034   -0.034   library setup time
+                                   -0.034   data required time
+--------------------------------------------------------------------------------
+                                   -0.034   data required time
+                                   -0.483   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.517   slack (VIOLATED)
+
+
+Startpoint: repeat_cnt_reg[3] (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: first_mi_word_reg (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ repeat_cnt_reg[3]/CK (DFF_X1)
+                  0.009    0.086    0.086 ^ repeat_cnt_reg[3]/Q (DFF_X1)
+    1    1.961                              repeat_cnt[3] (net)
+                  0.009    0.000    0.086 ^ U92/A2 (NOR2_X1)
+                  0.005    0.010    0.096 v U92/ZN (NOR2_X1)
+    1    1.797                              n48 (net)
+                  0.005    0.000    0.096 v U91/A4 (NAND4_X1)
+                  0.015    0.022    0.117 ^ U91/ZN (NAND4_X1)
+    1    1.972                              n46 (net)
+                  0.015    0.000    0.117 ^ U89/B1 (OAI21_X1)
+                  0.014    0.022    0.139 v U89/ZN (OAI21_X1)
+    3    4.437                              n45 (net)
+                  0.014    0.000    0.139 v U82/A (INV_X1)
+                  0.011    0.019    0.158 ^ U82/ZN (INV_X1)
+    2    3.301                              n95 (net)
+                  0.011    0.000    0.158 ^ U98/A1 (OR2_X1)
+                  0.011    0.028    0.186 ^ U98/ZN (OR2_X1)
+    2    2.664                              M_AXI_BREADY (net)
+                  0.011    0.000    0.186 ^ U94/A2 (NAND2_X1)
+                  0.013    0.022    0.208 v U94/ZN (NAND2_X1)
+    3    5.611                              n34 (net)
+                  0.013    0.000    0.208 v U101/A1 (NOR2_X1)
+                  0.088    0.105    0.313 ^ U101/ZN (NOR2_X1)
+    8   17.372                              n37 (net)
+                  0.088    0.000    0.313 ^ U86/A (INV_X1)
+                  0.028    0.034    0.347 v U86/ZN (INV_X1)
+    5    9.718                              n91 (net)
+                  0.028    0.000    0.347 v U85/A2 (NAND2_X1)
+                  0.048    0.067    0.414 ^ U85/ZN (NAND2_X1)
+    9   18.702                              n35 (net)
+                  0.048    0.000    0.414 ^ U103/C2 (OAI221_X1)
+                  0.021    0.038    0.452 v U103/ZN (OAI221_X1)
+    1    1.372                              n54 (net)
+                  0.021    0.000    0.452 v first_mi_word_reg/D (DFF_X1)
+                                    0.452   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ first_mi_word_reg/CK (DFF_X1)
+                          -0.045   -0.045   library setup time
+                                   -0.045   data required time
+--------------------------------------------------------------------------------
+                                   -0.045   data required time
+                                   -0.452   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.497   slack (VIOLATED)
+
+
+Startpoint: repeat_cnt_reg[3] (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: repeat_cnt_reg[0] (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ repeat_cnt_reg[3]/CK (DFF_X1)
+                  0.006    0.079    0.079 v repeat_cnt_reg[3]/Q (DFF_X1)
+    1    1.874                              repeat_cnt[3] (net)
+                  0.006    0.000    0.079 v U92/A2 (NOR2_X1)
+                  0.016    0.028    0.108 ^ U92/ZN (NOR2_X1)
+    1    1.970                              n48 (net)
+                  0.016    0.000    0.108 ^ U91/A4 (NAND4_X1)
+                  0.016    0.032    0.139 v U91/ZN (NAND4_X1)
+    1    1.770                              n46 (net)
+                  0.016    0.000    0.140 v U89/B1 (OAI21_X1)
+                  0.032    0.045    0.184 ^ U89/ZN (OAI21_X1)
+    3    4.645                              n45 (net)
+                  0.032    0.000    0.184 ^ U82/A (INV_X1)
+                  0.010    0.013    0.197 v U82/ZN (INV_X1)
+    2    2.902                              n95 (net)
+                  0.010    0.000    0.197 v U98/A1 (OR2_X1)
+                  0.010    0.049    0.245 v U98/ZN (OR2_X1)
+    2    2.502                              M_AXI_BREADY (net)
+                  0.010    0.000    0.245 v U94/A2 (NAND2_X1)
+                  0.019    0.028    0.274 ^ U94/ZN (NAND2_X1)
+    3    6.225                              n34 (net)
+                  0.019    0.000    0.274 ^ U101/A1 (NOR2_X1)
+                  0.020    0.031    0.305 v U101/ZN (NOR2_X1)
+    8   16.087                              n37 (net)
+                  0.020    0.000    0.305 v U86/A (INV_X1)
+                  0.026    0.039    0.344 ^ U86/ZN (INV_X1)
+    5   10.285                              n91 (net)
+                  0.026    0.000    0.344 ^ U85/A2 (NAND2_X1)
+                  0.037    0.054    0.399 v U85/ZN (NAND2_X1)
+    9   18.563                              n35 (net)
+                  0.037    0.000    0.399 v U70/B2 (OAI22_X1)
+                  0.029    0.052    0.451 ^ U70/ZN (OAI22_X1)
+    1    1.450                              n62 (net)
+                  0.029    0.000    0.451 ^ repeat_cnt_reg[0]/D (DFF_X1)
+                                    0.451   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ repeat_cnt_reg[0]/CK (DFF_X1)
+                          -0.037   -0.037   library setup time
+                                   -0.037   data required time
+--------------------------------------------------------------------------------
+                                   -0.037   data required time
+                                   -0.451   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.488   slack (VIOLATED)
+
+
+Startpoint: repeat_cnt_reg[3] (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: repeat_cnt_reg[1] (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ repeat_cnt_reg[3]/CK (DFF_X1)
+                  0.009    0.086    0.086 ^ repeat_cnt_reg[3]/Q (DFF_X1)
+    1    1.961                              repeat_cnt[3] (net)
+                  0.009    0.000    0.086 ^ U92/A2 (NOR2_X1)
+                  0.005    0.010    0.096 v U92/ZN (NOR2_X1)
+    1    1.797                              n48 (net)
+                  0.005    0.000    0.096 v U91/A4 (NAND4_X1)
+                  0.015    0.022    0.117 ^ U91/ZN (NAND4_X1)
+    1    1.972                              n46 (net)
+                  0.015    0.000    0.117 ^ U89/B1 (OAI21_X1)
+                  0.014    0.022    0.139 v U89/ZN (OAI21_X1)
+    3    4.437                              n45 (net)
+                  0.014    0.000    0.139 v U82/A (INV_X1)
+                  0.011    0.019    0.158 ^ U82/ZN (INV_X1)
+    2    3.301                              n95 (net)
+                  0.011    0.000    0.158 ^ U98/A1 (OR2_X1)
+                  0.011    0.028    0.186 ^ U98/ZN (OR2_X1)
+    2    2.664                              M_AXI_BREADY (net)
+                  0.011    0.000    0.186 ^ U94/A2 (NAND2_X1)
+                  0.013    0.022    0.208 v U94/ZN (NAND2_X1)
+    3    5.611                              n34 (net)
+                  0.013    0.000    0.208 v U101/A1 (NOR2_X1)
+                  0.088    0.105    0.313 ^ U101/ZN (NOR2_X1)
+    8   17.372                              n37 (net)
+                  0.088    0.000    0.313 ^ U86/A (INV_X1)
+                  0.028    0.034    0.347 v U86/ZN (INV_X1)
+    5    9.718                              n91 (net)
+                  0.028    0.000    0.347 v U85/A2 (NAND2_X1)
+                  0.048    0.067    0.414 ^ U85/ZN (NAND2_X1)
+    9   18.702                              n35 (net)
+                  0.048    0.000    0.414 ^ U122/B2 (OAI21_X1)
+                  0.016    0.023    0.438 v U122/ZN (OAI21_X1)
+    1    1.372                              n55 (net)
+                  0.016    0.000    0.438 v repeat_cnt_reg[1]/D (DFF_X1)
+                                    0.438   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ repeat_cnt_reg[1]/CK (DFF_X1)
+                          -0.043   -0.043   library setup time
+                                   -0.043   data required time
+--------------------------------------------------------------------------------
+                                   -0.043   data required time
+                                   -0.438   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.481   slack (VIOLATED)
+
+
+Startpoint: repeat_cnt_reg[3] (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: repeat_cnt_reg[2] (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ repeat_cnt_reg[3]/CK (DFF_X1)
+                  0.009    0.086    0.086 ^ repeat_cnt_reg[3]/Q (DFF_X1)
+    1    1.961                              repeat_cnt[3] (net)
+                  0.009    0.000    0.086 ^ U92/A2 (NOR2_X1)
+                  0.005    0.010    0.096 v U92/ZN (NOR2_X1)
+    1    1.797                              n48 (net)
+                  0.005    0.000    0.096 v U91/A4 (NAND4_X1)
+                  0.015    0.022    0.117 ^ U91/ZN (NAND4_X1)
+    1    1.972                              n46 (net)
+                  0.015    0.000    0.117 ^ U89/B1 (OAI21_X1)
+                  0.014    0.022    0.139 v U89/ZN (OAI21_X1)
+    3    4.437                              n45 (net)
+                  0.014    0.000    0.139 v U82/A (INV_X1)
+                  0.011    0.019    0.158 ^ U82/ZN (INV_X1)
+    2    3.301                              n95 (net)
+                  0.011    0.000    0.158 ^ U98/A1 (OR2_X1)
+                  0.011    0.028    0.186 ^ U98/ZN (OR2_X1)
+    2    2.664                              M_AXI_BREADY (net)
+                  0.011    0.000    0.186 ^ U94/A2 (NAND2_X1)
+                  0.013    0.022    0.208 v U94/ZN (NAND2_X1)
+    3    5.611                              n34 (net)
+                  0.013    0.000    0.208 v U101/A1 (NOR2_X1)
+                  0.088    0.105    0.313 ^ U101/ZN (NOR2_X1)
+    8   17.372                              n37 (net)
+                  0.088    0.000    0.313 ^ U86/A (INV_X1)
+                  0.028    0.034    0.347 v U86/ZN (INV_X1)
+    5    9.718                              n91 (net)
+                  0.028    0.000    0.347 v U85/A2 (NAND2_X1)
+                  0.048    0.067    0.414 ^ U85/ZN (NAND2_X1)
+    9   18.702                              n35 (net)
+                  0.048    0.000    0.414 ^ U119/B2 (OAI21_X1)
+                  0.016    0.023    0.438 v U119/ZN (OAI21_X1)
+    1    1.372                              n56 (net)
+                  0.016    0.000    0.438 v repeat_cnt_reg[2]/D (DFF_X1)
+                                    0.438   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ repeat_cnt_reg[2]/CK (DFF_X1)
+                          -0.043   -0.043   library setup time
+                                   -0.043   data required time
+--------------------------------------------------------------------------------
+                                   -0.043   data required time
+                                   -0.438   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.481   slack (VIOLATED)
+
+
+Startpoint: repeat_cnt_reg[3] (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: repeat_cnt_reg[3] (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ repeat_cnt_reg[3]/CK (DFF_X1)
+                  0.009    0.086    0.086 ^ repeat_cnt_reg[3]/Q (DFF_X1)
+    1    1.961                              repeat_cnt[3] (net)
+                  0.009    0.000    0.086 ^ U92/A2 (NOR2_X1)
+                  0.005    0.010    0.096 v U92/ZN (NOR2_X1)
+    1    1.797                              n48 (net)
+                  0.005    0.000    0.096 v U91/A4 (NAND4_X1)
+                  0.015    0.022    0.117 ^ U91/ZN (NAND4_X1)
+    1    1.972                              n46 (net)
+                  0.015    0.000    0.117 ^ U89/B1 (OAI21_X1)
+                  0.014    0.022    0.139 v U89/ZN (OAI21_X1)
+    3    4.437                              n45 (net)
+                  0.014    0.000    0.139 v U82/A (INV_X1)
+                  0.011    0.019    0.158 ^ U82/ZN (INV_X1)
+    2    3.301                              n95 (net)
+                  0.011    0.000    0.158 ^ U98/A1 (OR2_X1)
+                  0.011    0.028    0.186 ^ U98/ZN (OR2_X1)
+    2    2.664                              M_AXI_BREADY (net)
+                  0.011    0.000    0.186 ^ U94/A2 (NAND2_X1)
+                  0.013    0.022    0.208 v U94/ZN (NAND2_X1)
+    3    5.611                              n34 (net)
+                  0.013    0.000    0.208 v U101/A1 (NOR2_X1)
+                  0.088    0.105    0.313 ^ U101/ZN (NOR2_X1)
+    8   17.372                              n37 (net)
+                  0.088    0.000    0.313 ^ U86/A (INV_X1)
+                  0.028    0.034    0.347 v U86/ZN (INV_X1)
+    5    9.718                              n91 (net)
+                  0.028    0.000    0.347 v U85/A2 (NAND2_X1)
+                  0.048    0.067    0.414 ^ U85/ZN (NAND2_X1)
+    9   18.702                              n35 (net)
+                  0.048    0.000    0.414 ^ U116/B2 (OAI21_X1)
+                  0.016    0.023    0.438 v U116/ZN (OAI21_X1)
+    1    1.372                              n57 (net)
+                  0.016    0.000    0.438 v repeat_cnt_reg[3]/D (DFF_X1)
+                                    0.438   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ repeat_cnt_reg[3]/CK (DFF_X1)
+                          -0.043   -0.043   library setup time
+                                   -0.043   data required time
+--------------------------------------------------------------------------------
+                                   -0.043   data required time
+                                   -0.438   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.481   slack (VIOLATED)
+
+
+Startpoint: repeat_cnt_reg[3] (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: S_AXI_BRESP_ACC_reg[0]
+          (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ repeat_cnt_reg[3]/CK (DFF_X1)
+                  0.009    0.086    0.086 ^ repeat_cnt_reg[3]/Q (DFF_X1)
+    1    1.961                              repeat_cnt[3] (net)
+                  0.009    0.000    0.086 ^ U92/A2 (NOR2_X1)
+                  0.005    0.010    0.096 v U92/ZN (NOR2_X1)
+    1    1.797                              n48 (net)
+                  0.005    0.000    0.096 v U91/A4 (NAND4_X1)
+                  0.015    0.022    0.117 ^ U91/ZN (NAND4_X1)
+    1    1.972                              n46 (net)
+                  0.015    0.000    0.117 ^ U89/B1 (OAI21_X1)
+                  0.014    0.022    0.139 v U89/ZN (OAI21_X1)
+    3    4.437                              n45 (net)
+                  0.014    0.000    0.139 v U82/A (INV_X1)
+                  0.011    0.019    0.158 ^ U82/ZN (INV_X1)
+    2    3.301                              n95 (net)
+                  0.011    0.000    0.158 ^ U98/A1 (OR2_X1)
+                  0.011    0.028    0.186 ^ U98/ZN (OR2_X1)
+    2    2.664                              M_AXI_BREADY (net)
+                  0.011    0.000    0.186 ^ U94/A2 (NAND2_X1)
+                  0.013    0.022    0.208 v U94/ZN (NAND2_X1)
+    3    5.611                              n34 (net)
+                  0.013    0.000    0.208 v U101/A1 (NOR2_X1)
+                  0.088    0.105    0.313 ^ U101/ZN (NOR2_X1)
+    8   17.372                              n37 (net)
+                  0.088    0.000    0.313 ^ U86/A (INV_X1)
+                  0.028    0.034    0.347 v U86/ZN (INV_X1)
+    5    9.718                              n91 (net)
+                  0.028    0.000    0.347 v U104/B2 (OAI22_X1)
+                  0.029    0.049    0.396 ^ U104/ZN (OAI22_X1)
+    1    1.450                              n53 (net)
+                  0.029    0.000    0.396 ^ S_AXI_BRESP_ACC_reg[0]/D (DFF_X1)
+                                    0.396   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ S_AXI_BRESP_ACC_reg[0]/CK (DFF_X1)
+                          -0.037   -0.037   library setup time
+                                   -0.037   data required time
+--------------------------------------------------------------------------------
+                                   -0.037   data required time
+                                   -0.396   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.433   slack (VIOLATED)
+
+

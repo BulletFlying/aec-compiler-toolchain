@@ -1,0 +1,54 @@
+{
+  "assembler": {
+    "path": "tools/assemble.py",
+    "sha256": "b72fcd498c51a1517ba1f7cd53e9bb6d0f1ba03d33c4183c7cca694332c710f4"
+  },
+  "assembler_meta": {
+    "code_size_bytes": 464,
+    "entry_pc": 0,
+    "format": "aecbin-raw",
+    "hex_order": "w3,w2,w1,w0 msb-first",
+    "instruction_count": 29,
+    "instruction_width_bits": 128,
+    "labels": {},
+    "version": 1,
+    "word_order": "w0,w1,w2,w3 little-endian u32"
+  },
+  "binary": {
+    "path": "program.bin",
+    "sha256": "b6d12405c22fa4e5e3ce82b5bcc1669eeba6fbb94009d98bc7496e6b6c107631",
+    "size_bytes": 464
+  },
+  "case_dir": "tests/aec_cases/kernels/gemm_naive",
+  "case_id": "K-GEMM-NAIVE",
+  "checker": {
+    "path": "tools/check_aec_asm.py",
+    "sha256": "161a6cdadf81cc6777a031f674e36aaf77b7c18495ab202f0af1bd12bb0b831b"
+  },
+  "generated_artifacts": {
+    "expected/gmem_00000100.bin": {
+      "sha256": "baed642339816affb3fe8719792d0e4ce82f12db72b7373d244eaa65445800fe",
+      "size_bytes": 16
+    },
+    "expected/gmem_00000300.bin": {
+      "sha256": "590dfdf38198ad118746462acb171350056d233b8c39de02ad3b818a8924c444",
+      "size_bytes": 16
+    },
+    "input/gmem_00000100.bin": {
+      "sha256": "cf97adeedb59e05bfd73a2b4c2a8885708c4f4f70c84c64b27120e72ab733b72",
+      "size_bytes": 16
+    },
+    "input/gmem_00000200.bin": {
+      "sha256": "f3e0813c89d0991f07fbb5027a68c0cb809e1effc0c1e8974664bd2e57b50024",
+      "size_bytes": 16
+    }
+  },
+  "hex": {
+    "path": "program.hex",
+    "sha256": "b573da6e37dba30442013761be54edc9a16da2f04fe215a95a0acab4d450179a"
+  },
+  "source": {
+    "path": "program.aec",
+    "sha256": "d5cd2f4b078b7d9676fb3b9923b6e297d0f5d0f3023de271b91d0d6f8f26a36c"
+  }
+}

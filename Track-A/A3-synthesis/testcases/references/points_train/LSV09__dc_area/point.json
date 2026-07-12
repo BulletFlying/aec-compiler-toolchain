@@ -1,0 +1,17 @@
+{
+  "id": "LSV09",
+  "split": "public",
+  "name": "medium_sha256_wishbone",
+  "top": "Sha256Wishbone",
+  "flow": "dc_area",
+  "flow_label": "Design Compiler area-biased compile",
+  "tool": "dc",
+  "status": "ok",
+  "runtime_s": 19.4,
+  "area": 12569.031886,
+  "arrival_ns": 3.15,
+  "wns_ns": -3.15,
+  "tns_ns": -1764.81,
+  "source_path": "medium_design/4.Sha256Wishbone.clock.v",
+  "clock_period_ns": 10.0
+}

@@ -1,0 +1,16 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   BRANCH    
+ 61.53  61.03  62.03 tb 
+  
+  ----------------
+  SCORE  LINE   BRANCH     
+   61.38  59.74  63.01 UUT 
+    
+    ----------------
+    SCORE  LINE   BRANCH                            
+     87.62  87.23  88.00 downsize_post.adapter_inst 
+     49.49  48.98  50.00 fifo_inst                  
+

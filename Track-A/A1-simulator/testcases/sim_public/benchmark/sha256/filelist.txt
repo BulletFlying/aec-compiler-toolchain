@@ -1,0 +1,5 @@
+rtl/sha256_k_constants.v
+rtl/sha256_w_mem.v
+rtl/sha256_core.v
+rtl/sha256.v
+tb/tb.v

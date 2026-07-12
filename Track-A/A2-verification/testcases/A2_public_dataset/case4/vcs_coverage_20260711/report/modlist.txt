@@ -1,0 +1,12 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   BRANCH 
+ 88.77  96.90  80.65 
+
+
+Total modules in report: 1
+-------------------------------------------------------------------------------
+SCORE  LINE   BRANCH NAME    
+ 88.77  96.90  80.65 axi_ram 
+

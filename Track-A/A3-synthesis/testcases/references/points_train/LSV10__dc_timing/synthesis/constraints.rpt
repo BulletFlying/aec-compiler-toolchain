@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : VexRiscv_small
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:13:48 2026
+****************************************
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   VexRiscv_small               0.00       290219.88      -290219.88
+                                                                    (VIOLATED)
+
+
+1

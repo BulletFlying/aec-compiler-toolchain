@@ -1,0 +1,98 @@
+{
+  "constraint_random_test": {
+    "name": "case1_z3_constraints",
+    "solver_target": "Z3-compatible integer and enum constraints",
+    "seed": 20260630,
+    "sequence_count": 5000,
+    "transaction_variables": {
+      "address": {
+        "type": "bitvec",
+        "width": 16
+      },
+      "length_bytes": {
+        "type": "int",
+        "min": 1,
+        "max": 256
+      },
+      "size": {
+        "type": "int",
+        "values": [
+          0,
+          1,
+          2
+        ]
+      },
+      "burst": {
+        "type": "enum",
+        "values": [
+          "INCR"
+        ],
+        "encoding": {
+          "INCR": 1
+        }
+      },
+      "arid": {
+        "type": "bitvec",
+        "width": 8
+      },
+      "source_r_backpressure": {
+        "type": "enum",
+        "values": [
+          "none",
+          "cycle_pause",
+          "random_pause"
+        ]
+      },
+      "downstream_ar_backpressure": {
+        "type": "enum",
+        "values": [
+          "none",
+          "cycle_pause",
+          "random_pause"
+        ]
+      },
+      "downstream_r_idle": {
+        "type": "enum",
+        "values": [
+          "none",
+          "cycle_pause",
+          "random_pause"
+        ]
+      }
+    },
+    "hard_constraints": [
+      "0 <= address < 65536",
+      "1 <= length_bytes <= 256",
+      "address + length_bytes <= 65536",
+      "size in {0, 1, 2}",
+      "burst == INCR",
+      "read data must be initialized in the downstream memory model before each read",
+      "no read crosses the 64 KiB configured memory aperture"
+    ],
+    "coverage_guidance_constraints": [
+      "include length_bytes in {1,2,3,4,5,7,8,15,16,17,31,32,33,63,64,65,127,128,255,256}",
+      "include addresses near 4 KiB boundaries",
+      "include aligned and unaligned addresses",
+      "include all size values supported by the 32-bit slave side",
+      "apply backpressure on source R and downstream AR/R channels"
+    ],
+    "objective": {
+      "primary": "maximize line, branch, and functional coverage in case1",
+      "secondary": "exercise 32-bit slave to 16-bit master read conversion, narrow-size reads, boundary cases, and backpressure behavior",
+      "reported_metric": [
+        "line_coverage_percent",
+        "branch_coverage_percent",
+        "functional_coverage_percent"
+      ]
+    },
+    "vcs_execution_model": {
+      "json_supported": true,
+      "method": "cocotb reads this JSON, generates 5000 read transactions, samples functional bins, and drives case1 through VPI; VCS reports line and branch coverage via URG.",
+      "implementation": "public_dataset/case1/test_case1_json_sequences.py",
+      "vcs_options": [
+        "-cm line+branch",
+        "-cm_dir sim_build/coverage.vdb"
+      ]
+    }
+  }
+}

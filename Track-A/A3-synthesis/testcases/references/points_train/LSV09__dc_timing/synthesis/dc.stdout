@@ -1,0 +1,504 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set target_library [list /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db]
+/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+set link_library [concat "*" $target_library]
+* /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+analyze -format sverilog /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/design.v
+Running PRESTO HDLC
+Compiling source file /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/design.v
+Presto compilation completed successfully.
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+1
+elaborate Sha256Wishbone
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine Sha256Wishbone line 1019 in file
+		'/tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/design.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     data_rd_reg     | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|       ack_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'Sha256Wishbone'.
+Information: Building the design 'Sha256Accel'. (HDL-193)
+
+Inferred memory devices in process
+	in routine Sha256Accel line 863 in file
+		'/tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/design.v'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+|       first_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        ctr_reg        | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+| io_inputReady_REG_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+=================================================================================
+Presto compilation completed successfully.
+Information: Building the design 'CompressionFunction'. (HDL-193)
+
+Inferred memory devices in process
+	in routine CompressionFunction line 496 in file
+		'/tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/design.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      valid_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        i_reg        | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_0_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_1_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_2_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_3_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_4_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_5_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_6_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|   hash_val_7_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        a_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        b_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        c_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        d_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        e_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        f_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        g_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|        h_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     shiftIn_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'MessageScheduleArray'. (HDL-193)
+
+Inferred memory devices in process
+	in routine MessageScheduleArray line 225 in file
+		'/tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/design.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      iReg_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|       out_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'ShiftRegister'. (HDL-193)
+
+Inferred memory devices in process
+	in routine ShiftRegister line 48 in file
+		'/tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/design.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      reg_0_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_1_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_2_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_3_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_4_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_5_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_6_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_7_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_8_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_9_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_10_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_11_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_12_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_13_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_14_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     reg_15_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+1
+current_design Sha256Wishbone
+Current design is 'Sha256Wishbone'.
+{Sha256Wishbone}
+link
+
+  Linking design 'Sha256Wishbone'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (5 designs)               /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/Sha256Wishbone.db, etc
+  NangateOpenCellLibrary (library) /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+
+1
+check_design > /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/check_design.rpt
+source /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/constraints.sdc
+1
+if {[catch {compile_ultra -no_autoungroup} err]} {
+  puts "compile_ultra failed, falling back to compile: $err"
+  compile
+}
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing power optimization. (PWR-850)
+Analyzing: "/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db"
+Library analysis succeeded.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        | O-2018.06-DWBB_201806.1 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 14 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'Sha256Wishbone'
+
+Loaded alib file './alib-52/NangateOpenCellLibrary_typical.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'CompressionFunction'
+ Implement Synthetic for 'CompressionFunction'.
+  Processing 'ShiftRegister'
+  Processing 'Sha256Wishbone'
+  Processing 'MessageScheduleArray'
+ Implement Synthetic for 'MessageScheduleArray'.
+  Processing 'Sha256Accel'
+ Implement Synthetic for 'Sha256Accel'.
+Memory usage for J1 task 155 Mbytes -- main task 126 Mbytes.
+Memory usage for J2 task 130 Mbytes -- main task 126 Mbytes.
+Memory usage for J3 task 132 Mbytes -- main task 126 Mbytes.
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Complementing port 'io_enable' in design 'ShiftRegister'.
+	 The new name of the port is 'io_enable_BAR'. (OPT-319)
+Information: Complementing port 'io_shiftIn' in design 'MessageScheduleArray'.
+	 The new name of the port is 'io_shiftIn_BAR'. (OPT-319)
+Information: Complementing port 'io_shiftIn' in design 'CompressionFunction'.
+	 The new name of the port is 'io_shiftIn_BAR'. (OPT-319)
+Information: Complementing port 'io_enable_BAR' in design 'ShiftRegister'.
+	 The new name of the port is 'io_enable'. (OPT-319)
+Information: Complementing port 'io_shiftIn_BAR' in design 'MessageScheduleArray'.
+	 The new name of the port is 'io_shiftIn'. (OPT-319)
+Information: Complementing port 'io_shiftIn_BAR' in design 'CompressionFunction'.
+	 The new name of the port is 'io_shiftIn'. (OPT-319)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: Added key list 'DesignWare' to design 'CompressionFunction'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'MessageScheduleArray'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'Sha256Accel'. (DDB-72)
+  Mapping Optimization (Phase 1)
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:15   12246.4      0.00       0.0     143.6                           249659.3750
+    0:00:15   12246.4      0.00       0.0     143.6                           249659.3750
+    0:00:15   12246.4      0.00       0.0     143.6                           249659.3750
+    0:00:15   12246.4      0.00       0.0     143.6                           249659.3750
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:17   12151.9      0.00       0.0      67.0                           245763.7500
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:17   12138.9      0.00       0.0      63.0                           244770.2812
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+    0:00:18   12197.7      0.00       0.0       0.0                           245848.4375
+    0:00:18   12197.7      0.00       0.0       0.0                           245848.4375
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:18   12197.7      0.00       0.0       0.0                           245848.4375
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+Information: Complementing port 'io_output_15[30]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[30]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[29]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[29]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[28]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[28]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[27]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[27]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[26]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[26]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[25]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[25]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[24]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[24]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[23]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[23]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[22]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[22]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[21]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[21]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[20]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[20]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[19]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[19]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[18]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[18]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[17]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[17]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[16]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[16]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[15]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[15]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[14]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[14]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[13]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[13]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[12]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[12]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[11]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[11]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[10]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[10]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[9]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[9]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[8]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[8]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[7]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[7]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[6]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[6]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[5]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[5]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[4]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[4]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[3]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[3]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[2]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[2]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_15[0]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_15[0]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[30]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[30]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[29]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[29]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[28]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[28]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[27]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[27]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[26]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[26]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[25]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[25]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[24]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[24]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[23]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[23]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[22]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[22]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[21]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[21]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[20]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[20]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[19]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[19]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[18]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[18]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[17]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[17]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[16]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[16]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[15]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[15]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[14]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[14]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[13]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[13]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[12]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[12]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[11]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[11]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[10]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[10]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[9]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[9]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[8]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[8]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[7]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[7]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[6]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[6]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[5]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[5]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[4]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[4]_BAR'. (OPT-319)
+Information: Complementing port 'io_output_6[3]' in design 'ShiftRegister'.
+	 The new name of the port is 'io_output_6[3]_BAR'. (OPT-319)
+    0:00:18   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:18   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:18   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:19   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:20   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:20   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:20   12143.7      0.00       0.0       0.0                           244462.3438
+    0:00:20   12143.7      0.00       0.0       0.0                           244462.3438
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'Sha256Wishbone' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'accel/accel/messageScheduleArray/shreg/clock': 1116 load(s), 1 driver(s)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+write -format verilog -hierarchy -output /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/netlist.v
+Writing verilog file '/tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/netlist.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write_sdc /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/final.sdc
+1
+report_qor > /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/qor.rpt
+report_area -hierarchy > /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/area.rpt
+report_timing -delay max -max_paths 20 > /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/timing.rpt
+report_constraint -all_violators > /tmp/logic_synth_ref/runs/LSV09_dc_timing_a2ae0294d455408c8a96b6be562eac28/case/constraints.rpt
+exit
+
+Memory usage for main task 153 Mbytes.
+Memory usage for this session 155 Mbytes.
+CPU usage for this session 66 seconds ( 0.02 hours ).
+
+Thank you...
+

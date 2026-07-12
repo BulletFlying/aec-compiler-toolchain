@@ -1,0 +1,13 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   BRANCH 
+ 88.03  87.68  88.37 
+
+
+Total modules in report: 2
+-------------------------------------------------------------------------------
+SCORE  LINE   BRANCH NAME              
+ 88.03  87.68  88.37 axi_crossbar_addr 
+--     --     --     case5_cocotb_top  
+

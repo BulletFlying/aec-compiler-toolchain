@@ -1,0 +1,400 @@
+Startpoint: _2304_ (rising edge-triggered flip-flop clocked by i_clk)
+Endpoint: _2241_ (rising edge-triggered flip-flop clocked by i_clk)
+Path Group: i_clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _2304_/CK (DFF_X1)
+                  0.281    0.370    0.370 ^ _2304_/Q (DFF_X1)
+   50   82.667                              reg_done (net)
+                  0.281    0.000    0.370 ^ _1030_/A (INV_X1)
+                  0.145    0.236    0.606 v _1030_/ZN (INV_X1)
+   40   85.719                              _0645_ (net)
+                  0.145    0.000    0.606 v _1085_/A1 (NOR2_X1)
+                  1.638    1.865    2.472 ^ _1085_/ZN (NOR2_X1)
+  139  351.978                              _0700_ (net)
+                  1.638    0.000    2.472 ^ _1992_/C1 (AOI222_X1)
+                  0.327    0.102    2.574 v _1992_/ZN (AOI222_X1)
+    1    1.859                              _0615_ (net)
+                  0.327    0.000    2.574 v _1993_/A (INV_X1)
+                  0.049    0.070    2.644 ^ _1993_/ZN (INV_X1)
+    1    1.450                              _0006_[46] (net)
+                  0.049    0.000    2.644 ^ _2241_/D (DFF_X1)
+                                    2.644   data arrival time
+
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _2241_/CK (DFF_X1)
+                          -0.042   -0.042   library setup time
+                                   -0.042   data required time
+--------------------------------------------------------------------------------
+                                   -0.042   data required time
+                                   -2.644   data arrival time
+--------------------------------------------------------------------------------
+                                   -2.686   slack (VIOLATED)
+
+
+Startpoint: _2304_ (rising edge-triggered flip-flop clocked by i_clk)
+Endpoint: _2266_ (rising edge-triggered flip-flop clocked by i_clk)
+Path Group: i_clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _2304_/CK (DFF_X1)
+                  0.281    0.370    0.370 ^ _2304_/Q (DFF_X1)
+   50   82.667                              reg_done (net)
+                  0.281    0.000    0.370 ^ _1030_/A (INV_X1)
+                  0.145    0.236    0.606 v _1030_/ZN (INV_X1)
+   40   85.719                              _0645_ (net)
+                  0.145    0.000    0.606 v _1085_/A1 (NOR2_X1)
+                  1.638    1.865    2.472 ^ _1085_/ZN (NOR2_X1)
+  139  351.978                              _0700_ (net)
+                  1.638    0.000    2.472 ^ _1087_/C1 (AOI222_X1)
+                  0.327    0.102    2.574 v _1087_/ZN (AOI222_X1)
+    1    1.859                              _0702_ (net)
+                  0.327    0.000    2.574 v _1088_/A (INV_X1)
+                  0.049    0.070    2.644 ^ _1088_/ZN (INV_X1)
+    1    1.450                              _0006_[71] (net)
+                  0.049    0.000    2.644 ^ _2266_/D (DFF_X1)
+                                    2.644   data arrival time
+
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _2266_/CK (DFF_X1)
+                          -0.042   -0.042   library setup time
+                                   -0.042   data required time
+--------------------------------------------------------------------------------
+                                   -0.042   data required time
+                                   -2.644   data arrival time
+--------------------------------------------------------------------------------
+                                   -2.686   slack (VIOLATED)
+
+
+Startpoint: _2304_ (rising edge-triggered flip-flop clocked by i_clk)
+Endpoint: _2267_ (rising edge-triggered flip-flop clocked by i_clk)
+Path Group: i_clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _2304_/CK (DFF_X1)
+                  0.281    0.370    0.370 ^ _2304_/Q (DFF_X1)
+   50   82.667                              reg_done (net)
+                  0.281    0.000    0.370 ^ _1030_/A (INV_X1)
+                  0.145    0.236    0.606 v _1030_/ZN (INV_X1)
+   40   85.719                              _0645_ (net)
+                  0.145    0.000    0.606 v _1085_/A1 (NOR2_X1)
+                  1.638    1.865    2.472 ^ _1085_/ZN (NOR2_X1)
+  139  351.978                              _0700_ (net)
+                  1.638    0.000    2.472 ^ _1089_/C1 (AOI222_X1)
+                  0.327    0.102    2.574 v _1089_/ZN (AOI222_X1)
+    1    1.859                              _0703_ (net)
+                  0.327    0.000    2.574 v _1090_/A (INV_X1)
+                  0.049    0.070    2.644 ^ _1090_/ZN (INV_X1)
+    1    1.450                              _0006_[72] (net)
+                  0.049    0.000    2.644 ^ _2267_/D (DFF_X1)
+                                    2.644   data arrival time
+
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _2267_/CK (DFF_X1)
+                          -0.042   -0.042   library setup time
+                                   -0.042   data required time
+--------------------------------------------------------------------------------
+                                   -0.042   data required time
+                                   -2.644   data arrival time
+--------------------------------------------------------------------------------
+                                   -2.686   slack (VIOLATED)
+
+
+Startpoint: _2304_ (rising edge-triggered flip-flop clocked by i_clk)
+Endpoint: _2268_ (rising edge-triggered flip-flop clocked by i_clk)
+Path Group: i_clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _2304_/CK (DFF_X1)
+                  0.281    0.370    0.370 ^ _2304_/Q (DFF_X1)
+   50   82.667                              reg_done (net)
+                  0.281    0.000    0.370 ^ _1030_/A (INV_X1)
+                  0.145    0.236    0.606 v _1030_/ZN (INV_X1)
+   40   85.719                              _0645_ (net)
+                  0.145    0.000    0.606 v _1085_/A1 (NOR2_X1)
+                  1.638    1.865    2.472 ^ _1085_/ZN (NOR2_X1)
+  139  351.978                              _0700_ (net)
+                  1.638    0.000    2.472 ^ _1091_/C1 (AOI222_X1)
+                  0.327    0.102    2.574 v _1091_/ZN (AOI222_X1)
+    1    1.859                              _0704_ (net)
+                  0.327    0.000    2.574 v _1092_/A (INV_X1)
+                  0.049    0.070    2.644 ^ _1092_/ZN (INV_X1)
+    1    1.450                              _0006_[73] (net)
+                  0.049    0.000    2.644 ^ _2268_/D (DFF_X1)
+                                    2.644   data arrival time
+
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _2268_/CK (DFF_X1)
+                          -0.042   -0.042   library setup time
+                                   -0.042   data required time
+--------------------------------------------------------------------------------
+                                   -0.042   data required time
+                                   -2.644   data arrival time
+--------------------------------------------------------------------------------
+                                   -2.686   slack (VIOLATED)
+
+
+Startpoint: _2304_ (rising edge-triggered flip-flop clocked by i_clk)
+Endpoint: _2269_ (rising edge-triggered flip-flop clocked by i_clk)
+Path Group: i_clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _2304_/CK (DFF_X1)
+                  0.281    0.370    0.370 ^ _2304_/Q (DFF_X1)
+   50   82.667                              reg_done (net)
+                  0.281    0.000    0.370 ^ _1030_/A (INV_X1)
+                  0.145    0.236    0.606 v _1030_/ZN (INV_X1)
+   40   85.719                              _0645_ (net)
+                  0.145    0.000    0.606 v _1085_/A1 (NOR2_X1)
+                  1.638    1.865    2.472 ^ _1085_/ZN (NOR2_X1)
+  139  351.978                              _0700_ (net)
+                  1.638    0.000    2.472 ^ _1093_/C1 (AOI222_X1)
+                  0.327    0.102    2.574 v _1093_/ZN (AOI222_X1)
+    1    1.859                              _0705_ (net)
+                  0.327    0.000    2.574 v _1094_/A (INV_X1)
+                  0.049    0.070    2.644 ^ _1094_/ZN (INV_X1)
+    1    1.450                              _0006_[74] (net)
+                  0.049    0.000    2.644 ^ _2269_/D (DFF_X1)
+                                    2.644   data arrival time
+
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _2269_/CK (DFF_X1)
+                          -0.042   -0.042   library setup time
+                                   -0.042   data required time
+--------------------------------------------------------------------------------
+                                   -0.042   data required time
+                                   -2.644   data arrival time
+--------------------------------------------------------------------------------
+                                   -2.686   slack (VIOLATED)
+
+
+Startpoint: _2304_ (rising edge-triggered flip-flop clocked by i_clk)
+Endpoint: _2270_ (rising edge-triggered flip-flop clocked by i_clk)
+Path Group: i_clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _2304_/CK (DFF_X1)
+                  0.281    0.370    0.370 ^ _2304_/Q (DFF_X1)
+   50   82.667                              reg_done (net)
+                  0.281    0.000    0.370 ^ _1030_/A (INV_X1)
+                  0.145    0.236    0.606 v _1030_/ZN (INV_X1)
+   40   85.719                              _0645_ (net)
+                  0.145    0.000    0.606 v _1085_/A1 (NOR2_X1)
+                  1.638    1.865    2.472 ^ _1085_/ZN (NOR2_X1)
+  139  351.978                              _0700_ (net)
+                  1.638    0.000    2.472 ^ _1095_/C1 (AOI222_X1)
+                  0.327    0.102    2.574 v _1095_/ZN (AOI222_X1)
+    1    1.859                              _0706_ (net)
+                  0.327    0.000    2.574 v _1096_/A (INV_X1)
+                  0.049    0.070    2.644 ^ _1096_/ZN (INV_X1)
+    1    1.450                              _0006_[75] (net)
+                  0.049    0.000    2.644 ^ _2270_/D (DFF_X1)
+                                    2.644   data arrival time
+
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _2270_/CK (DFF_X1)
+                          -0.042   -0.042   library setup time
+                                   -0.042   data required time
+--------------------------------------------------------------------------------
+                                   -0.042   data required time
+                                   -2.644   data arrival time
+--------------------------------------------------------------------------------
+                                   -2.686   slack (VIOLATED)
+
+
+Startpoint: _2304_ (rising edge-triggered flip-flop clocked by i_clk)
+Endpoint: _2271_ (rising edge-triggered flip-flop clocked by i_clk)
+Path Group: i_clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _2304_/CK (DFF_X1)
+                  0.281    0.370    0.370 ^ _2304_/Q (DFF_X1)
+   50   82.667                              reg_done (net)
+                  0.281    0.000    0.370 ^ _1030_/A (INV_X1)
+                  0.145    0.236    0.606 v _1030_/ZN (INV_X1)
+   40   85.719                              _0645_ (net)
+                  0.145    0.000    0.606 v _1085_/A1 (NOR2_X1)
+                  1.638    1.865    2.472 ^ _1085_/ZN (NOR2_X1)
+  139  351.978                              _0700_ (net)
+                  1.638    0.000    2.472 ^ _1097_/B1 (AOI22_X1)
+                  0.276    0.045    2.517 v _1097_/ZN (AOI22_X1)
+    1    1.859                              _0707_ (net)
+                  0.276    0.000    2.517 v _1098_/A (INV_X1)
+                  0.043    0.062    2.579 ^ _1098_/ZN (INV_X1)
+    1    1.450                              _0006_[76] (net)
+                  0.043    0.000    2.579 ^ _2271_/D (DFF_X1)
+                                    2.579   data arrival time
+
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _2271_/CK (DFF_X1)
+                          -0.041   -0.041   library setup time
+                                   -0.041   data required time
+--------------------------------------------------------------------------------
+                                   -0.041   data required time
+                                   -2.579   data arrival time
+--------------------------------------------------------------------------------
+                                   -2.620   slack (VIOLATED)
+
+
+Startpoint: _2304_ (rising edge-triggered flip-flop clocked by i_clk)
+Endpoint: _2242_ (rising edge-triggered flip-flop clocked by i_clk)
+Path Group: i_clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _2304_/CK (DFF_X1)
+                  0.281    0.370    0.370 ^ _2304_/Q (DFF_X1)
+   50   82.667                              reg_done (net)
+                  0.281    0.000    0.370 ^ _1030_/A (INV_X1)
+                  0.145    0.236    0.606 v _1030_/ZN (INV_X1)
+   40   85.719                              _0645_ (net)
+                  0.145    0.000    0.606 v _1085_/A1 (NOR2_X1)
+                  1.638    1.865    2.472 ^ _1085_/ZN (NOR2_X1)
+  139  351.978                              _0700_ (net)
+                  1.638    0.000    2.472 ^ _1994_/B2 (AOI222_X1)
+                  0.235    0.052    2.523 v _1994_/ZN (AOI222_X1)
+    1    1.859                              _0616_ (net)
+                  0.235    0.000    2.523 v _1995_/A (INV_X1)
+                  0.038    0.056    2.579 ^ _1995_/ZN (INV_X1)
+    1    1.450                              _0006_[47] (net)
+                  0.038    0.000    2.579 ^ _2242_/D (DFF_X1)
+                                    2.579   data arrival time
+
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _2242_/CK (DFF_X1)
+                          -0.039   -0.039   library setup time
+                                   -0.039   data required time
+--------------------------------------------------------------------------------
+                                   -0.039   data required time
+                                   -2.579   data arrival time
+--------------------------------------------------------------------------------
+                                   -2.619   slack (VIOLATED)
+
+
+Startpoint: _2304_ (rising edge-triggered flip-flop clocked by i_clk)
+Endpoint: _2243_ (rising edge-triggered flip-flop clocked by i_clk)
+Path Group: i_clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _2304_/CK (DFF_X1)
+                  0.281    0.370    0.370 ^ _2304_/Q (DFF_X1)
+   50   82.667                              reg_done (net)
+                  0.281    0.000    0.370 ^ _1030_/A (INV_X1)
+                  0.145    0.236    0.606 v _1030_/ZN (INV_X1)
+   40   85.719                              _0645_ (net)
+                  0.145    0.000    0.606 v _1085_/A1 (NOR2_X1)
+                  1.638    1.865    2.472 ^ _1085_/ZN (NOR2_X1)
+  139  351.978                              _0700_ (net)
+                  1.638    0.000    2.472 ^ _1996_/B2 (AOI222_X1)
+                  0.235    0.052    2.523 v _1996_/ZN (AOI222_X1)
+    1    1.859                              _0617_ (net)
+                  0.235    0.000    2.523 v _1997_/A (INV_X1)
+                  0.038    0.056    2.579 ^ _1997_/ZN (INV_X1)
+    1    1.450                              _0006_[48] (net)
+                  0.038    0.000    2.579 ^ _2243_/D (DFF_X1)
+                                    2.579   data arrival time
+
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _2243_/CK (DFF_X1)
+                          -0.039   -0.039   library setup time
+                                   -0.039   data required time
+--------------------------------------------------------------------------------
+                                   -0.039   data required time
+                                   -2.579   data arrival time
+--------------------------------------------------------------------------------
+                                   -2.619   slack (VIOLATED)
+
+
+Startpoint: _2304_ (rising edge-triggered flip-flop clocked by i_clk)
+Endpoint: _2244_ (rising edge-triggered flip-flop clocked by i_clk)
+Path Group: i_clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _2304_/CK (DFF_X1)
+                  0.281    0.370    0.370 ^ _2304_/Q (DFF_X1)
+   50   82.667                              reg_done (net)
+                  0.281    0.000    0.370 ^ _1030_/A (INV_X1)
+                  0.145    0.236    0.606 v _1030_/ZN (INV_X1)
+   40   85.719                              _0645_ (net)
+                  0.145    0.000    0.606 v _1085_/A1 (NOR2_X1)
+                  1.638    1.865    2.472 ^ _1085_/ZN (NOR2_X1)
+  139  351.978                              _0700_ (net)
+                  1.638    0.000    2.472 ^ _1998_/B2 (AOI222_X1)
+                  0.235    0.052    2.523 v _1998_/ZN (AOI222_X1)
+    1    1.859                              _0618_ (net)
+                  0.235    0.000    2.523 v _1999_/A (INV_X1)
+                  0.038    0.056    2.579 ^ _1999_/ZN (INV_X1)
+    1    1.450                              _0006_[49] (net)
+                  0.038    0.000    2.579 ^ _2244_/D (DFF_X1)
+                                    2.579   data arrival time
+
+                  0.000    0.000    0.000   clock i_clk (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _2244_/CK (DFF_X1)
+                          -0.039   -0.039   library setup time
+                                   -0.039   data required time
+--------------------------------------------------------------------------------
+                                   -0.039   data required time
+                                   -2.579   data arrival time
+--------------------------------------------------------------------------------
+                                   -2.619   slack (VIOLATED)
+
+

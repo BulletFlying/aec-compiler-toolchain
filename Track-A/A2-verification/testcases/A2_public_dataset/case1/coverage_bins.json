@@ -1,0 +1,57 @@
+{
+  "coverage_bins": {
+    "name": "case1_functional_bins",
+    "measurement": "Bin hits are sampled by test_case1_json_sequences.py and reported in functional_coverage.json.",
+    "bins": [
+      {
+        "name": "read_length",
+        "values": [
+          "1",
+          "2_to_3",
+          "4",
+          "5_to_15",
+          "16_to_31",
+          "32_to_63",
+          "64_to_127",
+          "128_to_256"
+        ]
+      },
+      {
+        "name": "address_alignment",
+        "values": [
+          "aligned_4_byte",
+          "aligned_2_byte",
+          "unaligned",
+          "near_4k_boundary"
+        ]
+      },
+      {
+        "name": "burst_size",
+        "values": [
+          "size_1_byte",
+          "size_2_byte",
+          "size_4_byte",
+          "default_max_size"
+        ]
+      },
+      {
+        "name": "adapter_path",
+        "values": [
+          "32_bit_slave_to_16_bit_master",
+          "merge_master_beats",
+          "narrow_size_read",
+          "partial_last_beat"
+        ]
+      },
+      {
+        "name": "backpressure",
+        "values": [
+          "source_rready_pause",
+          "downstream_arready_pause",
+          "downstream_rvalid_pause",
+          "combined_pause"
+        ]
+      }
+    ]
+  }
+}

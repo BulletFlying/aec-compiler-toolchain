@@ -1,0 +1,17 @@
+{
+  "id": "LSV07",
+  "split": "public",
+  "name": "sog_qdiv",
+  "top": "qdiv",
+  "flow": "yosys_p3",
+  "flow_label": "Yosys ABC p3: resyn2rs + dch + Nangate SCL map",
+  "tool": "yosys",
+  "status": "ok",
+  "runtime_s": 3.45,
+  "area": 2329.894,
+  "arrival_ns": 2.69,
+  "wns_ns": -2.69,
+  "tns_ns": -470.38,
+  "source_path": "small_design_sog/rtl/6374.qdiv.i_clk.v",
+  "clock_period_ns": 10.0
+}

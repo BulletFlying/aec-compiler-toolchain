@@ -1,0 +1,28 @@
+Dashboard
+
+Date: Sat Jul 11 10:55:19 2026
+
+User: root
+
+Version: O-2018.09-SP2
+Command line: urg -dir /workspace/public_dataset/case4/vcs_coverage_20260711/sim_build/coverage.vdb -format text -report /workspace/public_dataset/case4/vcs_coverage_20260711/report 
+
+Number of tests: 1
+
+-------------------------------------------------------------------------------
+Total Coverage Summary 
+SCORE  LINE   BRANCH 
+ 88.77  96.90  80.65 
+
+
+-------------------------------------------------------------------------------
+Hierarchical coverage data for top-level instances 
+SCORE  LINE   BRANCH NAME    
+ 88.77  96.90  80.65 axi_ram 
+
+
+-------------------------------------------------------------------------------
+Total Module Definition Coverage Summary 
+SCORE  LINE   BRANCH 
+ 88.77  96.90  80.65 
+

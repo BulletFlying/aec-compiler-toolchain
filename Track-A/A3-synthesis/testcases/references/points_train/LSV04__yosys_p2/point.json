@@ -1,0 +1,17 @@
+{
+  "id": "LSV04",
+  "split": "public",
+  "name": "itc99_b11",
+  "top": "b11",
+  "flow": "yosys_p2",
+  "flow_label": "Yosys ABC p2: if -K 6 -g -C 8 + dch + Nangate SCL map",
+  "tool": "yosys",
+  "status": "ok",
+  "runtime_s": 2.82,
+  "area": 2442.944,
+  "arrival_ns": 1.66,
+  "wns_ns": -1.66,
+  "tns_ns": -108.12,
+  "source_path": "ITC99/10.b11.clock.v",
+  "clock_period_ns": 10.0
+}

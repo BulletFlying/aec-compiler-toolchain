@@ -1,0 +1,25 @@
+{
+  "verification_skeleton": {
+    "clock_reset": [
+      "start clk, input_clk, and output_clk at 10 ns",
+      "assert rst, input_rst, and output_rst",
+      "deassert resets and wait for the internal reset synchronizers",
+      "configure base address 0x1000, size mask 0x0fff, and cfg_enable"
+    ],
+    "driver": [
+      "split each payload across the two input segments",
+      "pad payloads to the 32-bit stream width",
+      "drive input_valid until input_ready accepts each segment",
+      "apply simple pause patterns to stream and AXI RAM channels"
+    ],
+    "model": [
+      "AxiRam models the external backing store for generated AXI reads and writes",
+      "DataSink reconstructs output bytes from both segments in order"
+    ],
+    "scoreboard": [
+      "read the same number of bytes from the output stream for each payload",
+      "compare output bytes against the padded input payload",
+      "clear queues around a directed cfg_reset and verify post-reset payloads still pass"
+    ]
+  }
+}

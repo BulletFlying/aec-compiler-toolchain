@@ -1,0 +1,11 @@
+CPY.u32 R1, %laneid
+LOADI R2, 3
+LOADI R3, 0
+MUL.u32 R4, R1, R2
+LOADI R5, 2
+SHL.u32 R6, R1, R5
+LOADI R7, 0x100
+ADD.u32 R8, R7, R6
+ST.gmem.u32 [R8], R4
+HALT
+

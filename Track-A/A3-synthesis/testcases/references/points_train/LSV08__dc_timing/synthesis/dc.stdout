@@ -1,0 +1,298 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set target_library [list /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db]
+/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+set link_library [concat "*" $target_library]
+* /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+analyze -format sverilog /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/design.v
+Running PRESTO HDLC
+Compiling source file /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/design.v
+Presto compilation completed successfully.
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+1
+elaborate stage_mult
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine stage_mult line 24 in file
+		'/tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/design.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      done_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      mcand_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     mplier_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      prod_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'stage_mult'.
+1
+current_design stage_mult
+Current design is 'stage_mult'.
+{stage_mult}
+link
+
+  Linking design 'stage_mult'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  stage_mult                  /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/stage_mult.db
+  NangateOpenCellLibrary (library) /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+
+1
+check_design > /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/check_design.rpt
+source /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/constraints.sdc
+1
+if {[catch {compile_ultra -no_autoungroup} err]} {
+  puts "compile_ultra failed, falling back to compile: $err"
+  compile
+}
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing power optimization. (PWR-850)
+Analyzing: "/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db"
+Library analysis succeeded.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        | O-2018.06-DWBB_201806.1 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+  Simplifying Design 'stage_mult'
+
+Loaded alib file './alib-52/NangateOpenCellLibrary_typical.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'stage_mult'
+Information: The register 'mplier_reg[24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mplier_reg[25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mplier_reg[26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mplier_reg[27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mplier_reg[28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mplier_reg[29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mplier_reg[30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mplier_reg[31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mcand_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mcand_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mcand_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mcand_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mcand_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mcand_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mcand_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mcand_reg[7]' is a constant and will be removed. (OPT-1206)
+ Implement Synthetic for 'stage_mult'.
+Memory usage for J1 task 117 Mbytes -- main task 115 Mbytes.
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: Added key list 'DesignWare' to design 'stage_mult'. (DDB-72)
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02    1292.2      0.00       0.0     121.0                           25720.9297
+    0:00:02    1292.2      0.00       0.0     121.0                           25720.9297
+    0:00:02    1292.2      0.00       0.0     121.0                           25720.9297
+    0:00:02    1292.2      0.00       0.0     121.0                           25720.9297
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:02    1291.2      0.00       0.0     120.1                           25670.1484
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02    1288.2      0.00       0.0     119.6                           25464.1582
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+    0:00:02    1476.8      0.00       0.0       0.0                           29293.8262
+    0:00:02    1476.8      0.00       0.0       0.0                           29293.8262
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02    1476.8      0.00       0.0       0.0                           29293.8262
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1347.3      0.00       0.0       0.0                           26173.5566
+    0:00:03    1346.5      0.00       0.0       0.0                           26161.6191
+    0:00:03    1346.5      0.00       0.0       0.0                           26161.6191
+    0:00:03    1346.5      0.00       0.0       0.0                           26161.6191
+    0:00:03    1346.5      0.00       0.0       0.0                           26161.6191
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+write -format verilog -hierarchy -output /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/netlist.v
+Writing verilog file '/tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/netlist.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write_sdc /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/final.sdc
+1
+report_qor > /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/qor.rpt
+report_area -hierarchy > /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/area.rpt
+report_timing -delay max -max_paths 20 > /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/timing.rpt
+report_constraint -all_violators > /tmp/logic_synth_ref/runs/LSV08_dc_timing_e5fd609b580b47fbbdf5f83f31ace395/case/constraints.rpt
+exit
+
+Memory usage for main task 129 Mbytes.
+Memory usage for this session 129 Mbytes.
+CPU usage for this session 48 seconds ( 0.01 hours ).
+
+Thank you...
+

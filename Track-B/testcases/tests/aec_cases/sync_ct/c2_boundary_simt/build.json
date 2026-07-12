@@ -1,0 +1,42 @@
+{
+  "assembler": {
+    "path": "tools/assemble.py",
+    "sha256": "9ea8135a7854c4fd7ea526b369e4c5a235f7551019ea7ed416111937ce0c5973"
+  },
+  "assembler_meta": {
+    "code_size_bytes": 224,
+    "entry_pc": 0,
+    "format": "aecbin-raw",
+    "hex_order": "w3,w2,w1,w0 msb-first",
+    "instruction_count": 14,
+    "instruction_width_bits": 128,
+    "labels": {},
+    "version": 1,
+    "word_order": "w0,w1,w2,w3 little-endian u32"
+  },
+  "binary": {
+    "path": "program.bin",
+    "sha256": "f23f0abe8c1b691facb6fc2d52d2f38bf633adc7e85a03e343acf44117b9802c",
+    "size_bytes": 224
+  },
+  "case_dir": "tests/aec_cases/sync_ct/c2_boundary_simt",
+  "case_id": "SYNC.CT.C2.BOUNDARY.SIMT",
+  "checker": {
+    "path": "tools/check_aec_asm.py",
+    "sha256": "161a6cdadf81cc6777a031f674e36aaf77b7c18495ab202f0af1bd12bb0b831b"
+  },
+  "generated_artifacts": {
+    "expected/gmem_00000100.bin": {
+      "sha256": "c7c3ebd9454d712703ad8f34d5876791c130358962d7be5a197eaf4766950853",
+      "size_bytes": 256
+    }
+  },
+  "hex": {
+    "path": "program.hex",
+    "sha256": "932e38609707c5b07ccbc1ab65bfe040b1b1296e633ecc3d335dfd8f07bf4e09"
+  },
+  "source": {
+    "path": "program.aec",
+    "sha256": "0c983be39e819c0fc57530f6a39310efb9b7c1d40f2348a99526019fbce1e803"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "verification_skeleton": {
+    "clock_reset": [
+      "start a 10 ns cocotb clock on clk",
+      "drive all inputs to known zero values",
+      "assert rst for 8 cycles",
+      "deassert rst and wait 8 cycles before stimulus"
+    ],
+    "driver": [
+      "drive s_axi_aid, s_axi_aaddr, s_axi_aprot, and s_axi_aqos",
+      "hold s_axi_avalid high until the DUT raises s_axi_aready",
+      "hold output ready signals low for directed backpressure cycles",
+      "consume m_axi/m_wc/m_rc outputs in both simultaneous and staggered ready orders",
+      "pulse s_cpl_valid for successful decoded transactions to release outstanding counts"
+    ],
+    "scoreboard": [
+      "decode address by comparing ADDR[31:24] against the configured base-address table",
+      "for M2, require APROT[1] == 0 or expect decode error",
+      "for valid hits, expect m_select and m_wc_select to equal the decoded master and m_axi_aregion to equal the decoded region",
+      "for decode errors, expect no m_axi_avalid and both write/reply command decode-error indicators high",
+      "for held output ready, expect command valid signals to remain asserted"
+    ],
+    "directed_stress": [
+      "keep one ID outstanding to one destination, then issue the same ID to another destination and verify it blocks until completion",
+      "leave four unique IDs outstanding so all generated thread slots are allocated",
+      "fill S_ACCEPT with same-ID same-destination commands, then issue another command and verify it blocks until a completion pulse",
+      "exercise secure-access rejection on both M2 regions"
+    ]
+  }
+}

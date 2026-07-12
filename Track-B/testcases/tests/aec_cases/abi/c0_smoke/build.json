@@ -1,0 +1,42 @@
+{
+  "assembler": {
+    "path": "tools/assemble.py",
+    "sha256": "9ea8135a7854c4fd7ea526b369e4c5a235f7551019ea7ed416111937ce0c5973"
+  },
+  "assembler_meta": {
+    "code_size_bytes": 96,
+    "entry_pc": 0,
+    "format": "aecbin-raw",
+    "hex_order": "w3,w2,w1,w0 msb-first",
+    "instruction_count": 6,
+    "instruction_width_bits": 128,
+    "labels": {},
+    "version": 1,
+    "word_order": "w0,w1,w2,w3 little-endian u32"
+  },
+  "binary": {
+    "path": "program.bin",
+    "sha256": "02b7286c7fa0e516113a2c8591a9434e23e347409c5a809523d49e6e29caa6a5",
+    "size_bytes": 96
+  },
+  "case_dir": "tests/aec_cases/abi/c0_smoke",
+  "case_id": "ABI.C0.SMOKE",
+  "checker": {
+    "path": "tools/check_aec_asm.py",
+    "sha256": "161a6cdadf81cc6777a031f674e36aaf77b7c18495ab202f0af1bd12bb0b831b"
+  },
+  "generated_artifacts": {
+    "expected/gmem_00000100.bin": {
+      "sha256": "aefdce03def94ffed42159e55677ec20e91200e1981f25b1f271b6fd99c3c263",
+      "size_bytes": 16
+    }
+  },
+  "hex": {
+    "path": "program.hex",
+    "sha256": "027b87f4404b956f9b3b8e78bf0dd29e674ec39e9b61c806ff11059549ead714"
+  },
+  "source": {
+    "path": "program.aec",
+    "sha256": "18fce21ba83f2712618f269acecbd655b6742f65e3236e7dbab052078e8ed6d4"
+  }
+}

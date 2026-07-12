@@ -1,0 +1,397 @@
+Startpoint: _166_ (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: _163_ (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _166_/CK (DFF_X1)
+                  0.056    0.134    0.134 ^ _166_/Q (DFF_X1)
+   10   23.376                              first_mi_word (net)
+                  0.056    0.000    0.134 ^ _109_/S (MUX2_X1)
+                  0.013    0.071    0.205 v _109_/Z (MUX2_X1)
+    3    4.966                              _051_ (net)
+                  0.013    0.000    0.205 v _110_/A4 (NOR4_X1)
+                  0.110    0.157    0.362 ^ _110_/ZN (NOR4_X1)
+    4    8.834                              _052_ (net)
+                  0.110    0.000    0.362 ^ _122_/C1 (AOI211_X1)
+                  0.027    0.022    0.385 v _122_/ZN (AOI211_X1)
+    1    1.861                              _062_ (net)
+                  0.027    0.000    0.385 v _123_/B2 (AOI221_X1)
+                  0.040    0.082    0.467 ^ _123_/ZN (AOI221_X1)
+    1    1.450                              _002_[5] (net)
+                  0.040    0.000    0.467 ^ _163_/D (DFF_X1)
+                                    0.467   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _163_/CK (DFF_X1)
+                          -0.040   -0.040   library setup time
+                                   -0.040   data required time
+--------------------------------------------------------------------------------
+                                   -0.040   data required time
+                                   -0.467   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.507   slack (VIOLATED)
+
+
+Startpoint: _166_ (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: _164_ (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _166_/CK (DFF_X1)
+                  0.056    0.134    0.134 ^ _166_/Q (DFF_X1)
+   10   23.376                              first_mi_word (net)
+                  0.056    0.000    0.134 ^ _109_/S (MUX2_X1)
+                  0.013    0.071    0.205 v _109_/Z (MUX2_X1)
+    3    4.966                              _051_ (net)
+                  0.013    0.000    0.205 v _110_/A4 (NOR4_X1)
+                  0.110    0.157    0.362 ^ _110_/ZN (NOR4_X1)
+    4    8.834                              _052_ (net)
+                  0.110    0.000    0.362 ^ _128_/C1 (AOI211_X1)
+                  0.027    0.022    0.385 v _128_/ZN (AOI211_X1)
+    1    1.861                              _067_ (net)
+                  0.027    0.000    0.385 v _129_/B2 (AOI221_X1)
+                  0.040    0.082    0.467 ^ _129_/ZN (AOI221_X1)
+    1    1.450                              _002_[6] (net)
+                  0.040    0.000    0.467 ^ _164_/D (DFF_X1)
+                                    0.467   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _164_/CK (DFF_X1)
+                          -0.040   -0.040   library setup time
+                                   -0.040   data required time
+--------------------------------------------------------------------------------
+                                   -0.040   data required time
+                                   -0.467   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.507   slack (VIOLATED)
+
+
+Startpoint: _166_ (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: _165_ (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _166_/CK (DFF_X1)
+                  0.056    0.134    0.134 ^ _166_/Q (DFF_X1)
+   10   23.376                              first_mi_word (net)
+                  0.056    0.000    0.134 ^ _109_/S (MUX2_X1)
+                  0.013    0.071    0.205 v _109_/Z (MUX2_X1)
+    3    4.966                              _051_ (net)
+                  0.013    0.000    0.205 v _110_/A4 (NOR4_X1)
+                  0.110    0.157    0.362 ^ _110_/ZN (NOR4_X1)
+    4    8.834                              _052_ (net)
+                  0.110    0.000    0.362 ^ _133_/C1 (AOI211_X1)
+                  0.027    0.022    0.385 v _133_/ZN (AOI211_X1)
+    1    1.861                              _007_ (net)
+                  0.027    0.000    0.385 v _134_/B2 (AOI221_X1)
+                  0.040    0.082    0.467 ^ _134_/ZN (AOI221_X1)
+    1    1.450                              _002_[7] (net)
+                  0.040    0.000    0.467 ^ _165_/D (DFF_X1)
+                                    0.467   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _165_/CK (DFF_X1)
+                          -0.040   -0.040   library setup time
+                                   -0.040   data required time
+--------------------------------------------------------------------------------
+                                   -0.040   data required time
+                                   -0.467   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.507   slack (VIOLATED)
+
+
+Startpoint: _166_ (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: _162_ (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _166_/CK (DFF_X1)
+                  0.056    0.134    0.134 ^ _166_/Q (DFF_X1)
+   10   23.376                              first_mi_word (net)
+                  0.056    0.000    0.134 ^ _109_/S (MUX2_X1)
+                  0.013    0.071    0.205 v _109_/Z (MUX2_X1)
+    3    4.966                              _051_ (net)
+                  0.013    0.000    0.205 v _110_/A4 (NOR4_X1)
+                  0.110    0.157    0.362 ^ _110_/ZN (NOR4_X1)
+    4    8.834                              _052_ (net)
+                  0.110    0.000    0.362 ^ _115_/A (XNOR2_X1)
+                  0.020    0.057    0.419 ^ _115_/ZN (XNOR2_X1)
+    1    1.965                              _056_ (net)
+                  0.020    0.000    0.419 ^ _117_/C1 (AOI211_X1)
+                  0.012    0.017    0.437 v _117_/ZN (AOI211_X1)
+    1    1.372                              _002_[4] (net)
+                  0.012    0.000    0.437 v _162_/D (DFF_X1)
+                                    0.437   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _162_/CK (DFF_X1)
+                          -0.042   -0.042   library setup time
+                                   -0.042   data required time
+--------------------------------------------------------------------------------
+                                   -0.042   data required time
+                                   -0.437   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.478   slack (VIOLATED)
+
+
+Startpoint: _166_ (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: _161_ (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _166_/CK (DFF_X1)
+                  0.056    0.134    0.134 ^ _166_/Q (DFF_X1)
+   10   23.376                              first_mi_word (net)
+                  0.056    0.000    0.134 ^ _109_/S (MUX2_X1)
+                  0.013    0.071    0.205 v _109_/Z (MUX2_X1)
+    3    4.966                              _051_ (net)
+                  0.013    0.000    0.205 v _111_/A4 (OR4_X1)
+                  0.025    0.135    0.341 v _111_/ZN (OR4_X1)
+    4    7.885                              _053_ (net)
+                  0.025    0.000    0.341 v _113_/B1 (AOI221_X1)
+                  0.040    0.073    0.414 ^ _113_/ZN (AOI221_X1)
+    1    1.450                              _002_[3] (net)
+                  0.040    0.000    0.414 ^ _161_/D (DFF_X1)
+                                    0.414   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _161_/CK (DFF_X1)
+                          -0.040   -0.040   library setup time
+                                   -0.040   data required time
+--------------------------------------------------------------------------------
+                                   -0.040   data required time
+                                   -0.414   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.454   slack (VIOLATED)
+
+
+Startpoint: _166_ (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: _160_ (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _166_/CK (DFF_X1)
+                  0.056    0.134    0.134 ^ _166_/Q (DFF_X1)
+   10   23.376                              first_mi_word (net)
+                  0.056    0.000    0.134 ^ _100_/S (MUX2_X1)
+                  0.018    0.079    0.213 v _100_/Z (MUX2_X1)
+    5    9.113                              _044_ (net)
+                  0.018    0.000    0.213 v _105_/A2 (OR3_X1)
+                  0.014    0.083    0.297 v _105_/ZN (OR3_X1)
+    2    2.981                              _048_ (net)
+                  0.014    0.000    0.297 v _107_/A3 (AND4_X1)
+                  0.008    0.040    0.337 v _107_/ZN (AND4_X1)
+    1    1.780                              _050_ (net)
+                  0.008    0.000    0.337 v _108_/B (AOI211_X1)
+                  0.035    0.061    0.398 ^ _108_/ZN (AOI211_X1)
+    1    1.450                              _002_[2] (net)
+                  0.035    0.000    0.398 ^ _160_/D (DFF_X1)
+                                    0.398   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _160_/CK (DFF_X1)
+                          -0.039   -0.039   library setup time
+                                   -0.039   data required time
+--------------------------------------------------------------------------------
+                                   -0.039   data required time
+                                   -0.398   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.436   slack (VIOLATED)
+
+
+Startpoint: _165_ (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: _158_ (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _165_/CK (DFF_X1)
+                  0.009    0.085    0.085 v _165_/Q (DFF_X1)
+    3    5.157                              repeat_cnt[7] (net)
+                  0.009    0.000    0.085 v _088_/A4 (NOR4_X1)
+                  0.077    0.118    0.202 ^ _088_/ZN (NOR4_X1)
+    3    5.330                              _033_ (net)
+                  0.077    0.000    0.202 ^ _090_/A3 (AND4_X1)
+                  0.041    0.109    0.311 ^ _090_/ZN (AND4_X1)
+    7   14.924                              _035_ (net)
+                  0.041    0.000    0.311 ^ _095_/A1 (NOR2_X1)
+                  0.018    0.027    0.339 v _095_/ZN (NOR2_X1)
+    5    8.485                              _040_ (net)
+                  0.018    0.000    0.339 v _099_/C2 (AOI211_X1)
+                  0.035    0.046    0.385 ^ _099_/ZN (AOI211_X1)
+    1    1.450                              _002_[0] (net)
+                  0.035    0.000    0.385 ^ _158_/D (DFF_X1)
+                                    0.385   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _158_/CK (DFF_X1)
+                          -0.039   -0.039   library setup time
+                                   -0.039   data required time
+--------------------------------------------------------------------------------
+                                   -0.039   data required time
+                                   -0.385   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.424   slack (VIOLATED)
+
+
+Startpoint: _165_ (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: _159_ (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _165_/CK (DFF_X1)
+                  0.009    0.085    0.085 v _165_/Q (DFF_X1)
+    3    5.157                              repeat_cnt[7] (net)
+                  0.009    0.000    0.085 v _088_/A4 (NOR4_X1)
+                  0.077    0.118    0.202 ^ _088_/ZN (NOR4_X1)
+    3    5.330                              _033_ (net)
+                  0.077    0.000    0.202 ^ _090_/A3 (AND4_X1)
+                  0.041    0.109    0.311 ^ _090_/ZN (AND4_X1)
+    7   14.924                              _035_ (net)
+                  0.041    0.000    0.311 ^ _095_/A1 (NOR2_X1)
+                  0.018    0.027    0.339 v _095_/ZN (NOR2_X1)
+    5    8.485                              _040_ (net)
+                  0.018    0.000    0.339 v _103_/C2 (AOI211_X1)
+                  0.035    0.046    0.385 ^ _103_/ZN (AOI211_X1)
+    1    1.450                              _002_[1] (net)
+                  0.035    0.000    0.385 ^ _159_/D (DFF_X1)
+                                    0.385   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _159_/CK (DFF_X1)
+                          -0.039   -0.039   library setup time
+                                   -0.039   data required time
+--------------------------------------------------------------------------------
+                                   -0.039   data required time
+                                   -0.385   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.424   slack (VIOLATED)
+
+
+Startpoint: _165_ (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: _167_ (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _165_/CK (DFF_X1)
+                  0.009    0.085    0.085 v _165_/Q (DFF_X1)
+    3    5.157                              repeat_cnt[7] (net)
+                  0.009    0.000    0.085 v _088_/A4 (NOR4_X1)
+                  0.077    0.118    0.202 ^ _088_/ZN (NOR4_X1)
+    3    5.330                              _033_ (net)
+                  0.077    0.000    0.202 ^ _090_/A3 (AND4_X1)
+                  0.041    0.109    0.311 ^ _090_/ZN (AND4_X1)
+    7   14.924                              _035_ (net)
+                  0.041    0.000    0.311 ^ _095_/A1 (NOR2_X1)
+                  0.018    0.027    0.339 v _095_/ZN (NOR2_X1)
+    5    8.485                              _040_ (net)
+                  0.018    0.000    0.339 v _143_/C2 (AOI211_X1)
+                  0.035    0.046    0.385 ^ _143_/ZN (AOI211_X1)
+    1    1.450                              _000_[0] (net)
+                  0.035    0.000    0.385 ^ _167_/D (DFF_X1)
+                                    0.385   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _167_/CK (DFF_X1)
+                          -0.039   -0.039   library setup time
+                                   -0.039   data required time
+--------------------------------------------------------------------------------
+                                   -0.039   data required time
+                                   -0.385   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.424   slack (VIOLATED)
+
+
+Startpoint: _165_ (rising edge-triggered flip-flop clocked by ACLK)
+Endpoint: _166_ (rising edge-triggered flip-flop clocked by ACLK)
+Path Group: ACLK
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+--------------------------------------------------------------------------------
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                  0.000    0.000    0.000 ^ _165_/CK (DFF_X1)
+                  0.009    0.085    0.085 v _165_/Q (DFF_X1)
+    3    5.157                              repeat_cnt[7] (net)
+                  0.009    0.000    0.085 v _088_/A4 (NOR4_X1)
+                  0.077    0.118    0.202 ^ _088_/ZN (NOR4_X1)
+    3    5.330                              _033_ (net)
+                  0.077    0.000    0.202 ^ _091_/A3 (NAND4_X1)
+                  0.048    0.080    0.282 v _091_/ZN (NAND4_X1)
+    6   10.805                              _036_ (net)
+                  0.048    0.000    0.282 v _096_/A1 (NAND2_X1)
+                  0.039    0.066    0.349 ^ _096_/ZN (NAND2_X1)
+    7   14.640                              _041_ (net)
+                  0.039    0.000    0.349 ^ _157_/C2 (OAI211_X1)
+                  0.018    0.030    0.379 v _157_/ZN (OAI211_X1)
+    1    1.372                              _001_ (net)
+                  0.018    0.000    0.379 v _166_/D (DFF_X1)
+                                    0.379   data arrival time
+
+                  0.000    0.000    0.000   clock ACLK (rise edge)
+                           0.000    0.000   clock network delay (ideal)
+                           0.000    0.000   clock reconvergence pessimism
+                                    0.000 ^ _166_/CK (DFF_X1)
+                          -0.044   -0.044   library setup time
+                                   -0.044   data required time
+--------------------------------------------------------------------------------
+                                   -0.044   data required time
+                                   -0.379   data arrival time
+--------------------------------------------------------------------------------
+                                   -0.423   slack (VIOLATED)
+
+

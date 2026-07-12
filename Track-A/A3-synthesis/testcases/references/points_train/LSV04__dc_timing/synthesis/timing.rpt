@@ -1,0 +1,1285 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : b11
+Version: O-2018.06-SP1
+Date   : Sun Jul  5 14:10:51 2026
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/CO (FA_X1)       0.09       2.82 f
+  DP_OP_61J1_122_4439/U11/CO (FA_X1)       0.09       2.92 f
+  DP_OP_61J1_122_4439/U10/CO (FA_X1)       0.09       3.01 f
+  DP_OP_61J1_122_4439/U9/CO (FA_X1)        0.09       3.10 f
+  DP_OP_61J1_122_4439/U8/CO (FA_X1)        0.09       3.19 f
+  DP_OP_61J1_122_4439/U7/CO (FA_X1)        0.09       3.28 f
+  DP_OP_61J1_122_4439/U6/CO (FA_X1)        0.09       3.37 f
+  DP_OP_61J1_122_4439/U5/CO (FA_X1)        0.09       3.46 f
+  DP_OP_61J1_122_4439/U4/CO (FA_X1)        0.09       3.55 f
+  DP_OP_61J1_122_4439/U3/CO (FA_X1)        0.09       3.64 f
+  U458/Z (XOR2_X1)                         0.07       3.71 f
+  U459/ZN (NAND2_X1)                       0.03       3.73 r
+  U460/ZN (OAI21_X1)                       0.03       3.77 f
+  cont1_reg[31]/D (DFFR_X1)                0.01       3.78 f
+  data arrival time                                   3.78
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[31]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.05       9.95
+  data required time                                  9.95
+  -----------------------------------------------------------
+  data required time                                  9.95
+  data arrival time                                  -3.78
+  -----------------------------------------------------------
+  slack (MET)                                         6.18
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/CO (FA_X1)       0.09       2.82 f
+  DP_OP_61J1_122_4439/U11/CO (FA_X1)       0.09       2.92 f
+  DP_OP_61J1_122_4439/U10/CO (FA_X1)       0.09       3.01 f
+  DP_OP_61J1_122_4439/U9/CO (FA_X1)        0.09       3.10 f
+  DP_OP_61J1_122_4439/U8/CO (FA_X1)        0.09       3.19 f
+  DP_OP_61J1_122_4439/U7/CO (FA_X1)        0.09       3.28 f
+  DP_OP_61J1_122_4439/U6/CO (FA_X1)        0.09       3.37 f
+  DP_OP_61J1_122_4439/U5/CO (FA_X1)        0.09       3.46 f
+  DP_OP_61J1_122_4439/U4/CO (FA_X1)        0.09       3.55 f
+  DP_OP_61J1_122_4439/U3/S (FA_X1)         0.13       3.68 r
+  U437/ZN (NAND2_X1)                       0.03       3.71 f
+  U438/ZN (OAI21_X1)                       0.04       3.74 r
+  cont1_reg[30]/D (DFFR_X1)                0.01       3.75 r
+  data arrival time                                   3.75
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[30]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -3.75
+  -----------------------------------------------------------
+  slack (MET)                                         6.21
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[29]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/CO (FA_X1)       0.09       2.82 f
+  DP_OP_61J1_122_4439/U11/CO (FA_X1)       0.09       2.92 f
+  DP_OP_61J1_122_4439/U10/CO (FA_X1)       0.09       3.01 f
+  DP_OP_61J1_122_4439/U9/CO (FA_X1)        0.09       3.10 f
+  DP_OP_61J1_122_4439/U8/CO (FA_X1)        0.09       3.19 f
+  DP_OP_61J1_122_4439/U7/CO (FA_X1)        0.09       3.28 f
+  DP_OP_61J1_122_4439/U6/CO (FA_X1)        0.09       3.37 f
+  DP_OP_61J1_122_4439/U5/CO (FA_X1)        0.09       3.46 f
+  DP_OP_61J1_122_4439/U4/S (FA_X1)         0.13       3.59 r
+  U435/ZN (NAND2_X1)                       0.03       3.62 f
+  U436/ZN (OAI21_X1)                       0.04       3.65 r
+  cont1_reg[29]/D (DFFR_X1)                0.01       3.66 r
+  data arrival time                                   3.66
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[29]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -3.66
+  -----------------------------------------------------------
+  slack (MET)                                         6.30
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[28]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/CO (FA_X1)       0.09       2.82 f
+  DP_OP_61J1_122_4439/U11/CO (FA_X1)       0.09       2.92 f
+  DP_OP_61J1_122_4439/U10/CO (FA_X1)       0.09       3.01 f
+  DP_OP_61J1_122_4439/U9/CO (FA_X1)        0.09       3.10 f
+  DP_OP_61J1_122_4439/U8/CO (FA_X1)        0.09       3.19 f
+  DP_OP_61J1_122_4439/U7/CO (FA_X1)        0.09       3.28 f
+  DP_OP_61J1_122_4439/U6/CO (FA_X1)        0.09       3.37 f
+  DP_OP_61J1_122_4439/U5/S (FA_X1)         0.13       3.50 r
+  U433/ZN (NAND2_X1)                       0.03       3.53 f
+  U434/ZN (OAI21_X1)                       0.04       3.56 r
+  cont1_reg[28]/D (DFFR_X1)                0.01       3.57 r
+  data arrival time                                   3.57
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[28]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -3.57
+  -----------------------------------------------------------
+  slack (MET)                                         6.39
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[27]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/CO (FA_X1)       0.09       2.82 f
+  DP_OP_61J1_122_4439/U11/CO (FA_X1)       0.09       2.92 f
+  DP_OP_61J1_122_4439/U10/CO (FA_X1)       0.09       3.01 f
+  DP_OP_61J1_122_4439/U9/CO (FA_X1)        0.09       3.10 f
+  DP_OP_61J1_122_4439/U8/CO (FA_X1)        0.09       3.19 f
+  DP_OP_61J1_122_4439/U7/CO (FA_X1)        0.09       3.28 f
+  DP_OP_61J1_122_4439/U6/S (FA_X1)         0.13       3.41 r
+  U431/ZN (NAND2_X1)                       0.03       3.43 f
+  U432/ZN (OAI21_X1)                       0.04       3.47 r
+  cont1_reg[27]/D (DFFR_X1)                0.01       3.48 r
+  data arrival time                                   3.48
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[27]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -3.48
+  -----------------------------------------------------------
+  slack (MET)                                         6.48
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[26]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/CO (FA_X1)       0.09       2.82 f
+  DP_OP_61J1_122_4439/U11/CO (FA_X1)       0.09       2.92 f
+  DP_OP_61J1_122_4439/U10/CO (FA_X1)       0.09       3.01 f
+  DP_OP_61J1_122_4439/U9/CO (FA_X1)        0.09       3.10 f
+  DP_OP_61J1_122_4439/U8/CO (FA_X1)        0.09       3.19 f
+  DP_OP_61J1_122_4439/U7/S (FA_X1)         0.13       3.32 r
+  U429/ZN (NAND2_X1)                       0.03       3.34 f
+  U430/ZN (OAI21_X1)                       0.04       3.38 r
+  cont1_reg[26]/D (DFFR_X1)                0.01       3.39 r
+  data arrival time                                   3.39
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[26]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -3.39
+  -----------------------------------------------------------
+  slack (MET)                                         6.57
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[25]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/CO (FA_X1)       0.09       2.82 f
+  DP_OP_61J1_122_4439/U11/CO (FA_X1)       0.09       2.92 f
+  DP_OP_61J1_122_4439/U10/CO (FA_X1)       0.09       3.01 f
+  DP_OP_61J1_122_4439/U9/CO (FA_X1)        0.09       3.10 f
+  DP_OP_61J1_122_4439/U8/S (FA_X1)         0.13       3.23 r
+  U427/ZN (NAND2_X1)                       0.03       3.25 f
+  U428/ZN (OAI21_X1)                       0.04       3.29 r
+  cont1_reg[25]/D (DFFR_X1)                0.01       3.30 r
+  data arrival time                                   3.30
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[25]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -3.30
+  -----------------------------------------------------------
+  slack (MET)                                         6.67
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[24]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/CO (FA_X1)       0.09       2.82 f
+  DP_OP_61J1_122_4439/U11/CO (FA_X1)       0.09       2.92 f
+  DP_OP_61J1_122_4439/U10/CO (FA_X1)       0.09       3.01 f
+  DP_OP_61J1_122_4439/U9/S (FA_X1)         0.13       3.14 r
+  U425/ZN (NAND2_X1)                       0.03       3.16 f
+  U426/ZN (OAI21_X1)                       0.04       3.20 r
+  cont1_reg[24]/D (DFFR_X1)                0.01       3.21 r
+  data arrival time                                   3.21
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[24]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -3.21
+  -----------------------------------------------------------
+  slack (MET)                                         6.76
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[23]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/CO (FA_X1)       0.09       2.82 f
+  DP_OP_61J1_122_4439/U11/CO (FA_X1)       0.09       2.92 f
+  DP_OP_61J1_122_4439/U10/S (FA_X1)        0.13       3.05 r
+  U423/ZN (NAND2_X1)                       0.03       3.07 f
+  U424/ZN (OAI21_X1)                       0.04       3.11 r
+  cont1_reg[23]/D (DFFR_X1)                0.01       3.12 r
+  data arrival time                                   3.12
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[23]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -3.12
+  -----------------------------------------------------------
+  slack (MET)                                         6.85
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[22]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/CO (FA_X1)       0.09       2.82 f
+  DP_OP_61J1_122_4439/U11/S (FA_X1)        0.13       2.96 r
+  U421/ZN (NAND2_X1)                       0.03       2.98 f
+  U422/ZN (OAI21_X1)                       0.04       3.02 r
+  cont1_reg[22]/D (DFFR_X1)                0.01       3.03 r
+  data arrival time                                   3.03
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[22]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -3.03
+  -----------------------------------------------------------
+  slack (MET)                                         6.94
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[21]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/CO (FA_X1)       0.09       2.73 f
+  DP_OP_61J1_122_4439/U12/S (FA_X1)        0.13       2.87 r
+  U419/ZN (NAND2_X1)                       0.03       2.89 f
+  U420/ZN (OAI21_X1)                       0.04       2.93 r
+  cont1_reg[21]/D (DFFR_X1)                0.01       2.94 r
+  data arrival time                                   2.94
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[21]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -2.94
+  -----------------------------------------------------------
+  slack (MET)                                         7.03
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[20]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/CO (FA_X1)       0.09       2.64 f
+  DP_OP_61J1_122_4439/U13/S (FA_X1)        0.13       2.77 r
+  U417/ZN (NAND2_X1)                       0.03       2.80 f
+  U418/ZN (OAI21_X1)                       0.04       2.84 r
+  cont1_reg[20]/D (DFFR_X1)                0.01       2.84 r
+  data arrival time                                   2.84
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[20]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -2.84
+  -----------------------------------------------------------
+  slack (MET)                                         7.12
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[19]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/CO (FA_X1)       0.09       2.55 f
+  DP_OP_61J1_122_4439/U14/S (FA_X1)        0.13       2.68 r
+  U415/ZN (NAND2_X1)                       0.03       2.71 f
+  U416/ZN (OAI21_X1)                       0.04       2.75 r
+  cont1_reg[19]/D (DFFR_X1)                0.01       2.75 r
+  data arrival time                                   2.75
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[19]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -2.75
+  -----------------------------------------------------------
+  slack (MET)                                         7.21
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[18]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/CO (FA_X1)       0.09       2.46 f
+  DP_OP_61J1_122_4439/U15/S (FA_X1)        0.13       2.59 r
+  U413/ZN (NAND2_X1)                       0.03       2.62 f
+  U414/ZN (OAI21_X1)                       0.04       2.66 r
+  cont1_reg[18]/D (DFFR_X1)                0.01       2.66 r
+  data arrival time                                   2.66
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[18]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -2.66
+  -----------------------------------------------------------
+  slack (MET)                                         7.30
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[17]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/CO (FA_X1)       0.09       2.37 f
+  DP_OP_61J1_122_4439/U16/S (FA_X1)        0.13       2.50 r
+  U411/ZN (NAND2_X1)                       0.03       2.53 f
+  U412/ZN (OAI21_X1)                       0.04       2.56 r
+  cont1_reg[17]/D (DFFR_X1)                0.01       2.57 r
+  data arrival time                                   2.57
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[17]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -2.57
+  -----------------------------------------------------------
+  slack (MET)                                         7.39
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[16]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/CO (FA_X1)       0.09       2.28 f
+  DP_OP_61J1_122_4439/U17/S (FA_X1)        0.13       2.41 r
+  U409/ZN (NAND2_X1)                       0.03       2.44 f
+  U410/ZN (OAI21_X1)                       0.04       2.47 r
+  cont1_reg[16]/D (DFFR_X1)                0.01       2.48 r
+  data arrival time                                   2.48
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[16]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -2.48
+  -----------------------------------------------------------
+  slack (MET)                                         7.48
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[15]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/CO (FA_X1)       0.09       2.19 f
+  DP_OP_61J1_122_4439/U18/S (FA_X1)        0.13       2.32 r
+  U407/ZN (NAND2_X1)                       0.03       2.35 f
+  U408/ZN (OAI21_X1)                       0.04       2.38 r
+  cont1_reg[15]/D (DFFR_X1)                0.01       2.39 r
+  data arrival time                                   2.39
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[15]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -2.39
+  -----------------------------------------------------------
+  slack (MET)                                         7.57
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[14]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/CO (FA_X1)       0.09       2.10 f
+  DP_OP_61J1_122_4439/U19/S (FA_X1)        0.13       2.23 r
+  U405/ZN (NAND2_X1)                       0.03       2.26 f
+  U406/ZN (OAI21_X1)                       0.04       2.29 r
+  cont1_reg[14]/D (DFFR_X1)                0.01       2.30 r
+  data arrival time                                   2.30
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[14]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -2.30
+  -----------------------------------------------------------
+  slack (MET)                                         7.66
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[13]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/CO (FA_X1)       0.09       2.01 f
+  DP_OP_61J1_122_4439/U20/S (FA_X1)        0.13       2.14 r
+  U403/ZN (NAND2_X1)                       0.03       2.17 f
+  U404/ZN (OAI21_X1)                       0.04       2.20 r
+  cont1_reg[13]/D (DFFR_X1)                0.01       2.21 r
+  data arrival time                                   2.21
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[13]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -2.21
+  -----------------------------------------------------------
+  slack (MET)                                         7.75
+
+
+  Startpoint: stato_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: cont1_reg[12]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  b11                5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  stato_reg[2]/CK (DFFR_X1)                0.00       0.00 r
+  stato_reg[2]/Q (DFFR_X1)                 0.09       0.09 f
+  U334/ZN (NAND2_X1)                       0.05       0.14 r
+  U338/ZN (OR2_X1)                         0.07       0.21 r
+  U382/ZN (NOR2_X1)                        0.04       0.25 f
+  U383/ZN (INV_X1)                         0.03       0.28 r
+  U387/ZN (NAND4_X1)                       0.21       0.49 f
+  U388/Z (CLKBUF_X1)                       0.21       0.70 f
+  U526/Z (XOR2_X1)                         0.13       0.82 f
+  DP_OP_61J1_122_4439/U33/CO (FA_X1)       0.10       0.92 f
+  DP_OP_61J1_122_4439/U32/CO (FA_X1)       0.09       1.01 f
+  DP_OP_61J1_122_4439/U31/CO (FA_X1)       0.09       1.10 f
+  DP_OP_61J1_122_4439/U30/CO (FA_X1)       0.09       1.19 f
+  DP_OP_61J1_122_4439/U29/CO (FA_X1)       0.09       1.28 f
+  DP_OP_61J1_122_4439/U28/CO (FA_X1)       0.09       1.37 f
+  DP_OP_61J1_122_4439/U27/CO (FA_X1)       0.09       1.47 f
+  DP_OP_61J1_122_4439/U26/CO (FA_X1)       0.09       1.56 f
+  DP_OP_61J1_122_4439/U25/CO (FA_X1)       0.09       1.65 f
+  DP_OP_61J1_122_4439/U24/CO (FA_X1)       0.09       1.74 f
+  DP_OP_61J1_122_4439/U23/CO (FA_X1)       0.09       1.83 f
+  DP_OP_61J1_122_4439/U22/CO (FA_X1)       0.09       1.92 f
+  DP_OP_61J1_122_4439/U21/S (FA_X1)        0.13       2.05 r
+  U401/ZN (NAND2_X1)                       0.03       2.07 f
+  U402/ZN (OAI21_X1)                       0.04       2.11 r
+  cont1_reg[12]/D (DFFR_X1)                0.01       2.12 r
+  data arrival time                                   2.12
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  cont1_reg[12]/CK (DFFR_X1)               0.00      10.00 r
+  library setup time                      -0.04       9.96
+  data required time                                  9.96
+  -----------------------------------------------------------
+  data required time                                  9.96
+  data arrival time                                  -2.12
+  -----------------------------------------------------------
+  slack (MET)                                         7.84
+
+
+1

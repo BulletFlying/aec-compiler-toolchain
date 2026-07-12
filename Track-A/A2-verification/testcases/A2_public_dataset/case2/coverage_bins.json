@@ -1,0 +1,13 @@
+{
+  "coverage_bins": {
+    "name": "case2_functional_bins",
+    "measurement": "analyze_functional_coverage.py samples the same input and expected-output vectors that the passing Verilog testbench checks cycle by cycle.",
+    "bins": [
+      {"name": "reset", "values": ["asserted", "deasserted"]},
+      {"name": "source_handshake", "values": ["transfer", "backpressure", "idle"]},
+      {"name": "sink_handshake", "values": ["transfer", "backpressure", "not_ready"]},
+      {"name": "frame", "values": ["last", "partial_keep", "multi_beat"]},
+      {"name": "metadata", "values": ["tid_nonzero", "tdest_nonzero", "user_zero"]}
+    ]
+  }
+}

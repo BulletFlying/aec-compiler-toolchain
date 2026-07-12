@@ -1,0 +1,15 @@
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Sun Jul  5 14:07:55 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      1
+    Feedthrough (LINT-29)                                           1
+--------------------------------------------------------------------------------
+
+Warning: In design 'axi_dwidth_converter_v2_1_b_downsizer', input port 'cmd_id[0]' is connected directly to output port 'S_AXI_BID[0]'. (LINT-29)
+1

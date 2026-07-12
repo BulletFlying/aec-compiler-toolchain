@@ -1,0 +1,196 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set target_library [list /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db]
+/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+set link_library [concat "*" $target_library]
+* /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+analyze -format sverilog /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/design.v
+Running PRESTO HDLC
+Compiling source file /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/design.v
+Presto compilation completed successfully.
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+1
+elaborate top
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'top'.
+1
+current_design top
+Current design is 'top'.
+{top}
+link
+
+  Linking design 'top'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  top                         /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/top.db
+  NangateOpenCellLibrary (library) /tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db
+
+1
+check_design > /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/check_design.rpt
+source /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/constraints.sdc
+Warning: Creating virtual clock named 'virtual_clk' with no sources. (UID-348)
+1
+set_max_area 0
+1
+if {[catch {compile -area_effort high -map_effort high} err]} {
+  puts "area compile failed, falling back to compile: $err"
+  compile
+}
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'top'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00     639.7      0.00       0.0      70.2                          
+    0:00:00     639.7      0.00       0.0      70.2                          
+    0:00:00     639.7      0.00       0.0      70.2                          
+    0:00:00     639.7      0.00       0.0      70.2                          
+    0:00:00     639.7      0.00       0.0      70.2                          
+    0:00:00     397.9      0.00       0.0      29.4                          
+    0:00:00     397.9      0.00       0.0      29.4                          
+    0:00:00     397.9      0.00       0.0      29.4                          
+    0:00:00     397.9      0.00       0.0      29.4                          
+    0:00:00     397.9      0.00       0.0      29.4                          
+    0:00:00     397.9      0.00       0.0      29.4                          
+    0:00:00     397.9      0.00       0.0      29.4                          
+    0:00:00     397.9      0.00       0.0      29.4                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00     397.9      0.00       0.0      29.4                          
+    0:00:00     397.9      0.00       0.0      29.4                          
+    0:00:00     397.9      0.00       0.0      29.4                          
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00     397.9      0.00       0.0      29.4                          
+    0:00:01     440.8      0.00       0.0      19.8 A[79]                    
+    0:00:01     504.1      0.00       0.0      12.0 A[124]                   
+    0:00:01     571.1      0.00       0.0       4.7 A[99]                    
+    0:00:01     631.2      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (max_area 0)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     631.2      0.00       0.0       0.0                          
+    0:00:01     631.2      0.00       0.0       0.0                          
+    0:00:01     559.9      0.00       0.0       0.0                          
+    0:00:01     513.6      0.00       0.0       0.0                          
+    0:00:01     500.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     499.3      0.00       0.0       0.0                          
+    0:00:01     497.2      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+    0:00:01     495.8      0.00       0.0       0.0                          
+Loading db file '/tmp/logic_synth_ref/lib/NangateOpenCellLibrary_typical.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+write -format verilog -hierarchy -output /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/netlist.v
+Writing verilog file '/tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/netlist.v'.
+1
+write_sdc /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/final.sdc
+1
+report_qor > /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/qor.rpt
+report_area -hierarchy > /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/area.rpt
+report_timing -delay max -max_paths 20 > /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/timing.rpt
+report_constraint -all_violators > /tmp/logic_synth_ref/runs/LSV01_dc_area_2bd732ebd76e412ab268786238ff85ac/case/constraints.rpt
+exit
+
+Memory usage for main task 88 Mbytes.
+Memory usage for this session 88 Mbytes.
+CPU usage for this session 2 seconds ( 0.00 hours ).
+
+Thank you...
+
