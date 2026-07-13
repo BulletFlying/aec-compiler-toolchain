@@ -12,7 +12,7 @@ Local Git remote policy: only `origin` pointing to `BulletFlying/agentic4systems
 
 Official repository remote: not configured
 
-Organizer performance clarification recorded in `docs/PERFORMANCE_MODEL.md`: Track-C performance optimization should build a model from NVIDIA-like target-hardware indicators and use it to reason about compute, memory and data-movement bottlenecks. Slide-derived target-hardware indicators are now recorded; the official Cycle Model schema is still unavailable.
+Organizer performance clarification recorded in `docs/PERFORMANCE_MODEL.md`: Track-C performance optimization should build a model from NVIDIA-like target-hardware indicators and use it to reason about compute, memory and data-movement bottlenecks. The official `ephonic/Agentic4SystemSummerSchoolContest` repository now contains `Track-C/hint.md` with human-readable Platform A/B target parameters; a local machine-readable transcription is stored in `docs/performance_targets/track_c_hint_20260713.json`. The official Cycle Model schema is still unavailable.
 
 ## Milestone state
 
@@ -55,10 +55,12 @@ The current pipeline records validation and analysis stages only. It does not cl
 
 ## Performance-model status
 
-- `docs/PERFORMANCE_MODEL.md` records the 2026-07-13 organizer guidance and slide-derived target-hardware indicators.
-- Current recorded indicators include warp width, CTA limit, register file size, predicate register count, memory spaces, SMEM/LMEM capacity and memory-service assumptions.
-- Future compilation reports should expose static instruction, memory-line, memory-space, register, local-memory and dependency metrics, plus official Cycle Model metrics when available.
-- Missing official metrics must be represented as unavailable or `null`; they must not be fabricated.
+- `docs/PERFORMANCE_MODEL.md` records the 2026-07-13 organizer guidance, the official `Track-C/hint.md` target platform table and the earlier slide-derived AEC implementation indicators.
+- `docs/performance_targets/track_c_hint_20260713.json` records a local machine-readable transcription of the official human-readable table.
+- Official Platform A/B indicators now recorded include per-SM register file, unified L1/Shared-Memory pool, max Shared Memory, bank organization, L2 cache, HBM memory/bandwidth, host interconnect, GPU interconnect and reference access latencies.
+- Slide-derived AEC indicators remain useful for C1 legality and local report estimates: warp width, CTA limit, predicate register count, AEC memory spaces, fixed AEC Shared Memory and LMEM capacity, and 128-byte memory-service assumptions.
+- Future compilation reports should expose static instruction, 128-byte memory-line, memory-space, register, local-memory and dependency metrics; official Cycle Model metrics must be added only when available.
+- Missing official Cycle Model metrics must be represented as unavailable or `null`; they must not be fabricated.
 
 ## Technical-debt register
 
@@ -82,7 +84,7 @@ Still unresolved from public materials:
 - Formal PMEM kernel-parameter ABI.
 - Whether C1 T5 uses Track-B scalar ISA, C2/B3 tensor extensions, or another frozen profile.
 - Availability and interface of the official C1 validator, Golden Model, Cycle Model and scoring script.
-- Machine-readable official NVIDIA-like target-hardware parameter file beyond the supplied slide screenshots.
+- Official machine-readable schema for Track-C target hardware parameters; the current official table is human-readable in `Track-C/hint.md` and locally transcribed for project use.
 - Official Cycle Model report schema and how it should be consumed by `agent/run_agent`.
 
 Recorded organizer guidance:
@@ -90,6 +92,7 @@ Recorded organizer guidance:
 - C performance optimization should stay aligned with the Track-B architecture direction and future A/B/C integration, even though full integration is not required at the current stage.
 - Current-stage optimization may use NVIDIA-like GPGPU performance parameters as target-hardware indicators.
 - Teams are encouraged to build a Performance Model, quantify compute, memory and data-movement bottlenecks, and correct the model with realistic application measurements.
+- Official `Track-C/hint.md` says teams may map PTX to real GPGPU hardware for auxiliary performance evaluation with `nvcc`, `ncu` and `nsys`, but this remains auxiliary model calibration rather than a C1 runtime dependency.
 - C1 performance scoring is correctness-gated; wrong programs do not receive performance score.
 - C1 Agent scoring focuses on closed-loop optimization evidence, not whether a large language model is called.
 
@@ -101,10 +104,11 @@ Local completion does not mean official Golden Model, Cycle Model or grader appr
 
 M2.2 scalar optimization preparation and model-facing report foundation:
 
-1. Add a machine-readable compilation report skeleton that exposes static metrics needed by `docs/PERFORMANCE_MODEL.md`, including 128-byte line traffic, memory-space traffic, register pressure and local-memory pressure.
-2. Improve IR contracts where required by the first scalar pass.
-3. Keep architecture guardrails enforced.
-4. Upgrade uniformity to CFG worklist/fixed-point analysis before relying on block reordering.
-5. Remove or tightly quarantine unsafe legacy varying-branch fallback.
-6. Introduce optimization transforms only through pass abstractions with unit, mutation and executable differential tests.
-7. Keep PTX-03/04/05 out of scope until the M2.2 correctness gate passes.
+1. Extend the machine-readable compilation report skeleton so it can select `track_c_hint_platform_a`, `track_c_hint_platform_b` or `aec_slide_constraints` as an explicit performance target.
+2. Expose static metrics needed by `docs/PERFORMANCE_MODEL.md`, including 128-byte line traffic, memory-space traffic, register pressure, local-memory pressure, dependency depth and arithmetic intensity placeholders.
+3. Improve IR contracts where required by the first scalar pass.
+4. Keep architecture guardrails enforced.
+5. Upgrade uniformity to CFG worklist/fixed-point analysis before relying on block reordering.
+6. Remove or tightly quarantine unsafe legacy varying-branch fallback.
+7. Introduce optimization transforms only through pass abstractions with unit, mutation and executable differential tests.
+8. Keep PTX-03/04/05 out of scope until the M2.2 correctness gate passes.
