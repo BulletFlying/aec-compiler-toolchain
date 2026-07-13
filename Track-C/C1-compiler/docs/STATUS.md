@@ -59,9 +59,8 @@ The current pipeline records validation and analysis stages only. It does not cl
 - `docs/performance_targets/track_c_hint_20260713.json` records a local machine-readable transcription of the official human-readable table.
 - Official Platform A/B indicators now recorded include per-SM register file, unified L1/Shared-Memory pool, max Shared Memory, bank organization, L2 cache, HBM memory/bandwidth, host interconnect, GPU interconnect and reference access latencies.
 - Slide-derived AEC indicators remain useful for C1 legality and local report estimates: warp width, CTA limit, predicate register count, AEC memory spaces, fixed AEC Shared Memory and LMEM capacity, and 128-byte memory-service assumptions.
-- Compilation reports expose an explicit `performance_target` selector for `aec_slide_constraints`, `track_c_hint_platform_a` and `track_c_hint_platform_b`.
-- Compilation reports expose deterministic static model inputs: instruction mix, branch count, GMEM load/store counts, estimated GMEM bytes, estimated 128-byte GMEM line lower bound, memory-space operation counts, and placeholders for register pressure, local-memory pressure, dependency depth, SMEM bytes and arithmetic intensity.
-- Missing official Cycle Model metrics are represented as `null`; they must not be fabricated.
+- Compilation reports now expose an explicit `performance_target`, static instruction/memory-space metrics, warp-level 32-lane global-memory byte estimates and 128-byte service estimates, plus null placeholders for unavailable official Cycle Model metrics.
+- Missing official Cycle Model metrics must be represented as unavailable or `null`; they must not be fabricated.
 
 ## Technical-debt register
 
@@ -103,13 +102,13 @@ Local completion does not mean official Golden Model, Cycle Model or grader appr
 
 ## Next single main task
 
-M2.2-B scalar optimization readiness review, before implementing any transform:
+M2.2 scalar optimization readiness review, before implementing any transform:
 
-1. Define the first scalar-pass target and its exact correctness contract, likely constant folding or DCE only after IR/def-use needs are explicit.
-2. Improve IR contracts where required by the chosen first pass.
-3. Add pass-level unit, negative and mutation tests before implementation.
+1. Decide the first scalar pass candidate and its legality contract; likely constant folding or DCE, not LICM.
+2. Define the IR fields and analysis facts required by that pass.
+3. Add mutation tests that prove the pass does not depend on public-case filenames, labels, register names or hashes.
 4. Keep architecture guardrails enforced.
 5. Upgrade uniformity to CFG worklist/fixed-point analysis before relying on block reordering.
 6. Remove or tightly quarantine unsafe legacy varying-branch fallback.
-7. Introduce optimization transforms only through pass abstractions with executable differential tests.
+7. Introduce optimization transforms only through pass abstractions with unit, mutation and executable differential tests.
 8. Keep PTX-03/04/05 out of scope until the M2.2 correctness gate passes.
