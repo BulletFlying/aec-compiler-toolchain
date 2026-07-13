@@ -206,7 +206,7 @@ def _optimize_cse_scope(
     optimized: list[PTXInstruction] = []
     removed_count = 0
 
-    for inst in instructions:
+    for index, inst in enumerate(instructions):
         rewritten = _rewrite_sources(inst, aliases)
         destination = _destination_register(rewritten)
         if destination is not None:
@@ -216,11 +216,20 @@ def _optimize_cse_scope(
         if key is not None and destination is not None and destination not in outside_reads:
             prior_destination = expression_destinations.get(key)
             if prior_destination is not None:
-                aliases[destination] = _resolve_alias(prior_destination, aliases)
-                replacements[destination] = aliases[destination]
-                removed_count += 1
-                continue
-            expression_destinations[key] = destination
+                alias_target = _resolve_alias(prior_destination, aliases)
+                if _alias_read_after_target_redefinition(
+                    destination,
+                    alias_target,
+                    instructions[index + 1 :],
+                ):
+                    expression_destinations[key] = destination
+                else:
+                    aliases[destination] = alias_target
+                    replacements[destination] = alias_target
+                    removed_count += 1
+                    continue
+            else:
+                expression_destinations[key] = destination
 
         optimized.append(rewritten)
 
@@ -315,13 +324,23 @@ def _invalidate_for_definition(
     for key in stale_keys:
         del expression_destinations[key]
 
-    stale_aliases = [
-        alias
-        for alias, target in aliases.items()
-        if alias == destination or target == destination
-    ]
+    stale_aliases = [alias for alias in aliases if alias == destination]
     for alias in stale_aliases:
         del aliases[alias]
+
+
+def _alias_read_after_target_redefinition(
+    alias: str,
+    target: str,
+    future_instructions: list[PTXInstruction],
+) -> bool:
+    target_redefined = False
+    for inst in future_instructions:
+        if _destination_register(inst) == target:
+            target_redefined = True
+        if target_redefined and alias in _instruction_read_registers(inst):
+            return True
+    return False
 
 
 def _expression_uses_register(key: tuple[str, tuple[str, ...]], destination: str) -> bool:
