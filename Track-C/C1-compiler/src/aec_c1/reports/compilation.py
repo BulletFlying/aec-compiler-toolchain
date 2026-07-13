@@ -27,6 +27,9 @@ PERFORMANCE_TARGETS = (
     "track_c_hint_platform_b",
 )
 
+WARP_LANES = 32
+MEMORY_SERVICE_BYTES = 128
+
 _DATA_TYPE_BYTES = {
     "u8": 1,
     "s8": 1,
@@ -125,17 +128,25 @@ def _build_static_metrics(lowered: LoweredProgram) -> dict[str, Any]:
     memory_space_ops = Counter(
         inst.memory_space for inst in instructions if inst.memory_space is not None
     )
-    gmem_bytes = sum(
-        _memory_instruction_bytes(inst)
+    gmem_instructions = [
+        inst
         for inst in instructions
-        if inst.memory_space == "gmem"
+        if inst.memory_space == "gmem" and inst.opcode in {"LD", "ST", "ATOM"}
+    ]
+    gmem_bytes_per_warp = sum(
+        _memory_instruction_bytes(inst) * WARP_LANES for inst in gmem_instructions
+    )
+    gmem_services_per_warp = sum(
+        _ceil_div(_memory_instruction_bytes(inst) * WARP_LANES, MEMORY_SERVICE_BYTES)
+        for inst in gmem_instructions
     )
     return {
+        "assumed_warp_lanes": WARP_LANES,
         "branch_count": sum(inst.opcode in {"BR", "BRX", "CALL", "RET"} for inst in instructions),
         "estimated_arithmetic_intensity": None,
         "estimated_dependency_depth": None,
-        "estimated_gmem_bytes": gmem_bytes,
-        "estimated_gmem_lines_128b": _ceil_div(gmem_bytes, 128),
+        "estimated_gmem_128b_services_per_warp": gmem_services_per_warp,
+        "estimated_gmem_bytes_per_warp": gmem_bytes_per_warp,
         "estimated_lmem_bytes_per_thread": None,
         "estimated_register_pressure": None,
         "estimated_smem_bytes_per_cta": None,
@@ -143,6 +154,7 @@ def _build_static_metrics(lowered: LoweredProgram) -> dict[str, Any]:
         "gmem_stores": sum(inst.opcode == "ST" and inst.memory_space == "gmem" for inst in instructions),
         "instruction_count": len(instructions),
         "instruction_mix": dict(sorted(instruction_mix.items())),
+        "memory_service_bytes": MEMORY_SERVICE_BYTES,
         "memory_space_ops": dict(sorted(memory_space_ops.items())),
         "smem_ops": sum(inst.memory_space == "smem" for inst in instructions),
     }
