@@ -8,11 +8,54 @@ The organizer clarified that Track-C performance optimization is intended to pre
 
 The organizer also suggested building a Performance Model from these parameters, using the model to analyze compute, memory access and data-movement bottlenecks, and then using measurement from realistic workloads to evaluate and correct the model.
 
-The slide-deck screenshots supplied on 2026-07-13 provide the current target-hardware indicators below. Treat them as contest guidance for model construction, not as an official C1 Cycle Model schema.
+Official source now located:
 
-## Target hardware indicators
+```text
+Official repository: ephonic/Agentic4SystemSummerSchoolContest
+Official file: Track-C/hint.md
+Observed official commit: d985a6e9f910891835530b835b850ae8282f32f7
+Local machine-readable transcription: docs/performance_targets/track_c_hint_20260713.json
+```
 
-The C1 model should stay aligned with the Track-B AEC GPGPU architecture because C1-generated binaries are evaluated against that ISA and model direction.
+The official hint is a performance reference target table and PTX-to-real-hardware mapping hint. It is not an official C1 Cycle Model schema, binary format, PMEM ABI or scoring script.
+
+## Official Track-C target platform parameters
+
+### Memory hierarchy
+
+| Parameter | Platform A | Platform B |
+|---|---:|---:|
+| Register file | 256 KB / SM | 256 KB / SM |
+| Unified L1 / Shared Memory pool | 192 KB / SM | 256 KB / SM |
+| Max Shared Memory | 164 KB / SM | 228 KB / SM |
+| Max Shared Memory per thread block | 163 KB | 227 KB |
+| Shared Memory Bank organization | 32 banks, 4 B wide | 32 banks, 4 B wide |
+| L2 Cache | 40 MB | 50 MB |
+| Device memory | 80 GB HBM2e | 80 GB HBM3 |
+| Peak HBM bandwidth | 2,039 GB/s | 3.35 TB/s |
+| Host interconnect | PCIe Gen4, 64 GB/s | PCIe Gen5, 128 GB/s |
+| GPU interconnect | 600 GB/s | 900 GB/s |
+
+### Access latency reference
+
+| Memory level | Reference latency |
+|---|---:|
+| Register | Around 1 instruction cycle |
+| Shared Memory | About 20 cycles |
+| L1 Cache | About 40 cycles |
+| L2 Cache | About 200 cycles |
+| HBM | About 600 cycles |
+| Host memory through PCIe | About 5 us |
+
+### PTX-to-real-hardware mapping hint
+
+The official hint says teams may map PTX onto real GPGPU hardware for auxiliary performance evaluation, but should consider the official performance parameters above. `nvcc` may be used to compile PTX, and `ncu` / `nsys` may be used to observe metrics such as `memory_transactions`, `stall_cycles` and `sm__throughput`. The bottleneck analysis can then be fed back into optimization decisions.
+
+The official hint references PTX ISA version 9.3. This does not change the local C1 parser contract by itself; C1 still only supports the PTX-like subset required by the contest specs and implemented tests until new syntax is explicitly added.
+
+## Slide-derived AEC implementation indicators
+
+The slide-deck screenshots supplied on 2026-07-13 provide additional AEC-oriented implementation indicators. Treat them as contest guidance for model construction, not as official Cycle Model output.
 
 | Indicator | Slide value | C1 model implication |
 |---|---:|---|
@@ -22,7 +65,7 @@ The C1 model should stay aligned with the Track-B AEC GPGPU architecture because
 | Execution granularity | Warp = 32 lanes | Branch legality and memory coalescing should be reasoned at warp granularity |
 | CTA limit | CTA <= 256 threads, 8 warps | Occupancy and shared-memory use should be reported per CTA where possible |
 | Memory spaces | `.gmem`, `.smem`, `.cmem`, `.lmem`, `.pmem` | Reports should separate global, shared, constant, local and parameter traffic |
-| Shared memory | 65536 bytes per CTA, fixed | Shared-memory promotion and GEMM tiling must fit this per-CTA budget |
+| Shared memory | 65536 bytes per CTA, fixed | This is an AEC-side local constraint and is lower than the Track-C hint platform reference; model reports must label which target is being used |
 | Local memory | 4096 bytes per thread | Spill modeling should report estimated local-memory pressure |
 | Memory service | 128-byte line, 32-cycle latency, 16 outstanding requests | Memory model should estimate cache-line traffic, latency exposure and request-level parallelism |
 
@@ -59,7 +102,7 @@ These SRAM constants are hardware-design inputs, not direct C1 scoring terms. Th
 
 ## C1 interpretation
 
-C1 is still a CPU-executed compiler that emits AEC ISA binaries. The new clarification does not make CUDA, H200, PyTorch or NVIDIA runtime support a dependency of `aec-cc`.
+C1 is still a CPU-executed compiler that emits AEC ISA binaries. The new clarification and `Track-C/hint.md` do not make CUDA, H200, PyTorch or NVIDIA runtime support a dependency of `aec-cc`.
 
 The clarification does change how performance work should be planned. C1 optimizations should be driven by an explicit target model rather than by isolated pass-local metrics. For each optimization candidate, the compiler or Agent should be able to explain which modeled bottleneck it is attempting to improve.
 
@@ -85,8 +128,8 @@ Minimum model dimensions:
 |---|---|---|
 | Instruction mix | Estimate scalar, memory and tensor pressure | Guide pass selection and scheduling work |
 | Register pressure | Estimate spill risk and occupancy loss | Bound CSE, LICM, unroll and tiling aggressiveness |
-| Global-memory traffic | Estimate line transactions and bandwidth bottlenecks | Guide load reuse and memory coalescing work |
-| Shared-memory use | Estimate promotion benefit and per-CTA capacity pressure | Guide PTX-03 and GEMM tiling work |
+| Global-memory traffic | Estimate 128-byte line transactions and bandwidth bottlenecks | Guide load reuse and memory coalescing work |
+| Shared-memory use | Estimate promotion benefit, bank behavior and per-block capacity pressure | Guide PTX-03 and GEMM tiling work |
 | Data movement | Track GMEM/SMEM/register movement cost | Explain bottleneck migration after optimization |
 | Dependency depth | Estimate latency hiding and scheduling opportunity | Guide DDG/list-scheduling work |
 | Tensor tile shape | Estimate arithmetic intensity and boundary overhead | Guide PTX-05 tile search |
@@ -103,6 +146,7 @@ Future compilation reports should expose model inputs and pass effects in machin
   "input_fingerprint": "...",
   "target_profile": "track_b_v1 or official-aec-profile",
   "optimization_level": "O0/O2/O3",
+  "performance_target": "track_c_hint_platform_a or track_c_hint_platform_b or aec_slide_constraints",
   "enabled_passes": [],
   "static_metrics": {
     "instruction_count": 0,
@@ -125,12 +169,17 @@ Future compilation reports should expose model inputs and pass effects in machin
     "memory_transactions": null,
     "stall_cycles": null
   },
+  "auxiliary_real_gpu_metrics": {
+    "memory_transactions": null,
+    "stall_cycles": null,
+    "sm__throughput": null
+  },
   "model_diagnosis": [],
   "notes": []
 }
 ```
 
-Use `null` for unavailable official metrics. Do not fabricate official Cycle Model data.
+Use `null` for unavailable official metrics. Do not fabricate official Cycle Model data. Auxiliary real-GPU profiling metrics must be labeled as auxiliary and must not be presented as AEC Cycle Model results.
 
 ## Optimization implications by milestone
 
@@ -160,7 +209,7 @@ This document does not introduce a requirement that C1 run on NVIDIA GPUs. It al
 
 ## Open blockers
 
-- A machine-readable official target-hardware parameter file is not available; the current constants are recorded from slide screenshots.
+- The official target table is human-readable in `Track-C/hint.md`; there is still no official machine-readable schema for these parameters.
 - The official C1 `.aecbin` container layout is still unresolved.
 - The official PMEM ABI is still unresolved.
 - The final T5 tensor profile, Track-B versus C2/B3 or another frozen profile, is still unresolved.
