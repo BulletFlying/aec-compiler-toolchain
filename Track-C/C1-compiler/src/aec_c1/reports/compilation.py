@@ -21,6 +21,33 @@ CYCLE_MODEL_METRIC_KEYS = (
     "stall_cycles",
 )
 
+PERFORMANCE_TARGETS = (
+    "aec_slide_constraints",
+    "track_c_hint_platform_a",
+    "track_c_hint_platform_b",
+)
+
+WARP_LANES = 32
+MEMORY_SERVICE_BYTES = 128
+
+_DATA_TYPE_BYTES = {
+    "u8": 1,
+    "s8": 1,
+    "u16": 2,
+    "s16": 2,
+    "f16": 2,
+    "bf16": 2,
+    "b32": 4,
+    "u32": 4,
+    "s32": 4,
+    "f32": 4,
+    "b64": 8,
+    "u64": 8,
+    "s64": 8,
+    "f64": 8,
+    "none": 0,
+}
+
 
 @dataclass(frozen=True)
 class CompilationReport:
@@ -30,6 +57,7 @@ class CompilationReport:
     pipeline: str
     passes: tuple[PassRecord, ...]
     metrics: dict[str, Any]
+    performance_target: str = "aec_slide_constraints"
 
     def to_dict(self) -> dict[str, Any]:
         metrics = dict(self.metrics)
@@ -41,6 +69,7 @@ class CompilationReport:
             "optimization": f"O{self.optimization}",
             "profile": self.profile,
             "pipeline": self.pipeline,
+            "performance_target": self.performance_target,
             "passes": [record.to_dict() for record in self.passes],
             "metrics": dict(sorted(metrics.items())),
             "static_metrics": _sort_mapping(static_metrics),
@@ -96,16 +125,51 @@ def build_metrics(module: IRModule, lowered: LoweredProgram) -> dict[str, Any]:
 def _build_static_metrics(lowered: LoweredProgram) -> dict[str, Any]:
     instructions = lowered.instructions
     instruction_mix = Counter(inst.opcode for inst in instructions)
+    memory_space_ops = Counter(
+        inst.memory_space for inst in instructions if inst.memory_space is not None
+    )
+    gmem_instructions = [
+        inst
+        for inst in instructions
+        if inst.memory_space == "gmem" and inst.opcode in {"LD", "ST", "ATOM"}
+    ]
+    gmem_bytes_per_warp = sum(
+        _memory_instruction_bytes(inst) * WARP_LANES for inst in gmem_instructions
+    )
+    gmem_services_per_warp = sum(
+        _ceil_div(_memory_instruction_bytes(inst) * WARP_LANES, MEMORY_SERVICE_BYTES)
+        for inst in gmem_instructions
+    )
     return {
+        "assumed_warp_lanes": WARP_LANES,
         "branch_count": sum(inst.opcode in {"BR", "BRX", "CALL", "RET"} for inst in instructions),
+        "estimated_arithmetic_intensity": None,
         "estimated_dependency_depth": None,
+        "estimated_gmem_128b_services_per_warp": gmem_services_per_warp,
+        "estimated_gmem_bytes_per_warp": gmem_bytes_per_warp,
+        "estimated_lmem_bytes_per_thread": None,
         "estimated_register_pressure": None,
+        "estimated_smem_bytes_per_cta": None,
         "gmem_loads": sum(inst.opcode == "LD" and inst.memory_space == "gmem" for inst in instructions),
         "gmem_stores": sum(inst.opcode == "ST" and inst.memory_space == "gmem" for inst in instructions),
         "instruction_count": len(instructions),
         "instruction_mix": dict(sorted(instruction_mix.items())),
+        "memory_service_bytes": MEMORY_SERVICE_BYTES,
+        "memory_space_ops": dict(sorted(memory_space_ops.items())),
         "smem_ops": sum(inst.memory_space == "smem" for inst in instructions),
     }
+
+
+def _memory_instruction_bytes(inst: Any) -> int:
+    if inst.opcode not in {"LD", "ST", "ATOM"}:
+        return 0
+    return _DATA_TYPE_BYTES.get(inst.dtype, 0)
+
+
+def _ceil_div(value: int, divisor: int) -> int:
+    if value <= 0:
+        return 0
+    return (value + divisor - 1) // divisor
 
 
 def _null_cycle_model_metrics() -> dict[str, None]:

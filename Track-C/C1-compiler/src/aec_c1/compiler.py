@@ -14,7 +14,7 @@ from .legacy_lowering import CompileError, LoweredProgram, Lowerer
 from .legacy_lowering import write_binary as _write_binary
 from .passes import build_pipeline
 from .ptx import PTXParseError, parse_ptx
-from .reports import CompilationReport, build_metrics
+from .reports import CompilationReport, PERFORMANCE_TARGETS, build_metrics
 
 
 @dataclass(frozen=True)
@@ -29,7 +29,11 @@ def compile_ptx_detailed(
     *,
     opt_level: str = "0",
     input_name: str = "<memory>",
+    performance_target: str = "aec_slide_constraints",
 ) -> CompilationResult:
+    if performance_target not in PERFORMANCE_TARGETS:
+        raise ValueError(f"unsupported performance target: {performance_target}")
+
     program = parse_ptx(text)
     module = module_from_program(text, program)
     analyses = build_default_analysis_manager(module)
@@ -46,6 +50,7 @@ def compile_ptx_detailed(
         pipeline=pipeline.name,
         passes=pass_records,
         metrics=build_metrics(module, lowered),
+        performance_target=performance_target,
     )
     return CompilationResult(lowered=lowered, report=report)
 
@@ -71,6 +76,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("-o", "--output", required=True, type=Path)
     parser.add_argument("-O", "--opt-level", default="0", choices=["0", "2", "3"])
     parser.add_argument("--profile", choices=sorted(PROFILES), default=TRACK_B_V1.name)
+    parser.add_argument("--performance-target", choices=PERFORMANCE_TARGETS, default="aec_slide_constraints")
     parser.add_argument("--report", type=Path)
     args = parser.parse_args(argv)
 
@@ -81,6 +87,7 @@ def main(argv: list[str] | None = None) -> int:
             profile,
             opt_level=args.opt_level,
             input_name=args.input.as_posix(),
+            performance_target=args.performance_target,
         )
         write_binary(result.lowered, args.output, profile)
         if args.report is not None:

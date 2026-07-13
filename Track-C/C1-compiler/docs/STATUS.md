@@ -59,7 +59,7 @@ The current pipeline records validation and analysis stages only. It does not cl
 - `docs/performance_targets/track_c_hint_20260713.json` records a local machine-readable transcription of the official human-readable table.
 - Official Platform A/B indicators now recorded include per-SM register file, unified L1/Shared-Memory pool, max Shared Memory, bank organization, L2 cache, HBM memory/bandwidth, host interconnect, GPU interconnect and reference access latencies.
 - Slide-derived AEC indicators remain useful for C1 legality and local report estimates: warp width, CTA limit, predicate register count, AEC memory spaces, fixed AEC Shared Memory and LMEM capacity, and 128-byte memory-service assumptions.
-- Future compilation reports should expose static instruction, 128-byte memory-line, memory-space, register, local-memory and dependency metrics; official Cycle Model metrics must be added only when available.
+- Compilation reports now expose an explicit `performance_target`, static instruction/memory-space metrics, warp-level 32-lane global-memory byte estimates and 128-byte service estimates, plus null placeholders for unavailable official Cycle Model metrics.
 - Missing official Cycle Model metrics must be represented as unavailable or `null`; they must not be fabricated.
 
 ## Technical-debt register
@@ -102,11 +102,11 @@ Local completion does not mean official Golden Model, Cycle Model or grader appr
 
 ## Next single main task
 
-M2.2 scalar optimization preparation and model-facing report foundation:
+M2.2 scalar optimization readiness review, before implementing any transform:
 
-1. Extend the machine-readable compilation report skeleton so it can select `track_c_hint_platform_a`, `track_c_hint_platform_b` or `aec_slide_constraints` as an explicit performance target.
-2. Expose static metrics needed by `docs/PERFORMANCE_MODEL.md`, including 128-byte line traffic, memory-space traffic, register pressure, local-memory pressure, dependency depth and arithmetic intensity placeholders.
-3. Improve IR contracts where required by the first scalar pass.
+1. Decide the first scalar pass candidate and its legality contract; likely constant folding or DCE, not LICM.
+2. Define the IR fields and analysis facts required by that pass.
+3. Add mutation tests that prove the pass does not depend on public-case filenames, labels, register names or hashes.
 4. Keep architecture guardrails enforced.
 5. Upgrade uniformity to CFG worklist/fixed-point analysis before relying on block reordering.
 6. Remove or tightly quarantine unsafe legacy varying-branch fallback.
