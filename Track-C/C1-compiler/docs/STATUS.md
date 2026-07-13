@@ -12,6 +12,8 @@ Local Git remote policy: only `origin` pointing to `BulletFlying/agentic4systems
 
 Official repository remote: not configured
 
+Organizer performance clarification recorded in `docs/PERFORMANCE_MODEL.md`: Track-C performance optimization should build a model from NVIDIA-like target-hardware indicators and use it to reason about compute, memory and data-movement bottlenecks. Numeric parameters are not yet recorded in this repository.
+
 ## Milestone state
 
 | Milestone | State | Evidence boundary |
@@ -51,6 +53,13 @@ The current pipeline records validation and analysis stages only. It does not cl
 - Architecture guardrails cover the compiler facade, legacy lowering, future lowering/backend directories and pass implementations.
 - Guardrails use AST-level semantic dispatch checks rather than broad string matching.
 
+## Performance-model status
+
+- `docs/PERFORMANCE_MODEL.md` records the 2026-07-13 organizer guidance for NVIDIA-like target-hardware indicators.
+- Official numeric target parameters are not recorded in this repository yet.
+- Future compilation reports should expose static instruction, memory, register and dependency metrics, plus official Cycle Model metrics when available.
+- Missing official metrics must be represented as unavailable or `null`; they must not be fabricated.
+
 ## Technical-debt register
 
 ### High priority
@@ -72,7 +81,15 @@ Still unresolved from public materials:
 - Exact C1 `.aecbin` Header/Code/Data/Relocation/Symbol Table layout.
 - Formal PMEM kernel-parameter ABI.
 - Whether C1 T5 uses Track-B scalar ISA, C2/B3 tensor extensions, or another frozen profile.
-- Availability and interface of the official C1 Golden Model, Cycle Model, validator and scoring script.
+- Availability and interface of the official C1 validator, Golden Model, Cycle Model and scoring script.
+- Official numeric NVIDIA-like target-hardware parameter sheet for the temporary C performance model.
+- Official Cycle Model report schema and how it should be consumed by `agent/run_agent`.
+
+Recorded organizer guidance:
+
+- C performance optimization should stay aligned with the Track-B architecture direction and future A/B/C integration, even though full integration is not required at the current stage.
+- Current-stage optimization may use NVIDIA-like GPGPU performance parameters as target-hardware indicators.
+- Teams are encouraged to build a Performance Model, quantify compute, memory and data-movement bottlenecks, and correct the model with realistic application measurements.
 
 ## Verification boundary
 
@@ -80,9 +97,12 @@ Local completion does not mean official Golden Model, Cycle Model or grader appr
 
 ## Next single main task
 
-M2.2 scalar optimization preparation:
+M2.2 scalar optimization preparation and model-facing report foundation:
 
-1. Improve IR contracts where required.
-2. Keep architecture guardrails enforced.
-3. Introduce optimization transforms only through pass abstractions with regression tests.
-4. Do not bypass the M2.2 correctness gate for PTX-03/04/05 work.
+1. Add a machine-readable compilation report skeleton that exposes static metrics needed by `docs/PERFORMANCE_MODEL.md`.
+2. Improve IR contracts where required by the first scalar pass.
+3. Keep architecture guardrails enforced.
+4. Upgrade uniformity to CFG worklist/fixed-point analysis before relying on block reordering.
+5. Remove or tightly quarantine unsafe legacy varying-branch fallback.
+6. Introduce optimization transforms only through pass abstractions with unit, mutation and executable differential tests.
+7. Keep PTX-03/04/05 out of scope until the M2.2 correctness gate passes.
