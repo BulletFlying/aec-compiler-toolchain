@@ -140,6 +140,26 @@ def test_intermediate_operand_redefinition_blocks_cse() -> None:
     assert any(item.operands == ("%f6", "%f1", "%f2") for item in instructions)
 
 
+def test_target_redefinition_before_alias_use_blocks_cse() -> None:
+    text = _kernel(
+        """
+    add.u32 %r1, %r2, %r3;
+    add.u32 %r4, %r2, %r3;
+    mov.u32 %r1, 0;
+    add.u32 %r5, %r4, 1;
+"""
+    )
+
+    optimized_program, result = _run_pass(text)
+    instructions = _instructions(optimized_program)
+
+    assert result.changed is False
+    assert result.details["removed_instruction_count"] == 0
+    assert any(item.opcode == "add.u32" and item.operands == ("%r4", "%r2", "%r3") for item in instructions)
+    assert any(item.opcode == "mov.u32" and item.operands == ("%r1", "0") for item in instructions)
+    assert any(item.opcode == "add.u32" and item.operands == ("%r5", "%r4", "1") for item in instructions)
+
+
 def test_cross_label_scope_does_not_cse() -> None:
     text = _kernel(
         """
