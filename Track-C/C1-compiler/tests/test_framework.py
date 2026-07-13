@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 import sys
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
@@ -140,11 +142,12 @@ def test_report_contains_model_facing_static_metrics_without_official_cycle_clai
     assert payload["optimization"] == "O3"
     assert payload["performance_target"] == "track_c_hint_platform_a"
     assert set(payload["static_metrics"]) == {
+        "assumed_warp_lanes",
         "branch_count",
         "estimated_arithmetic_intensity",
         "estimated_dependency_depth",
-        "estimated_gmem_bytes",
-        "estimated_gmem_lines_128b",
+        "estimated_gmem_128b_services_per_warp",
+        "estimated_gmem_bytes_per_warp",
         "estimated_lmem_bytes_per_thread",
         "estimated_register_pressure",
         "estimated_smem_bytes_per_cta",
@@ -152,15 +155,18 @@ def test_report_contains_model_facing_static_metrics_without_official_cycle_clai
         "gmem_stores",
         "instruction_count",
         "instruction_mix",
+        "memory_service_bytes",
         "memory_space_ops",
         "smem_ops",
     }
     assert payload["static_metrics"]["instruction_count"] == payload["metrics"]["machine_instruction_count"]
     assert payload["static_metrics"]["branch_count"] == payload["metrics"]["branch_count"]
+    assert payload["static_metrics"]["assumed_warp_lanes"] == 32
+    assert payload["static_metrics"]["memory_service_bytes"] == 128
     assert payload["static_metrics"]["gmem_loads"] == 1
     assert payload["static_metrics"]["gmem_stores"] == 1
-    assert payload["static_metrics"]["estimated_gmem_bytes"] == 8
-    assert payload["static_metrics"]["estimated_gmem_lines_128b"] == 1
+    assert payload["static_metrics"]["estimated_gmem_bytes_per_warp"] == 256
+    assert payload["static_metrics"]["estimated_gmem_128b_services_per_warp"] == 2
     assert payload["static_metrics"]["memory_space_ops"] == {"gmem": 2, "pmem": 5}
     assert payload["static_metrics"]["instruction_mix"]["BRX"] == 1
     assert payload["static_metrics"]["estimated_arithmetic_intensity"] is None
@@ -175,6 +181,14 @@ def test_report_contains_model_facing_static_metrics_without_official_cycle_clai
         "stall_cycles": None,
         "total_cycles": None,
     }
+
+
+def test_compile_rejects_unknown_performance_target() -> None:
+    with pytest.raises(ValueError, match="unsupported performance target"):
+        compile_ptx_detailed(
+            _load_ptx("PTX-01_vector_add.ptx"),
+            performance_target="track_c_hint_platform_typo",
+        )
 
 
 def test_cli_report_is_written_and_repeatable(tmp_path: Path) -> None:
