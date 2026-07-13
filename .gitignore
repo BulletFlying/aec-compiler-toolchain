@@ -1,0 +1,32 @@
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Build artifacts
+*.o
+*.so
+*.a
+*.pyc
+__pycache__/
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Archives (keep only .tar.gz sha256)
+*.tar.gz
+*.zip
+!*.sha256
+
+# Temporary files
+*.log
+*.tmp
+*.bak

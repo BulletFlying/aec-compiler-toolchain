@@ -1,0 +1,92 @@
+name: C1 module or milestone change
+description: Plan a new compiler module, material refactor, pass, backend feature, test gate, or infrastructure change.
+title: "[C1] "
+labels: []
+body:
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Change type
+      options:
+        - Milestone
+        - Feature
+        - Correctness fix
+        - Refactor
+        - Analysis or IR
+        - Optimization pass
+        - Register allocation or scheduling
+        - ISA or object format
+        - Simulator or validation
+        - Agent
+        - Documentation or infrastructure
+    validations:
+      required: true
+  - type: input
+    id: milestone
+    attributes:
+      label: Milestone
+      description: M0, M1, M2.1, M2.2, M3, M4, M5, M6, or infrastructure.
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal and non-goals
+      description: State one primary goal and explicit out-of-scope work.
+    validations:
+      required: true
+  - type: textarea
+    id: modules
+    attributes:
+      label: Modules and responsibilities
+      description: List new or modified modules, their responsibility, and forbidden responsibility creep.
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Interface and analysis contract
+      description: Inputs, outputs, errors, analyses consumed/preserved/invalidated, and semantic invariants.
+    validations:
+      required: true
+  - type: textarea
+    id: correctness
+    attributes:
+      label: Correctness or legality argument
+      description: State the proof obligation, conservative fallback, and unsafe cases that must be rejected.
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Acceptance tests
+      description: Unit, structural, executable, differential, mutation, negative, regression, CLI and artifact checks.
+    validations:
+      required: true
+  - type: textarea
+    id: generalization
+    attributes:
+      label: Hidden-test generalization
+      description: Explain behavior under register/label rename, parameter/loop/shape variation, block reorder, dead code and pressure changes as applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: branch
+    attributes:
+      label: Proposed branch and commit plan
+      description: Use the naming rules in docs/DEVELOPMENT_POLICY.md and list intended commit boundaries.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Repository safety
+      options:
+        - label: Work will be written only to BulletFlying/agentic4systems-c1-compiler-bootstrap.
+          required: true
+        - label: The official ephonic repository will not be configured as a Git remote or write target.
+          required: true
+        - label: No case ID, file name, hash, fixed label or fixed register number will be used as a semantic trigger.
+          required: true
+        - label: Unavailable official validation will be reported as Not run.
+          required: true
