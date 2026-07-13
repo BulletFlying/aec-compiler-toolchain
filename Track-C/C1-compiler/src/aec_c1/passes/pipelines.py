@@ -9,6 +9,7 @@ from .foundation import (
     ValidateProgramPass,
 )
 from .manager import PassManager
+from .scalar import ConservativeDeadResultEliminationPass
 
 
 def build_pipeline(opt_level: str) -> PassManager:
@@ -19,14 +20,20 @@ def build_pipeline(opt_level: str) -> PassManager:
         )
     if opt_level == "2":
         return PassManager(
-            "O2-analysis-foundation",
-            [ValidateProgramPass(), MaterializeCFGPass(), RecordUniformityPass()],
+            "O2-conservative-scalar",
+            [
+                ValidateProgramPass(),
+                ConservativeDeadResultEliminationPass(),
+                MaterializeCFGPass(),
+                RecordUniformityPass(),
+            ],
         )
     if opt_level == "3":
         return PassManager(
-            "O3-analysis-foundation",
+            "O3-conservative-scalar",
             [
                 ValidateProgramPass(),
+                ConservativeDeadResultEliminationPass(),
                 MaterializeCFGPass(),
                 RecordUniformityPass(),
                 RecordLoopAnalysisPass(),
