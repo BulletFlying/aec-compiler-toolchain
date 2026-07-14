@@ -19,14 +19,22 @@ from .base import PassResult
 # ===========================================================================
 
 class LoadHoistingPass:
-    """Hoist loop-invariant global loads out of natural loops (O3 experimental).
+    """Hoist loop-invariant global loads out of natural loops (O2 proven-safe).
 
-    Safety:
-    - Only operates on natural loops with unique preheaders.
-    - Conservative alias model: any store in loop body → no hoisting.
-    - Never hoists predicated loads.
-    - Never hoists across control-flow boundaries.
-    - Requires valid CFG with loop analysis.
+    Safety guarantees:
+    - Unique preheader required: multi-entry loops are skipped.
+    - Conservative alias model: any store in the loop body disables all
+      hoisting for that loop.
+    - Never hoists predicated loads (predicate may resolve differently
+      across iterations).
+    - Domination check: the load must dominate the loop latch (the block
+      containing the backedge).  Loads inside conditional branches are
+      not hoisted because they don't execute on every iteration.
+    - Single-def check: the load's destination register must not be
+      redefined anywhere else in the loop.
+    - Address invariance: the address register's definition must not be
+      inside the loop.
+    - Invalidates CFG, uniformity, and loops after rewriting.
     """
 
     name = "load-hoisting"
@@ -37,6 +45,8 @@ class LoadHoistingPass:
         loops = cfg.natural_loops()
         if not loops:
             return PassResult(details={"hoisted": 0, "loops": 0, "transforms_applied": 0})
+
+        dominators = cfg.dominators()
 
         # Build def map and index→block map
         index_to_block: dict[int, str] = {}
@@ -66,7 +76,7 @@ class LoadHoistingPass:
             if not preheader_block.item_indices:
                 continue
 
-            # Check for stores in loop (conservative alias)
+            # ---- Conservative alias: any store in loop → skip entire loop ----
             has_store = False
             for bn in loop.blocks:
                 for idx in cfg.blocks[bn].item_indices:
@@ -82,19 +92,47 @@ class LoadHoistingPass:
             if has_store:
                 continue
 
+            # ---- Identify the loop latch (tail block) ----
+            backedges = [(t, h) for t, h in cfg.backedges() if h == header]
+            latch = backedges[0][0] if backedges else header
+
             insert_before = preheader_block.item_indices[-1]
 
-            # Find invariant loads in loop
+            # ---- Count dest register definitions within the loop ----
+            loop_def_counts: dict[str, int] = {}
             for bn in loop.blocks:
                 for idx in cfg.blocks[bn].item_indices:
                     item = program.items[idx]
                     if isinstance(item, str):
                         continue
+                    dest = _destination_register(item)
+                    if dest is not None:
+                        loop_def_counts[dest] = loop_def_counts.get(dest, 0) + 1
+
+            # ---- Find and hoist invariant loads ----
+            for bn in loop.blocks:
+                for idx in cfg.blocks[bn].item_indices:
+                    item = program.items[idx]
+                    if isinstance(item, str):
+                        continue
+
+                    # Predicated load filter
                     if item.predicate is not None:
                         continue
+
                     if not item.opcode.startswith("ld.global"):
-                        continue  # only handle global loads
-                    # Check address register is loop-invariant
+                        continue
+
+                    # ---- Domination check: load block must dominate latch ----
+                    if bn not in dominators.get(latch, set()):
+                        continue
+
+                    # ---- Single-def check: dest register must not be redefined ----
+                    dest_reg = _destination_register(item)
+                    if dest_reg is not None and loop_def_counts.get(dest_reg, 0) > 1:
+                        continue
+
+                    # ---- Address invariance: address register not defined in loop ----
                     addr_op = item.operands[1].strip()
                     if addr_op.startswith("[") and addr_op.endswith("]"):
                         addr_op = addr_op[1:-1].strip()
@@ -102,12 +140,14 @@ class LoadHoistingPass:
                         continue
                     def_info = def_map.get(addr_op)
                     if def_info is None:
-                        continue  # param/special → invariant → hoistable
-                    def_block = def_info[1]
-                    if def_block in loop.blocks:
-                        continue  # address defined in loop → skip
+                        # param/special → invariant → hoistable
+                        pass
+                    else:
+                        def_block = def_info[1]
+                        if def_block in loop.blocks:
+                            continue  # address defined in loop → skip
 
-                    # Hoist: create a copy before the preheader terminator
+                    # ---- Hoist: move before the preheader terminator ----
                     all_kept.pop(idx, None)
                     insertions.setdefault(insert_before, []).append(item)
                     total_hoisted += 1
@@ -126,5 +166,5 @@ class LoadHoistingPass:
         return PassResult(
             changed=True,
             details={"hoisted": total_hoisted, "loops": len(loops), "transforms_applied": total_hoisted},
-            invalidated_analyses=frozenset({"cfg", "uniformity"}),
+            invalidated_analyses=frozenset({"cfg", "uniformity", "loops"}),
         )

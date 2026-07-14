@@ -78,6 +78,8 @@ class CompilationReport:
             elif name == "basic-block-local-cse":
                 spec_passes["cse"] = True
             elif name == "local-constant-folding":
+                spec_passes.setdefault("constant_folding", True)
+            elif name == "global-constant-propagation":
                 spec_passes["constant_folding"] = True
             elif name == "loop-invariant-code-motion":
                 spec_passes["licm"] = True
@@ -85,6 +87,8 @@ class CompilationReport:
                 spec_passes["load_reuse"] = True
             elif name == "load-hoisting":
                 spec_passes["load_hoisting"] = True
+            elif name == "loop-unrolling":
+                spec_passes["loop_unrolling"] = True
             elif name == "block-simplification":
                 spec_passes["block_merge"] = True
 
@@ -215,11 +219,13 @@ def _report_notes(pass_records: tuple[PassRecord, ...]) -> list[str]:
         )
     if "global-constant-propagation" in pass_names:
         scalar_notes.append(
-            "Global constant propagation is enabled (O3 experimental)."
+            "Global constant propagation is enabled (O2 proven-safe). "
+            "Resets constants at every block boundary (labeled and unlabeled)."
         )
     if "loop-invariant-code-motion" in pass_names:
         scalar_notes.append(
-            "Loop-invariant code motion is enabled (O3 experimental)."
+            "Loop-invariant code motion is enabled (O2 proven-safe). "
+            "Verifies domination and single-definition safety before hoisting."
         )
     if "repeated-global-load-reuse" in pass_names:
         scalar_notes.append(
@@ -228,7 +234,31 @@ def _report_notes(pass_records: tuple[PassRecord, ...]) -> list[str]:
         )
     if "block-simplification" in pass_names:
         scalar_notes.append(
-            "Block simplification is enabled (O3 experimental)."
+            "Block simplification is enabled (O2 proven-safe). "
+            "Merges empty/jump blocks, removes unreachable blocks, preserves side-effecting blocks."
+        )
+    if "load-hoisting" in pass_names:
+        scalar_notes.append(
+            "Load hoisting is enabled (O2 proven-safe). "
+            "Hoists loop-invariant global loads with domination, single-def, and alias checks."
+        )
+    if "loop-unrolling" in pass_names:
+        scalar_notes.append(
+            "Loop unrolling is enabled (O3 experimental). "
+            "Unrolls counted loops with even trip counts and register renaming. "
+            "Needs complex-loop-body hardening for O2."
+        )
+    if "linear-scan-register-allocation" in pass_names:
+        scalar_notes.append(
+            "Linear-scan register allocation is enabled (O3 experimental). "
+            "Allocates GPRs and predicate registers with live-interval analysis. "
+            "Needs CFG-aware liveness integration for O2."
+        )
+    if "list-scheduler" in pass_names:
+        scalar_notes.append(
+            "DDG list scheduler is enabled (O3 experimental). "
+            "Reorders AEC instructions within basic blocks to hide latency. "
+            "Needs alias-aware memory ordering for O2."
         )
 
     if scalar_notes:

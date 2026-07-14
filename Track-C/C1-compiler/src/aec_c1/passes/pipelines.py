@@ -17,7 +17,6 @@ from .manager import PassManager
 from .register_allocation import LinearScanRegisterAllocationPass
 from .gemm import LoopUnrollingPass
 from .memory import LoadHoistingPass
-from .register_allocation import LinearScanRegisterAllocationPass
 from .scalar import (
     BasicBlockLocalCSEPass,
     BlockSimplificationPass,
@@ -38,6 +37,12 @@ def build_pipeline(opt_level: str) -> PassManager:
         )
     if opt_level == "2":
         # Scoring-critical: only passes with proven safety and correctness evidence.
+        # O2 pipeline (M2-M3 complete; M4-M5 in O3 — see O3 pipeline below):
+        #   Validate → DRE → CSE → LocalCF → GlobalCP → LoadReuse
+        #   → CFG → Uniformity → GlobalDCE → LoopAnalysis → LICM
+        #   → CFG → Uniformity → BlockSimp → CFG → LoadHoisting(M3)
+        #   → CFG → Uniformity
+        #   (LinearScanRA M4, Scheduler M4, LoopUnrolling M5 are O3-only)
         return PassManager(
             "O2-conservative-scalar",
             [
@@ -45,13 +50,19 @@ def build_pipeline(opt_level: str) -> PassManager:
                 ConservativeDeadResultEliminationPass(),
                 BasicBlockLocalCSEPass(),
                 LocalConstantFoldingPass(),
+                GlobalConstantPropagationPass(),
                 RepeatedGlobalLoadReusePass(),
                 MaterializeCFGPass(),
                 RecordUniformityPass(),
                 GlobalDeadCodeEliminationPass(),
                 RecordLoopAnalysisPass(),
                 LoopInvariantCodeMotionPass(),
+                MaterializeCFGPass(),
+                RecordUniformityPass(),
                 BlockSimplificationPass(),
+                MaterializeCFGPass(),
+                RecordUniformityPass(),
+                LoadHoistingPass(),
                 MaterializeCFGPass(),
                 RecordUniformityPass(),
             ],

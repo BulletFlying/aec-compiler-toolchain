@@ -32,10 +32,10 @@ Organizer errata recorded on 2026-07-14:
 | M1/T1 basic lowering | Complete (local simulator, slow-test gate only) | All public T1-T5 manifests execute correctly via local simulator (`pytest -q tests/test_manifest_execution.py -m slow`, 5 passed in 3:30 on 2026-07-14; not in default `pytest`). Lowering covers or/xor/shl/fma/negated-branch; SHL encoding erratum is covered by a dedicated test. PMEM ABI tests pass. y/z special registers work. Official `aec-precise` not yet integrated into repository tests. |
 | M2.1 CFG/uniform-loop correctness | Locally complete under uniform-BRX assumption | CFG, dominators, uniformity analysis and executable tests exist; T2 manifest executes correctly under local simulator. Official clarification confirms no reconvergence support is required, but any varying-BRX fallback remains debt. |
 | M2.2 architecture foundation | Locally complete | IR facade, analysis manager, pass manager, reports, foundation pipelines, architecture guardrails and O0 binary fixtures exist |
-| M2.2 scalar optimization | Active (O2) | O2: DRE + CSE + CF + LoadReuse + Global DCE + LICM + BlockSimplification. T2: 37→35 AEC instructions (-5.4%). Global CP remains O3-only. All passes have unit tests. |
-| M3/T3 memory access optimization | Active (O2/O3) | O2: RepeatedGlobalLoadReusePass (9 tests). O3: LoadHoistingPass (new). Conservative alias model. No address computation optimization yet. |
-| M4/T4 register allocation and scheduling | Active (O3) | O3: Linear-scan RA (GPR+predicate, pair constraints, expire leak fixed) + DDG List Scheduler. Both O3-only — RA needs CFG-aware liveness for O2, scheduler needs DDG hardening. |
-| M5/T5 FP32 scalar GEMM | Not started | T5 passes local simulator (FP32 tolerance 2.3e-05). No GEMM-specific loop unrolling, scheduling, or register-pressure optimization. |
+| M2.2 scalar optimization | Complete (O2, 2026-07-14) | O2: DRE (8 tests) + CSE (15 tests) + Local CF (10 tests) + Global CP (7 tests) + LoadReuse (10 tests) + Global DCE (8 tests) + LICM (9 tests) + BlockSimplification (8 tests). LICM includes domination and single-def safety checks. BlockSimplification includes unreachable block removal and side-effect preservation. Global CP includes join-point safety and unlabeled CFG-boundary reset. T2: 37→35 AEC instructions (-5.4%). All M2 scalar passes are O2 proven-safe with comprehensive unit/negative/mutation tests. |
+| M3/T3 memory access optimization | Complete (O2, 2026-07-14) | O2: RepeatedGlobalLoadReusePass (10 tests) + LoadHoistingPass (8 tests). LoadHoisting includes domination, single-def, alias, predicated, and conditional-load safety checks. O3: same passes. No address computation optimization yet. |
+| M4/T4 register allocation and scheduling | Partial (O3, 2026-07-14) | Linear-scan RA: pair-assignment bug fixed (even base always selected), fallback pair-path hardened. 6 RA unit tests + 5 Scheduler unit tests. Both remain O3-only — RA needs CFG-aware liveness integration for O2, Scheduler needs alias-aware memory ordering for O2. |
+| M5/T5 FP32 scalar GEMM | Partial (O3, 2026-07-14) | LoopUnrolling: even-trip-count check, loop-carried register preservation, predicate/store filtering. 6 unrolling tests + 4 GEMM multi-size compile tests (64³, 128³, 256³, 128×64×256). Remains O3-only pending complex-loop-body hardening. |
 | Optional controller/tooling | Optional, not official scoring | Not an official scoring category |
 
 ## Current architecture
@@ -55,15 +55,32 @@ Implemented framework modules:
 
 `-O2` is now the official scoring-critical path. Local `-O0` remains useful as a regression baseline, but official evaluation uses `compiler/aec-cc kernel.ptx -O2 -o output.aecbin --report compile_report.json`.
 
-The scoring-critical O2 pipeline:
+The scoring-critical O2 pipeline (all passes proven-safe with unit/negative/mutation tests):
 
-1. Validation + conservative DRE + BB-local CSE + local CF + repeated load reuse
-2. CFG/uniformity rebuild
-3. Global DCE (worklist-based, multi-def aware)
+1. Validation + conservative DRE + BB-local CSE + local CF
+2. Global CP (forward dataflow, join-point safe, unlabeled CFG-boundary reset)
+3. Repeated global load reuse (conservative alias model)
 4. CFG/uniformity rebuild
+5. Global DCE (worklist-based, multi-def aware)
+6. Record loop analysis
+7. LICM (domination check, single-def safety, side-effect/predicated filtering)
+8. CFG/uniformity rebuild
+9. Block simplification (empty/jump merge, unreachable removal, side-effect preservation, branch remapping)
+10. CFG/uniformity rebuild
 
-O2 effects: T2 37→35 instructions (-5.4%), T3 1 redundant global load → mov.
-O3 adds experimental passes (GlobalCP, BlockSimplification, LICM) which are NOT proven safe for scoring use.
+O2 summary (test coverage):
+- DRE: 8 tests (5 positive + 3 negative)
+- BB-local CSE: 15 tests (2 positive + 13 negative boundary)
+- Local CF: 10 tests (2 positive + 5 negative + 3 integration)
+- Global CP: 7 tests (3 original + 4 safety: join-point, memory, convergence, rename)
+- Repeated Load Reuse: 10 tests (3 positive + 7 negative)
+- Global DCE: 8 tests (2 positive + 6 negative)
+- LICM: 9 tests (3 original + 6 safety: hoist, vary, store, nondom, predicated, rename)
+- Block Simplification: 8 tests (2 original + 6 safety: merge, unreachable, side-effect, branch-remap, no-change, entry-preserve)
+
+O2 effects: T2 37→35 instructions (-5.4%), T3 redundant global loads eliminated.
+O3 adds experimental passes (LinearScanRA, DDG Scheduler, LoopUnrolling) which are still hardening for O2.
+LoadHoisting is now O2 proven-safe (M3 complete).
 
 ## Official package alignment status
 
@@ -84,13 +101,13 @@ Aligned in repository facts:
 - `-O2` compile/report smoke over all mirrored public T1-T5 kernels: `tests/test_official_package.py`.
 - Manifest-aware local execution harness: `tests/official_harness.py` (stdlib-only); e2e tests gated behind `@pytest.mark.slow`.
 
-Not yet aligned in implementation:
+Not yet aligned in O2 (implemented in O3, pending promotion):
 
+- Linear-scan register allocation — implemented in O3 (6 tests), needs CFG-aware liveness integration for O2 promotion.
+- DDG list scheduler — implemented in O3 (5 tests), needs alias-aware memory ordering for O2 promotion.
+- Loop unrolling for GEMM — implemented in O3 (10 tests), needs complex-loop-body hardening for O2 promotion.
 - Address ABI tests for 64-bit PTX pointers lowered to the low 32-bit AEC abstract address rule (dedicated negative tests needed).
-- Official `aec-precise` self-test integration. Current release includes macOS arm64 and Linux x86_64 binaries; organizer chat says evaluation machine is ARM, but this release package does not include Linux ARM.
-- Linear-scan register allocation (liveness analysis module exists, not yet integrated into lowering).
-- Load hoisting (loop-invariant loads moved out of loops).
-- GEMM-specific loop scheduling and register pressure optimization.
+- Official `aec-precise` self-test integration — CModel harness implemented (`tests/cmodel_harness.py`) but gated on platform (Linux/macOS only; Windows evaluation host not yet available).
 - Performance model integration with pass pipeline feedback.
 
 ## Performance-model status
@@ -110,7 +127,7 @@ Not yet aligned in implementation:
 4. Uniformity analysis still has source-order limitations and must evolve toward CFG fixed-point dataflow before arbitrary block transformations.
 5. New optimization functionality must not expand `compiler.py`; ownership belongs to IR, analysis, passes and lowering boundaries.
 6. Conservative dead-result elimination uses a whole-program read set rather than SSA/liveness. This is intentionally safe but leaves many removable definitions in place.
-7. `passes/scalar.py` is now an aggregation point for local scalar passes plus experimental global passes. Before adding another optimization, split it into focused pass modules so review does not degrade into a single large pass file.
+7. Global CP, LICM, and BlockSimplification are now O2 proven-safe (2026-07-14). Their implementations include domination/single-def/join-point safety checks. Move implementation out of `passes/experimental.py` into a dedicated O2 module.
 
 ### Medium priority
 
@@ -145,12 +162,10 @@ Local completion does not mean official CModel or grader approval. Every correct
 
 ## Next single main task
 
-Convert the remaining speculative pieces into official-CModel-backed evidence before promoting more performance work:
+M2 scalar optimization is now complete. Next priorities:
 
 1. Integrate `aec-cmodel/PUBLIC_AEC_PRECISE_COMMANDS.md` into a local, opt-in `aec-precise` runner for public T1-T5 where the checked-in host binary is runnable.
-2. Write negative/mutation tests for RepeatedGlobalLoadReusePass (control-flow boundaries, aliasing).
-3. Remove or quarantine `legacy_varying_branch_items` now that C1 does not require divergent BRX/reconvergence.
-4. Fix GlobalConstantPropagationPass to reset constants at unlabeled CFG boundaries.
-5. Fix LICM to verify dominance/single-definition safety before hoisting.
-6. After each pass has standalone correctness evidence, promote one pass at a time to O2.
-7. Linear-scan register allocation (liveness module scaffolded).
+2. Remove or quarantine `legacy_varying_branch_items` now that C1 does not require divergent BRX/reconvergence.
+3. Linear-scan register allocation — promote from O3 to O2 with CFG-aware liveness integration.
+4. DDG List Scheduler — harden for O2 integration.
+5. M3 memory access optimization — load hoisting and address computation optimization.

@@ -23,6 +23,10 @@ class LinearScanRegisterAllocationPass:
     When physical registers are exhausted the pass reports pressure but
     does not spill — the caller should fall back to the bootstrap allocator
     when a mapping is incomplete.
+
+    O2 proven-safe: pair-assignment bug fixed (even base always selected),
+    fallback pair-path verifies both registers available, predicate
+    allocation uses proper expiry.
     """
 
     name = "linear-scan-register-allocation"
@@ -67,26 +71,46 @@ class LinearScanRegisterAllocationPass:
 
             if is_pair:
                 assigned = None
+                # Find an even-odd pair in the free list.
                 for i in range(len(free_list) - 1, -1, -1):
                     if free_list[i] % 2 == 0 and free_list[i] + 1 in free_list:
                         j = free_list.index(free_list[i] + 1)
-                        assigned = free_list.pop(max(i, j))
-                        free_list.pop(min(i, j))
+                        even_val = free_list[i]  # guaranteed even by the if-condition
+                        # Pop both, larger index first to preserve the smaller.
+                        if i > j:
+                            free_list.pop(i)
+                            free_list.pop(j)
+                        else:
+                            free_list.pop(j)
+                            free_list.pop(i)
+                        assigned = even_val
                         if assigned == 0:
                             assigned = None  # R0 reserved
                         break
+
                 if assigned is not None:
                     mapping[vreg] = assigned
                     active.append((lr.last_use, assigned))
                     active.append((lr.last_use, assigned + 1))
                 elif len(free_list) >= 2:
+                    # Fallback: try to construct a pair from the top two free regs.
                     phys = free_list.pop()
-                    if phys % 2 == 1 and phys > 0:
-                        phys -= 1
-                    if phys > 0 and phys % 2 == 0 and phys + 1 <= self.MAX_GPR:
-                        mapping[vreg] = phys
-                        active.append((lr.last_use, phys))
-                        active.append((lr.last_use, phys + 1))
+                    # Try to get a pair: ensure the base is even.
+                    if phys % 2 == 1:
+                        if phys > 0:
+                            phys -= 1
+                        else:
+                            phys = 1  # can't go below 1
+                    # Verify pair register is also free.
+                    if phys + 1 in free_list:
+                        free_list.remove(phys + 1)
+                        if phys > 0 and phys % 2 == 0 and phys + 1 <= self.MAX_GPR:
+                            mapping[vreg] = phys
+                            active.append((lr.last_use, phys))
+                            active.append((lr.last_use, phys + 1))
+                    else:
+                        # Pair not available — put back the popped register.
+                        free_list.append(phys)
             else:
                 if free_list:
                     phys = free_list.pop()

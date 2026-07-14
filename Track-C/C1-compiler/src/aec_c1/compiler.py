@@ -46,7 +46,7 @@ def compile_ptx_detailed(
     reg_mapping = module.metadata.get("register_mapping")
     lowered = Lowerer(module.function.program, profile=profile,
                       register_mapping=reg_mapping).lower()
-    # Post-lowering scheduler (O3 experimental only — DDG needs hardening for O2)
+    # Post-lowering scheduler (O3 only for now — DDG needs alias hardening for O2)
     if opt_level == "3":
         try:
             from .passes.scheduler import schedule_lowered
