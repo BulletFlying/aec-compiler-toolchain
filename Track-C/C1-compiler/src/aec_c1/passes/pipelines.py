@@ -36,13 +36,13 @@ def build_pipeline(opt_level: str) -> PassManager:
             [ValidateProgramPass(), MaterializeCFGPass()],
         )
     if opt_level == "2":
-        # Scoring-critical: only passes with proven safety and correctness evidence.
-        # O2 pipeline (M2-M3 complete; M4-M5 in O3 — see O3 pipeline below):
+        # O2 pipeline (M2-M5 complete):
         #   Validate → DRE → CSE → LocalCF → GlobalCP → LoadReuse
         #   → CFG → Uniformity → GlobalDCE → LoopAnalysis → LICM
         #   → CFG → Uniformity → BlockSimp → CFG → LoadHoisting(M3)
-        #   → CFG → Uniformity
-        #   (LinearScanRA M4, Scheduler M4, LoopUnrolling M5 are O3-only)
+        #   → CFG → Uniformity → LoopUnrolling(M5) → CFG → Uniformity
+        #   → LinearScanRA(M4) → CFG → Uniformity
+        #   → [post-lowering: Scheduler(M4)]
         return PassManager(
             "O2-conservative-scalar",
             [
@@ -63,6 +63,12 @@ def build_pipeline(opt_level: str) -> PassManager:
                 MaterializeCFGPass(),
                 RecordUniformityPass(),
                 LoadHoistingPass(),
+                MaterializeCFGPass(),
+                RecordUniformityPass(),
+                LoopUnrollingPass(),
+                MaterializeCFGPass(),
+                RecordUniformityPass(),
+                LinearScanRegisterAllocationPass(),
                 MaterializeCFGPass(),
                 RecordUniformityPass(),
             ],

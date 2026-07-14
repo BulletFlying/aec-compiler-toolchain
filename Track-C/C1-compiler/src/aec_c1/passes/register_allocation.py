@@ -40,28 +40,42 @@ class LinearScanRegisterAllocationPass:
         except Exception:
             return PassResult(details={"error": "liveness analysis not available"})
 
-        live_ranges = {
+        # Filter to live GPR ranges only, excluding predicates
+        gpr_ranges = {
             name: lr for name, lr in facts.live_ranges.items()
             if lr.is_live and not name.startswith("%p")
         }
 
-        if not live_ranges:
+        if not gpr_ranges:
             return PassResult(details={"allocated": 0, "pressure": 0})
 
-        sorted_ranges = sorted(live_ranges.values(), key=lambda lr: lr.first_def)
+        # ---- Merge split live ranges for the same base register ----
+        # Multi-def registers produce keys like %f4#0, %f4#1.  Merge them
+        # into a single aggregate range per base register so the Lowerer
+        # (which maps one virtual register → one physical register) gets
+        # a single consistent mapping.
+        merged: dict[str, tuple[int, int]] = {}  # base_name -> (first_def, last_use)
+        for name, lr in gpr_ranges.items():
+            base = name.split("#")[0]
+            if base in merged:
+                fd, lu = merged[base]
+                merged[base] = (min(fd, lr.first_def), max(lu, lr.last_use))
+            else:
+                merged[base] = (lr.first_def, lr.last_use)
+
+        # Sort by first_def for linear scan
+        sorted_regs = sorted(merged.items(), key=lambda kv: kv[1][0])
 
         mapping: dict[str, int] = {}
         active: list[tuple[int, int]] = []  # (last_use, phys_reg)
         free_list: list[int] = list(range(1, self.MAX_GPR + 1))
         free_list.reverse()
 
-        for lr in sorted_ranges:
-            # Strip #N suffix from split live ranges (e.g. %r3#1 -> %r3)
-            vreg = getattr(lr, "register").split("#")[0]
+        for vreg, (first_def, last_use) in sorted_regs:
             # Expire: return physical registers whose live range ended
             still_active = []
             for end, phys in active:
-                if end < lr.first_def:
+                if end < first_def:
                     free_list.append(phys)
                 else:
                     still_active.append((end, phys))
@@ -71,12 +85,10 @@ class LinearScanRegisterAllocationPass:
 
             if is_pair:
                 assigned = None
-                # Find an even-odd pair in the free list.
                 for i in range(len(free_list) - 1, -1, -1):
                     if free_list[i] % 2 == 0 and free_list[i] + 1 in free_list:
                         j = free_list.index(free_list[i] + 1)
-                        even_val = free_list[i]  # guaranteed even by the if-condition
-                        # Pop both, larger index first to preserve the smaller.
+                        even_val = free_list[i]
                         if i > j:
                             free_list.pop(i)
                             free_list.pop(j)
@@ -90,32 +102,25 @@ class LinearScanRegisterAllocationPass:
 
                 if assigned is not None:
                     mapping[vreg] = assigned
-                    active.append((lr.last_use, assigned))
-                    active.append((lr.last_use, assigned + 1))
+                    active.append((last_use, assigned))
+                    active.append((last_use, assigned + 1))
                 elif len(free_list) >= 2:
-                    # Fallback: try to construct a pair from the top two free regs.
                     phys = free_list.pop()
-                    # Try to get a pair: ensure the base is even.
-                    if phys % 2 == 1:
-                        if phys > 0:
-                            phys -= 1
-                        else:
-                            phys = 1  # can't go below 1
-                    # Verify pair register is also free.
+                    if phys % 2 == 1 and phys > 0:
+                        phys -= 1
                     if phys + 1 in free_list:
                         free_list.remove(phys + 1)
                         if phys > 0 and phys % 2 == 0 and phys + 1 <= self.MAX_GPR:
                             mapping[vreg] = phys
-                            active.append((lr.last_use, phys))
-                            active.append((lr.last_use, phys + 1))
+                            active.append((last_use, phys))
+                            active.append((last_use, phys + 1))
                     else:
-                        # Pair not available — put back the popped register.
                         free_list.append(phys)
             else:
                 if free_list:
                     phys = free_list.pop()
                     mapping[vreg] = phys
-                    active.append((lr.last_use, phys))
+                    active.append((last_use, phys))
 
         # Predicate allocation
         pred_ranges = {
@@ -146,7 +151,7 @@ class LinearScanRegisterAllocationPass:
         details = {
             "allocated_gprs": allocated,
             "allocated_preds": len(pred_mapping),
-            "total_virtual_regs": len(live_ranges),
+            "total_virtual_regs": len(gpr_ranges),
             "register_pressure": allocated,
             "max_gpr": max(mapping.values()) if mapping else 0,
             "transforms_applied": 0,  # RA is infrastructure, not optimization

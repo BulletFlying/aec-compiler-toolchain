@@ -162,7 +162,8 @@ class LoopUnrollingPass:
                         loop_carried.add(dest)
                         break
 
-            # Duplicate loop body with register renaming
+            # Duplicate loop body with register renaming.
+            # Skip the counter increment — it gets adjusted in-place (add N instead of 1).
             rename_map: dict[str, str] = {}
             renamed_body: list[PTXInstruction] = []
             for inst in loop_body:
@@ -170,6 +171,10 @@ class LoopUnrollingPass:
                     continue
                 base = inst.opcode.split(".", 1)[0]
                 if base not in _PURE_RESULT_BASES and base not in {"setp", "ld", "st"}:
+                    continue
+                # Skip the counter increment — handled separately below
+                dest = _destination_register(inst)
+                if dest is not None and dest.strip() == counter_reg:
                     continue
                 new_inst = _rename_instruction_safe(
                     inst, rename_map, skip_regs=loop_carried, used_nums=used_nums,

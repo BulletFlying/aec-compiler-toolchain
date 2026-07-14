@@ -74,24 +74,41 @@ def _schedule_block(insts: list[AECInstruction]) -> list[AECInstruction]:
     # Classify each instruction
     kinds = [_inst_kind(i) for i in insts]
 
-    # Build def positions: register -> instruction index that defines it
-    def_pos: dict[int, int] = {}
+    # Build all def positions per register (sorted).  Temp registers like
+    # R240-R255 are reused by LOADI — the DDG must use the closest
+    # preceding definition, not just the last one.
+    all_def_pos: dict[int, list[int]] = {}
     for idx, inst in enumerate(insts):
         if _has_dest(inst):
-            def_pos[inst.dest] = idx
+            all_def_pos.setdefault(inst.dest, []).append(idx)
 
-    # Build ready set: instructions with all operands defined
+    # Build ready set: instructions with all operands defined.
+    # Also add STORE→LOAD barriers: a LOAD after a STORE must not move
+    # before it (conservative alias safety — STORE may alias any LOAD).
     ready: list[int] = []
     dep_count: list[int] = []
     dependents: dict[int, list[int]] = {}
 
+    last_store_idx: int | None = None
     for idx, inst in enumerate(insts):
         srcs = _source_regs(inst)
         unresolved = 0
         for s in srcs:
-            if s in def_pos and def_pos[s] < idx:
+            defs = all_def_pos.get(s, [])
+            # Find the closest definition before this use.
+            closest_def = -1
+            for d in defs:
+                if d < idx and d > closest_def:
+                    closest_def = d
+            if closest_def >= 0:
                 unresolved += 1
-                dependents.setdefault(def_pos[s], []).append(idx)
+                dependents.setdefault(closest_def, []).append(idx)
+        # STORE→LOAD barrier: each LOAD depends on the most recent STORE.
+        if kinds[idx] == "LOAD" and last_store_idx is not None:
+            unresolved += 1
+            dependents.setdefault(last_store_idx, []).append(idx)
+        if kinds[idx] == "STORE":
+            last_store_idx = idx
         dep_count.append(unresolved)
         if unresolved == 0:
             ready.append(idx)
