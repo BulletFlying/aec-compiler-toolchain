@@ -27,7 +27,7 @@ class LinearScanRegisterAllocationPass:
 
     name = "linear-scan-register-allocation"
 
-    MAX_GPR = 239   # R0..R239 usable; R240-R255 reserved for temps
+    MAX_GPR = 239   # R1..R239 usable (R0 reserved); R240-R255 reserved for temps
     MAX_PRED = 7    # P0..P7
 
     def run(self, module: IRModule, analyses: AnalysisManager) -> PassResult:
@@ -52,33 +52,38 @@ class LinearScanRegisterAllocationPass:
         free_list.reverse()
 
         for lr in sorted_ranges:
-            vreg = lr.register
-            # Expire: free registers whose live range ended
-            active = [(end, phys) for end, phys in active if end >= lr.first_def]
-            for end, phys in list(active):
+            # Strip #N suffix from split live ranges (e.g. %r3#1 -> %r3)
+            vreg = getattr(lr, "register").split("#")[0]
+            # Expire: return physical registers whose live range ended
+            still_active = []
+            for end, phys in active:
                 if end < lr.first_def:
                     free_list.append(phys)
-                    active.remove((end, phys))
+                else:
+                    still_active.append((end, phys))
+            active = still_active
 
             is_pair = vreg.startswith("%rd") or vreg.startswith("%bd")
 
             if is_pair:
                 assigned = None
-                for i in range(len(free_list) - 1, 0, -1):
+                for i in range(len(free_list) - 1, -1, -1):
                     if free_list[i] % 2 == 0 and free_list[i] + 1 in free_list:
                         j = free_list.index(free_list[i] + 1)
                         assigned = free_list.pop(max(i, j))
                         free_list.pop(min(i, j))
+                        if assigned == 0:
+                            assigned = None  # R0 reserved
                         break
                 if assigned is not None:
                     mapping[vreg] = assigned
                     active.append((lr.last_use, assigned))
                     active.append((lr.last_use, assigned + 1))
-                elif free_list:
+                elif len(free_list) >= 2:
                     phys = free_list.pop()
-                    if phys % 2 == 1 and phys < self.MAX_GPR:
+                    if phys % 2 == 1 and phys > 0:
                         phys -= 1
-                    if phys >= 0 and phys + 1 <= self.MAX_GPR:
+                    if phys > 0 and phys % 2 == 0 and phys + 1 <= self.MAX_GPR:
                         mapping[vreg] = phys
                         active.append((lr.last_use, phys))
                         active.append((lr.last_use, phys + 1))
@@ -97,11 +102,14 @@ class LinearScanRegisterAllocationPass:
         pred_free = list(range(self.MAX_PRED + 1))
         pred_active: list[tuple[int, int]] = []
         for pred_name, lr in sorted(pred_ranges.items(), key=lambda kv: kv[1].first_def):
-            pred_active = [(end, p) for end, p in pred_active if end >= lr.first_def]
-            for end, p in list(pred_active):
+            pred_name = pred_name.split("#")[0]
+            still_active = []
+            for end, p in pred_active:
                 if end < lr.first_def:
                     pred_free.append(p)
-                    pred_active.remove((end, p))
+                else:
+                    still_active.append((end, p))
+            pred_active = still_active
             if pred_free:
                 p = pred_free.pop()
                 pred_mapping[pred_name] = p

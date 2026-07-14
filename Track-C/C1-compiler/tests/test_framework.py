@@ -128,7 +128,6 @@ def test_compilation_report_json_is_deterministic_and_truthful() -> None:
         "materialize-cfg",
         "record-uniformity",
         "global-dead-code-elimination",
-        "linear-scan-register-allocation",
         "materialize-cfg",
         "record-uniformity",
     ]

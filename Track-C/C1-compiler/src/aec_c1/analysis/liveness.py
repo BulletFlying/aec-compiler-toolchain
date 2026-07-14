@@ -1,8 +1,8 @@
 """Liveness analysis for virtual registers in PTX programs.
 
-Computes live ranges per virtual register: first definition and last use
-instruction indices. Used by the register allocator to compute interference
-and guide allocation decisions.
+Computes live ranges per virtual register definition.  Registers with
+multiple definitions (e.g. loop counters) are split into separate live
+ranges so the register allocator can reuse physical registers correctly.
 """
 
 from __future__ import annotations
@@ -34,18 +34,19 @@ class LiveRange:
 @dataclass
 class LivenessFacts:
     live_ranges: dict[str, LiveRange]
-    # Per-instruction: which registers are live at entry
     live_in: dict[int, frozenset[str]] = field(default_factory=dict)
-    # Per-instruction: which registers are live at exit
     live_out: dict[int, frozenset[str]] = field(default_factory=dict)
 
 
 def analyze_liveness(program: PTXProgram) -> LivenessFacts:
     """Compute live ranges for all virtual registers.
 
-    Uses a backward pass through instructions to compute liveness.
-    For now this is a simple whole-program analysis; CFG-aware liveness
-    can be added when needed.
+    Registers with multiple definitions (e.g. loop counters) are split into
+    separate live ranges per definition: %r3#0 covers the first definition
+    to its last use before the next definition; %r3#1 covers the second
+    definition to its last use; and so on.  This prevents the register
+    allocator from treating multi-def registers as one monolithic live
+    range that overlaps everything.
     """
     ranges: dict[str, LiveRange] = {}
     inst_indices: list[int] = []
@@ -55,24 +56,58 @@ def analyze_liveness(program: PTXProgram) -> LivenessFacts:
             continue
         inst_indices.append(i)
 
-    # Collect all definitions and uses
+    # Collect all definitions and uses per register
+    all_defs: dict[str, list[int]] = {}
+    all_uses: dict[str, list[int]] = {}
+
     for i in inst_indices:
         item = program.items[i]
         assert isinstance(item, PTXInstruction)
 
         dest = _dest_register(item)
         if dest is not None:
-            if dest not in ranges:
-                ranges[dest] = LiveRange(register=dest, first_def=-1, last_use=-1)
-            if ranges[dest].first_def < 0:
-                ranges[dest].first_def = i
-            ranges[dest].definition_indices.append(i)
+            all_defs.setdefault(dest, []).append(i)
 
         for src in _source_registers(item):
-            if src not in ranges:
-                ranges[src] = LiveRange(register=src, first_def=-1, last_use=-1)
-            ranges[src].use_indices.append(i)
-            ranges[src].last_use = max(ranges[src].last_use, i)
+            all_uses.setdefault(src, []).append(i)
+
+    # Build per-definition live ranges
+    for reg_name, def_indices in all_defs.items():
+        uses = sorted(all_uses.get(reg_name, []))
+        for def_num, def_idx in enumerate(def_indices):
+            next_def = (
+                def_indices[def_num + 1]
+                if def_num + 1 < len(def_indices)
+                else max(inst_indices) + 1
+            )
+            last_use = -1
+            use_indices: list[int] = []
+            for u in uses:
+                if def_idx <= u < next_def:
+                    use_indices.append(u)
+                    last_use = max(last_use, u)
+            if last_use < 0:
+                last_use = def_idx
+            key = f"{reg_name}#{def_num}" if len(def_indices) > 1 else reg_name
+            ranges[key] = LiveRange(
+                register=key,
+                first_def=def_idx,
+                last_use=last_use,
+                definition_indices=[def_idx],
+                use_indices=use_indices,
+            )
+
+    # Also capture registers that are only used (parameters, special regs)
+    for reg_name, use_indices in all_uses.items():
+        if reg_name not in all_defs:
+            key = reg_name
+            if key not in ranges:
+                ranges[key] = LiveRange(
+                    register=key,
+                    first_def=-1,
+                    last_use=max(use_indices),
+                    use_indices=sorted(use_indices),
+                )
 
     return LivenessFacts(live_ranges=ranges)
 
@@ -90,14 +125,14 @@ def _source_registers(inst: PTXInstruction) -> list[str]:
     """Return all source registers of an instruction."""
     regs: list[str] = []
     if inst.predicate is not None:
-        regs.append(inst.predicate.strip() if inst.predicate.startswith("%") else f"%{inst.predicate}")
+        predicate = inst.predicate.strip()
+        regs.append(predicate if predicate.startswith("%") else f"%{predicate}")
 
     base = inst.opcode.split(".", 1)[0]
     first_src = 1 if base in {"ld", "mov", "add", "sub", "mul", "mad", "and", "or", "xor", "shl", "shr", "cvt", "fma", "setp"} and inst.operands else 0
 
     for op in inst.operands[first_src:]:
         op = op.strip()
-        # Extract register from [reg] or %reg
         if op.startswith("[") and op.endswith("]"):
             op = op[1:-1].strip()
         if op.startswith("%"):
