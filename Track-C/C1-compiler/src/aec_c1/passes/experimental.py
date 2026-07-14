@@ -40,7 +40,7 @@ class GlobalConstantPropagationPass:
 
     Safety:
     - Never propagates through memory, branches, or predicated instructions.
-    - Requires valid CFG and uniformity analyses.
+    - Requires valid CFG facts from the analysis manager.
     - Invalidates CFG and uniformity after rewriting.
     - Known: may not converge — iteration capped at 20 with warning.
     - Known: apply phase resets at label boundaries only, not unlabeled CFG
@@ -529,7 +529,7 @@ class RepeatedGlobalLoadReusePass:
                 if len(parts) < 3:
                     kept_items.append(item)
                     continue
-                ptx_type = parts[2]
+                ptx_type = parts[-1]  # last segment is always the type
                 dest = item.operands[0].strip()
                 addr_operand = item.operands[1].strip()
                 if addr_operand.startswith("[") and addr_operand.endswith("]"):
