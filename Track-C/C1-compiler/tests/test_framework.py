@@ -124,13 +124,14 @@ def test_compilation_report_json_is_deterministic_and_truthful() -> None:
         "conservative-dead-result-elimination",
         "basic-block-local-cse",
         "local-constant-folding",
+        "repeated-global-load-reuse",
         "materialize-cfg",
         "record-uniformity",
         "global-dead-code-elimination",
         "materialize-cfg",
         "record-uniformity",
     ]
-    assert payload["passes"] == {"constant_folding": True, "cse": True, "dce": True, "scheduler": "none"}
+    assert payload["passes"] == {"constant_folding": True, "cse": True, "dce": True, "load_reuse": True, "scheduler": "none"}
     dead_result_record = payload["pass_records"][1]
     assert dead_result_record["changed"] is True
     assert dead_result_record["details"]["removed_instruction_count"] == 1

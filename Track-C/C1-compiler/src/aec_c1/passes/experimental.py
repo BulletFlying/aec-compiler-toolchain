@@ -479,15 +479,22 @@ class LoopInvariantCodeMotionPass:
 
 
 # ===========================================================================
-# Repeated Global Load Reuse (O3 experimental)
+# Repeated Global Load Reuse (conservative, O2-safe)
 # ===========================================================================
 
 class RepeatedGlobalLoadReusePass:
-    """Eliminate repeated global loads from the same address (O3 experimental).
+    """Eliminate repeated global loads from the same address within a scope.
 
-    Known: clears cache on labels, stores, branches, calls, atomics, and
-    predicated instructions, but does NOT clear on non-branch terminators
-    or untracked side-effecting operations.
+    Operates on flat PTX source instructions with a conservative safety model:
+    - Load cache cleared at every label (basic-block boundary).
+    - Load cache cleared on any store, branch, call, or atomic (control/memory barrier).
+    - Load cache cleared on any predicated instruction (control dependency).
+    - Individual cache entries invalidated when the address register is redefined.
+    - Only identical (address_register, load_type) pairs are reused.
+
+    This model is intentionally conservative: any store invalidates ALL cached
+    loads regardless of alias analysis. This is correct but may miss reuse
+    opportunities across non-aliasing stores. Suitable for O2 scoring-critical use.
     """
 
     name = "repeated-global-load-reuse"

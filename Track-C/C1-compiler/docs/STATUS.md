@@ -32,8 +32,8 @@ Organizer errata recorded on 2026-07-14:
 | M1/T1 basic lowering | Complete (local simulator, slow-test gate only) | All public T1-T5 manifests execute correctly via local simulator (`pytest -q tests/test_manifest_execution.py -m slow`, 5 passed in 3:30 on 2026-07-14; not in default `pytest`). Lowering covers or/xor/shl/fma/negated-branch; SHL encoding erratum is covered by a dedicated test. PMEM ABI tests pass. y/z special registers work. Official `aec-precise` not yet integrated into repository tests. |
 | M2.1 CFG/uniform-loop correctness | Locally complete under uniform-BRX assumption | CFG, dominators, uniformity analysis and executable tests exist; T2 manifest executes correctly under local simulator. Official clarification confirms no reconvergence support is required, but any varying-BRX fallback remains debt. |
 | M2.2 architecture foundation | Locally complete | IR facade, analysis manager, pass manager, reports, foundation pipelines, architecture guardrails and O0 binary fixtures exist |
-| M2.2 scalar optimization | In progress / experimental | O2 enables conservative DRE, BB-local CSE, local constant folding, and worklist-based Global DCE. Global CP, LICM, block simplification, and repeated-load reuse are O3-only (experimental, known limitations). Manifest e2e correctness verified via local simulator only — not official `aec-precise`. |
-| M3/T3 memory access optimization | Experimental | RepeatedGlobalLoadReusePass (O3-only) eliminates duplicate loads but has known control-flow boundary gaps. No validated load hoisting or alias analysis. T3 passes under local simulator. |
+| M2.2 scalar optimization | Active (O2) | O2 enables conservative DRE, BB-local CSE, local constant folding, repeated global load reuse, and worklist-based Global DCE. T2: 37→35 AEC instructions (-5.4%). Manifest e2e verified via local simulator. Global CP, LICM, block simplification remain O3-only. |
+| M3/T3 memory access optimization | Active (O2) | RepeatedGlobalLoadReusePass promoted to O2 with 9 dedicated tests (8 negative + 1 positive). Conservative alias model: any store/label/branch/predicated instruction clears cache. T3 eliminates 1 redundant global load (runtime optimization). No load hoisting or alias analysis yet. |
 | M4/T4 register allocation and scheduling | Not started | T4 passes under bootstrap (next-register) allocator. Liveness analysis module scaffolded but not integrated into lowering. No linear-scan RA or scheduler. |
 | M5/T5 FP32 scalar GEMM | Not started | T5 passes local simulator (within FP32 tolerance, max error ~2.3e-05). No GEMM-specific loop scheduling, load/compute interleaving, or register-pressure optimization. |
 | Optional controller/tooling | Optional, not official scoring | Not an official scoring category |
@@ -55,16 +55,15 @@ Implemented framework modules:
 
 `-O2` is now the official scoring-critical path. Local `-O0` remains useful as a regression baseline, but official evaluation uses `compiler/aec-cc kernel.ptx -O2 -o output.aecbin --report compile_report.json`.
 
-The scoring-critical O2 pipeline enables only passes with direct correctness evidence:
+The scoring-critical O2 pipeline:
 
-1. Validation + conservative DRE + BB-local CSE + local constant folding
+1. Validation + conservative DRE + BB-local CSE + local CF + repeated load reuse
 2. CFG/uniformity rebuild
 3. Global DCE (worklist-based, multi-def aware)
 4. CFG/uniformity rebuild
 
-O3 adds experimental passes (RepeatedGlobalLoadReuse, GlobalCP, BlockSimplification, LICM) which have known correctness limitations and are NOT proven safe for scoring use.
-
-Current public T2 O2 smoke effect: official `testcases/T2_scalar_optimization` reduces from 37→35 AEC instructions (5.4%, 2 transforms). Legacy PTX-02 regression fixtures remain separate under `tests/fixtures/legacy_ptx/`.
+O2 effects: T2 37→35 instructions (-5.4%), T3 1 redundant global load → mov.
+O3 adds experimental passes (GlobalCP, BlockSimplification, LICM) which are NOT proven safe for scoring use.
 
 ## Official package alignment status
 

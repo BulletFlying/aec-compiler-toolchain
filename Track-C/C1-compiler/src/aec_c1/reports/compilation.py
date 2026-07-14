@@ -81,6 +81,8 @@ class CompilationReport:
                 spec_passes["constant_folding"] = True
             elif name == "loop-invariant-code-motion":
                 spec_passes["licm"] = True
+            elif name == "repeated-global-load-reuse":
+                spec_passes["load_reuse"] = True
             elif name == "block-simplification":
                 spec_passes["block_merge"] = True
 
@@ -219,7 +221,8 @@ def _report_notes(pass_records: tuple[PassRecord, ...]) -> list[str]:
         )
     if "repeated-global-load-reuse" in pass_names:
         scalar_notes.append(
-            "Repeated global load reuse is enabled (O3 experimental)."
+            "Repeated global load reuse is enabled. "
+            "Uses conservative alias model: any store invalidates all cached loads."
         )
     if "block-simplification" in pass_names:
         scalar_notes.append(

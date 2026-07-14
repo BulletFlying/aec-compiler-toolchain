@@ -19,6 +19,7 @@ from aec_c1.passes.scalar import (
     GlobalConstantPropagationPass,
     GlobalDeadCodeEliminationPass,
     LoopInvariantCodeMotionPass,
+    RepeatedGlobalLoadReusePass,
 )
 from aec_c1.ptx import PTXInstruction, PTXProgram, Parameter, RegisterDecl, parse_ptx
 
@@ -260,3 +261,135 @@ class TestLICM:
         items = module.function.program.items
         all_opcodes = [i.opcode for i in items if isinstance(i, PTXInstruction)]
         assert "ld.global.u32" in all_opcodes
+
+
+# ---------------------------------------------------------------------------
+# Repeated Global Load Reuse tests (negative + positive)
+# ---------------------------------------------------------------------------
+
+
+class TestRepeatedGlobalLoadReuse:
+    def test_reuses_same_addr_same_type_within_block(self) -> None:
+        """Positive: second load from [%rd1] with same type should be replaced."""
+        prog = _make_simple_program([
+            _i("ld.global.f32", "%f1", "[%rd1]"),
+            _i("ld.global.f32", "%f2", "[%rd1]"),
+            _i("st.global.f32", "[%rd2]", "%f2"),
+            _i("ret"),
+        ])
+        result, module = _run_pass(RepeatedGlobalLoadReusePass(), prog)
+        assert result.changed
+        assert result.details["replaced_load_count"] == 1
+
+    def test_no_reuse_across_label_boundary(self) -> None:
+        """Negative: label boundary clears cache — second load must be kept."""
+        prog = _make_simple_program([
+            _i("ld.global.f32", "%f1", "[%rd1]"),
+            "MIDDLE",
+            _i("ld.global.f32", "%f2", "[%rd1]"),
+            _i("st.global.f32", "[%rd2]", "%f2"),
+            _i("ret"),
+        ])
+        result, module = _run_pass(RepeatedGlobalLoadReusePass(), prog)
+        # Cache cleared at label → second load not replaced
+        assert not result.changed or result.details["replaced_load_count"] == 0
+
+    def test_no_reuse_after_store(self) -> None:
+        """Negative: store invalidates cache — subsequent load must be fresh."""
+        prog = _make_simple_program([
+            _i("ld.global.f32", "%f1", "[%rd1]"),
+            _i("st.global.f32", "[%rd3]", "%f1"),
+            _i("ld.global.f32", "%f2", "[%rd1]"),
+            _i("st.global.f32", "[%rd2]", "%f2"),
+            _i("ret"),
+        ])
+        result, module = _run_pass(RepeatedGlobalLoadReusePass(), prog)
+        assert not result.changed or result.details["replaced_load_count"] == 0
+
+    def test_no_reuse_after_predicated_instruction(self) -> None:
+        """Negative: predicated instruction clears cache."""
+        prog = _make_simple_program([
+            _i("ld.global.f32", "%f1", "[%rd1]"),
+            PTXInstruction("add.f32", ("%f3", "%f1", "%f2"), predicate="%p1"),
+            _i("ld.global.f32", "%f2", "[%rd1]"),
+            _i("st.global.f32", "[%rd2]", "%f2"),
+            _i("ret"),
+        ])
+        result, module = _run_pass(RepeatedGlobalLoadReusePass(), prog)
+        assert not result.changed or result.details["replaced_load_count"] == 0
+
+    def test_no_reuse_after_addr_redefinition(self) -> None:
+        """Negative: address register redefined between loads."""
+        prog = _make_simple_program([
+            _i("ld.global.f32", "%f1", "[%rd1]"),
+            _i("add.u64", "%rd1", "%rd1", "%rd2"),
+            _i("ld.global.f32", "%f2", "[%rd1]"),
+            _i("st.global.f32", "[%rd2]", "%f2"),
+            _i("ret"),
+        ])
+        result, module = _run_pass(RepeatedGlobalLoadReusePass(), prog)
+        # add.u64 redefines %rd1 → cache entry for %rd1 removed → second load fresh
+        assert not result.changed or result.details["replaced_load_count"] == 0
+
+    def test_no_reuse_different_type_same_addr(self) -> None:
+        """Negative: different load types from same address — not equivalent."""
+        prog = _make_simple_program([
+            _i("ld.global.f32", "%f1", "[%rd1]"),
+            _i("ld.global.u32", "%r1", "[%rd1]"),
+            _i("st.global.u32", "[%rd2]", "%r1"),
+            _i("ret"),
+        ])
+        result, module = _run_pass(RepeatedGlobalLoadReusePass(), prog)
+        # Different type → different cache key → not replaced
+        assert not result.changed or result.details["replaced_load_count"] == 0
+
+    def test_no_reuse_different_addr_register(self) -> None:
+        """Negative: loads from different address registers — independent."""
+        prog = _make_simple_program([
+            _i("ld.global.f32", "%f1", "[%rd1]"),
+            _i("ld.global.f32", "%f2", "[%rd2]"),
+            _i("st.global.f32", "[%rd3]", "%f1"),
+            _i("st.global.f32", "[%rd4]", "%f2"),
+            _i("ret"),
+        ])
+        result, module = _run_pass(RepeatedGlobalLoadReusePass(), prog)
+        # Different addr regs → different cache keys → both loads kept
+        assert not result.changed or result.details["replaced_load_count"] == 0
+
+    def test_no_reuse_after_branch(self) -> None:
+        """Negative: branch clears cache."""
+        prog = _make_simple_program([
+            _i("ld.global.f32", "%f1", "[%rd1]"),
+            _i("bra", "NEXT"),
+            "NEXT",
+            _i("ld.global.f32", "%f2", "[%rd1]"),
+            _i("st.global.f32", "[%rd2]", "%f2"),
+            _i("ret"),
+        ])
+        result, module = _run_pass(RepeatedGlobalLoadReusePass(), prog)
+        assert not result.changed or result.details["replaced_load_count"] == 0
+
+    def test_t3_pattern_reuse(self) -> None:
+        """Positive: the T3 pattern — ld %f1 [%rd6], ld %f3 [%rd6] reused."""
+        prog = _make_simple_program([
+            _i("ld.global.f32", "%f1", "[%rd6]"),
+            _i("ld.global.f32", "%f2", "[%rd7]"),
+            _i("ld.global.f32", "%f3", "[%rd6]"),
+            _i("ld.global.f32", "%f4", "[%rd8]"),
+            _i("mul.f32", "%f5", "%f1", "%f2"),
+            _i("mul.f32", "%f6", "%f3", "%f4"),
+            _i("add.f32", "%f7", "%f5", "%f6"),
+            _i("st.global.f32", "[%rd9]", "%f7"),
+            _i("ret"),
+        ])
+        result, module = _run_pass(RepeatedGlobalLoadReusePass(), prog)
+        # %f3 should be replaced by mov from %f1
+        assert result.changed
+        assert result.details["replaced_load_count"] == 1
+        items = module.function.program.items
+        mov_count = sum(
+            1 for i in items
+            if isinstance(i, PTXInstruction) and i.opcode == "mov.f32"
+            and i.operands[1] == "%f1"
+        )
+        assert mov_count >= 1, "should have mov.f32 replacing reused load"

@@ -41,6 +41,7 @@ def build_pipeline(opt_level: str) -> PassManager:
                 ConservativeDeadResultEliminationPass(),
                 BasicBlockLocalCSEPass(),
                 LocalConstantFoldingPass(),
+                RepeatedGlobalLoadReusePass(),
                 MaterializeCFGPass(),
                 RecordUniformityPass(),
                 GlobalDeadCodeEliminationPass(),
