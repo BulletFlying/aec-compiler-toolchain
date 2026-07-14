@@ -231,9 +231,6 @@ class Lowerer:
         self._require_operands(inst, 2)
         dest, address = inst.operands
         addr_reg = self._ptx_reg(_strip_brackets(address), is_pair=True)
-        if ptx_type == "u16":
-            self._lower_u16_load(dest, addr_reg)
-            return
         self._emit(
             AECInstruction(
                 "LD",
@@ -244,22 +241,6 @@ class Lowerer:
                 **self._guard(inst),
             )
         )
-
-    def _lower_u16_load(self, dest: str, addr_reg: int) -> None:
-        dest_reg = self._ptx_reg(dest)
-        aligned_addr = self.regs.temp()
-        word = self.regs.temp()
-        shift = self.regs.temp()
-        mask = self._load_imm(0xFFFFFFFC)
-        self._emit(AECInstruction("AND", dtype="u32", dest=aligned_addr, src1=addr_reg, src2=mask))
-        self._emit(AECInstruction("LD", dtype="b32", dest=word, src1=aligned_addr, memory_space="gmem"))
-        two = self._load_imm(2)
-        self._emit(AECInstruction("AND", dtype="u32", dest=shift, src1=addr_reg, src2=two))
-        three = self._load_imm(3)
-        self._emit(AECInstruction("SHL", dtype="u32", dest=shift, src1=shift, src2=three))
-        self._emit(AECInstruction("SHR", dtype="u32", dest=dest_reg, src1=word, src2=shift))
-        low_half = self._load_imm(0xFFFF)
-        self._emit(AECInstruction("AND", dtype="u32", dest=dest_reg, src1=dest_reg, src2=low_half))
 
     def _lower_st_global(self, inst: PTXInstruction, ptx_type: str) -> None:
         self._require_operands(inst, 2)

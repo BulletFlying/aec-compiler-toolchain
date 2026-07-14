@@ -122,50 +122,7 @@ TRACK_B_V1 = ISAProfile(
 )
 
 
-C2_B3_V2 = ISAProfile(
-    name="c2_b3_v2",
-    opcodes={
-        **{k: v for k, v in TRACK_B_V1.opcodes.items() if k not in {"LOADI", "CPY", "LOADI64", "CVTFF", "CVTFI", "CVTIF", "CVTII"}},
-        "LOADI": 0x0050,
-        "CPY": 0x0051,
-        "LOADI64": 0x0052,
-        "CVTFF": 0x0053,
-        "CVTFI": 0x0054,
-        "CVTIF": 0x0055,
-        "CVTII": 0x0056,
-        "TMUL": 0x0060,
-        "TMUL_S": 0x0061,
-        "TLDA": 0x0062,
-        "TSTA": 0x0063,
-        "TMOV": 0x0064,
-        "TDUP": 0x0065,
-    },
-    types={
-        "f32": 0,
-        "f64": 1,
-        "f16": 2,
-        "bf16": 3,
-        "f8e4m3": 4,
-        "f8e5m2": 5,
-        "f4e2m1": 6,
-        "s32": 7,
-        "u32": 8,
-        "s8": 9,
-        "u8": 10,
-        "s4": 11,
-        "u4": 12,
-        "b32": 13,
-        "b64": 14,
-        "none": 15,
-    },
-    memory_spaces=TRACK_B_V1.memory_spaces,
-    compare_ops=TRACK_B_V1.compare_ops,
-    special_registers=TRACK_B_V1.special_registers,
-    supports_tensor=True,
-)
-
-
-PROFILES = {TRACK_B_V1.name: TRACK_B_V1, C2_B3_V2.name: C2_B3_V2}
+PROFILES = {TRACK_B_V1.name: TRACK_B_V1}
 
 PRED_ENABLE = 0x8000
 PRED_NEGATE = 0x4000
