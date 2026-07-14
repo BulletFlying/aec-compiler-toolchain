@@ -1,32 +1,30 @@
-# OS files
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-*~
 
+!*.sha256
+# Archives (keep only .tar.gz sha256)
 # Build artifacts
-*.o
-*.so
+# IDE files
+# OS files
+# Temporary files
 *.a
+*.bak
+*.egg-info/
+*.iml
+*.log
+*.o
 *.pyc
-__pycache__/
+*.so
+*.swo
+*.swp
+*.tar.gz
+*.tmp
+*.zip
+*~
+.DS_Store
+.idea/
+.local/
 .pytest_cache/
+.vscode/
+__pycache__/
 build/
 dist/
-*.egg-info/
-
-# IDE files
-.vscode/
-.idea/
-*.iml
-
-# Archives (keep only .tar.gz sha256)
-*.tar.gz
-*.zip
-!*.sha256
-
-# Temporary files
-*.log
-*.tmp
-*.bak
+Thumbs.db
