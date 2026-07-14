@@ -53,7 +53,7 @@ def test_ptx02_o2_and_o3_remove_one_duplicate_expression_after_dre() -> None:
     # O2: DRE(1) + CSE(1) = 2
     assert _pass_record(optimized_o2, DRE_PASS_NAME).details["transforms_applied"] == 1
     assert _pass_record(optimized_o2, CSE_PASS_NAME).details["transforms_applied"] == 1
-    assert optimized_o2.report.metrics["optimization_transforms_applied"] == 2
+    assert optimized_o2.report.metrics["optimization_transforms_applied"] == 2  # DRE+CSE
 
     # O3: same base transforms plus experimental passes (e.g. LICM may hoist)
     assert _pass_record(optimized_o3, DRE_PASS_NAME).details["transforms_applied"] == 1

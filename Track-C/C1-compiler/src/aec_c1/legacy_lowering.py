@@ -92,14 +92,18 @@ class ControlPlan:
 
 
 class RegisterAllocator:
-    def __init__(self) -> None:
+    def __init__(self, pre_mapping: dict[str, int] | None = None) -> None:
         self._next = 1
-        self._mapping: dict[str, int] = {}
+        self._mapping: dict[str, int] = dict(pre_mapping) if pre_mapping else {}
+        self._pre_mapping = pre_mapping or {}
         self._temp_next = 240
 
     def reg(self, token: str, is_pair: bool = False) -> int:
         token = token.strip()
-        if token not in self._mapping:
+        if token in self._mapping:
+            return self._mapping[token]
+        # If pre-mapping was provided, fall back to bootstrap for unmapped regs
+        if not self._pre_mapping:
             if is_pair and self._next % 2 == 1:
                 self._next += 1
             width = 2 if is_pair else 1
@@ -107,6 +111,15 @@ class RegisterAllocator:
                 raise CompileError("bootstrap allocator ran out of registers")
             self._mapping[token] = self._next
             self._next += width
+            return self._mapping[token]
+        # With pre-mapping: fallback to next-reg for unmapped
+        if is_pair and self._next % 2 == 1:
+            self._next += 1
+        width = 2 if is_pair else 1
+        if self._next + width - 1 >= 240:
+            raise CompileError("allocator ran out of registers")
+        self._mapping[token] = self._next
+        self._next += width
         return self._mapping[token]
 
     def temp(self) -> int:
@@ -121,10 +134,11 @@ class RegisterAllocator:
 
 
 class Lowerer:
-    def __init__(self, program: PTXProgram, profile: ISAProfile = TRACK_B_V1) -> None:
+    def __init__(self, program: PTXProgram, profile: ISAProfile = TRACK_B_V1,
+                 register_mapping: dict[str, int] | None = None) -> None:
         self.program = program
         self.profile = profile
-        self.regs = RegisterAllocator()
+        self.regs = RegisterAllocator(pre_mapping=register_mapping)
         self.instructions: list[AECInstruction] = []
         self.labels: dict[str, int] = {}
         self.pending_branches: list[tuple[int, str]] = []

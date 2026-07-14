@@ -43,7 +43,9 @@ def compile_ptx_detailed(
 
     # The pass-updated IR program is authoritative for lowering. O0 leaves it
     # unchanged; O2/O3 may apply explicitly recorded conservative transforms.
-    lowered = Lowerer(module.function.program, profile=profile).lower()
+    reg_mapping = module.metadata.get("register_mapping")
+    lowered = Lowerer(module.function.program, profile=profile,
+                      register_mapping=reg_mapping).lower()
     report = CompilationReport(
         input=input_name,
         output=output_name,

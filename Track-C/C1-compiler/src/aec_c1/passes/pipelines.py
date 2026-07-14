@@ -14,6 +14,7 @@ from .foundation import (
     ValidateProgramPass,
 )
 from .manager import PassManager
+from .register_allocation import LinearScanRegisterAllocationPass
 from .scalar import (
     BasicBlockLocalCSEPass,
     BlockSimplificationPass,
@@ -45,6 +46,7 @@ def build_pipeline(opt_level: str) -> PassManager:
                 MaterializeCFGPass(),
                 RecordUniformityPass(),
                 GlobalDeadCodeEliminationPass(),
+                LinearScanRegisterAllocationPass(),
                 MaterializeCFGPass(),
                 RecordUniformityPass(),
             ],
