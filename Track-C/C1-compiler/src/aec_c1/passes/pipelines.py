@@ -36,13 +36,16 @@ def build_pipeline(opt_level: str) -> PassManager:
             [ValidateProgramPass(), MaterializeCFGPass()],
         )
     if opt_level == "2":
-        # O2 pipeline (M2-M5 complete):
+        # O2 pipeline (M2-M5 complete, loop-aware RA 2026-07-14):
         #   Validate → DRE → CSE → LocalCF → GlobalCP → LoadReuse
         #   → CFG → Uniformity → GlobalDCE → LoopAnalysis → LICM
         #   → CFG → Uniformity → BlockSimp → CFG → LoadHoisting(M3)
         #   → CFG → Uniformity → LoopUnrolling(M5) → CFG → Uniformity
-        #   → LinearScanRA(M4) → CFG → Uniformity
+        #   → LinearScanRA(M4, loop-aware) → CFG → Uniformity
         #   → [post-lowering: Scheduler(M4)]
+        #
+        # The RA extends loop-used register live ranges to the loop tail
+        # to prevent physical-register reuse across back edges.
         return PassManager(
             "O2-conservative-scalar",
             [

@@ -71,7 +71,14 @@ def analyze_liveness(program: PTXProgram) -> LivenessFacts:
         for src in _source_registers(item):
             all_uses.setdefault(src, []).append(i)
 
-    # Build per-definition live ranges
+    # Build per-definition live ranges.
+    #
+    # When an instruction both reads and writes the same register
+    # (e.g.  add.f32 %f1, %f1, %f4) the read logically precedes the
+    # write and belongs to the *previous* definition's live range.
+    # We therefore use an inclusive upper bound for the old range
+    # (u <= next_def) and an exclusive lower bound for the new range
+    # (u > def_idx).
     for reg_name, def_indices in all_defs.items():
         uses = sorted(all_uses.get(reg_name, []))
         for def_num, def_idx in enumerate(def_indices):
@@ -82,10 +89,20 @@ def analyze_liveness(program: PTXProgram) -> LivenessFacts:
             )
             last_use = -1
             use_indices: list[int] = []
-            for u in uses:
-                if def_idx <= u < next_def:
-                    use_indices.append(u)
-                    last_use = max(last_use, u)
+            if def_num == 0:
+                # First definition: include uses up to and including the
+                # next definition (captures RMW reads at the re-def site).
+                for u in uses:
+                    if def_idx <= u <= next_def:
+                        use_indices.append(u)
+                        last_use = max(last_use, u)
+            else:
+                # Subsequent definition: the use at def_idx itself reads
+                # the *previous* value, so exclude it from this range.
+                for u in uses:
+                    if def_idx < u < next_def:
+                        use_indices.append(u)
+                        last_use = max(last_use, u)
             if last_use < 0:
                 last_use = def_idx
             key = f"{reg_name}#{def_num}" if len(def_indices) > 1 else reg_name

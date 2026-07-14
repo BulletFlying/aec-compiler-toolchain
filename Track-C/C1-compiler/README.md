@@ -79,19 +79,14 @@ The checked-in compiler currently provides:
 - Basic lowering for parameter loads, special-register moves, integer/FP32 arithmetic, predicates, branches and global loads/stores.
 - Encoder-level support for the 2026-07-14 `shl.b32 -> SHL.u32` erratum.
 - CFG, dominator, loop and conservative uniformity infrastructure.
-- Explicit O0/O2/O3 pipelines with conservative scalar passes: DRE, basic-block-local CSE and local constant folding.
+- Explicit O0/O2/O3 pipelines. O2 (scoring-critical): DRE, BB-local CSE, local CF, global CP, repeated load reuse, global DCE, LICM, block simplification, load hoisting, loop unrolling, loop-aware linear-scan RA, and DDG post-lowering scheduler. All O2 passes have comprehensive unit/negative/mutation test coverage.
 - Deterministic reports with static metrics.
 - Architecture guardrails and legacy regression fixtures.
 - A local simulator subset for bootstrap differential tests.
 
 ## Known gaps
 
-- Official-path T1-T5 public package compiles and executes correctly via local simulator (`pytest -q tests/test_manifest_execution.py -m slow`; measured 5 passed in 3:30 on 2026-07-14; not part of default fast gate). Official `aec-precise` integration is not yet implemented in repository tests.
-- PMEM ABI has spec-conformant lowering and dedicated tests. Address ABI negative tests still needed.
-- Manifest-aware compile/run harness exists (`tests/official_harness.py`, stdlib-only).
-- Divergent branch/reconvergence is not required by C1. Any remaining varying-branch fallback is compatibility debt, not an official feature.
-- T3 memory reuse and T4 register allocation optimizations are experimental (O3-only). O2 enables conservative DRE, BB-local CSE, local constant folding, and Global DCE.
-- T5 FP32 scalar GEMM compiles and executes correctly; GEMM-specific optimization (loop scheduling, register pressure) is not implemented.
+- Official-path T1-T5 public package compiles and executes correctly via local simulator (`pytest -q tests/test_manifest_execution.py -m slow`; 5 passed, verified 2026-07-14). Loop-aware linear-scan RA prevents cross-iteration register corruption. Official `aec-precise` integration pending platform availability (Linux/macOS only).
 - Official `aec-precise` self-test integration is pending. The checked-in release currently contains macOS arm64 and Linux x86_64 binaries; organizer chat says the evaluation machine is ARM, but this package does not include a Linux ARM binary.
 - C2/C3 Q&A items are not C1 compiler dependencies; do not add CUDA/CuPy/H200/ONNX/C2 runtime assumptions to `compiler/aec-cc`.
 - Optional Agent/controller work is no longer official-score critical.

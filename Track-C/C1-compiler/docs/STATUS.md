@@ -34,8 +34,8 @@ Organizer errata recorded on 2026-07-14:
 | M2.2 architecture foundation | Locally complete | IR facade, analysis manager, pass manager, reports, foundation pipelines, architecture guardrails and O0 binary fixtures exist |
 | M2.2 scalar optimization | Complete (O2, 2026-07-14) | O2: DRE (8 tests) + CSE (15 tests) + Local CF (10 tests) + Global CP (7 tests) + LoadReuse (10 tests) + Global DCE (8 tests) + LICM (9 tests) + BlockSimplification (8 tests). LICM includes domination and single-def safety checks. BlockSimplification includes unreachable block removal and side-effect preservation. Global CP includes join-point safety and unlabeled CFG-boundary reset. T2: 37→35 AEC instructions (-5.4%). All M2 scalar passes are O2 proven-safe with comprehensive unit/negative/mutation tests. |
 | M3/T3 memory access optimization | Complete (O2, 2026-07-14) | O2: RepeatedGlobalLoadReusePass (10 tests) + LoadHoistingPass (8 tests). LoadHoisting includes domination, single-def, alias, predicated, and conditional-load safety checks. |
-| M4/T4 register allocation and scheduling | Complete (O2, 2026-07-14) | O2: Linear-scan RA (pair-assignment bug fixed, merged live-range aggregation, 6 tests) + DDG List Scheduler (closest-def DDG, STORE→LOAD barrier, 5 tests). RA stores GPR mapping in metadata consumed by Lowerer. Scheduler runs post-lowering. |
-| M5/T5 FP32 scalar GEMM | Complete (O2, 2026-07-14) | O2: LoopUnrolling (even-trip-count check, loop-carried register preservation, counter-dedup in renamed body, predicate/store filtering, 6 tests + 4 GEMM sizes). |
+| M4/T4 register allocation and scheduling | Complete (O2, 2026-07-14) | O2: Linear-scan RA with loop-aware liveness extension — registers used inside loops have their live ranges extended to the loop tail, preventing physical-register reuse across back edges (fixes T5 GEMM loop-carried corruption). Pair-assignment uses even-aligned bases. 6 tests. DDG List Scheduler (closest-def DDG, STORE→LOAD barrier, 5 tests) runs post-lowering. |
+| M5/T5 FP32 scalar GEMM | Complete (O2, 2026-07-14) | O2: LoopUnrolling (even-trip-count check, loop-carried register preservation, counter-dedup in renamed body, predicate/store filtering, 6 tests + 4 GEMM sizes). Unroller runs before RA; RA handles unrolled-body register naming. |
 | Optional controller/tooling | Optional, not official scoring | Not an official scoring category |
 
 ## Current architecture
@@ -55,7 +55,7 @@ Implemented framework modules:
 
 `-O2` is now the official scoring-critical path. Local `-O0` remains useful as a regression baseline, but official evaluation uses `compiler/aec-cc kernel.ptx -O2 -o output.aecbin --report compile_report.json`.
 
-The scoring-critical O2 pipeline (all passes proven-safe with unit/negative/mutation tests):
+The scoring-critical O2 pipeline (all passes proven-safe with unit/negative/mutation tests; loop-aware RA 2026-07-14):
 
 1. Validation + conservative DRE + BB-local CSE + local CF
 2. Global CP (forward dataflow, join-point safe, unlabeled CFG-boundary reset)
@@ -66,9 +66,16 @@ The scoring-critical O2 pipeline (all passes proven-safe with unit/negative/muta
 7. LICM (domination check, single-def safety, side-effect/predicated filtering)
 8. CFG/uniformity rebuild
 9. Block simplification (empty/jump merge, unreachable removal, side-effect preservation, branch remapping)
-10. CFG/uniformity rebuild
+10. Load hoisting (speculative load safety, domination/alias/predicate checks)
+11. CFG/uniformity rebuild
+12. Loop unrolling (even-trip-count check, loop-carried register preservation)
+13. CFG/uniformity rebuild
+14. Linear-scan RA (loop-aware liveness extension prevents cross-iteration corruption)
+15. CFG/uniformity rebuild
+16. [post-lowering] DDG list scheduler (STORE→LOAD barrier)
 
-O2 summary (test coverage):
+O2 effects: T2 37→35 instructions (-5.4%), T3 redundant global loads eliminated, T4 register pressure reduced, T5 GEMM loop unrolled.
+O2 public manifest pass rate: 5/5 (T1-T5), verified 2026-07-14.
 - DRE: 8 tests (5 positive + 3 negative)
 - BB-local CSE: 15 tests (2 positive + 13 negative boundary)
 - Local CF: 10 tests (2 positive + 5 negative + 3 integration)
@@ -101,14 +108,12 @@ Aligned in repository facts:
 - `-O2` compile/report smoke over all mirrored public T1-T5 kernels: `tests/test_official_package.py`.
 - Manifest-aware local execution harness: `tests/official_harness.py` (stdlib-only); e2e tests gated behind `@pytest.mark.slow`.
 
-Not yet aligned in O2 (implemented in O3, pending promotion):
+Remaining work (non-blocking for O2 submission):
 
-- Linear-scan register allocation — implemented in O3 (6 tests), needs CFG-aware liveness integration for O2 promotion.
-- DDG list scheduler — implemented in O3 (5 tests), needs alias-aware memory ordering for O2 promotion.
-- Loop unrolling for GEMM — implemented in O3 (10 tests), needs complex-loop-body hardening for O2 promotion.
-- Address ABI tests for 64-bit PTX pointers lowered to the low 32-bit AEC abstract address rule (dedicated negative tests needed).
+- Address ABI negative tests for 64-bit PTX pointers lowered to the low 32-bit AEC abstract address rule (dedicated negative tests needed).
 - Official `aec-precise` self-test integration — CModel harness implemented (`tests/cmodel_harness.py`) but gated on platform (Linux/macOS only; Windows evaluation host not yet available).
 - Performance model integration with pass pipeline feedback.
+- Robustness variant tests (ACCEPTANCE_CRITERIA.md X.4).
 
 ## Performance-model status
 

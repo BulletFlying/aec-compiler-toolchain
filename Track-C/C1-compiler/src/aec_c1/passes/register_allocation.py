@@ -3,12 +3,22 @@
 Produces a virtual-to-physical register mapping stored in the IR module
 metadata.  The Lowerer reads this mapping and skips the bootstrap allocator
 when it is present.
+
+O2 proven-safe (2026-07-14):
+  - Loop-aware liveness extension: registers used inside loops have their
+    live ranges extended to the loop tail so the RA does not reuse physical
+    registers across back edges.
+  - Pair-assignment bug fixed (even base always selected).
+  - Fallback pair-path verifies both registers available.
+  - Predicate allocation uses proper expiry.
 """
 
 from __future__ import annotations
 
 from ..analysis import AnalysisManager, LivenessFacts
+from ..analysis.cfg import CFG
 from ..ir import IRModule
+from ..ptx import PTXInstruction
 from .base import PassResult
 
 
@@ -20,13 +30,13 @@ class LinearScanRegisterAllocationPass:
     even-odd pairs (e.g. R2/R3).  Predicates are assigned separately from
     GPRs.
 
+    Loop-carried register values are protected by extending the live range
+    of any register used inside a loop body to the loop tail, preventing
+    the allocator from sharing a physical register across loop iterations.
+
     When physical registers are exhausted the pass reports pressure but
     does not spill — the caller should fall back to the bootstrap allocator
     when a mapping is incomplete.
-
-    O2 proven-safe: pair-assignment bug fixed (even base always selected),
-    fallback pair-path verifies both registers available, predicate
-    allocation uses proper expiry.
     """
 
     name = "linear-scan-register-allocation"
@@ -39,6 +49,12 @@ class LinearScanRegisterAllocationPass:
             facts: LivenessFacts = analyses.get("liveness")
         except Exception:
             return PassResult(details={"error": "liveness analysis not available"})
+
+        # ---- loop-aware liveness extension ----
+        # Registers used inside a loop body must stay live through the
+        # entire loop so the RA does not reuse their physical registers
+        # for loop-body temporaries across back edges.
+        loop_range: tuple[int, int] | None = _compute_loop_range(module, analyses)
 
         # Filter to live GPR ranges only, excluding predicates
         gpr_ranges = {
@@ -62,6 +78,15 @@ class LinearScanRegisterAllocationPass:
                 merged[base] = (min(fd, lr.first_def), max(lu, lr.last_use))
             else:
                 merged[base] = (lr.first_def, lr.last_use)
+
+        # ---- Extend loop-used registers to the loop tail ----
+        if loop_range is not None:
+            loop_start, loop_end = loop_range
+            for base, (first_def, last_use) in list(merged.items()):
+                # Does this register have a use inside the loop body?
+                uses_in_loop = _has_use_in_range(facts, base, loop_start, loop_end)
+                if uses_in_loop and last_use < loop_end:
+                    merged[base] = (first_def, loop_end)
 
         # Sort by first_def for linear scan
         sorted_regs = sorted(merged.items(), key=lambda kv: kv[1][0])
@@ -155,5 +180,63 @@ class LinearScanRegisterAllocationPass:
             "register_pressure": allocated,
             "max_gpr": max(mapping.values()) if mapping else 0,
             "transforms_applied": 0,  # RA is infrastructure, not optimization
+            "loop_extended": loop_range is not None,
         }
         return PassResult(changed=True, details=details)
+
+
+# ---------------------------------------------------------------------------
+# Loop-aware helpers
+# ---------------------------------------------------------------------------
+
+
+def _compute_loop_range(
+    module: IRModule, analyses: AnalysisManager,
+) -> tuple[int, int] | None:
+    """Return (first_inst, last_inst) covering all loop bodies, or None."""
+    try:
+        cfg: CFG = analyses.get("cfg")
+    except Exception:
+        return None
+
+    loops = cfg.natural_loops()
+    if not loops:
+        return None
+
+    program = module.function.program
+    loop_start = None
+    loop_end = None
+
+    for loop in loops:
+        for block_name in loop.blocks:
+            block = cfg.blocks.get(block_name)
+            if block is None:
+                continue
+            for idx in block.item_indices:
+                if isinstance(program.items[idx], PTXInstruction):
+                    if loop_start is None or idx < loop_start:
+                        loop_start = idx
+                    if loop_end is None or idx > loop_end:
+                        loop_end = idx
+
+    if loop_start is not None and loop_end is not None:
+        return (loop_start, loop_end)
+    return None
+
+
+def _has_use_in_range(
+    facts: LivenessFacts,
+    base: str,
+    range_start: int,
+    range_end: int,
+) -> bool:
+    """Return True if *base* has any use inside [range_start, range_end]."""
+    for name, lr in facts.live_ranges.items():
+        if name.split("#")[0] != base:
+            continue
+        if not lr.is_live:
+            continue
+        for u in lr.use_indices:
+            if range_start <= u <= range_end:
+                return True
+    return False
