@@ -230,7 +230,7 @@ def encode_instruction(inst: AECInstruction, profile: ISAProfile = C1_DEFAULT) -
     if opcode_name == "BRX":
         if inst.predicate is None:
             raise EncodeError("BRX requires a predicate")
-        pred_ctrl |= inst.predicate & 0x7
+        pred_ctrl |= PRED_ENABLE | (inst.predicate & 0x7)
         if inst.predicate_negated:
             pred_ctrl |= PRED_NEGATE
     elif inst.predicate is not None:
@@ -272,6 +272,10 @@ def _instruction_encoding_type(opcode_name: str, dtype: str) -> str:
     # field and does not change the bit-level shift result.
     if opcode_name == "SHL" and dtype == "b32":
         return "u32"
+    # LOADI / LOADI64 must always encode with type .none per AEC ISA spec.
+    # Other control-flow immediate instructions (BR, BRX) also use .none.
+    if opcode_name in {"LOADI", "LOADI64", "BR", "BRX"}:
+        return "none"
     return dtype
 
 

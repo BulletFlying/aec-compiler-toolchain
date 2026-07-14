@@ -8,9 +8,15 @@
     "change_note": "ld.param.u64 now lowered as two LD.pmem.u32 per spec 7.4"
   },
   "PTX-01_vector_add.ptx": {
-    "sha256": "b8f297e1e341bedc57375680274209b5b1da003b180eb4e0acda77c0a2e455b7"
+    "sha256": "0ec8f43e58711299cbe3a8a5cb51e9fdb7e0e5c3599affc93a6467a8a05fb4b6"
   },
   "PTX-02_invariant_poly.ptx": {
-    "sha256": "dbf74448d3439e75caedd16c06c7f0fec5a3ccf34e69df31409feb00ac3c4c10"
+    "sha256": "8d6d02ebe96cdae9ea1199161e12e79dc00d7037e5151e2635830a061051a070"
+  },
+  "PTX-03_repeated_reuse.ptx": {
+    "sha256": "ab7eea102f6615c92b96e035e69b6805e1f569c39b4f277e6a3f8e5c77bfe629"
+  },
+  "PTX-04_reg_schedule.ptx": {
+    "sha256": "f054b9f3b9f82472c23f041b689aa7f273bf02f47644151b63bf6c9090958e37"
   }
 }
