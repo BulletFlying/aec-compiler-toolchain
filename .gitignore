@@ -28,3 +28,4 @@ __pycache__/
 build/
 dist/
 Thumbs.db
+!dist/c1.zip
