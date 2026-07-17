@@ -1,4 +1,4 @@
-"""O2 scoring-critical local scalar passes: DRE, CSE, constant folding."""
+"""O2 production local scalar passes: DRE, CSE, constant folding."""
 
 from __future__ import annotations
 
