@@ -34,7 +34,7 @@ class RepeatedGlobalLoadReusePass:
 
     This model is intentionally conservative: any store invalidates ALL cached
     loads regardless of alias analysis. This is correct but may miss reuse
-    opportunities across non-aliasing stores. Suitable for O2 scoring-critical use.
+    opportunities across non-aliasing stores. Suitable for O2 production use.
     """
 
     name = "repeated-global-load-reuse"

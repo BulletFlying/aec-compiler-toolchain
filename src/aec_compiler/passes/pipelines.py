@@ -1,8 +1,8 @@
 """Named pass pipelines selected by the public optimization level.
 
-O2 is scoring-critical: only passes with proven correctness (unit, negative,
-and manifest e2e coverage) are enabled. O3 enables experimental passes that
-may improve performance but carry higher miscompile risk.
+O2 is the production default: only passes with proven correctness (unit,
+negative, and manifest e2e coverage) are enabled. O3 enables experimental
+passes that may improve performance but carry higher miscompile risk.
 """
 
 from __future__ import annotations
@@ -79,7 +79,7 @@ def build_pipeline(opt_level: str) -> PassManager:
     if opt_level == "3":
         # Experimental: adds LICM, global CP, load reuse, and block simplification
         # on top of the O2 baseline. These passes have known limitations and are
-        # NOT proven safe for scoring-critical use.
+        # NOT proven safe for production use — experimental only.
         return PassManager(
             "O3-experimental",
             [

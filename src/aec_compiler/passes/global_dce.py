@@ -1,4 +1,4 @@
-"""Worklist-based global dead code elimination (O2 scoring-critical)."""
+"""Worklist-based global dead code elimination (O2 production)."""
 
 from __future__ import annotations
 
