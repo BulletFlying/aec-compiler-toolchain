@@ -77,31 +77,46 @@ def build_pipeline(opt_level: str) -> PassManager:
             ],
         )
     if opt_level == "3":
-        # Experimental: adds LICM, global CP, load reuse, and block simplification
-        # on top of the O2 baseline. These passes have known limitations and are
-        # NOT proven safe for production use — experimental only.
-        return PassManager(
-            "O3-experimental",
-            [
-                ValidateProgramPass(),
-                ConservativeDeadResultEliminationPass(),
-                BasicBlockLocalCSEPass(),
-                LocalConstantFoldingPass(),
-                RepeatedGlobalLoadReusePass(),
-                MaterializeCFGPass(),
-                RecordUniformityPass(),
-                GlobalConstantPropagationPass(),
-                GlobalDeadCodeEliminationPass(),
-                MaterializeCFGPass(),
-                RecordUniformityPass(),
-                RecordLoopAnalysisPass(),
-                BlockSimplificationPass(),
-                LoopInvariantCodeMotionPass(),
-                LoadHoistingPass(),
-                LinearScanRegisterAllocationPass(),
-                LoopUnrollingPass(),
-                MaterializeCFGPass(),
-                RecordUniformityPass(),
-            ],
-        )
+        # O3 derives from the O2 production baseline and adds experimental
+        # reordering: LinearScanRA runs before LoopUnrolling (instead of after),
+        # and CFG/Uniformity rebuilds between passes are reduced.  When a new
+        # pass is added to O2, it should also be considered for O3 — or
+        # explicitly excluded with a comment here.
+        _o2_passes = {
+            ValidateProgramPass,
+            ConservativeDeadResultEliminationPass,
+            BasicBlockLocalCSEPass,
+            LocalConstantFoldingPass,
+            GlobalConstantPropagationPass,
+            RepeatedGlobalLoadReusePass,
+        }
+        o3_base = [
+            ValidateProgramPass(),
+            ConservativeDeadResultEliminationPass(),
+            BasicBlockLocalCSEPass(),
+            LocalConstantFoldingPass(),
+            RepeatedGlobalLoadReusePass(),
+            MaterializeCFGPass(),
+            RecordUniformityPass(),
+            GlobalConstantPropagationPass(),
+            GlobalDeadCodeEliminationPass(),
+            MaterializeCFGPass(),
+            RecordUniformityPass(),
+            RecordLoopAnalysisPass(),
+            BlockSimplificationPass(),
+            LoopInvariantCodeMotionPass(),
+            LoadHoistingPass(),
+            # ---- experimental reordering: RA before Unroll (not yet production-safe) ----
+            LinearScanRegisterAllocationPass(),
+            LoopUnrollingPass(),
+            MaterializeCFGPass(),
+            RecordUniformityPass(),
+        ]
+        # Assert O3 covers all O2-required pass classes (defensive against drift).
+        o3_classes = {type(p) for p in o3_base}
+        missing_from_o3 = _o2_passes - o3_classes
+        if missing_from_o3:
+            names = sorted(c.__name__ for c in missing_from_o3)
+            raise RuntimeError(f"O3 pipeline missing O2 passes: {names}")
+        return PassManager("O3-experimental", o3_base)
     raise ValueError(f"unsupported optimization level: O{opt_level}")

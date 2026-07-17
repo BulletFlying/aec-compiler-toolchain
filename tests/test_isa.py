@@ -80,7 +80,7 @@ def test_loadi64_encode_decode_roundtrip() -> None:
 
 
 def test_c1_default_profile_rejects_non_c1_opcodes() -> None:
-    """Default scoring profile (c1_default) must reject opcodes/types outside C1 spec §4-§5."""
+    """Default ISA profile must reject opcodes/types outside the spec §4-§5."""
     from aec_compiler.isa import C1_DEFAULT, EncodeError
     import pytest as _pytest
 

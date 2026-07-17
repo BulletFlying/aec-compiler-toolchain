@@ -220,7 +220,7 @@ def run_with_cmodel(
     if kernel_name not in ptx_text:
         return {"status": "error", "error": f"kernel '{kernel_name}' not in PTX source"}
 
-    # Compile with C1 scoring profile
+    # Compile with default ISA profile
     try:
         result = compile_ptx_detailed(
             ptx_text, C1_DEFAULT,

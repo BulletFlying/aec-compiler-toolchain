@@ -135,10 +135,15 @@ class LoopUnrollingPass:
             if backedge_branch is None:
                 continue
 
-            # ---- Collect used register numbers to avoid rename conflicts ----
+            # ---- Collect used register numbers from the ENTIRE program to avoid
+            #     rename conflicts.  Must scan all PTX items (not just loop body)
+            #     because registers live outside the loop must not be overwritten
+            #     by unroll-generated names.
             used_nums: set[int] = set()
-            for inst in loop_body:
-                for op in inst.operands:
+            for item in program.items:
+                if isinstance(item, str):
+                    continue
+                for op in item.operands:
                     m = _REG_NUM_RE.match(op.strip().lstrip("[").rstrip("]"))
                     if m:
                         used_nums.add(int(m.group(1)))

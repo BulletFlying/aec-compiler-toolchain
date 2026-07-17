@@ -1,4 +1,4 @@
-"""PMEM ABI conformance tests per official C1 spec Section 7.
+"""PMEM ABI conformance tests per AEC ISA specification §7.
 
 Tests: declaration order, natural alignment, 8-byte block alignment,
 parameter size and padding.

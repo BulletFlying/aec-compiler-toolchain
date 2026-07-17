@@ -250,6 +250,42 @@ class TestLoopUnrolling:
             dupes = {d: c for d, c in Counter(dests).items() if c > 1}
             assert len(dupes) == 0, f"register conflicts in unrolled body: {dupes}"
 
+    def test_unroll_avoids_live_out_register_collision(self) -> None:
+        """Unroll must not reuse a register that is live outside the loop."""
+        # %r52 is defined BEFORE the loop and used AFTER it.
+        # The unroller generates names starting from num+50, so used_nums
+        # must include the full-program scan to avoid picking %r52.
+        prog = _make_simple_program([
+            _i("mov.u32", "%r52", "99"),         # live-in to the region
+            "LOOP",
+            _i("ld.global.f32", "%f1", "[%rd1]"),
+            _i("add.f32", "%f2", "%f1", "%f3"),
+            _i("add.u32", "%r1", "%r1", "1"),
+            _i("setp.lt.u32", "%p1", "%r1", "4"),
+            PTXInstruction("bra", ("LOOP",), predicate="%p1"),
+            _i("st.global.f32", "[%rd2]", "%r52"),  # live-out use
+            _i("ret"),
+        ])
+        result, module = _run_pass(LoopUnrollingPass(), prog)
+        if result.changed:
+            items = module.function.program.items
+            insts = [it for it in items if isinstance(it, PTXInstruction)]
+            r52_writers = [
+                it for it in insts
+                if hasattr(it, "operands") and len(it.operands) > 0
+                and it.operands[0].strip() == "%r52"
+            ]
+            # Only the original mov.u32 should write %r52
+            assert len(r52_writers) == 1, (
+                f"unroll overwrote live-out %r52: {r52_writers}"
+            )
+            # The original value must survive for the st.global after the loop
+            last_use = next(
+                it for it in reversed(insts)
+                if hasattr(it, "operands") and "%r52" in " ".join(it.operands)
+            )
+            assert last_use.opcode.split(".")[0] == "st"
+
 
 # ---------------------------------------------------------------------------
 # GEMM multi-size smoke tests

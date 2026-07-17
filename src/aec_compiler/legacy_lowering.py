@@ -642,24 +642,6 @@ def _loop_backedge_branch_items(cfg: CFG) -> set[int]:
     return branch_items
 
 
-def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="aec-cc")
-    parser.add_argument("input", type=Path)
-    parser.add_argument("-o", "--output", required=True, type=Path)
-    parser.add_argument("-O", "--opt-level", default="0", choices=["0", "2", "3"])
-    parser.add_argument("--profile", choices=sorted(PROFILES), default=C1_DEFAULT.name)
-    args = parser.parse_args(argv)
-
-    try:
-        profile = PROFILES[args.profile]
-        lowered = compile_ptx(args.input.read_text(encoding="utf-8"), profile=profile)
-        write_binary(lowered, args.output, profile)
-    except (OSError, CompileError) as exc:
-        print(f"aec-cc: error: {exc}", file=sys.stderr)
-        return 1
-    return 0
-
-
 def _strip_brackets(token: str) -> str:
     token = token.strip()
     if token.startswith("[") and token.endswith("]"):

@@ -28,15 +28,21 @@ OFFICIAL_CMODEL_BLOBS = {
 }
 
 
-def _git_blob_sha1(path: Path) -> str:
-    """Return the Git blob SHA-1 for *path*, respecting .gitattributes rules."""
-    result = subprocess.run(
-        ["git", "hash-object", "--path=" + str(path.relative_to(ROOT).as_posix()), str(path)],
-        cwd=str(ROOT),
-        capture_output=True,
-        text=True,
-        check=True,
-    )
+def _git_blob_sha1(path: Path) -> str | None:
+    """Return the Git blob SHA-1 for *path*, respecting .gitattributes rules.
+
+    Returns None when git is unavailable — callers should skip the check.
+    """
+    try:
+        result = subprocess.run(
+            ["git", "hash-object", "--path=" + str(path.relative_to(ROOT).as_posix()), str(path)],
+            cwd=str(ROOT),
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+    except (FileNotFoundError, subprocess.CalledProcessError, OSError):
+        return None
     return result.stdout.strip()
 
 
@@ -54,7 +60,10 @@ def test_official_aec_cmodel_release_files_match_current_package(
 ) -> None:
     path = ROOT / relative_path
     assert path.exists()
-    assert _git_blob_sha1(path) == expected_blob
+    actual = _git_blob_sha1(path)
+    if actual is None:
+        pytest.skip("git not available — cannot compute blob SHA-1")
+    assert actual == expected_blob
 
 
 @pytest.mark.parametrize("case_dir", _official_cases(), ids=lambda path: path.name)
@@ -103,7 +112,7 @@ def test_entry_point_shebang_is_valid() -> None:
 
 
 def test_cli_defaults_to_o2(tmp_path: Path) -> None:
-    """Invoking aec-cc without -O should use O2 (scoring default)."""
+    """Invoking aec-cc without -O should default to O2."""
     kernel = OFFICIAL_CASE_ROOT / "T1_basic_lowering" / "kernel.ptx"
     output = tmp_path / "default_o2.aecbin"
     report = tmp_path / "default_o2.json"

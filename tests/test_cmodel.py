@@ -1,6 +1,6 @@
 """CModel integration tests — require aec-precise binary (Linux x86-64 / macOS ARM64 only).
 
-These tests compile each public T1-T5 kernel, execute via the official
+These tests compile each public T1-T5 kernel, execute via the
 aec-precise CModel, and compare dumped output buffers against reference
 computations.  On platforms where the CModel binary cannot run (e.g.
 Windows), every test is skipped with a clear reason.
