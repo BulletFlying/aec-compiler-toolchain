@@ -108,7 +108,7 @@ def _result_uniformity(item: PTXInstruction, values: dict[str, Uniformity], uses
         if source.startswith("%"):
             return _source_uniformity(source, values)
         return Uniformity.UNKNOWN
-    if base in {"add", "sub", "mul", "mad", "and", "shr", "cvt", "setp"}:
+    if base in {"add", "sub", "mul", "mad", "fma", "and", "or", "xor", "shl", "shr", "cvt", "setp"}:
         return merge_uniformity([_operand_uniformity(operand, values) for operand in uses])
     if base == "st":
         return Uniformity.UNKNOWN
@@ -117,7 +117,8 @@ def _result_uniformity(item: PTXInstruction, values: dict[str, Uniformity], uses
 
 def _instruction_dest(item: PTXInstruction) -> str | None:
     base = item.opcode.split(".")[0]
-    if base in {"ld", "mov", "add", "sub", "mul", "mad", "and", "shr", "cvt", "setp"}:
+    if base in {"ld", "mov", "add", "sub", "mul", "mad", "fma",
+                "and", "or", "xor", "shl", "shr", "cvt", "setp"}:
         if item.operands:
             return _normalize_register(item.operands[0])
     return None
@@ -130,7 +131,8 @@ def _instruction_uses(item: PTXInstruction) -> list[str]:
         return [_normalize_operand(operand) for operand in operands[1:]]
     if base == "st":
         return [_normalize_operand(operand) for operand in operands]
-    if base in {"add", "sub", "mul", "mad", "and", "shr", "setp"}:
+    if base in {"add", "sub", "mul", "mad", "fma",
+                "and", "or", "xor", "shl", "shr", "setp"}:
         return [_normalize_operand(operand) for operand in operands[1:]]
     if base == "bra" and item.predicate is not None:
         return [_normalize_predicate(item.predicate)]

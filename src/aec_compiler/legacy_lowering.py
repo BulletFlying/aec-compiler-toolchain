@@ -70,6 +70,12 @@ SPECIAL_MOVE_TYPE = {
 }
 
 
+def _is_pair_register_name(token: str) -> bool:
+    """Return True if *token* names a 64-bit virtual register that occupies two physical GPRs."""
+    token = token.strip()
+    return token.startswith("%rd") or token.startswith("%bd")
+
+
 @dataclass
 class LoweredProgram:
     instructions: list[AECInstruction]
@@ -97,30 +103,42 @@ class RegisterAllocator:
         self._mapping: dict[str, int] = dict(pre_mapping) if pre_mapping else {}
         self._pre_mapping = pre_mapping or {}
         self._temp_next = 240
+        # If a pre-mapping was supplied (e.g. from linear-scan RA), reserve
+        # all already-assigned physical registers so the fallback path never
+        # reuses them.  Register pairs (%rd…, %bd…) occupy two consecutive
+        # physical registers and both must be reserved.
+        self._reserved: set[int] = set()
+        if pre_mapping:
+            for vname, preg in pre_mapping.items():
+                self._reserved.add(preg)
+                if _is_pair_register_name(vname):
+                    self._reserved.add(preg + 1)
+
+    def _allocate(self, width: int) -> int:
+        """Return the next free physical register, skipping reserved slots."""
+        base = self._next
+        while True:
+            # Align even for pair registers
+            if width == 2 and base % 2 == 1:
+                base += 1
+            # Check collision with reserved set
+            needed = {base} if width == 1 else {base, base + 1}
+            if needed.isdisjoint(self._reserved) and max(needed) < 240:
+                self._reserved.update(needed)
+                self._next = base + width
+                return base
+            base += 1
+            if base >= 240:
+                raise CompileError("allocator ran out of registers")
 
     def reg(self, token: str, is_pair: bool = False) -> int:
         token = token.strip()
         if token in self._mapping:
             return self._mapping[token]
-        # If pre-mapping was provided, fall back to bootstrap for unmapped regs
-        if not self._pre_mapping:
-            if is_pair and self._next % 2 == 1:
-                self._next += 1
-            width = 2 if is_pair else 1
-            if self._next + width - 1 >= 240:
-                raise CompileError("bootstrap allocator ran out of registers")
-            self._mapping[token] = self._next
-            self._next += width
-            return self._mapping[token]
-        # With pre-mapping: fallback to next-reg for unmapped
-        if is_pair and self._next % 2 == 1:
-            self._next += 1
         width = 2 if is_pair else 1
-        if self._next + width - 1 >= 240:
-            raise CompileError("allocator ran out of registers")
-        self._mapping[token] = self._next
-        self._next += width
-        return self._mapping[token]
+        allocated = self._allocate(width)
+        self._mapping[token] = allocated
+        return allocated
 
     def temp(self) -> int:
         value = self._temp_next

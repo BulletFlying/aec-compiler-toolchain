@@ -46,14 +46,11 @@ def compile_ptx_detailed(
     reg_mapping = module.metadata.get("register_mapping")
     lowered = Lowerer(module.function.program, profile=profile,
                       register_mapping=reg_mapping).lower()
-    # Post-lowering scheduler
+    # Post-lowering scheduler (fail-closed by default)
     scheduler_warning: str | None = None
     if opt_level in ("2", "3"):
-        try:
-            from .passes.scheduler import schedule_lowered
-            lowered = schedule_lowered(lowered, module)
-        except Exception as exc:
-            scheduler_warning = f"post-lowering scheduler failed: {exc}"
+        from .passes.scheduler import schedule_lowered
+        lowered = schedule_lowered(lowered, module)
     report = CompilationReport(
         input=input_name,
         output=output_name,

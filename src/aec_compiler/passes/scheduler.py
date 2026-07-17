@@ -32,20 +32,27 @@ def _schedule_block(insts: list[AECInstruction]) -> list[AECInstruction]:
         if _has_dest(inst):
             all_def_pos.setdefault(inst.dest, []).append(idx)
 
-    # Build ready set: instructions with all operands defined.
-    # Also add STORE→LOAD barriers: a LOAD after a STORE must not move
-    # before it (conservative alias safety — STORE may alias any LOAD).
+    # Build ready set: instructions with all operands satisfied.
+    #
+    # Dependency model:
+    #   RAW  — def → use        (use must wait for definition)
+    #   WAR  — use → next-def   (write must wait for all prior reads)
+    #   WAW  — def → next-def   (writes to same register stay in order)
+    #   STORE→LOAD barrier      (conservative alias safety)
     ready: list[int] = []
     dep_count: list[int] = []
     dependents: dict[int, list[int]] = {}
 
     last_store_idx: int | None = None
+    last_write_pos: dict[int, int] = {}  # phys_reg -> last write position (WAW)
+    pending_reads: dict[int, list[int]] = {}  # phys_reg -> list of read positions since last write (WAR)
+
     for idx, inst in enumerate(insts):
-        srcs = _source_regs(inst)
         unresolved = 0
-        for s in srcs:
+
+        # ---- RAW: each source depends on the closest preceding definition ----
+        for s in _source_regs(inst):
             defs = all_def_pos.get(s, [])
-            # Find the closest definition before this use.
             closest_def = -1
             for d in defs:
                 if d < idx and d > closest_def:
@@ -53,12 +60,35 @@ def _schedule_block(insts: list[AECInstruction]) -> list[AECInstruction]:
             if closest_def >= 0:
                 unresolved += 1
                 dependents.setdefault(closest_def, []).append(idx)
-        # STORE→LOAD barrier: each LOAD depends on the most recent STORE.
+
+        # ---- WAR: this write must wait for all prior reads since the last
+        #     write to the same register (reads that reference the old value) ----
+        if _has_dest(inst):
+            d = inst.dest
+            for read_pos in pending_reads.get(d, []):
+                unresolved += 1
+                dependents.setdefault(read_pos, []).append(idx)
+            pending_reads[d] = []  # reads before this write are now accounted for
+
+        # ---- WAW: writes to the same register must stay in program order ----
+        if _has_dest(inst):
+            d = inst.dest
+            if d in last_write_pos:
+                unresolved += 1
+                dependents.setdefault(last_write_pos[d], []).append(idx)
+            last_write_pos[d] = idx
+
+        # ---- Track reads of source registers (for WAR edges from later writes) ----
+        for s in _source_regs(inst):
+            pending_reads.setdefault(s, []).append(idx)
+
+        # ---- STORE→LOAD barrier (conservative alias safety) ----
         if kinds[idx] == "LOAD" and last_store_idx is not None:
             unresolved += 1
             dependents.setdefault(last_store_idx, []).append(idx)
         if kinds[idx] == "STORE":
             last_store_idx = idx
+
         dep_count.append(unresolved)
         if unresolved == 0:
             ready.append(idx)
