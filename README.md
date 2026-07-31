@@ -78,7 +78,7 @@ docs/                   — Architecture and development docs
 # Syntax check all Python sources
 python -m compileall -q src compiler disassembler tests
 
-# Run fast test suite (~210 tests)
+# Run fast test suite (~190 tests)
 python -m pytest -q tests
 
 # Run end-to-end manifest tests

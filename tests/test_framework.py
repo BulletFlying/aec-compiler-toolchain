@@ -147,12 +147,12 @@ def test_report_contains_model_facing_static_metrics_without_official_cycle_clai
         text,
         opt_level="3",
         input_name="tests/fixtures/legacy_ptx/PTX-02_invariant_poly.ptx",
-        performance_target="track_c_hint_platform_a",
+        performance_target="aec_hint_platform_a",
     ).report.to_dict()
 
     assert payload["schema_version"] == 1
     assert payload["optimization"] == "O3"
-    assert payload["performance_target"] == "track_c_hint_platform_a"
+    assert payload["performance_target"] == "aec_hint_platform_a"
     assert set(payload["static_metrics"]) == {
         "assumed_warp_lanes",
         "branch_count",
@@ -199,7 +199,7 @@ def test_compile_rejects_unknown_performance_target() -> None:
     with pytest.raises(ValueError, match="unsupported performance target"):
         compile_ptx_detailed(
             _load_ptx("PTX-01_vector_add.ptx"),
-            performance_target="track_c_hint_platform_typo",
+            performance_target="aec_hint_platform_typo",
         )
 
 
@@ -218,7 +218,7 @@ def test_cli_report_is_written_and_repeatable(tmp_path: Path) -> None:
             "-o",
             str(first_binary),
             "--performance-target",
-            "track_c_hint_platform_b",
+            "aec_hint_platform_b",
             "--report",
             str(first_report),
         ]
@@ -231,7 +231,7 @@ def test_cli_report_is_written_and_repeatable(tmp_path: Path) -> None:
             "-o",
             str(second_binary),
             "--performance-target",
-            "track_c_hint_platform_b",
+            "aec_hint_platform_b",
             "--report",
             str(second_report),
         ]
@@ -249,7 +249,7 @@ def test_cli_report_is_written_and_repeatable(tmp_path: Path) -> None:
     payload = first_payload
     assert payload["input"] == input_path.as_posix()
     assert payload["profile"] == C1_DEFAULT.name
-    assert payload["performance_target"] == "track_c_hint_platform_b"
+    assert payload["performance_target"] == "aec_hint_platform_b"
     assert payload["metrics"]["optimization_transforms_applied"] >= 2
     assert "static_metrics" in payload
     assert "cycle_model_metrics" in payload

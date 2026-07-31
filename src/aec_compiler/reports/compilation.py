@@ -23,8 +23,8 @@ CYCLE_MODEL_METRIC_KEYS = (
 
 PERFORMANCE_TARGETS = (
     "aec_slide_constraints",
-    "track_c_hint_platform_a",
-    "track_c_hint_platform_b",
+    "aec_hint_platform_a",
+    "aec_hint_platform_b",
 )
 
 WARP_LANES = 32

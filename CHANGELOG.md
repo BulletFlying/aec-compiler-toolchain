@@ -2,6 +2,13 @@
 
 All notable changes to the AEC Compiler Toolchain.
 
+## [0.2.1] — 2026-07-31
+
+### Changed
+- Report `performance_target` values renamed from `track_c_hint_platform_*` to `aec_hint_platform_*` (removes contest-track naming; CLI `--performance-target` and report JSON updated in lockstep)
+- CI workflow renamed `c1-tests.yml` → `tests.yml`; issue template renamed `c1-module-change.yml` → `module-change.yml`
+- README test-count estimate updated to current suite size
+
 ## [0.2.0] — 2026-07-17
 
 ### Changed
