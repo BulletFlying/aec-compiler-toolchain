@@ -6,7 +6,7 @@ to hide load latency while respecting all data and memory dependencies.
 
 from __future__ import annotations
 
-from dataclasses import replace
+import heapq
 
 from ..analysis import AnalysisManager
 from ..ir import IRModule
@@ -24,13 +24,17 @@ def _schedule_block(insts: list[AECInstruction]) -> list[AECInstruction]:
     # Classify each instruction
     kinds = [_inst_kind(i) for i in insts]
 
-    # Build all def positions per register (sorted).  Temp registers like
-    # R240-R255 are reused by LOADI — the DDG must use the closest
-    # preceding definition, not just the last one.
-    all_def_pos: dict[int, list[int]] = {}
-    for idx, inst in enumerate(insts):
-        if _has_dest(inst):
-            all_def_pos.setdefault(inst.dest, []).append(idx)
+    # Priority: LOAD first, then COMPUTE, then STORE, then CONTROL.
+    # STORES are NOT reordered relative to each other (memory order).
+    def priority(idx: int) -> int:
+        k = kinds[idx]
+        if k == "LOAD":
+            return 0
+        if k == "COMPUTE":
+            return 1
+        if k == "STORE":
+            return 2 + idx  # prevent ST reordering
+        return 1000 + idx  # CONTROL at end, preserve relative order
 
     # Build ready set: instructions with all operands satisfied.
     #
@@ -39,11 +43,16 @@ def _schedule_block(insts: list[AECInstruction]) -> list[AECInstruction]:
     #   WAR  — use → next-def   (write must wait for all prior reads)
     #   WAW  — def → next-def   (writes to same register stay in order)
     #   STORE→LOAD barrier      (conservative alias safety)
-    ready: list[int] = []
+    ready: list[tuple[int, int]] = []  # (priority, index) min-heap
     dep_count: list[int] = []
     dependents: dict[int, list[int]] = {}
 
     last_store_idx: int | None = None
+    # last_def_pos is updated in program order, so it always holds the closest
+    # PRECEDING definition of each register — O(1) RAW lookup.  Temp registers
+    # like R240-R255 are reused by LOADI; tracking only the closest preceding
+    # def per register preserves the same semantics without rescanning def lists.
+    last_def_pos: dict[int, int] = {}
     last_write_pos: dict[int, int] = {}  # phys_reg -> last write position (WAW)
     pending_reads: dict[int, list[int]] = {}  # phys_reg -> list of read positions since last write (WAR)
 
@@ -53,11 +62,7 @@ def _schedule_block(insts: list[AECInstruction]) -> list[AECInstruction]:
 
         # ---- RAW: each source depends on the closest preceding definition ----
         for s in src_regs:
-            defs = all_def_pos.get(s, [])
-            closest_def = -1
-            for d in defs:
-                if d < idx and d > closest_def:
-                    closest_def = d
+            closest_def = last_def_pos.get(s, -1)
             if closest_def >= 0:
                 unresolved += 1
                 dependents.setdefault(closest_def, []).append(idx)
@@ -92,32 +97,21 @@ def _schedule_block(insts: list[AECInstruction]) -> list[AECInstruction]:
 
         dep_count.append(unresolved)
         if unresolved == 0:
-            ready.append(idx)
+            heapq.heappush(ready, (priority(idx), idx))
 
-    # Priority: LOAD first, then COMPUTE, then STORE, then CONTROL.
-    # STORES are NOT reordered relative to each other (memory order).
-    def priority(idx: int) -> int:
-        k = kinds[idx]
-        if k == "LOAD":
-            return 0
-        if k == "COMPUTE":
-            return 1
-        if k == "STORE":
-            return 2 + idx  # prevent ST reordering
-        return 1000 + idx  # CONTROL at end, preserve relative order
+        if _has_dest(inst):
+            last_def_pos[inst.dest] = idx
 
     scheduled: list[int] = []
     while ready:
-        # Pick highest-priority ready instruction
-        ready.sort(key=lambda i: (priority(i), i))
-        # For LOADs, pick one; for others, pick the first
-        best = ready.pop(0)
+        # Pop the highest-priority ready instruction (min-heap, (priority, index)).
+        _, best = heapq.heappop(ready)
         scheduled.append(best)
         # Update dependents
         for dep in dependents.get(best, []):
             dep_count[dep] -= 1
             if dep_count[dep] == 0:
-                ready.append(dep)
+                heapq.heappush(ready, (priority(dep), dep))
 
     if len(scheduled) != n:
         raise ValueError("scheduler dependency graph did not resolve")

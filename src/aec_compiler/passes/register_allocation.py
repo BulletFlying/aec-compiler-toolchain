@@ -79,12 +79,18 @@ class LinearScanRegisterAllocationPass:
             else:
                 merged[base] = (lr.first_def, lr.last_use)
 
+        # ---- Precompute per-base use indices once (linear total cost) so the
+        #     loop-extension check does not rescan every live range per register.
+        base_use_indices: dict[str, list[int]] = {}
+        for name, lr in gpr_ranges.items():
+            base_use_indices.setdefault(name.split("#")[0], []).extend(lr.use_indices)
+
         # ---- Extend loop-used registers to the loop tail ----
         if loop_range is not None:
             loop_start, loop_end = loop_range
             for base, (first_def, last_use) in list(merged.items()):
                 # Does this register have a use inside the loop body?
-                uses_in_loop = _has_use_in_range(facts, base, loop_start, loop_end)
+                uses_in_loop = _has_use_in_range(base_use_indices, base, loop_start, loop_end)
                 if uses_in_loop and last_use < loop_end:
                     merged[base] = (first_def, loop_end)
 
@@ -225,18 +231,13 @@ def _compute_loop_range(
 
 
 def _has_use_in_range(
-    facts: LivenessFacts,
+    base_use_indices: dict[str, list[int]],
     base: str,
     range_start: int,
     range_end: int,
 ) -> bool:
     """Return True if *base* has any use inside [range_start, range_end]."""
-    for name, lr in facts.live_ranges.items():
-        if name.split("#")[0] != base:
-            continue
-        if not lr.is_live:
-            continue
-        for u in lr.use_indices:
-            if range_start <= u <= range_end:
-                return True
+    for u in base_use_indices.get(base, ()):
+        if range_start <= u <= range_end:
+            return True
     return False

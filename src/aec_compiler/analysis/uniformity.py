@@ -41,8 +41,6 @@ class BranchUniformity:
 @dataclass
 class UniformityFacts:
     final_values: dict[str, Uniformity] = field(default_factory=dict)
-    values_before: dict[int, dict[str, Uniformity]] = field(default_factory=dict)
-    values_after: dict[int, dict[str, Uniformity]] = field(default_factory=dict)
     branch_states: dict[int, BranchUniformity] = field(default_factory=dict)
     definitions: dict[str, list[int]] = field(default_factory=dict)
     uses: dict[int, tuple[str, ...]] = field(default_factory=dict)
@@ -57,7 +55,6 @@ def analyze_uniformity(program: PTXProgram) -> UniformityFacts:
         if isinstance(item, str):
             continue
 
-        facts.values_before[index] = dict(values)
         uses = tuple(_instruction_uses(item))
         facts.uses[index] = uses
         dest = _instruction_dest(item)
@@ -77,8 +74,6 @@ def analyze_uniformity(program: PTXProgram) -> UniformityFacts:
                 predicate=predicate,
                 state=branch_state,
             )
-
-        facts.values_after[index] = dict(values)
 
     facts.final_values = values
     return facts

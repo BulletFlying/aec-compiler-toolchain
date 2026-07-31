@@ -56,6 +56,10 @@ def analyze_liveness(program: PTXProgram) -> LivenessFacts:
             continue
         inst_indices.append(i)
 
+    # Last instruction index is identical for every register — compute once
+    # instead of rescanning inst_indices per definition (O(n^2) on large kernels).
+    last_inst_index = max(inst_indices) if inst_indices else -1
+
     # Collect all definitions and uses per register
     all_defs: dict[str, list[int]] = {}
     all_uses: dict[str, list[int]] = {}
@@ -85,7 +89,7 @@ def analyze_liveness(program: PTXProgram) -> LivenessFacts:
             next_def = (
                 def_indices[def_num + 1]
                 if def_num + 1 < len(def_indices)
-                else max(inst_indices) + 1
+                else last_inst_index + 1
             )
             last_use = -1
             use_indices: list[int] = []

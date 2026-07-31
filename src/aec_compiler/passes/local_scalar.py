@@ -229,16 +229,52 @@ def _optimize_cse_scope(
     outside_reads: set[str],
 ) -> tuple[list[PTXInstruction], dict[str, str], int]:
     expression_destinations: dict[tuple[str, tuple[str, ...]], str] = {}
+    # Reverse indexes so definition-site invalidation touches only the affected
+    # expressions instead of scanning every cached key (O(n^2) on large scopes).
+    result_to_keys: dict[str, set[tuple[str, tuple[str, ...]]]] = {}
+    src_to_keys: dict[str, set[tuple[str, tuple[str, ...]]]] = {}
     aliases: dict[str, str] = {}
     replacements: dict[str, str] = {}
     optimized: list[PTXInstruction] = []
     removed_count = 0
 
+    def _index_key(key: tuple[str, tuple[str, ...]], destination: str) -> None:
+        expression_destinations[key] = destination
+        result_to_keys.setdefault(destination, set()).add(key)
+        for operand in key[1]:
+            for ref in _REGISTER_REFERENCE_RE.findall(operand):
+                src_to_keys.setdefault(ref, set()).add(key)
+
+    def _unindex_key(key: tuple[str, tuple[str, ...]]) -> None:
+        destination = expression_destinations.pop(key, None)
+        if destination is None:
+            return
+        owners = result_to_keys.get(destination)
+        if owners is not None:
+            owners.discard(key)
+            if not owners:
+                del result_to_keys[destination]
+        for operand in key[1]:
+            for ref in _REGISTER_REFERENCE_RE.findall(operand):
+                owners = src_to_keys.get(ref)
+                if owners is not None:
+                    owners.discard(key)
+                    if not owners:
+                        del src_to_keys[ref]
+
+    def _invalidate(destination: str) -> None:
+        stale: set[tuple[str, tuple[str, ...]]] = set()
+        stale.update(result_to_keys.pop(destination, ()))
+        stale.update(src_to_keys.pop(destination, ()))
+        for key in stale:
+            _unindex_key(key)
+        aliases.pop(destination, None)
+
     for index, inst in enumerate(instructions):
         rewritten = _rewrite_sources(inst, aliases)
         destination = _destination_register(rewritten)
         if destination is not None:
-            _invalidate_for_definition(destination, expression_destinations, aliases)
+            _invalidate(destination)
         key = _cse_expression_key(rewritten)
         if key is not None and destination is not None and destination not in outside_reads:
             prior_destination = expression_destinations.get(key)
@@ -247,14 +283,15 @@ def _optimize_cse_scope(
                 if _alias_read_after_target_redefinition(
                     destination, alias_target, instructions[index + 1 :],
                 ):
-                    expression_destinations[key] = destination
+                    _unindex_key(key)
+                    _index_key(key, destination)
                 else:
                     aliases[destination] = alias_target
                     replacements[destination] = alias_target
                     removed_count += 1
                     continue
             else:
-                expression_destinations[key] = destination
+                _index_key(key, destination)
         optimized.append(rewritten)
 
     return optimized, replacements, removed_count
@@ -379,22 +416,6 @@ def _resolve_alias(name: str, aliases: dict[str, str]) -> str:
     return current
 
 
-def _invalidate_for_definition(
-    destination: str,
-    expression_destinations: dict[tuple[str, tuple[str, ...]], str],
-    aliases: dict[str, str],
-) -> None:
-    stale_keys = [
-        key for key, value in expression_destinations.items()
-        if value == destination or _expression_uses_register(key, destination)
-    ]
-    for key in stale_keys:
-        del expression_destinations[key]
-    stale_aliases = [alias for alias in aliases if alias == destination]
-    for alias in stale_aliases:
-        del aliases[alias]
-
-
 def _alias_read_after_target_redefinition(
     alias: str, target: str, future_instructions: list[PTXInstruction],
 ) -> bool:
@@ -406,6 +427,3 @@ def _alias_read_after_target_redefinition(
             return True
     return False
 
-
-def _expression_uses_register(key: tuple[str, tuple[str, ...]], destination: str) -> bool:
-    return any(destination in _REGISTER_REFERENCE_RE.findall(operand) for operand in key[1])
